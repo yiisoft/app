@@ -1,0 +1,16 @@
+build:
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+filter:
+    paths:
+        - "src/*"
+checks:
+    php: true
+tools:
+    php_code_coverage:
+        enabled: true
+    external_code_coverage:
+        timeout: 600

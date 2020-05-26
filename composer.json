@@ -1,0 +1,47 @@
+{
+    "name": "yiisoft/_____",
+    "type": "library",
+    "description": "_____",
+    "keywords": [
+        "_____"
+    ],
+    "homepage": "https://www.yiiframework.com/",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/_____/issues?state=open",
+        "forum": "https://www.yiiframework.com/forum/",
+        "wiki": "https://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/_____"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "phan/phan": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yiisoft\\_____\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yiisoft\\_____\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.0.x-dev"
+        }
+    },
+    "scripts": {
+        "phan": "phan --progress-bar -o analysis.txt"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
