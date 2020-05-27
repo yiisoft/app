@@ -10,6 +10,7 @@ use Yiisoft\View\ViewContextInterface;
 use Yiisoft\View\WebView;
 use Yiisoft\Yii\Web\Data\DataResponseFactoryInterface;
 
+use function is_file;
 use function pathinfo;
 
 abstract class Controller implements ViewContextInterface
@@ -48,7 +49,7 @@ abstract class Controller implements ViewContextInterface
     {
         $layout = $this->findLayoutFile($this->layout);
 
-        if ($layout !== null) {
+        if (is_file($layout)) {
             return $this->view->renderFile(
                 $layout,
                 array_merge(
@@ -69,12 +70,8 @@ abstract class Controller implements ViewContextInterface
         return $this->aliases->get('@views') . '/' . $this->getId();
     }
 
-    private function findLayoutFile(?string $file): ?string
+    private function findLayoutFile(string $file): string
     {
-        if ($file === null) {
-            return null;
-        }
-
         if (pathinfo($file, PATHINFO_EXTENSION) !== '') {
             return $file;
         }
