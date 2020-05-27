@@ -1,0 +1,28 @@
+/**
+ * site.css
+ */
+.box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    justify-content: center;
+}
+
+.footer {
+    align-items: center;
+    display: flex;
+    height: 10vh;
+}
+
+.left {
+    padding: 1em;
+}
+
+.right {
+    padding: 1em;
+}
+
+.margin-right-auto {
+    margin-right: auto;
+}

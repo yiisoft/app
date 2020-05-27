@@ -9,16 +9,22 @@ nbproject
 .project
 .settings
 
+# sublime text project / workspace files
+*.sublime-project
+*.sublime-workspace
+
 # windows thumbnail cache
 Thumbs.db
 
 # composer vendor dir
 /vendor
-
 /composer.lock
 
 # composer itself is not needed
 composer.phar
+
+# composer.lock in applications is ignored since it's automatically created by composer when application is installed
+/apps/*/composer.lock
 
 # Mac DS_Store Files
 .DS_Store
@@ -27,9 +33,21 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
-# phpunit cache
-.phpunit.result.cache
 
-# Phan
-analysis.txt
+# ignore dev installed apps and extensions
+/apps
+/extensions
+/packages
 
+# NPM packages
+/node_modules
+.env
+
+#codeception
+/tests/_output
+c3.php
+
+#runtime
+/runtime/build
+/runtime/debug
+/runtime/logs
