@@ -1,6 +1,6 @@
 {
     "name": "yiisoft/app",
-    "type": "library",
+    "type": "project",
     "description": "Web Application Yii 3.0",
     "keywords": [
         "yii3",
