@@ -51,7 +51,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 You can then install this project template using the following command:
 
 ~~~
-composer create-project --prefer-dist yiisoft/app app
+composer create-project --prefer-dist --stability dev yiisoft/app <your project>
 ~~~
 
 Now you should be able to access the application through the following URL, assuming `app` is the directory
@@ -67,4 +67,11 @@ php -S 127.0.0.1:8080 -t public
 
 ~~~
 http://localhost:8080
+~~~
+
+### Run test codeception:
+
+~~~
+php -S 127.0.0.1:8080 -t public > yii.log 2>&1 &
+vendor/bin/codecept run
 ~~~
