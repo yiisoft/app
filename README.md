@@ -12,10 +12,15 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yiisoft/app/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/app/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/yiisoft/app/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/app/?branch=master)
 
+<p align="center">
+    <a href="https://github.com/yiisoft/app" target="_blank">
+        <img src="docs\images\home.png" >
+    </a>
+</p>
+
 Yii Skeleton Web Application for Yii 3 application best for rapidly creating projects.
 
-DIRECTORY STRUCTURE
--------------------
+### DIRECTORY STRUCTURE
 
       config/             contains application configurations
       resources/layout    contains layout files for the web application
@@ -24,24 +29,18 @@ DIRECTORY STRUCTURE
           Asset/          contains assets definition
           Controller/     contains Web controller classes
           Factory/        contains factory classes files for config
-          Helper/         contains helper classes
           Provider/       contains provider classes for config
-          Widget/         contains widget classes
       runtime/            contains files generated during runtime
       tests/              contains various tests for the basic application
       vendor/             contains dependent 3rd-party packages      
       public/             contains the entry script and Web resources
 
 
-
-REQUIREMENTS
-------------
+### REQUIREMENTS:
 
 The minimum requirement by this project template that your Web server supports PHP 7.4.0.
 
-
-INSTALLATION
-------------
+### INSTALLATION:
 
 ### Install via Composer:
 
@@ -57,19 +56,74 @@ composer create-project --prefer-dist --stability dev yiisoft/app <your project>
 Now you should be able to access the application through the following URL, assuming `app` is the directory
 directly under the `public` root.
 
-### Run web server build in php:
+### Web application config:
+
+`config/params.php:`
+
+```php
+<?php
+
+declare(strict_types=1);
+
+return [
+    'app' => [
+        'brandurl' => '/',
+        'charset' => 'UTF-8',
+        'hero.options' => ['class' => 'hero is-fullheight is-light'],
+        'hero.head.options' => ['class' => 'hero-head has-background-black'],
+        'hero.body.options' => ['class' => 'hero-body is-light'],
+        'hero.container.options' => ['class' => 'container has-text-centered'],
+        'hero.footer.options' => ['class' => 'hero-footer has-background-black'],
+        'hero.footer.column.options' => ['class' => 'columns is-mobile'],
+        'hero.footer.column.left' => 'Left',
+        'hero.footer.column.left.options' => ['class' => 'column has-text-left has-text-light'],
+        'hero.footer.column.center' => 'Center',
+        'hero.footer.column.center.options' => ['class' => 'column has-text-centered has-text-light'],
+        'hero.footer.column.rigth' => 'Rigth',
+        'hero.footer.column.rigth.options' => ['class' => 'column has-text-right has-text-light'],
+        'language' => 'en',
+        'logo' => '/images/yii-logo.jpg',
+        'name' => 'My Project Basic',
+        'navbar.options' => ['class' => 'navbar'],
+        'navbar.brand.options' => ['class' => 'navbar-brand'],
+        'navbar.brand.logo.options' => ['class' => 'navbar-item'],
+        'navbar.brand.title.options' => ['class' => 'navbar-item has-text-light'],
+    ],
+
+    'aliases' => [
+        '@root' => dirname(__DIR__),
+        '@public' => '@root/public',
+        '@images' => '@public/images',
+        '@resources' => '@root/resources',
+        '@basePath' => '@public/assets',
+        '@web' => '/assets',
+        '@npm' => '@root/node_modules',
+        '@layout' => '@root/resources/layout',
+        '@views' => '@root/resources/views',
+        '@src' => '@root/src',
+    ],
+
+    'debugger.enabled' => true,
+
+    'session' => [
+        'options' => ['cookie_secure' => 0],
+    ],
+];
+```
+
+### RUN WEB SERVER BUILD IN PHP:
 
 ~~~
 php -S 127.0.0.1:8080 -t public
 ~~~
 
-### Run web application php:
+### RUN WEB APPLICATION PHP:
 
 ~~~
 http://localhost:8080
 ~~~
 
-### Run test codeception:
+### RUN TESTS CODECEPTION:
 
 ~~~
 php -S 127.0.0.1:8080 -t public > yii.log 2>&1 &

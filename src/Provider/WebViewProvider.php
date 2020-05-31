@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
+use App\LayoutParameters;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
@@ -30,16 +31,19 @@ final class WebViewProvider extends ServiceProvider
             );
 
             /**
-             * Passes {@see UrlGeneratorInterface} {@see AssetManager} {@see params } to view files.
+             * Passes {@see Aliases} {@see AssetManager} {@see UrlGenerator} {@see UrlMatcher}{@see LayoutParameters}
+             * to view files.
              *
-             * It will be available as $urlGenerator, $assetManager in view or layout.
+             * It will be available as $aliases, $assetManager, $urlGenerator, $urlMatcher, $layoutParameters in view
+             * or layout.
              */
             $webView->setDefaultParameters(
                 [
                     'aliases' => $container->get(Aliases::class),
                     'assetManager' => $container->get(AssetManager::class),
                     'urlGenerator' => $container->get(UrlGeneratorInterface::class),
-                    'urlMatcher' => $container->get(UrlMatcherInterface::class)
+                    'urlMatcher' => $container->get(UrlMatcherInterface::class),
+                    'layoutParameters' => $container->get(LayoutParameters::class)
                 ]
             );
 

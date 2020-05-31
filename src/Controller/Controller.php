@@ -15,11 +15,11 @@ use function pathinfo;
 
 abstract class Controller implements ViewContextInterface
 {
-    protected DataResponseFactoryInterface $responseFactory;
-    private Aliases $aliases;
-    private WebView $view;
     private string $layout;
     private array $parameters = [];
+    private WebView $view;
+    protected Aliases $aliases;
+    protected DataResponseFactoryInterface $responseFactory;
 
     public function __construct(
         DataResponseFactoryInterface $responseFactory,

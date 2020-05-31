@@ -6,12 +6,8 @@ use Yiisoft\Html\Html;
 
 $this->params['breadcrumbs'] = '/';
 
-$this->setTitle('My Project Basic');
+$this->setTitle($layoutParameters->getName());
 ?>
 
-<?= Html::beginTag('div', ['class' => 'box']) ?>
-    <?= Html::beginTag('div') ?>
-        <?= Html::tag('h1', 'Hello World') ?>
-    <?= Html::endTag('div') ?>
-    <?= Html::tag('div', 'My first website with <strong>Yii 3.0</strong>!'); ?>
-<?= Html::endTag('div');
+<?= Html::tag('h1', 'Hello World', ['class' => 'title']) ?>
+<?= Html::tag('p', 'My first website with <strong>Yii 3.0</strong>!', ['class' => 'subtitle']);

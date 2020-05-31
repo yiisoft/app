@@ -11,6 +11,7 @@
     "require": {
         "php": ">=7.4",
         "nyholm/psr7": "@dev",
+        "foxy/foxy": "^1.1@dev",
         "yiisoft/aliases": "@dev",
         "yiisoft/assets": "@dev",
         "yiisoft/cache": "@dev",
@@ -30,7 +31,7 @@
         "codeception/codeception": "@dev",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "yiisoft/composer-config-plugin": "@dev"
+        "yiisoft/composer-config-plugin": "^1.0@dev"
     },
     "autoload": {
         "psr-4": {

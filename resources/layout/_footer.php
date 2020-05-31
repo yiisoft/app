@@ -7,14 +7,18 @@ use Yiisoft\Html\Html;
 
 ?>
 
-<?= Html::beginTag('footer', ['class' => 'footer']) ?>
+<?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnOptions()) ?>
 
-    <?= Html::beginTag('div', ['class' => 'left margin-right-auto', 'style' => 'color: black']) ?>
-        <?= PerformanceMetrics::widget() ?>
+    <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnLeftOptions()) ?>
+        <?= $layoutParameters->getHeroFooterColumnLeft() ?>
     <?= Html::endTag('div') ?>
 
-    <?= Html::beginTag('div', ['class' => 'right', 'style' => 'align-content: flex-end']) ?>
-        <a href="https://yiiframework.com"><strong>Copyright © 2020. YiiFramework</a>
+    <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnCenterOptions()) ?>
+        <?= $layoutParameters->getHeroFooterColumnCenter() ?>
     <?= Html::endTag('div') ?>
 
-<?= Html::tag('footer');
+    <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnRigthOptions()) ?>
+        <?= $layoutParameters->getHeroFooterColumnRigth() ?>
+    <?= Html::endTag('div') ?>
+
+<?= Html::tag('div');

@@ -16,7 +16,7 @@ $this->setJsFiles($assetManager->getJsFiles());
 
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
-    <?= Html::beginTag('html', ['lang' => 'en']) ?>
+    <?= Html::beginTag('html', ['lang' => $layoutParameters->getLanguage()]) ?>
 
         <?= $this->render('_head', ['csrf' => $csrf]) ?>
 
@@ -24,11 +24,21 @@ $this->setJsFiles($assetManager->getJsFiles());
 
             <?= Html::beginTag('body') ?>
 
-                <?= $this->render('_menu') ?>
+                <?= Html::beginTag('section', $layoutParameters->getHeroOptions()) ?>
 
-                <?= $content ?>
+                    <?= Html::beginTag('div', $layoutParameters->getHeroHeadOptions()) ?>
+                        <?= $this->render('_menu') ?>
+                    <?= Html::endTag('div') ?>
 
-                <?= $this->render('_footer') ?>
+                    <?= Html::beginTag('div', $layoutParameters->getHeroBodyOptions()) ?>
+                        <?= Html::beginTag('div', $layoutParameters->getHeroContainerOptions()) ?>
+                            <?= $content ?>
+                        <?= Html::endTag('div') ?>
+                    <?= Html::endTag('div') ?>
+
+                    <?= Html::beginTag('div', $layoutParameters->getHeroFooterOptions()) ?>
+                        <?= $this->render('_footer') ?>
+                    <?= Html::endTag('div') ?>
 
                 <?= Html::endTag('section') ?>
 
