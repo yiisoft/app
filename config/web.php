@@ -33,10 +33,10 @@ return [
     DataResponseFormatterInterface::class => HtmlDataResponseFormatter::class,
     DataResponseFactoryInterface::class => DataResponseFactory::class,
 
-    /**  */
+    /** MIDDLEWARE config */
     MiddlewareDispatcher::class => new MiddlewareDispatcherFactory(),
 
-    /** */
+    /** SESSION config */
     SessionInterface::class => [
         '__class' => Session::class,
         '__construct()' => [

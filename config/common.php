@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\LayoutParameters;
-use App\Factory\AppRouterFactory;
+use App\Factory\RouterFactory;
 use Psr\Container\ContainerInterface;
 use Yiisoft\Router\FastRoute\UrlGenerator;
 use Yiisoft\Router\Group;
@@ -21,31 +21,32 @@ return [
         $layoutParameters = new LayoutParameters();
 
         return $layoutParameters
-            ->brandUrl($params['app']['brandurl'])
-            ->charset($params['app']['charset'])
-            ->heroOptions($params['app']['hero.options'])
-            ->heroHeadOptions($params['app']['hero.head.options'])
-            ->heroBodyOptions($params['app']['hero.body.options'])
-            ->heroContainerOptions($params['app']['hero.container.options'])
-            ->heroFooterOptions($params['app']['hero.footer.options'])
-            ->heroFooterColumnOptions($params['app']['hero.footer.column.options'])
-            ->heroFooterColumnLeft($params['app']['hero.footer.column.left'])
-            ->heroFooterColumnLeftOptions($params['app']['hero.footer.column.left.options'])
-            ->heroFooterColumnCenter($params['app']['hero.footer.column.center'])
-            ->heroFooterColumnCenterOptions($params['app']['hero.footer.column.center.options'])
-            ->heroFooterColumnRigth($params['app']['hero.footer.column.rigth'])
-            ->heroFooterColumnRigthOptions($params['app']['hero.footer.column.rigth.options'])
-            ->language($params['app']['language'])
-            ->logo($params['app']['logo'])
-            ->name($params['app']['name'])
-            ->navBarOptions($params['app']['navbar.options'])
-            ->navBarBrandOptions($params['app']['navbar.brand.options'])
-            ->navBarBrandLogoOptions($params['app']['navbar.brand.logo.options'])
-            ->navBarBrandTitleOptions($params['app']['navbar.brand.title.options']);
+            ->brandUrl($params['yiisoft/app']['app']['brandurl'])
+            ->charset($params['yiisoft/app']['app']['charset'])
+            ->heroOptions($params['yiisoft/app']['app']['hero.options'])
+            ->heroHeadOptions($params['yiisoft/app']['app']['hero.head.options'])
+            ->heroBodyOptions($params['yiisoft/app']['app']['hero.body.options'])
+            ->heroContainerOptions($params['yiisoft/app']['app']['hero.container.options'])
+            ->heroFooterOptions($params['yiisoft/app']['app']['hero.footer.options'])
+            ->heroFooterColumnOptions($params['yiisoft/app']['app']['hero.footer.column.options'])
+            ->heroFooterColumnLeft($params['yiisoft/app']['app']['hero.footer.column.left'])
+            ->heroFooterColumnLeftOptions($params['yiisoft/app']['app']['hero.footer.column.left.options'])
+            ->heroFooterColumnCenter($params['yiisoft/app']['app']['hero.footer.column.center'])
+            ->heroFooterColumnCenterOptions($params['yiisoft/app']['app']['hero.footer.column.center.options'])
+            ->heroFooterColumnRigth($params['yiisoft/app']['app']['hero.footer.column.rigth'])
+            ->heroFooterColumnRigthOptions($params['yiisoft/app']['app']['hero.footer.column.rigth.options'])
+            ->language($params['yiisoft/app']['app']['language'])
+            ->logo($params['yiisoft/app']['app']['logo'])
+            ->name($params['yiisoft/app']['app']['name'])
+            ->navBarOptions($params['yiisoft/app']['app']['navbar.options'])
+            ->navBarBrandOptions($params['yiisoft/app']['app']['navbar.brand.options'])
+            ->navBarBrandLogoOptions($params['yiisoft/app']['app']['navbar.brand.logo.options'])
+            ->navBarBrandTitleOptions($params['yiisoft/app']['app']['navbar.brand.title.options'])
+            ->loggerLevels($params['yiisoft/app']['logger']['levels']);
     },
 
     /** Router config */
     RouteCollectorInterface::class => Group::create(),
-    UrlMatcherInterface::class => new AppRouterFactory(),
+    UrlMatcherInterface::class => new RouterFactory(),
     UrlGeneratorInterface::class => UrlGenerator::class
 ];

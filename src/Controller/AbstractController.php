@@ -13,7 +13,7 @@ use Yiisoft\Yii\Web\Data\DataResponseFactoryInterface;
 use function is_file;
 use function pathinfo;
 
-abstract class Controller implements ViewContextInterface
+abstract class AbstractController implements ViewContextInterface
 {
     private string $layout;
     private array $parameters = [];

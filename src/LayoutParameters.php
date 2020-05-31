@@ -30,6 +30,7 @@ final class LayoutParameters extends AssetBundle
     private array $navBarBrandOptions = [];
     private array $navBarBrandLogoOptions = [];
     private array $navBarBrandTitleOptions = [];
+    private array $loggerLevels = [];
 
     public function getBrandUrl(): string
     {
@@ -139,6 +140,11 @@ final class LayoutParameters extends AssetBundle
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getLoggerLevels(): array
+    {
+        return $this->loggerLevels;
     }
 
     public function brandUrl(string $value): self
@@ -292,6 +298,13 @@ final class LayoutParameters extends AssetBundle
     {
         $new = clone $this;
         $new->name = $value;
+        return $new;
+    }
+
+    public function loggerLevels(array $value): self
+    {
+        $new = clone $this;
+        $new->loggerLevels = $value;
         return $new;
     }
 }

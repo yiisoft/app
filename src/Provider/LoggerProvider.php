@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
+use App\LayoutParameters;
 use Psr\Container\ContainerInterface;
-use Psr\Log\LogLevel;
 use Psr\Log\LoggerInterface;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Di\Container;
@@ -24,20 +24,14 @@ final class LoggerProvider extends ServiceProvider
         });
 
         $container->set(FileTarget::class, static function (ContainerInterface $container) {
+            $layoutParameters = $container->get(LayoutParameters::class);
+
             $fileTarget = new FileTarget(
                 $container->get(Aliases::class)->get('@runtime/logs/app.log'),
                 $container->get(FileRotatorInterface::class)
             );
 
-            $fileTarget->setLevels(
-                [
-                    LogLevel::EMERGENCY,
-                    LogLevel::ERROR,
-                    LogLevel::WARNING,
-                    LogLevel::INFO,
-                    LogLevel::DEBUG,
-                ]
-            );
+            $fileTarget->setLevels($layoutParameters->getLoggerLevels());
 
             return $fileTarget;
         });
