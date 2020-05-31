@@ -99,6 +99,9 @@ return [
                 LogLevel::DEBUG,
             ],
         ],
+        'session' => [
+            'options' => ['cookie_secure' => 0],
+        ],
     ],
 
     'aliases' => [
@@ -114,11 +117,7 @@ return [
         '@src' => '@root/src',
     ],
 
-    'debugger.enabled' => true,
-
-    'session' => [
-        'options' => ['cookie_secure' => 0],
-    ],
+    'debugger.enabled' => true
 ];
 ```
 
