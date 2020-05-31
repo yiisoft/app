@@ -34,19 +34,14 @@ abstract class AbstractController implements ViewContextInterface
 
     protected function render(string $view, array $parameters = []): ResponseInterface
     {
-        $this->parameters = $parameters;
-
-        $controller = $this;
-
-        $contentRenderer = static function () use ($view, $parameters, $controller) {
-            return $controller->renderContent($controller->view->render($view, $parameters, $controller));
-        };
+        $contentRenderer = fn () => $this->renderContent($view, $parameters);
 
         return $this->responseFactory->createResponse($contentRenderer);
     }
 
-    private function renderContent($content): string
+    private function renderContent(string $view, array $parameters = []): string
     {
+        $content = $this->view->render($view, $parameters, $this);
         $layout = $this->findLayoutFile($this->layout);
 
         if (is_file($layout)) {
@@ -56,7 +51,7 @@ abstract class AbstractController implements ViewContextInterface
                     [
                         'content' => $content
                     ],
-                    $this->parameters
+                    $parameters
                 ),
                 $this
             );
@@ -67,7 +62,7 @@ abstract class AbstractController implements ViewContextInterface
 
     public function getViewPath(): string
     {
-        return $this->aliases->get('@views') . '/' . $this->getId();
+        return $this->aliases->get('@views') . '/' . $this->name();
     }
 
     private function findLayoutFile(string $file): string
@@ -79,5 +74,8 @@ abstract class AbstractController implements ViewContextInterface
         return $file . '.' . $this->view->getDefaultExtension();
     }
 
-    abstract protected function getId(): string;
+    /**
+     * Returns the name of the controller.
+     */
+    abstract protected function name(): string;
 }

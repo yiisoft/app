@@ -9,7 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class SiteController extends AbstractController
 {
-    protected function getId(): string
+    protected function name(): string
     {
         return 'site';
     }
