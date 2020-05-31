@@ -40,9 +40,7 @@ Yii Skeleton Web Application for Yii 3 application best for rapidly creating pro
 
 The minimum requirement by this project template that your Web server supports PHP 7.4.0.
 
-### INSTALLATION:
-
-### Install via Composer:
+### INSTALLATION VIA COMPOSER:
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
@@ -56,7 +54,7 @@ composer create-project --prefer-dist --stability dev yiisoft/app <your project>
 Now you should be able to access the application through the following URL, assuming `app` is the directory
 directly under the `public` root.
 
-### Web application config:
+### WEB APPLICATION CONFIG:
 
 `config/params.php:`
 
