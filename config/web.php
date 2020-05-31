@@ -40,8 +40,8 @@ return [
     SessionInterface::class => [
         '__class' => Session::class,
         '__construct()' => [
-            $params['session']['options'] ?? [],
-            $params['session']['handler'] ?? null,
+            $params['yiisoft/app']['session']['options'] ?? [],
+            $params['yiisoft/app']['session']['handler'] ?? null,
         ],
     ],
 ];
