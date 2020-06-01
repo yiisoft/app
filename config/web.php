@@ -23,7 +23,7 @@ use Yiisoft\Yii\Web\Session\SessionInterface;
  */
 
 return [
-    /** PSR-17 factories: */
+    /** PSR-17 */
     RequestFactoryInterface::class => Psr17Factory::class,
     ServerRequestFactoryInterface::class => Psr17Factory::class,
     ResponseFactoryInterface::class => Psr17Factory::class,
@@ -33,10 +33,10 @@ return [
     DataResponseFormatterInterface::class => HtmlDataResponseFormatter::class,
     DataResponseFactoryInterface::class => DataResponseFactory::class,
 
-    /** MIDDLEWARE config */
+    /** MIDDLEWARE */
     MiddlewareDispatcher::class => new MiddlewareDispatcherFactory(),
 
-    /** SESSION config */
+    /** SESSION */
     SessionInterface::class => [
         '__class' => Session::class,
         '__construct()' => [
