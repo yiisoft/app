@@ -2,7 +2,7 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://github.com/yiisoft.png" height="100px">
     </a>
-    <h1 align="center">Skeleton Web Application for Yii.</h1>
+    <h1 align="center">Yii application template</h1>
     <br>
 </p>
 
