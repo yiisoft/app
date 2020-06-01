@@ -23,7 +23,7 @@ return [
             'hero.footer.column.rigth.options' => ['class' => 'column has-text-right has-text-light'],
             'language' => 'en',
             'logo' => '/images/yii-logo.jpg',
-            'name' => 'My Project Basic',
+            'name' => 'My Project',
             'navbar.options' => ['class' => 'navbar'],
             'navbar.brand.options' => ['class' => 'navbar-brand'],
             'navbar.brand.logo.options' => ['class' => 'navbar-item'],

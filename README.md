@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="80px">
+        <img src="https://github.com/yiisoft.png" height="100px">
     </a>
     <h1 align="center">Skeleton Web Application for Yii.</h1>
     <br>
@@ -18,9 +18,9 @@
     </a>
 </p>
 
-Yii Skeleton Web Application for Yii 3 application best for rapidly creating projects.
+Yii application template for Yii 3 is best for rapidly creating projects.
 
-### DIRECTORY STRUCTURE
+### Directory structure
 
       config/             contains application configurations
       resources/layout    contains layout files for the web application
@@ -35,12 +35,11 @@ Yii Skeleton Web Application for Yii 3 application best for rapidly creating pro
       vendor/             contains dependent 3rd-party packages      
       public/             contains the entry script and Web resources
 
-
-### REQUIREMENTS:
+### Requirements
 
 The minimum requirement by this project template that your Web server supports PHP 7.4.0.
 
-### INSTALLATION VIA COMPOSER:
+### Installation
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
@@ -54,7 +53,7 @@ composer create-project --prefer-dist --stability dev yiisoft/app <your project>
 Now you should be able to access the application through the following URL, assuming `app` is the directory
 directly under the `public` root.
 
-### WEB APPLICATION CONFIG:
+### Web application config
 
 `config/params.php:`
 
@@ -84,7 +83,7 @@ return [
             'hero.footer.column.rigth.options' => ['class' => 'column has-text-right has-text-light'],
             'language' => 'en',
             'logo' => '/images/yii-logo.jpg',
-            'name' => 'My Project Basic',
+            'name' => 'My Project',
             'navbar.options' => ['class' => 'navbar'],
             'navbar.brand.options' => ['class' => 'navbar-brand'],
             'navbar.brand.logo.options' => ['class' => 'navbar-item'],
@@ -121,19 +120,19 @@ return [
 ];
 ```
 
-### RUN WEB SERVER BUILD IN PHP:
+### Using PHP built-in server
 
 ~~~
 php -S 127.0.0.1:8080 -t public
 ~~~
 
-### RUN WEB APPLICATION PHP:
+### Wait till it is up, then open the following URL in your browser
 
 ~~~
 http://localhost:8080
 ~~~
 
-### RUN TESTS CODECEPTION:
+### Running Codeception tests
 
 ~~~
 php -S 127.0.0.1:8080 -t public > yii.log 2>&1 &
