@@ -16,7 +16,6 @@ use function pathinfo;
 abstract class AbstractController implements ViewContextInterface
 {
     private string $layout;
-    private array $parameters = [];
     private WebView $view;
     protected Aliases $aliases;
     protected DataResponseFactoryInterface $responseFactory;
