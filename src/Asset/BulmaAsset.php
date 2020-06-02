@@ -9,7 +9,7 @@ use Yiisoft\Assets\AssetBundle;
 class BulmaAsset extends AssetBundle
 {
     public ?string $basePath = '@basePath';
-    public ?string $baseUrl = '@web';
+    public ?string $baseUrl = '/assets';
     public ?string $sourcePath = '@npm';
 
     public array $css = [

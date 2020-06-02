@@ -5,7 +5,6 @@ declare(strict_types=1);
 use App\LayoutParameters;
 use App\Factory\RouterFactory;
 use Psr\Container\ContainerInterface;
-use Yiisoft\Aliases\Aliases;
 use Yiisoft\Router\FastRoute\UrlGenerator;
 use Yiisoft\Router\Group;
 use Yiisoft\Router\RouteCollectorInterface;
@@ -17,21 +16,6 @@ return [
         return $container;
     },
 
-    /** ALIASES */
-    Aliases::class => [
-        '@app' => dirname(__DIR__),
-        '@layout' => '@app/resources/layout',
-        '@public' => '@app/public',
-        '@npm' => '@app/node_modules',
-        '@resources' => '@app/resources',
-        '@src' => '@app/src',
-        '@views' => '@app/resources/views',
-        '@basePath' => '@public/assets',
-        '@images' => '@public/images',
-        '@web' => '/assets'
-    ],
-
-    /** LAYOUTPARAMETERS */
     LayoutParameters::class => static function () use ($params) {
         $layoutParameters = new LayoutParameters();
 
@@ -60,7 +44,6 @@ return [
             ->loggerLevels($params['yiisoft/app']['logger']['levels']);
     },
 
-    /** ROUTER */
     RouteCollectorInterface::class => Group::create(),
     UrlMatcherInterface::class => new RouterFactory(),
     UrlGeneratorInterface::class => UrlGenerator::class
