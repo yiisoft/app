@@ -7,6 +7,7 @@ use Psr\Log\LogLevel;
 return [
     'aliases' => [
         '@app' => dirname(__DIR__),
+        '@assetsUrl' => '/assets',
         '@basePath' => '@app/public/assets',
         '@npm' => '@app/node_modules'
     ],
