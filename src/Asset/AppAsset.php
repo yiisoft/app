@@ -10,7 +10,7 @@ class AppAsset extends AssetBundle
 {
     public ?string $basePath = '@basePath';
     public ?string $baseUrl = '@assetsUrl';
-    public ?string $sourcePath = __DIR__ . '/css';
+    public ?string $sourcePath = '@app/resources/assets/css';
 
     public array $css = [
         'site.css'
