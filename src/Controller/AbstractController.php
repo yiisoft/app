@@ -28,7 +28,7 @@ abstract class AbstractController implements ViewContextInterface
         $this->responseFactory = $responseFactory;
         $this->aliases = $aliases;
         $this->view = $view;
-        $this->layout = $aliases->get('@app/resources/layout') . '/main';
+        $this->layout = $aliases->get('@resources/layout') . '/main';
     }
 
     protected function render(string $view, array $parameters = []): ResponseInterface
@@ -61,7 +61,7 @@ abstract class AbstractController implements ViewContextInterface
 
     public function getViewPath(): string
     {
-        return $this->aliases->get('@app/resources/views') . '/' . $this->name();
+        return $this->aliases->get('@views') . '/' . $this->name();
     }
 
     private function findLayoutFile(string $file): string

@@ -27,7 +27,7 @@ final class LoggerProvider extends ServiceProvider
             $layoutParameters = $container->get(LayoutParameters::class);
 
             $fileTarget = new FileTarget(
-                $container->get(Aliases::class)->get('@app/runtime/logs/app.log'),
+                $container->get(Aliases::class)->get('@runtime/logs/app.log'),
                 $container->get(FileRotatorInterface::class)
             );
 

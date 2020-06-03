@@ -8,9 +8,9 @@ use Yiisoft\Assets\AssetBundle;
 
 class AppAsset extends AssetBundle
 {
-    public ?string $basePath = '@basePath';
+    public ?string $basePath = '@assets';
     public ?string $baseUrl = '@assetsUrl';
-    public ?string $sourcePath = '@app/resources/assets/css';
+    public ?string $sourcePath = '@resources/assets/css';
 
     public array $css = [
         'site.css'

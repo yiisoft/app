@@ -6,10 +6,14 @@ use Psr\Log\LogLevel;
 
 return [
     'aliases' => [
-        '@app' => dirname(__DIR__),
+        '@root' => dirname(__DIR__),
+        '@assets' => '@root/public/assets',
         '@assetsUrl' => '/assets',
-        '@basePath' => '@app/public/assets',
-        '@npm' => '@app/node_modules'
+        '@npm' => '@root/node_modules',
+        '@public' => '@root/public',
+        '@resources' => '@root/resources',
+        '@runtime' => '@root/runtime',
+        '@views' => '@root/resources/views'
     ],
 
     'yiisoft/app' => [
@@ -49,7 +53,6 @@ return [
     ],
 
     'yiisoft/yii-debug' => [
-        'enabled' => true,
-        'path' => '@app/runtime/debug'
+        'enabled' => true
     ],
 ];
