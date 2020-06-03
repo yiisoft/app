@@ -6,8 +6,10 @@ use App\Asset\AppAsset;
 use Yiisoft\Html\Html;
 
 /**
- * @var \Yiisoft\Assets\AssetsManager $assetManager
+ * @var \Yiisoft\Assets\AssetManager $assetManager
  * @var \App\LayoutParameters $layoutParameters
+ * @var string $csrf
+ * @var string $content
  */
 
 $assetManager->register([
@@ -18,7 +20,6 @@ $this->setCssFiles($assetManager->getCssFiles());
 $this->setJsFiles($assetManager->getJsFiles());
 
 ?>
-
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
     <?= Html::beginTag('html', ['lang' => $layoutParameters->getLanguage()]) ?>
@@ -27,8 +28,7 @@ $this->setJsFiles($assetManager->getJsFiles());
 
         <?php $this->beginBody() ?>
 
-            <?= Html::beginTag('body') ?>
-
+            <body>
                 <?= Html::beginTag('section', $layoutParameters->getHeroOptions()) ?>
 
                     <?= Html::beginTag('div', $layoutParameters->getHeroHeadOptions()) ?>
@@ -46,8 +46,7 @@ $this->setJsFiles($assetManager->getJsFiles());
                     <?= Html::endTag('div') ?>
 
                 <?= Html::endTag('section') ?>
-
-            <?= Html::endTag('body') ?>
+            </body>
 
         <?php $this->endBody() ?>
 

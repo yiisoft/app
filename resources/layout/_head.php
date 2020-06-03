@@ -9,8 +9,7 @@ use Yiisoft\Html\Html;
  * @var string $csrf
  */
 ?>
-
-<?= Html::beginTag('head') ?>
+<head>
     <?= Html::tag('meta', '', ['charset' => $layoutParameters->getCharset()]) ?>
     <?= Html::tag('meta', '', ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge']) ?>
     <?= Html::tag('meta', '', ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1']) ?>
@@ -18,5 +17,4 @@ use Yiisoft\Html\Html;
     <?= Html::tag('title', Html::encode($this->getTitle())) ?>
 
     <?php $this->head() ?>
-
-<?= Html::endTag('head');
+</head>

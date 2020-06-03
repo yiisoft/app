@@ -6,9 +6,7 @@ use Yiisoft\Html\Html;
 
 /** @var \App\LayoutParameters $layoutParameters */
 ?>
-
 <?= Html::beginTag('div', $layoutParameters->getNavBarOptions()) ?>
-
     <?= Html::beginTag('div', $layoutParameters->getNavBarBrandOptions()) ?>
         <?= Html::tag(
             'span',
@@ -21,5 +19,4 @@ use Yiisoft\Html\Html;
             $layoutParameters->getNavBarBrandTitleOptions()
         ) ?>
     <?= Html::endTag('div') ?>
-
-<?= Html::endTag('div');
+<?= Html::endTag('div') ?>

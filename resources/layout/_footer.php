@@ -6,7 +6,6 @@ use Yiisoft\Html\Html;
 
 /** @var \App\LayoutParameters $layoutParameters */
 ?>
-
 <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnOptions()) ?>
 
     <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnLeftOptions()) ?>
@@ -20,5 +19,4 @@ use Yiisoft\Html\Html;
     <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnRightOptions()) ?>
         <?= $layoutParameters->getHeroFooterColumnRight() ?>
     <?= Html::endTag('div') ?>
-
-<?= Html::tag('div');
+<?= Html::endTag('div') ?>
