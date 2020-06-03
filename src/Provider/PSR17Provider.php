@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use Psr\Container\ContainerInterface;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;

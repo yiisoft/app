@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-/** @var \App\LayoutParameters $layoutParameters */
+/** @var \App\ApplicationParameters $applicationParameters */
 
 $this->params['breadcrumbs'] = '/';
 
-$this->setTitle($layoutParameters->getName());
+$this->setTitle($applicationParameters->getName());
 ?>
 
 <h1 class="title">Hello World</h1>

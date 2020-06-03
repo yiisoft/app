@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\LayoutParameters;
+use App\ApplicationParameters;
 use Yiisoft\Yii\Web\Session\Session;
 use Yiisoft\Yii\Web\Session\SessionInterface;
 
@@ -17,10 +17,10 @@ return [
         ],
     ],
 
-    LayoutParameters::class => static function () use ($params) {
-        $layoutParameters = new LayoutParameters();
+    ApplicationParameters::class => static function () use ($params) {
+        $applicationParameters = new ApplicationParameters();
 
-        return $layoutParameters
+        return $applicationParameters
             ->brandUrl($params['app']['brandurl'])
             ->charset($params['app']['charset'])
             ->heroOptions($params['app']['hero.options'])

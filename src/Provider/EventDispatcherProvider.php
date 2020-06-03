@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 use Yiisoft\Di\Container;

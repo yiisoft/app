@@ -6,7 +6,7 @@ namespace App;
 
 use Yiisoft\Assets\AssetBundle;
 
-final class LayoutParameters extends AssetBundle
+final class ApplicationParameters extends AssetBundle
 {
     private string $brandUrl;
     private string $charset;
