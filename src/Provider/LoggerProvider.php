@@ -19,15 +19,23 @@ final class LoggerProvider extends ServiceProvider
 {
     public function register(Container $container): void
     {
-        $container->set(FileRotatorInterface::class, static function () {
-            return new FileRotator(10);
+        $container->set(FileRotatorInterface::class, static function (ContainerInterface $container) {
+            $layoutParameters = $container->get(LayoutParameters::class);
+
+            return new FileRotator(
+                $layoutParameters->getMaxFileSize(),
+                $layoutParameters->getMaxFiles(),
+                $layoutParameters->getFileMode(),
+                $layoutParameters->getRotateByCopy()
+            );
         });
 
         $container->set(FileTarget::class, static function (ContainerInterface $container) {
+            $aliases = $container->get(Aliases::class);
             $layoutParameters = $container->get(LayoutParameters::class);
 
             $fileTarget = new FileTarget(
-                $container->get(Aliases::class)->get('@runtime/logs/app.log'),
+                $aliases->get($layoutParameters->getLoggerFile()),
                 $container->get(FileRotatorInterface::class)
             );
 

@@ -29,13 +29,11 @@ return [
     DataResponseFormatterInterface::class => HtmlDataResponseFormatter::class,
     DataResponseFactoryInterface::class => DataResponseFactory::class,
 
-    MiddlewareDispatcher::class => new MiddlewareDispatcherFactory(),
-
     SessionInterface::class => [
         '__class' => Session::class,
         '__construct()' => [
-            $params['yiisoft/app']['session']['options'] ?? [],
-            $params['yiisoft/app']['session']['handler'] ?? null,
+            $params['app']['session']['options'] ?? [],
+            $params['app']['session']['handler'] ?? null,
         ],
     ],
 
@@ -43,27 +41,32 @@ return [
         $layoutParameters = new LayoutParameters();
 
         return $layoutParameters
-            ->brandUrl($params['yiisoft/app']['brandurl'])
-            ->charset($params['yiisoft/app']['charset'])
-            ->heroOptions($params['yiisoft/app']['hero.options'])
-            ->heroHeadOptions($params['yiisoft/app']['hero.head.options'])
-            ->heroBodyOptions($params['yiisoft/app']['hero.body.options'])
-            ->heroContainerOptions($params['yiisoft/app']['hero.container.options'])
-            ->heroFooterOptions($params['yiisoft/app']['hero.footer.options'])
-            ->heroFooterColumnOptions($params['yiisoft/app']['hero.footer.column.options'])
-            ->heroFooterColumnLeft($params['yiisoft/app']['hero.footer.column.left'])
-            ->heroFooterColumnLeftOptions($params['yiisoft/app']['hero.footer.column.left.options'])
-            ->heroFooterColumnCenter($params['yiisoft/app']['hero.footer.column.center'])
-            ->heroFooterColumnCenterOptions($params['yiisoft/app']['hero.footer.column.center.options'])
-            ->heroFooterColumnRigth($params['yiisoft/app']['hero.footer.column.rigth'])
-            ->heroFooterColumnRigthOptions($params['yiisoft/app']['hero.footer.column.rigth.options'])
-            ->language($params['yiisoft/app']['language'])
-            ->logo($params['yiisoft/app']['logo'])
-            ->name($params['yiisoft/app']['name'])
-            ->navBarOptions($params['yiisoft/app']['navbar.options'])
-            ->navBarBrandOptions($params['yiisoft/app']['navbar.brand.options'])
-            ->navBarBrandLogoOptions($params['yiisoft/app']['navbar.brand.logo.options'])
-            ->navBarBrandTitleOptions($params['yiisoft/app']['navbar.brand.title.options'])
-            ->loggerLevels($params['yiisoft/app']['logger']['levels']);
+            ->brandUrl($params['app']['brandurl'])
+            ->charset($params['app']['charset'])
+            ->heroOptions($params['app']['hero.options'])
+            ->heroHeadOptions($params['app']['hero.head.options'])
+            ->heroBodyOptions($params['app']['hero.body.options'])
+            ->heroContainerOptions($params['app']['hero.container.options'])
+            ->heroFooterOptions($params['app']['hero.footer.options'])
+            ->heroFooterColumnOptions($params['app']['hero.footer.column.options'])
+            ->heroFooterColumnLeft($params['app']['hero.footer.column.left'])
+            ->heroFooterColumnLeftOptions($params['app']['hero.footer.column.left.options'])
+            ->heroFooterColumnCenter($params['app']['hero.footer.column.center'])
+            ->heroFooterColumnCenterOptions($params['app']['hero.footer.column.center.options'])
+            ->heroFooterColumnRigth($params['app']['hero.footer.column.rigth'])
+            ->heroFooterColumnRigthOptions($params['app']['hero.footer.column.rigth.options'])
+            ->language($params['app']['language'])
+            ->logo($params['app']['logo'])
+            ->name($params['app']['name'])
+            ->navBarOptions($params['app']['navbar.options'])
+            ->navBarBrandOptions($params['app']['navbar.brand.options'])
+            ->navBarBrandLogoOptions($params['app']['navbar.brand.logo.options'])
+            ->navBarBrandTitleOptions($params['app']['navbar.brand.title.options'])
+            ->loggerLevels($params['app']['logger']['levels'])
+            ->loggerFile($params['app']['logger']['file'])
+            ->MaxFileSize($params['app']['filerotator']['maxfilesize'])
+            ->MaxFiles($params['app']['filerotator']['maxfiles'])
+            ->FileMode($params['app']['filerotator']['filemode'])
+            ->RotateByCopy($params['app']['filerotator']['rotatebycopy']);
     },
 ];

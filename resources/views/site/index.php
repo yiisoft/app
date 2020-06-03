@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use Yiisoft\Html\Html;
 
+/** @var \App\LayoutParameters $layoutParameters */
+
 $this->params['breadcrumbs'] = '/';
 
 $this->setTitle($layoutParameters->getName());

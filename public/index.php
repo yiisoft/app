@@ -17,6 +17,7 @@ if (!is_file($autoload)) {
     die('You need to set up the project dependencies using Composer');
 }
 
+include dirname(__dir__) . '/c3.php';
 require_once $autoload;
 
 // Don't do it in production, assembling takes it's time

@@ -31,6 +31,11 @@ final class LayoutParameters extends AssetBundle
     private array $navBarBrandLogoOptions = [];
     private array $navBarBrandTitleOptions = [];
     private array $loggerLevels = [];
+    private string $loggerFile;
+    private int $maxFileSize;
+    private int $maxFiles;
+    private ?int $fileMode;
+    private ?bool $rotateByCopy;
 
     public function getBrandUrl(): string
     {
@@ -145,6 +150,31 @@ final class LayoutParameters extends AssetBundle
     public function getLoggerLevels(): array
     {
         return $this->loggerLevels;
+    }
+
+    public function getLoggerFile(): string
+    {
+        return $this->loggerFile;
+    }
+
+    public function getMaxFileSize(): int
+    {
+        return $this->maxFileSize;
+    }
+
+    public function getMaxFiles(): int
+    {
+        return $this->maxFiles;
+    }
+
+    public function getFileMode(): ?int
+    {
+        return $this->fileMode;
+    }
+
+    public function getRotateByCopy(): ?bool
+    {
+        return $this->rotateByCopy;
     }
 
     public function brandUrl(string $value): self
@@ -305,6 +335,41 @@ final class LayoutParameters extends AssetBundle
     {
         $new = clone $this;
         $new->loggerLevels = $value;
+        return $new;
+    }
+
+    public function loggerFile(string $value): self
+    {
+        $new = clone $this;
+        $new->loggerFile = $value;
+        return $new;
+    }
+
+    public function maxFileSize(int $value): self
+    {
+        $new = clone $this;
+        $new->maxFileSize = $value;
+        return $new;
+    }
+
+    public function maxFiles(int $value): self
+    {
+        $new = clone $this;
+        $new->maxFiles = $value;
+        return $new;
+    }
+
+    public function fileMode(?int $value): self
+    {
+        $new = clone $this;
+        $new->fileMode = $value;
+        return $new;
+    }
+
+    public function rotateByCopy(?bool $value): self
+    {
+        $new = clone $this;
+        $new->rotateByCopy = $value;
         return $new;
     }
 }

@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 use Yiisoft\Html\Html;
 
+/**
+ * @var \App\LayoutParameters $layoutParameters
+ * @var string $csrf
+ */
 ?>
 
 <?= Html::beginTag('head') ?>

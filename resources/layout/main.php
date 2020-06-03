@@ -5,6 +5,11 @@ declare(strict_types=1);
 use App\Asset\AppAsset;
 use Yiisoft\Html\Html;
 
+/**
+ * @var \Yiisoft\Assets\AssetsManager $assetManager
+ * @var \App\LayoutParameters $layoutParameters
+ */
+
 $assetManager->register([
     AppAsset::class,
 ]);

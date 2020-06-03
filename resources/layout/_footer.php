@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Widget\PerformanceMetrics;
 use Yiisoft\Html\Html;
 
+/** @var \App\LayoutParameters $layoutParameters */
 ?>
 
 <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnOptions()) ?>
