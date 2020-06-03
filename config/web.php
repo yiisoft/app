@@ -6,6 +6,8 @@ use App\LayoutParameters;
 use Yiisoft\Yii\Web\Session\Session;
 use Yiisoft\Yii\Web\Session\SessionInterface;
 
+/* @var array $params */
+
 return [
     SessionInterface::class => [
         '__class' => Session::class,
