@@ -31,12 +31,10 @@ composer.phar
 
 # phpunit itself is not needed
 phpunit.phar
+phpunit.result.cache
+
 # local phpunit config
 /phpunit.xml
-
-# ignore dev installed apps and extensions
-/extensions
-/packages
 
 # NPM packages
 /node_modules
