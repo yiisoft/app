@@ -6,12 +6,14 @@ use App\Provider\CacheProvider;
 use App\Provider\EventDispatcherProvider;
 use App\Provider\LoggerProvider;
 use App\Provider\MiddlewareProvider;
+use App\Provider\PSR17Provider;
 use App\Provider\RouterProvider;
 use App\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
 return [
     'yiisoft/router' => RouterProvider::class,
+    'yiisoft/psr17' => PSR17Provider::class,
     'yiisoft/web' => MiddlewareProvider::class,
     'yiisoft/cache' => CacheProvider::class,
     'yiisoft/eventDispatcher' => EventDispatcherProvider::class,
