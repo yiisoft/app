@@ -28,6 +28,7 @@
         "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-master",
         "codeception/codeception": "^4.1.5",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",

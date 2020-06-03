@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use App\LayoutParameters;
+use App\ApplicationParameters;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
@@ -31,9 +31,9 @@ final class WebViewProvider extends ServiceProvider
             );
 
             /**
-             * Passes {@see Aliases} {@see AssetManager} {@see UrlGenerator} {@see UrlMatcher} {@see LayoutParameters}
+             * Passes {@see Aliases} {@see AssetManager} {@see UrlGenerator} {@see UrlMatcher} {@see ApplicationParameters}
              *
-             * It will be available as $aliases, $assetManager, $urlGenerator, $urlMatcher, $layoutParameters in view
+             * It will be available as $aliases, $assetManager, $urlGenerator, $urlMatcher, $applicationParameters in view
              * or layout.
              */
             $webView->setDefaultParameters(
@@ -42,7 +42,7 @@ final class WebViewProvider extends ServiceProvider
                     'assetManager' => $container->get(AssetManager::class),
                     'urlGenerator' => $container->get(UrlGeneratorInterface::class),
                     'urlMatcher' => $container->get(UrlMatcherInterface::class),
-                    'layoutParameters' => $container->get(LayoutParameters::class)
+                    'applicationParameters' => $container->get(ApplicationParameters::class)
                 ]
             );
 

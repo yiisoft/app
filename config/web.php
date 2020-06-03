@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-use App\LayoutParameters;
+use App\ApplicationParameters;
 use Yiisoft\Yii\Web\Session\Session;
 use Yiisoft\Yii\Web\Session\SessionInterface;
+
+/* @var array $params */
 
 return [
     SessionInterface::class => [
@@ -15,10 +17,10 @@ return [
         ],
     ],
 
-    LayoutParameters::class => static function () use ($params) {
-        $layoutParameters = new LayoutParameters();
+    ApplicationParameters::class => static function () use ($params) {
+        $applicationParameters = new ApplicationParameters();
 
-        return $layoutParameters
+        return $applicationParameters
             ->brandUrl($params['app']['brandurl'])
             ->charset($params['app']['charset'])
             ->heroOptions($params['app']['hero.options'])
@@ -31,8 +33,8 @@ return [
             ->heroFooterColumnLeftOptions($params['app']['hero.footer.column.left.options'])
             ->heroFooterColumnCenter($params['app']['hero.footer.column.center'])
             ->heroFooterColumnCenterOptions($params['app']['hero.footer.column.center.options'])
-            ->heroFooterColumnRigth($params['app']['hero.footer.column.rigth'])
-            ->heroFooterColumnRigthOptions($params['app']['hero.footer.column.rigth.options'])
+            ->heroFooterColumnRight($params['app']['hero.footer.column.right'])
+            ->heroFooterColumnRightOptions($params['app']['hero.footer.column.right.options'])
             ->language($params['app']['language'])
             ->logo($params['app']['logo'])
             ->name($params['app']['name'])

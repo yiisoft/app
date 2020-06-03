@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-use Yiisoft\Html\Html;
-
-/** @var \App\LayoutParameters $layoutParameters */
+/** @var \App\ApplicationParameters $applicationParameters */
 
 $this->params['breadcrumbs'] = '/';
 
-$this->setTitle($layoutParameters->getName());
+$this->setTitle($applicationParameters->getName());
 ?>
 
-<?= Html::tag('h1', 'Hello World', ['class' => 'title']) ?>
-<?= Html::tag('p', 'My first website with <strong>Yii 3.0</strong>!', ['class' => 'subtitle']);
+<h1 class="title">Hello World</h1>
+
+<p class="subtitle">My first website with <strong>Yii 3.0</strong>!</p>
