@@ -1,45 +1,86 @@
 {
-    "name": "yiisoft/_____",
-    "type": "library",
-    "description": "_____",
+    "name": "yiisoft/app",
+    "type": "project",
+    "description": "Yii 3 application template",
     "keywords": [
-        "_____"
+        "yii3",
+        "app"
     ],
-    "homepage": "https://www.yiiframework.com/",
-    "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/yiisoft/_____/issues?state=open",
-        "forum": "https://www.yiiframework.com/forum/",
-        "wiki": "https://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/_____"
-    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "nyholm/psr7": "^1.3.0",
+        "foxy/foxy": "^1.0.8",
+        "yiisoft/aliases": "@dev",
+        "yiisoft/assets": "@dev",
+        "yiisoft/cache": "@dev",
+        "yiisoft/cache-file": "@dev",
+        "yiisoft/di": "@dev",
+        "yiisoft/event-dispatcher": "@dev",
+        "yiisoft/log": "@dev",
+        "yiisoft/log-target-file": "@dev",
+        "yiisoft/router": "@dev",
+        "yiisoft/router-fastroute": "@dev",
+        "yiisoft/view": "@dev",
+        "yiisoft/widget": "@dev",
+        "yiisoft/yii-debug": "@dev",
+        "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "phan/phan": "^3.0"
+        "codeception/codeception": "^4.1.5",
+        "codeception/module-asserts": "@dev",
+        "codeception/module-phpbrowser": "@dev",
+        "yiisoft/composer-config-plugin": "^1.0@dev"
     },
     "autoload": {
         "psr-4": {
-            "Yiisoft\\_____\\": "src"
+            "App\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Yiisoft\\_____\\Tests\\": "tests"
+            "App\\Tests\\": "tests"
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.0.x-dev"
+            "dev-master": "1.0.x-dev"
+        },
+        "config-plugin": {
+            "common": "config/common.php",
+            "params": [
+                "config/params.php",
+                "?config/params-local.php"
+            ],
+            "web": [
+                "$common",
+                "config/web.php"
+            ],
+            "console": [
+                "$common",
+                "config/console.php"
+            ],
+            "providers": "config/providers.php",
+            "providers-web": [
+                "$providers",
+                "config/providers-web.php"
+            ],
+            "providers-console": [
+                "$providers",
+                "config/providers-console.php"
+            ],
+            "events": "config/events.php",
+            "events-web": [
+                "$events",
+                "config/events-web.php"
+            ],
+            "events-console": [
+                "$events",
+                "config/events-console.php"
+            ],
+            "routes": "config/routes.php"
         }
-    },
-    "scripts": {
-        "phan": "phan --progress-bar -o analysis.txt"
     },
     "config": {
         "sort-packages": true

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Phan\Issue;
 
 /**
@@ -8,8 +10,9 @@ use Phan\Issue;
  * TODOs (added by 'phan --init'):
  *
  * - Go through this file and verify that there are no missing/unnecessary files/directories.
- *   (E.g. this only includes direct composer dependencies - You may have to manually add indirect composer dependencies to 'directory_list')
- * - Look at 'plugins' and add or remove plugins if appropriate (see https://github.com/phan/phan/tree/master/.phan/plugins#plugins)
+ *   (E.g. this only includes direct composer dependencies - You may have to manually add indirect composer dependencies
+ *   to 'directory_list')
+ * - Look at 'plugins' and add or remove plugins if appropriate (see https://github.com/phan/phan/tree/master/.phan/plugins#plugins).
  * - Add global suppressions for pre-existing issues to suppress_issue_types (https://github.com/phan/phan/wiki/Tutorial-for-Analyzing-a-Large-Sloppy-Code-Base)
  *
  * This configuration will be read and overlaid on top of the
@@ -33,6 +36,7 @@ use Phan\Issue;
  * of the phan executable or a path passed in via the CLI
  * '-d' flag.
  */
+
 return [
 
     // Supported values: `'5.6'`, `'7.0'`, `'7.1'`, `'7.2'`, `'7.3'`, `'7.4'`, `null`.
@@ -307,6 +311,9 @@ return [
     //       to `exclude_analysis_directory_list`.
     'exclude_analysis_directory_list' => [
         'vendor/',
+        'config/',
+        'src/Factory',
+        'src/Provider'
     ],
 
     // Enable this to enable checks of require/include statements referring to valid paths.
