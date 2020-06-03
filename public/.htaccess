@@ -1,13 +1,12 @@
-# rewrite ^/(.*)/$ /$1 permanent;
-
-# if (!-d $request_filename && !-f $request_filename) {
-#     rewrite ^/ index.php last;
-# }
-
-
+# use mod_rewrite for pretty URL support
 RewriteEngine on
-# if a directory or a file exists, use it directly 
-RewriteCond %{REQUEST_FILENAME} !-f 
-RewriteCond %{REQUEST_FILENAME} !-d 
-# otherwise forward it to index.php 
+
+# if $showScriptName is false in UrlManager, do not allow accessing URLs with script name
+RewriteRule ^index.php/ - [L,R=404]
+
+# If a directory or a file exists, use the request directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise forward the request to index.php
 RewriteRule . index.php
