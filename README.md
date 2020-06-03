@@ -76,7 +76,7 @@ return [
         '@views' => '@root/resources/views'
     ],
 
-    'yiisoft/app' => [
+    'app' => [
         'brandurl' => '/',
         'charset' => 'UTF-8',
         'hero.options' => ['class' => 'hero is-fullheight is-light'],
@@ -89,8 +89,8 @@ return [
         'hero.footer.column.left.options' => ['class' => 'column has-text-left has-text-light'],
         'hero.footer.column.center' => 'Center',
         'hero.footer.column.center.options' => ['class' => 'column has-text-centered has-text-light'],
-        'hero.footer.column.rigth' => 'Rigth',
-        'hero.footer.column.rigth.options' => ['class' => 'column has-text-right has-text-light'],
+        'hero.footer.column.right' => 'Right',
+        'hero.footer.column.right.options' => ['class' => 'column has-text-right has-text-light'],
         'language' => 'en',
         'logo' => '/images/yii-logo.jpg',
         'name' => 'My Project',

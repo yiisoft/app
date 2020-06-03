@@ -17,8 +17,8 @@ use Yiisoft\Html\Html;
         <?= $layoutParameters->getHeroFooterColumnCenter() ?>
     <?= Html::endTag('div') ?>
 
-    <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnRigthOptions()) ?>
-        <?= $layoutParameters->getHeroFooterColumnRigth() ?>
+    <?= Html::beginTag('div', $layoutParameters->getHeroFooterColumnRightOptions()) ?>
+        <?= $layoutParameters->getHeroFooterColumnRight() ?>
     <?= Html::endTag('div') ?>
 
 <?= Html::tag('div');

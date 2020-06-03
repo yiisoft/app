@@ -20,8 +20,8 @@ final class LayoutParameters extends AssetBundle
     private array $heroFooterColumnCenterOptions = [];
     private string $heroFooterColumnLeft;
     private array $heroFooterColumnLeftOptions = [];
-    private string $heroFooterColumnRigth;
-    private array $heroFooterColumnRigthOptions = [];
+    private string $heroFooterColumnRight;
+    private array $heroFooterColumnRightOptions = [];
     private string $language;
     private string $logo;
     private array $menu = [];
@@ -97,14 +97,14 @@ final class LayoutParameters extends AssetBundle
         return $this->heroFooterColumnLeftOptions;
     }
 
-    public function getHeroFooterColumnRigth(): string
+    public function getHeroFooterColumnRight(): string
     {
-        return $this->heroFooterColumnRigth;
+        return $this->heroFooterColumnRight;
     }
 
-    public function getHeroFooterColumnRigthOptions(): array
+    public function getHeroFooterColumnRightOptions(): array
     {
-        return $this->heroFooterColumnRigthOptions;
+        return $this->heroFooterColumnRightOptions;
     }
 
     public function getLanguage(): string
@@ -254,17 +254,17 @@ final class LayoutParameters extends AssetBundle
         return $new;
     }
 
-    public function heroFooterColumnRigth(string $value): self
+    public function heroFooterColumnRight(string $value): self
     {
         $new = clone $this;
-        $new->heroFooterColumnRigth = $value;
+        $new->heroFooterColumnRight = $value;
         return $new;
     }
 
-    public function heroFooterColumnRigthOptions(array $value): self
+    public function heroFooterColumnRightOptions(array $value): self
     {
         $new = clone $this;
-        $new->heroFooterColumnRigthOptions = $value;
+        $new->heroFooterColumnRightOptions = $value;
         return $new;
     }
 
