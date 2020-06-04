@@ -18,7 +18,7 @@ use Yiisoft\Yii\Web\Data\DataResponseFactoryInterface;
 use Yiisoft\Yii\Web\Data\DataResponseFormatterInterface;
 use Yiisoft\Yii\Web\Data\Formatter\HtmlDataResponseFormatter;
 
-final class PSR17Provider extends ServiceProvider
+final class Psr17Provider extends ServiceProvider
 {
     public function register(Container $container): void
     {

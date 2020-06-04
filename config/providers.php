@@ -6,19 +6,21 @@ use App\Provider\CacheProvider;
 use App\Provider\EventDispatcherProvider;
 use App\Provider\LoggerProvider;
 use App\Provider\MiddlewareProvider;
-use App\Provider\PSR17Provider;
+use App\Provider\Psr17Provider;
 use App\Provider\RouterProvider;
+use App\Provider\SessionProvider;
 use App\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
 return [
-    'yiisoft/router' => RouterProvider::class,
-    'yiisoft/psr17' => PSR17Provider::class,
-    'yiisoft/web' => MiddlewareProvider::class,
-    'yiisoft/cache' => CacheProvider::class,
-    'yiisoft/eventDispatcher' => EventDispatcherProvider::class,
-    'yiisoft/logger' => LoggerProvider::class,
-    'yiisoft/view' => WebViewProvider::class,
+    'yiisoft/app/router' => RouterProvider::class,
+    'yiisoft/app/psr17' => Psr17Provider::class,
+    'yiisoft/app/middleware' => MiddlewareProvider::class,
+    'yiisoft/app/cache' => CacheProvider::class,
+    'yiisoft/app/eventdispatcher' => EventDispatcherProvider::class,
+    'yiisoft/app/logger' => LoggerProvider::class,
+    'yiisoft/app/session' => SessionProvider::class,
+    'yiisoft/app/webview' => WebViewProvider::class,
 
     ReverseBlockMerge::class => new ReverseBlockMerge()
 ];

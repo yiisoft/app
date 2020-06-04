@@ -23,10 +23,10 @@ final class LoggerProvider extends ServiceProvider
             $applicationParameters = $container->get(ApplicationParameters::class);
 
             return new FileRotator(
-                $applicationParameters->getMaxFileSize(),
-                $applicationParameters->getMaxFiles(),
-                $applicationParameters->getFileMode(),
-                $applicationParameters->getRotateByCopy()
+                $applicationParameters->getFileRotatorMaxFileSize(),
+                $applicationParameters->getFileRotatorMaxFiles(),
+                $applicationParameters->getFileRotatorFileMode(),
+                $applicationParameters->getFileRotatorRotateByCopy()
             );
         });
 

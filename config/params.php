@@ -56,6 +56,7 @@ return [
         ],
         'session' => [
             'options' => ['cookie_secure' => 0],
+            'handler' => null
         ],
     ],
 

@@ -98,17 +98,25 @@ return [
         'navbar.brand.options' => ['class' => 'navbar-brand'],
         'navbar.brand.logo.options' => ['class' => 'navbar-item'],
         'navbar.brand.title.options' => ['class' => 'navbar-item has-text-light'],
+        'filerotator' => [
+            'maxfilesize' => 10,
+            'maxfiles' => 5,
+            'filemode' => null,
+            'rotatebycopy' => null
+        ],
         'logger' => [
+            'file' => '@runtime/logs/app.log',
             'levels' => [
                 LogLevel::EMERGENCY,
                 LogLevel::ERROR,
                 LogLevel::WARNING,
                 LogLevel::INFO,
                 LogLevel::DEBUG,
-            ],
+            ]
         ],
         'session' => [
             'options' => ['cookie_secure' => 0],
+            'handler' => null
         ],
     ],
 

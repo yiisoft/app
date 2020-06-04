@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App;
 
-use Yiisoft\Assets\AssetBundle;
+use SessionHandlerInterface;
 
-final class ApplicationParameters extends AssetBundle
+final class ApplicationParameters
 {
     private string $brandUrl;
     private string $charset;
@@ -32,10 +32,12 @@ final class ApplicationParameters extends AssetBundle
     private array $navBarBrandTitleOptions = [];
     private array $loggerLevels = [];
     private string $loggerFile;
-    private int $maxFileSize;
-    private int $maxFiles;
-    private ?int $fileMode;
-    private ?bool $rotateByCopy;
+    private int $fileRotatorMaxFileSize;
+    private int $fileRotatorMaxFiles;
+    private ?int $fileRotatorFileMode;
+    private ?bool $fileRotatorRotateByCopy;
+    private array $sessionOptions = [];
+    private ?SessionHandlerInterface $sessionHandler = null;
 
     public function getBrandUrl(): string
     {
@@ -157,24 +159,34 @@ final class ApplicationParameters extends AssetBundle
         return $this->loggerFile;
     }
 
-    public function getMaxFileSize(): int
+    public function getFileRotatorMaxFileSize(): int
     {
-        return $this->maxFileSize;
+        return $this->fileRotatorMaxFileSize;
     }
 
-    public function getMaxFiles(): int
+    public function getFileRotatorMaxFiles(): int
     {
-        return $this->maxFiles;
+        return $this->fileRotatorMaxFiles;
     }
 
-    public function getFileMode(): ?int
+    public function getFileRotatorFileMode(): ?int
     {
-        return $this->fileMode;
+        return $this->fileRotatorFileMode;
     }
 
-    public function getRotateByCopy(): ?bool
+    public function getFileRotatorRotateByCopy(): ?bool
     {
-        return $this->rotateByCopy;
+        return $this->fileRotatorRotateByCopy;
+    }
+
+    public function getSessionOptions(): array
+    {
+        return $this->sessionOptions;
+    }
+
+    public function getSessionHandler(): ?SessionHandlerInterface
+    {
+        return $this->sessionHandler;
     }
 
     public function brandUrl(string $value): self
@@ -345,31 +357,45 @@ final class ApplicationParameters extends AssetBundle
         return $new;
     }
 
-    public function maxFileSize(int $value): self
+    public function fileRotatorMaxFileSize(int $value): self
     {
         $new = clone $this;
-        $new->maxFileSize = $value;
+        $new->fileRotatorMaxFileSize = $value;
         return $new;
     }
 
-    public function maxFiles(int $value): self
+    public function fileRotatorMaxFiles(int $value): self
     {
         $new = clone $this;
-        $new->maxFiles = $value;
+        $new->fileRotatorMaxFiles = $value;
         return $new;
     }
 
-    public function fileMode(?int $value): self
+    public function fileRotatorFileMode(?int $value): self
     {
         $new = clone $this;
-        $new->fileMode = $value;
+        $new->fileRotatorFileMode = $value;
         return $new;
     }
 
-    public function rotateByCopy(?bool $value): self
+    public function fileRotatorRotateByCopy(?bool $value): self
     {
         $new = clone $this;
-        $new->rotateByCopy = $value;
+        $new->fileRotatorRotateByCopy = $value;
+        return $new;
+    }
+
+    public function sessionOptions(array $value): self
+    {
+        $new = clone $this;
+        $new->sessionOptions = $value;
+        return $new;
+    }
+
+    public function sessionHandler(?SessionHandlerInterface $value): self
+    {
+        $new = clone $this;
+        $new->sessionHandler = $value;
         return $new;
     }
 }

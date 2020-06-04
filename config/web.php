@@ -3,20 +3,10 @@
 declare(strict_types=1);
 
 use App\ApplicationParameters;
-use Yiisoft\Yii\Web\Session\Session;
-use Yiisoft\Yii\Web\Session\SessionInterface;
 
-/* @var array $params */
+/** @var array $params */
 
 return [
-    SessionInterface::class => [
-        '__class' => Session::class,
-        '__construct()' => [
-            $params['app']['session']['options'] ?? [],
-            $params['app']['session']['handler'] ?? null,
-        ],
-    ],
-
     ApplicationParameters::class => static function () use ($params) {
         $applicationParameters = new ApplicationParameters();
 
@@ -44,9 +34,11 @@ return [
             ->navBarBrandTitleOptions($params['app']['navbar.brand.title.options'])
             ->loggerLevels($params['app']['logger']['levels'])
             ->loggerFile($params['app']['logger']['file'])
-            ->MaxFileSize($params['app']['filerotator']['maxfilesize'])
-            ->MaxFiles($params['app']['filerotator']['maxfiles'])
-            ->FileMode($params['app']['filerotator']['filemode'])
-            ->RotateByCopy($params['app']['filerotator']['rotatebycopy']);
+            ->fileRotatorMaxFileSize($params['app']['filerotator']['maxfilesize'])
+            ->fileRotatorMaxFiles($params['app']['filerotator']['maxfiles'])
+            ->fileRotatorFileMode($params['app']['filerotator']['filemode'])
+            ->fileRotatorRotateByCopy($params['app']['filerotator']['rotatebycopy'])
+            ->sessionOptions($params['app']['session']['options'])
+            ->sessionHandler($params['app']['session']['handler']);
     },
 ];
