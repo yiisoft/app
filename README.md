@@ -98,13 +98,16 @@ return [
         'navbar.brand.options' => ['class' => 'navbar-brand'],
         'navbar.brand.logo.options' => ['class' => 'navbar-item'],
         'navbar.brand.title.options' => ['class' => 'navbar-item has-text-light'],
-        'filerotator' => [
-            'maxfilesize' => 10,
-            'maxfiles' => 5,
-            'filemode' => null,
-            'rotatebycopy' => null
+    ],
+
+    'yiisoft/cache-file' => [
+        'file-cache' => [
+            'file' => '@runtime/cache'
         ],
-        'logger' => [
+    ],
+
+    'yiisoft/log-target-file' => [
+        'file-target' => [
             'file' => '@runtime/logs/app.log',
             'levels' => [
                 LogLevel::EMERGENCY,
@@ -112,8 +115,17 @@ return [
                 LogLevel::WARNING,
                 LogLevel::INFO,
                 LogLevel::DEBUG,
-            ]
+            ],
         ],
+        'file-rotator' => [
+            'maxfilesize' => 10,
+            'maxfiles' => 5,
+            'filemode' => null,
+            'rotatebycopy' => null
+        ],
+    ],
+
+    'yiisoft/yii-web' => [
         'session' => [
             'options' => ['cookie_secure' => 0],
             'handler' => null
