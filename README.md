@@ -86,6 +86,8 @@ directly under the `public` root.
 
 ##### Log Target File
 ```php
+use Psr\Log\LogLevel;
+
 'yiisoft/log-target-file' => [
     'file-target' => [
         // route directory file log
