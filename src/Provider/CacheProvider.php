@@ -27,7 +27,7 @@ final class CacheProvider extends ServiceProvider
         $container->set(CacheInterface::class, function (ContainerInterface $container) {
             $aliases = $container->get(Aliases::class);
 
-            return new FileCache($aliases->get($this->$cachePath));
+            return new FileCache($aliases->get($this->cachePath));
         });
 
         $container->set(YiiCacheInterface::class, Cache::class);
