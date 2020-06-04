@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\ApplicationParameters;
 
-/** @var array $params */
+/* @var array $params */
 
 return [
     ApplicationParameters::class => static function () use ($params) {
@@ -31,14 +31,6 @@ return [
             ->navBarOptions($params['app']['navbar.options'])
             ->navBarBrandOptions($params['app']['navbar.brand.options'])
             ->navBarBrandLogoOptions($params['app']['navbar.brand.logo.options'])
-            ->navBarBrandTitleOptions($params['app']['navbar.brand.title.options'])
-            ->loggerLevels($params['app']['logger']['levels'])
-            ->loggerFile($params['app']['logger']['file'])
-            ->fileRotatorMaxFileSize($params['app']['filerotator']['maxfilesize'])
-            ->fileRotatorMaxFiles($params['app']['filerotator']['maxfiles'])
-            ->fileRotatorFileMode($params['app']['filerotator']['filemode'])
-            ->fileRotatorRotateByCopy($params['app']['filerotator']['rotatebycopy'])
-            ->sessionOptions($params['app']['session']['options'])
-            ->sessionHandler($params['app']['session']['handler']);
+            ->navBarBrandTitleOptions($params['app']['navbar.brand.title.options']);
     },
 ];

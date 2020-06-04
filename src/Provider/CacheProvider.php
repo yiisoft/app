@@ -15,11 +15,19 @@ use Yiisoft\Di\Support\ServiceProvider;
 
 final class CacheProvider extends ServiceProvider
 {
+    private static string $cacheFile;
+
+    public function __construct(string $cacheFile = '@runtime/cache')
+    {
+        self::$cacheFile = $cacheFile;
+    }
+
     public function register(Container $container): void
     {
         $container->set(CacheInterface::class, static function (ContainerInterface $container) {
             $aliases = $container->get(Aliases::class);
-            return new FileCache($aliases->get('@runtime/cache'));
+
+            return new FileCache($aliases->get(self::$cacheFile));
         });
 
         $container->set(YiiCacheInterface::class, Cache::class);
