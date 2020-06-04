@@ -17,17 +17,17 @@ use App\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
 return [
-    'yiisoft/app/router' => RouterProvider::class,
-    'yiisoft/app/psr17' => Psr17Provider::class,
-    'yiisoft/app/middleware' => MiddlewareProvider::class,
-    'yiisoft/app/cache' =>  [
+    'yiisoft/router-fastroute/router' => RouterProvider::class,
+    'yiisoft/yii-web/psr17' => Psr17Provider::class,
+    'yiisoft/yii-web/middleware' => MiddlewareProvider::class,
+    'yiisoft/cache/cache' =>  [
         '__class' => CacheProvider::class,
         '__construct()' => [
             $params['yiisoft/cache-file']['file-cache']['path'],
         ],
     ],
-    'yiisoft/app/event-dispatcher' => EventDispatcherProvider::class,
-    'yiisoft/app/file-rotator' => [
+    'yiisoft/event-dispatcher/eventdispatcher' => EventDispatcherProvider::class,
+    'yiisoft/log-target-file/filerotator' => [
         '__class' => FileRotatorProvider::class,
         '__construct()' => [
             $params['yiisoft/log-target-file']['file-rotator']['maxfilesize'],
@@ -36,22 +36,22 @@ return [
             $params['yiisoft/log-target-file']['file-rotator']['rotatebycopy']
         ],
     ],
-    'yiisoft/app/file-target' => [
+    'yiisoft/log-target-file/filetarget' => [
         '__class' => FileTargetProvider::class,
         '__construct()' => [
             $params['yiisoft/log-target-file']['file-target']['file'],
             $params['yiisoft/log-target-file']['file-target']['levels']
         ],
     ],
-    'yiisoft/app/logger' =>  LoggerProvider::class,
-    'yiisoft/app/session' => [
+    'yiisoft/log/logger' =>  LoggerProvider::class,
+    'yiisoft/yii-web/session' => [
         '__class' => SessionProvider::class,
         '__construct()' => [
             $params['yiisoft/yii-web']['session']['options'],
             $params['yiisoft/yii-web']['session']['handler']
         ],
     ],
-    'yiisoft/app/web-view' => WebViewProvider::class,
+    'yiisoft/view/webview' => WebViewProvider::class,
 
     ReverseBlockMerge::class => new ReverseBlockMerge()
 ];
