@@ -14,28 +14,28 @@ use Yiisoft\Log\Target\File\FileTarget;
 
 final class FileTargetProvider extends ServiceProvider
 {
-    private static string $file;
-    private static array $levels;
+    private string $file;
+    private array $levels;
 
     public function __construct(
         string $file = '@runtime/logs/app.log',
         array $levels = [LogLevel::EMERGENCY, LogLevel::ERROR, LogLevel::WARNING, LogLevel::INFO, LogLevel::DEBUG]
     ) {
-        self::$file = $file;
-        self::$levels = $levels;
+        $this->file = $file;
+        $this->levels = $levels;
     }
 
     public function register(Container $container): void
     {
-        $container->set(FileTarget::class, static function (ContainerInterface $container) {
+        $container->set(FileTarget::class, function (ContainerInterface $container) {
             $aliases = $container->get(Aliases::class);
 
             $fileTarget = new FileTarget(
-                $aliases->get(self::$file),
+                $aliases->get($this->file),
                 $container->get(FileRotatorInterface::class)
             );
 
-            $fileTarget->setLevels(self::$levels);
+            $fileTarget->setLevels($this->levels);
 
             return $fileTarget;
         });

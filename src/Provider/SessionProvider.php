@@ -12,22 +12,22 @@ use Yiisoft\Yii\Web\Session\SessionInterface;
 
 final class SessionProvider extends ServiceProvider
 {
-    private static array $sessionOptions;
-    private static ?SessionHandlerInterface $sessionHandler;
+    private array $sessionOptions;
+    private ?SessionHandlerInterface $sessionHandler;
 
     public function __construct(
         array $sessionOptions = [['cookie_secure' => 0]],
         ?SessionHandlerInterface $sessionHandler = null
     ) {
-        self::$sessionOptions = $sessionOptions;
-        self::$sessionHandler = $sessionHandler;
+        $this->sessionOptions = $sessionOptions;
+        $this->sessionHandler = $sessionHandler;
     }
 
     public function register(Container $container): void
     {
-        $container->set(SessionInterface::class, static function () {
+        $container->set(SessionInterface::class, function () {
 
-            return new Session(self::$sessionOptions, self::$sessionHandler);
+            return new Session($this->sessionOptions, $this->sessionHandler);
         });
     }
 }

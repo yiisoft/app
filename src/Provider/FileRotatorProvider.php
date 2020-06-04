@@ -11,10 +11,10 @@ use Yiisoft\Log\Target\File\FileRotatorInterface;
 
 final class FileRotatorProvider extends ServiceProvider
 {
-    private static int $maxFileSize;
-    private static int $maxFiles;
-    private static ?int $fileMode;
-    private static ?bool $rotateByCopy;
+    private int $maxFileSize;
+    private int $maxFiles;
+    private ?int $fileMode;
+    private ?bool $rotateByCopy;
 
     public function __construct(
         int $maxFileSize = 10,
@@ -22,17 +22,17 @@ final class FileRotatorProvider extends ServiceProvider
         ?int $fileMode = null,
         ?bool $rotateByCopy = null
     ) {
-        self::$maxFileSize = $maxFileSize;
-        self::$maxFiles = $maxFiles;
-        self::$fileMode = $fileMode;
-        self::$rotateByCopy = $rotateByCopy;
+        $this->maxFileSize = $maxFileSize;
+        $this->maxFiles = $maxFiles;
+        $this->fileMode = $fileMode;
+        $this->rotateByCopy = $rotateByCopy;
     }
 
     public function register(Container $container): void
     {
-        $container->set(FileRotatorInterface::class, static function () {
+        $container->set(FileRotatorInterface::class, function () {
 
-            return new FileRotator(self::$maxFileSize, self::$maxFiles, self::$fileMode, self::$rotateByCopy);
+            return new FileRotator($this->maxFileSize, $this->maxFiles, $this->fileMode, $this->rotateByCopy);
         });
     }
 }
