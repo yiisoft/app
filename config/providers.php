@@ -21,7 +21,7 @@ return [
     'yiisoft/app/cache' =>  [
         '__class' => CacheProvider::class,
         '__construct()' => [
-            $params['yiisoft/cache-file']['file-cache']['file'],
+            $params['yiisoft/cache-file']['file-cache']['path'],
         ],
     ],
     'yiisoft/app/event-dispatcher' => EventDispatcherProvider::class,
