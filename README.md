@@ -62,7 +62,7 @@ directly under the `public` root.
 ##### Aliases
 ```php
 'aliases' => [
-    // directory aliases application templase standard
+    // standard directory aliases
     '@root' => dirname(__DIR__),
     '@assets' => '@root/public/assets',
     '@assetsUrl' => '/assets',
@@ -78,7 +78,7 @@ directly under the `public` root.
 ```php
 'yiisoft/cache-file' => [
     'file-cache' => [
-        // path directory cache
+        // cache directory path
         'path' => '@runtime/cache'
     ],
 ],

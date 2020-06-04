@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+/* @var array $params */
+
 use App\Provider\CacheProvider;
 use App\Provider\EventDispatcherProvider;
 use App\Provider\FileRotatorProvider;
