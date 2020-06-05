@@ -176,6 +176,6 @@ http://localhost:8080
 ### Running Codeception tests
 
 ~~~
-php -S 127.0.0.1:8080 -t public > yii.log 2>&1 &
+php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
 vendor/bin/codecept run
 ~~~
