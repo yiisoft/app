@@ -15,7 +15,7 @@ use Yiisoft\Html\Html;
         ) ?>
         <?=  Html::a(
             $applicationParameters->getName(),
-            $applicationParameters->getbrandUrl(),
+            $applicationParameters->getBrandUrl(),
             $applicationParameters->getNavBarBrandTitleOptions()
         ) ?>
     <?= Html::endTag('div') ?>

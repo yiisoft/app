@@ -3,20 +3,10 @@
 declare(strict_types=1);
 
 use App\ApplicationParameters;
-use Yiisoft\Yii\Web\Session\Session;
-use Yiisoft\Yii\Web\Session\SessionInterface;
 
 /* @var array $params */
 
 return [
-    SessionInterface::class => [
-        '__class' => Session::class,
-        '__construct()' => [
-            $params['app']['session']['options'] ?? [],
-            $params['app']['session']['handler'] ?? null,
-        ],
-    ],
-
     ApplicationParameters::class => static function () use ($params) {
         $applicationParameters = new ApplicationParameters();
 
@@ -41,12 +31,6 @@ return [
             ->navBarOptions($params['app']['navbar.options'])
             ->navBarBrandOptions($params['app']['navbar.brand.options'])
             ->navBarBrandLogoOptions($params['app']['navbar.brand.logo.options'])
-            ->navBarBrandTitleOptions($params['app']['navbar.brand.title.options'])
-            ->loggerLevels($params['app']['logger']['levels'])
-            ->loggerFile($params['app']['logger']['file'])
-            ->MaxFileSize($params['app']['filerotator']['maxfilesize'])
-            ->MaxFiles($params['app']['filerotator']['maxfiles'])
-            ->FileMode($params['app']['filerotator']['filemode'])
-            ->RotateByCopy($params['app']['filerotator']['rotatebycopy']);
+            ->navBarBrandTitleOptions($params['app']['navbar.brand.title.options']);
     },
 ];

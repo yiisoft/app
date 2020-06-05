@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
-use Yiisoft\Assets\AssetBundle;
-
-final class ApplicationParameters extends AssetBundle
+final class ApplicationParameters
 {
     private string $brandUrl;
     private string $charset;
@@ -24,18 +22,11 @@ final class ApplicationParameters extends AssetBundle
     private array $heroFooterColumnRightOptions = [];
     private string $language;
     private string $logo;
-    private array $menu = [];
     private string $name;
     private array $navBarOptions = [];
     private array $navBarBrandOptions = [];
     private array $navBarBrandLogoOptions = [];
     private array $navBarBrandTitleOptions = [];
-    private array $loggerLevels = [];
-    private string $loggerFile;
-    private int $maxFileSize;
-    private int $maxFiles;
-    private ?int $fileMode;
-    private ?bool $rotateByCopy;
 
     public function getBrandUrl(): string
     {
@@ -117,11 +108,6 @@ final class ApplicationParameters extends AssetBundle
         return $this->logo;
     }
 
-    public function getMenu(): array
-    {
-        return $this->menu;
-    }
-
     public function getNavBarOptions(): array
     {
         return $this->navBarOptions;
@@ -145,36 +131,6 @@ final class ApplicationParameters extends AssetBundle
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function getLoggerLevels(): array
-    {
-        return $this->loggerLevels;
-    }
-
-    public function getLoggerFile(): string
-    {
-        return $this->loggerFile;
-    }
-
-    public function getMaxFileSize(): int
-    {
-        return $this->maxFileSize;
-    }
-
-    public function getMaxFiles(): int
-    {
-        return $this->maxFiles;
-    }
-
-    public function getFileMode(): ?int
-    {
-        return $this->fileMode;
-    }
-
-    public function getRotateByCopy(): ?bool
-    {
-        return $this->rotateByCopy;
     }
 
     public function brandUrl(string $value): self
@@ -289,13 +245,6 @@ final class ApplicationParameters extends AssetBundle
         return $new;
     }
 
-    public function menu(array $value): self
-    {
-        $new = clone $this;
-        $new->menu = $value;
-        return $new;
-    }
-
     public function navBarOptions(array $value): self
     {
         $new = clone $this;
@@ -328,48 +277,6 @@ final class ApplicationParameters extends AssetBundle
     {
         $new = clone $this;
         $new->name = $value;
-        return $new;
-    }
-
-    public function loggerLevels(array $value): self
-    {
-        $new = clone $this;
-        $new->loggerLevels = $value;
-        return $new;
-    }
-
-    public function loggerFile(string $value): self
-    {
-        $new = clone $this;
-        $new->loggerFile = $value;
-        return $new;
-    }
-
-    public function maxFileSize(int $value): self
-    {
-        $new = clone $this;
-        $new->maxFileSize = $value;
-        return $new;
-    }
-
-    public function maxFiles(int $value): self
-    {
-        $new = clone $this;
-        $new->maxFiles = $value;
-        return $new;
-    }
-
-    public function fileMode(?int $value): self
-    {
-        $new = clone $this;
-        $new->fileMode = $value;
-        return $new;
-    }
-
-    public function rotateByCopy(?bool $value): self
-    {
-        $new = clone $this;
-        $new->rotateByCopy = $value;
         return $new;
     }
 }

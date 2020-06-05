@@ -92,7 +92,7 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           wget https://scrutinizer-ci.com/ocular.phar
-          php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+          php ocular.phar code-coverage:upload --format=php-clover tests/_output/coverage.xml
 
       - name: Phan static analysis
         if: matrix.os == 'ubuntu-latest'
