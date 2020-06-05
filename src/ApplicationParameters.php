@@ -6,23 +6,23 @@ namespace App;
 
 final class ApplicationParameters
 {
-    private string $brandUrl;
-    private string $charset;
+    private string $brandUrl = '';
+    private string $charset = '';
     private array $heroOptions = [];
     private array $heroHeadOptions = [];
     private array $heroBodyOptions = [];
     private array $heroContainerOptions = [];
     private array $heroFooterOptions = [];
     private array $heroFooterColumnOptions = [];
-    private string $heroFooterColumnCenter;
+    private string $heroFooterColumnCenter = '';
     private array $heroFooterColumnCenterOptions = [];
-    private string $heroFooterColumnLeft;
+    private string $heroFooterColumnLeft = '';
     private array $heroFooterColumnLeftOptions = [];
-    private string $heroFooterColumnRight;
+    private string $heroFooterColumnRight = '';
     private array $heroFooterColumnRightOptions = [];
-    private string $language;
-    private string $logo;
-    private string $name;
+    private string $language = '';
+    private string $logo = '';
+    private string $name = '';
     private array $navBarOptions = [];
     private array $navBarBrandOptions = [];
     private array $navBarBrandLogoOptions = [];
