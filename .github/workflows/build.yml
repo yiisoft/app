@@ -98,7 +98,7 @@ jobs:
           vendor/bin/codecept run
         shell: bash
 
-      - name: upload code coverage scrutinizer on Linux php 7.4
+      - name: Upload code coverage scrutinizer on Linux php 7.4
         if: matrix.os == 'ubuntu-latest' && matrix.php-version == '7.4'
         run: |
           wget https://scrutinizer-ci.com/ocular.phar
