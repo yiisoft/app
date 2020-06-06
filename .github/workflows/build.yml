@@ -98,15 +98,11 @@ jobs:
           vendor/bin/codecept run
         shell: bash
 
-      - name: Upload coverage to codecov on Linux php 7.4
+      - name: upload code coverage scrutinizer on Linux php 7.4
         if: matrix.os == 'ubuntu-latest' && matrix.php-version == '7.4'
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          file: tests/_output/coverage.xml
-          flags: unittests
-          name: codecov-app
-          fail_ci_if_error: true
+        run: |
+          wget https://scrutinizer-ci.com/ocular.phar
+          php ocular.phar code-coverage:upload --format=php-clover tests/_output/coverage.xml
 
       - name: Phan static analysis on Linux php 7.4
         if: matrix.os == 'ubuntu-latest' && matrix.php-version == '7.4'
