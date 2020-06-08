@@ -12,12 +12,16 @@ use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
 $autoload = dirname(__dir__) . '/vendor/autoload.php';
+$c3 = dirname(__dir__) . '/c3.php';
+
+if (is_file($c3)) {
+    require_once $c3;
+}
 
 if (!is_file($autoload)) {
     die('You need to set up the project dependencies using Composer');
 }
 
-include dirname(__dir__) . '/c3.php';
 require_once $autoload;
 
 // Don't do it in production, assembling takes it's time
