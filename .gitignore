@@ -22,9 +22,6 @@ Thumbs.db
 # composer itself is not needed
 composer.phar
 
-# composer.lock in applications is ignored since it's automatically created by composer when application is installed
-/package-lock.json
-
 # Mac DS_Store Files
 .DS_Store
 
