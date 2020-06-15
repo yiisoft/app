@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Yiisoft\Html\Html;
 
 /**
+ * @var Yiisoft\View\WebView $this
  * @var \App\ApplicationParameters $applicationParameters
  * @var string $csrf
  */

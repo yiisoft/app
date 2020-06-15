@@ -6,6 +6,7 @@ use App\Asset\AppAsset;
 use Yiisoft\Html\Html;
 
 /**
+ * @var Yiisoft\View\WebView $this
  * @var \Yiisoft\Assets\AssetManager $assetManager
  * @var \App\ApplicationParameters $applicationParameters
  * @var string $csrf
