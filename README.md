@@ -46,27 +46,35 @@ Usually it is `http://localhost:8080`.
 
 ## Directory structure
 
+The application template has the following structure:
+
 ```
-config/             application configurations
-resources/layout    layout files for the web application
-resources/view      view files for the web application
-app/                application directory
-    Asset/          assets definition
-    Controller/     Web controller classes
-    Factory/        factory classes files for config
-    Provider/       provider classes for config
-runtime/            files generated during runtime
-tests/              various tests for the basic application
-vendor/             dependent 3rd-party packages      
-public/             the entry script and Web resources
+config/             Configuration files.
+docs/               Documentation.
+public/             Files publically accessible from the Internet.
+    assets/         Published assets.
+    index.php       Entry script.
+resources/          Application resources.
+    assets/         Asset bundle resources.
+    layout/         Layout view templates.
+    view/           View templates.
+runtime/            Files generated during runtime.
+src/                Application source code.
+    Asset/          Asset bundle definitions.
+    Controller/     Web controller classes.
+    Provider/       Providers that take configuration and configure services.
+tests/              A set of Codeception tests for the application.
+vendor/             Installed Composer packages.
 ```
 
 ## Configuration
 
 You can find configuration in `config` directory. There are multiple
-configs, and the most interesting is `params.php`.
+configs, and the most interesting is `params.php`. Below there are details about its sections:
 
-### Application Components
+### Application Services
+
+There are multiple pre-configured application services. 
 
 #### Aliases
 
@@ -83,6 +91,8 @@ configs, and the most interesting is `params.php`.
     '@views' => '@root/resources/views'
 ],
 ```
+
+See ["Aliases"](https://github.com/yiisoft/docs/blob/master/guide/en/concept/aliases.md) in the guide.
 
 #### Cache
 
@@ -126,6 +136,8 @@ use Psr\Log\LogLevel;
 ],
 ```
 
+See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/logging.md) in the guide.
+
 #### Session
 
 ```php
@@ -139,7 +151,7 @@ use Psr\Log\LogLevel;
 ],
 ```
 
-##### Yii Debug
+#### Yii Debug
 
 ```php
 'yiisoft/yii-debug' => [
