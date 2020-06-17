@@ -152,20 +152,9 @@ use Psr\Log\LogLevel;
 
 ```php
 'app' => [
-    'brandurl' => '/',
     'charset' => 'UTF-8',
-    'hero.options' => ['class' => 'hero is-fullheight is-light'],
-    'hero.head.options' => ['class' => 'hero-head has-background-black'],
-    'hero.body.options' => ['class' => 'hero-body is-light'],
-    'hero.container.options' => ['class' => 'container has-text-centered'],
-    'hero.footer.options' => ['class' => 'hero-footer has-background-black'],
     'language' => 'en',
-    'logo' => '/images/yii-logo.jpg',
     'name' => 'My Project',
-    'navbar.options' => ['class' => 'navbar'],
-    'navbar.brand.options' => ['class' => 'navbar-brand'],
-    'navbar.brand.logo.options' => ['class' => 'navbar-item'],
-    'navbar.brand.title.options' => ['class' => 'navbar-item has-text-light'],
 ],
 ```
 
