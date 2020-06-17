@@ -4,25 +4,34 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use App\ApplicationParameters;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
 use Yiisoft\Aliases\Aliases;
-use Yiisoft\Assets\AssetManager;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;
-use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\View\Theme;
 use Yiisoft\View\WebView;
 
 final class WebViewProvider extends ServiceProvider
 {
+    private array $defaultParameters;
+
+    public function __construct(array $defaultParameters = [])
+    {
+        $this->defaultParameters = $defaultParameters;
+    }
+
+    /**
+     * @suppress PhanAccessMethodProtected
+     *
+     * @param Container $container
+     */
     public function register(Container $container): void
     {
-        $container->set(WebView::class, static function (ContainerInterface $container) {
-            /** WebView config */
+        $container->set(WebView::class, function (ContainerInterface $container) {
+            $defaultParameters = [];
+
             $webView = new WebView(
                 $container->get(Aliases::class)->get('@views'),
                 $container->get(Theme::class),
@@ -30,21 +39,11 @@ final class WebViewProvider extends ServiceProvider
                 $container->get(LoggerInterface::class)
             );
 
-            /**
-             * Passes {@see Aliases} {@see AssetManager} {@see UrlGenerator} {@see UrlMatcher} {@see ApplicationParameters}
-             *
-             * It will be available as $aliases, $assetManager, $urlGenerator, $urlMatcher, $applicationParameters in view
-             * or layout.
-             */
-            $webView->setDefaultParameters(
-                [
-                    'aliases' => $container->get(Aliases::class),
-                    'assetManager' => $container->get(AssetManager::class),
-                    'urlGenerator' => $container->get(UrlGeneratorInterface::class),
-                    'urlMatcher' => $container->get(UrlMatcherInterface::class),
-                    'applicationParameters' => $container->get(ApplicationParameters::class)
-                ]
-            );
+            foreach ($this->defaultParameters as $key => $value) {
+                $defaultParameters[$key] = $container->get($value);
+            }
+
+            $webView->setDefaultParameters($defaultParameters);
 
             return $webView;
         });

@@ -51,7 +51,12 @@ return [
             $params['yiisoft/yii-web']['session']['handler']
         ],
     ],
-    'yiisoft/view/webview' => WebViewProvider::class,
+    'yiisoft/view/webview' => [
+        '__class' => WebViewProvider::class,
+        '__construct()' => [
+            $params['yiisoft/view']['defaultParameters'],
+        ],
+    ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge()
 ];
