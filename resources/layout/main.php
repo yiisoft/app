@@ -19,38 +19,28 @@ $assetManager->register([
 
 $this->setCssFiles($assetManager->getCssFiles());
 $this->setJsFiles($assetManager->getJsFiles());
-
 ?>
 <?php $this->beginPage() ?>
-    <!DOCTYPE html>
-    <?= Html::beginTag('html', ['lang' => $applicationParameters->getLanguage()]) ?>
+<!DOCTYPE html>
+<html lang="<?= Html::encode($applicationParameters->getLanguage()) ?>">
+    <?= $this->render('_head', ['csrf' => $csrf]) ?>
+    <?php $this->beginBody() ?>
+        <body>
+            <section class="hero is-fullheight is-light">
+                <div class="hero-head has-background-black">
+                    <?= $this->render('_menu') ?>
+                </div>
+                <div class="hero-body is-light">
+                    <div class="container has-text-centered">
+                        <?= $content ?>
+                    </div>
+                </div>
+                <div class="hero-footer has-background-black">
+                    <?= $this->render('_footer') ?>
+                </div>
+            </section>
+        </body>
 
-        <?= $this->render('_head', ['csrf' => $csrf]) ?>
-
-        <?php $this->beginBody() ?>
-
-            <body>
-                <?= Html::beginTag('section', $applicationParameters->getHeroOptions()) ?>
-
-                    <?= Html::beginTag('div', $applicationParameters->getHeroHeadOptions()) ?>
-                        <?= $this->render('_menu') ?>
-                    <?= Html::endTag('div') ?>
-
-                    <?= Html::beginTag('div', $applicationParameters->getHeroBodyOptions()) ?>
-                        <?= Html::beginTag('div', $applicationParameters->getHeroContainerOptions()) ?>
-                            <?= $content ?>
-                        <?= Html::endTag('div') ?>
-                    <?= Html::endTag('div') ?>
-
-                    <?= Html::beginTag('div', $applicationParameters->getHeroFooterOptions()) ?>
-                        <?= $this->render('_footer') ?>
-                    <?= Html::endTag('div') ?>
-
-                <?= Html::endTag('section') ?>
-            </body>
-
-        <?php $this->endBody() ?>
-
-    <?= Html::endTag('html') ?>
-
+    <?php $this->endBody() ?>
+</html>
 <?php $this->endPage() ?>

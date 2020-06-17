@@ -6,17 +6,13 @@ use Yiisoft\Html\Html;
 
 /** @var \App\ApplicationParameters $applicationParameters */
 ?>
-<?= Html::beginTag('div', $applicationParameters->getNavBarOptions()) ?>
-    <?= Html::beginTag('div', $applicationParameters->getNavBarBrandOptions()) ?>
-        <?= Html::tag(
-            'span',
-            Html::img($applicationParameters->getLogo()),
-            $applicationParameters->getNavBarBrandLogoOptions()
-        ) ?>
-        <?=  Html::a(
-            $applicationParameters->getName(),
-            $applicationParameters->getBrandUrl(),
-            $applicationParameters->getNavBarBrandTitleOptions()
-        ) ?>
-    <?= Html::endTag('div') ?>
-<?= Html::endTag('div') ?>
+<div class="navbar">
+    <div class="navbar-brand">
+        <span class="navbar-item">
+            <img src="/images/yii-logo.jpg" alt="<?= Html::encode($applicationParameters->getName()) ?>">
+        </span>
+        <a href="/" class="navbar-item has-text-light">
+            <?= Html::encode($applicationParameters->getName()) ?>
+        </a>
+    </div>
+</div>
