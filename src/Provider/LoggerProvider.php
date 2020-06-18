@@ -17,7 +17,7 @@ final class LoggerProvider extends ServiceProvider
     {
         $container->set(
             LoggerInterface::class,
-            fn (ContainerInterface $container) => new Logger(['file' => $container->get(FileTarget::class)])
+            static fn (ContainerInterface $container) => new Logger(['file' => $container->get(FileTarget::class)])
         );
     }
 }
