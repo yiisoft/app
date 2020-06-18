@@ -24,11 +24,12 @@ final class CacheProvider extends ServiceProvider
 
     public function register(Container $container): void
     {
-        $container->set(CacheInterface::class, function (ContainerInterface $container) {
-            $aliases = $container->get(Aliases::class);
-
-            return new FileCache($aliases->get($this->cachePath));
-        });
+        $container->set(
+            CacheInterface::class,
+            fn (ContainerInterface $container) => new FileCache(
+                $container->get(Aliases::class)->get($this->cachePath)
+            )
+        );
 
         $container->set(YiiCacheInterface::class, Cache::class);
     }
