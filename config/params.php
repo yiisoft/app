@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+use App\ApplicationParameters;
 use Psr\Log\LogLevel;
+use Yiisoft\Assets\AssetManager;
+use Yiisoft\Router\UrlGeneratorInterface;
 
 return [
     'aliases' => [
@@ -43,8 +46,9 @@ return [
 
     'yiisoft/view' => [
         'defaultParameters' => [
-            'applicationParameters' => 'App\ApplicationParameters',
-            'assetManager' => 'Yiisoft\Assets\AssetManager',
+            'applicationParameters' => ApplicationParameters::class,
+            'assetManager' => AssetManager::class,
+            'url' => UrlGeneratorInterface::class,
         ],
     ],
 
