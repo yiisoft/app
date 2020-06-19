@@ -32,7 +32,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md).
 You can then install this project template using the following command:
 
 ```
-composer create-project --prefer-dist --stability dev yiisoft/app <your project>
+composer create-project --prefer-dist --stability=dev yiisoft/app <your project>
 ```
 
 In order to launch development web server run:
