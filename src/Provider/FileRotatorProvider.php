@@ -30,9 +30,9 @@ final class FileRotatorProvider extends ServiceProvider
 
     public function register(Container $container): void
     {
-        $container->set(FileRotatorInterface::class, function () {
-
-            return new FileRotator($this->maxFileSize, $this->maxFiles, $this->fileMode, $this->rotateByCopy);
-        });
+        $container->set(
+            FileRotatorInterface::class,
+            fn () => new FileRotator($this->maxFileSize, $this->maxFiles, $this->fileMode, $this->rotateByCopy)
+        );
     }
 }

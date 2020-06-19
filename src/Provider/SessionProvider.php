@@ -25,9 +25,9 @@ final class SessionProvider extends ServiceProvider
 
     public function register(Container $container): void
     {
-        $container->set(SessionInterface::class, function () {
-
-            return new Session($this->sessionOptions, $this->sessionHandler);
-        });
+        $container->set(
+            SessionInterface::class,
+            fn () => new Session($this->sessionOptions, $this->sessionHandler)
+        );
     }
 }

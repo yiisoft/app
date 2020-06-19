@@ -151,6 +151,19 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 ],
 ```
 
+#### View
+
+```php
+'yiisoft/view' => [
+    // Custom parameters that are shared among view templates.
+    'defaultParameters' => [
+        'applicationParameters' => 'App\ApplicationParameters',
+        'assetManager' => 'Yiisoft\Assets\AssetManager',
+    ],
+],
+
+```
+
 #### Yii Debug
 
 ```php

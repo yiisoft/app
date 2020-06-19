@@ -41,6 +41,13 @@ return [
         ],
     ],
 
+    'yiisoft/view' => [
+        'defaultParameters' => [
+            'applicationParameters' => 'App\ApplicationParameters',
+            'assetManager' => 'Yiisoft\Assets\AssetManager',
+        ],
+    ],
+
     'yiisoft/yii-web' => [
         'session' => [
             'options' => ['cookie_secure' => 0],
