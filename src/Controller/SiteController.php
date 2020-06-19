@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Yiisoft\Yii\Web\Middleware\Csrf;
 
 class SiteController extends AbstractController
 {
@@ -19,7 +20,7 @@ class SiteController extends AbstractController
         return $this->render(
             'index',
             [
-                'csrf' => $request->getAttribute('csrf_token')
+                'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
             ]
         );
     }
