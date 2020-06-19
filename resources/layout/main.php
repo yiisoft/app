@@ -9,9 +9,11 @@ use Yiisoft\Html\Html;
  * @var Yiisoft\View\WebView $this
  * @var \Yiisoft\Assets\AssetManager $assetManager
  * @var \App\ApplicationParameters $applicationParameters
- * @var string $csrf
+ * @var string|null $csrf
  * @var string $content
  */
+
+$csrf = $csrf ?? null;
 
 $assetManager->register([
     AppAsset::class,
