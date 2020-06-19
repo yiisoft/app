@@ -9,17 +9,11 @@ use App\Provider\EventDispatcherProvider;
 use App\Provider\FileRotatorProvider;
 use App\Provider\FileTargetProvider;
 use App\Provider\LoggerProvider;
-use App\Provider\MiddlewareProvider;
-use App\Provider\Psr17Provider;
 use App\Provider\RouterProvider;
-use App\Provider\SessionProvider;
-use App\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
 return [
     'yiisoft/router-fastroute/router' => RouterProvider::class,
-    'yiisoft/yii-web/psr17' => Psr17Provider::class,
-    'yiisoft/yii-web/middleware' => MiddlewareProvider::class,
     'yiisoft/cache/cache' =>  [
         '__class' => CacheProvider::class,
         '__construct()' => [
@@ -44,19 +38,6 @@ return [
         ],
     ],
     'yiisoft/log/logger' =>  LoggerProvider::class,
-    'yiisoft/yii-web/session' => [
-        '__class' => SessionProvider::class,
-        '__construct()' => [
-            $params['yiisoft/yii-web']['session']['options'],
-            $params['yiisoft/yii-web']['session']['handler']
-        ],
-    ],
-    'yiisoft/view/webview' => [
-        '__class' => WebViewProvider::class,
-        '__construct()' => [
-            $params['yiisoft/view']['defaultParameters'],
-        ],
-    ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge()
 ];
