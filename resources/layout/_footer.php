@@ -1,7 +1,7 @@
 <div class="columns is-mobile">
     <div class="column has-text-left has-text-light">
-        <i class="fas fa-copyright fa-inverse"></i>
-        <a href="https://www.yiiframework.com/" target="_blank">
+        <i class="fas fa-copyright fa-inverse is-hidden-mobile"></i>
+        <a class="is-hidden-mobile" href="https://www.yiiframework.com/" target="_blank">
             Yii Framework - <?php echo date('Y') ?>
         </a>
     </div>
@@ -15,9 +15,9 @@
                 <i class="fab fa-github fa-inverse" aria-hidden="true"></i>
             </a>
         </span>
-        <span class="icon">
+        <span class="icon is-hidden-mobile">
             <a href="https://join.slack.com/t/yii/shared_invite/enQtMzQ4MDExMDcyNTk2LTc0NDQ2ZTZhNjkzZDgwYjE4YjZlNGQxZjFmZDBjZTU3NjViMDE4ZTMxNDRkZjVlNmM1ZTA1ODVmZGUwY2U3NDA" target="_blank">
-                <i class="fab fa-slack fa-inverse" aria-hidden="true"></i>
+                <i class="fab fa-slack fa-inverse " aria-hidden="true"></i>
             </a>
         </span>
         <span class="icon">
