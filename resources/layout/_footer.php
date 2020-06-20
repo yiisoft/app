@@ -2,7 +2,7 @@
     <div class="column has-text-left has-text-light">
         <i class="fas fa-copyright fa-inverse"></i>
         <a href="https://www.yiiframework.com/" target="_blank">
-            Yii Framework - 2020.
+            Yii Framework - <?php echo date('Y') ?>
         </a>
     </div>
 
