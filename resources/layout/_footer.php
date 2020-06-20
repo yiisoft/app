@@ -2,7 +2,10 @@
     <div class="column has-text-left has-text-light">
         <i class="fas fa-copyright fa-inverse is-hidden-mobile"></i>
         <a class="is-hidden-mobile" href="https://www.yiiframework.com/" target="_blank">
-            Yii Framework - <?php echo date('Y') ?>
+            YiiFramework - <?php echo date('Y') ?>
+        </a>
+        <a class="is-hidden-desktop" href="https://www.yiiframework.com/" target="_blank">
+            YiiFramework
         </a>
     </div>
 
