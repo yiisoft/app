@@ -18,7 +18,7 @@ $csrf = $csrf ?? null;
 
 $assetManager->register([
     AppAsset::class,
-    CdnFontAwesomeAsset::class
+    CdnFontAwesomeAsset::class,
 ]);
 
 $this->setCssFiles($assetManager->getCssFiles());
