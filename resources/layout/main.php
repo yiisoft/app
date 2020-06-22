@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Asset\AppAsset;
+use App\Asset\CdnFontAwesomeAsset;
 use Yiisoft\Html\Html;
 
 /**
@@ -17,6 +18,7 @@ $csrf = $csrf ?? null;
 
 $assetManager->register([
     AppAsset::class,
+    CdnFontAwesomeAsset::class,
 ]);
 
 $this->setCssFiles($assetManager->getCssFiles());
