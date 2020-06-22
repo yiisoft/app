@@ -18,14 +18,16 @@ class BulmaAsset extends AssetBundle
     ];
 
     public array $js = [
-        '@vizuaalog/bulmajs/dist/bulma.js'
+        '@vizuaalog/bulmajs/dist/file.js',
+        '@vizuaalog/bulmajs/dist/navbar.js',
     ];
 
     public array $publishOptions = [
         'only' => [
             'bulma/css/bulma.css',
             'bulma-helpers/css/bulma-helpers.css',
-            '@vizuaalog/bulmajs/dist/bulma.js'
+            '@vizuaalog/bulmajs/dist/file.js',
+            '@vizuaalog/bulmajs/dist/navbar.js',
         ],
     ];
 }

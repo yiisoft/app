@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
-use App\Tests\AcceptanceTester;
+use App\Tests\FunctionalTester;
 
-class IndexFunctionalCest
+final class IndexFunctionalCest
 {
     public function _before(FunctionalTester $I)
     {

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Asset\AppAsset;
+use App\Widget\MessageFlash;
 use App\Asset\CdnFontAwesomeAsset;
 use Yiisoft\Html\Html;
 
@@ -34,6 +35,7 @@ $this->setJsFiles($assetManager->getJsFiles());
                 <div class="hero-head has-background-black">
                     <?= $this->render('_menu') ?>
                 </div>
+                <?= MessageFlash::widget() ?>
                 <div class="hero-body is-light">
                     <div class="container has-text-centered">
                         <?= $content ?>
