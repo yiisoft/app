@@ -10,11 +10,6 @@ use Yiisoft\Yii\Web\Middleware\Csrf;
 
 class SiteController extends AbstractController
 {
-    protected function name(): string
-    {
-        return 'site';
-    }
-
     public function index(ServerRequestInterface $request): ResponseInterface
     {
         return $this->render(

@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Yiisoft\Aliases\Aliases;
+use Yiisoft\Strings\Inflector;
 use Yiisoft\View\ViewContextInterface;
 use Yiisoft\View\WebView;
 use Yiisoft\Yii\Web\Data\DataResponseFactoryInterface;
@@ -15,6 +16,7 @@ use function pathinfo;
 
 abstract class AbstractController implements ViewContextInterface
 {
+    protected static ?string $controllerName = null;
     private string $layout;
     private WebView $view;
     protected Aliases $aliases;
@@ -61,7 +63,7 @@ abstract class AbstractController implements ViewContextInterface
 
     public function getViewPath(): string
     {
-        return $this->aliases->get('@views') . '/' . $this->name();
+        return $this->aliases->get('@views') . '/' . self::getName();
     }
 
     private function findLayoutFile(string $file): string
@@ -74,7 +76,21 @@ abstract class AbstractController implements ViewContextInterface
     }
 
     /**
-     * Returns the name of the controller.
+     * Returns the controller name. Name should be converted to "id" case.
+     *
+     * @return string
+     * @example If class named MySiteController method will return my-site
+     * @see Inflector::camel2id()
      */
-    abstract protected function name(): string;
+    protected static function getName(): string
+    {
+        if (static::$controllerName !== null) {
+            return static::$controllerName;
+        }
+
+        $name = preg_replace('/(?:.*\\\)([a-z]+)(controller)/iu', '$1', static::class);
+        $inflector = new Inflector();
+
+        return $inflector->camel2id($name);
+    }
 }
