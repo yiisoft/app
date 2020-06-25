@@ -65,9 +65,9 @@ class SiteController extends AbstractController
             $attachFiles = $request->getUploadedFiles();
 
             foreach ($attachFiles as $attachFile) {
-                foreach ($attachFile as $key => $file) {
+                foreach ($attachFile as $file) {
                     if ($file->getError() === UPLOAD_ERR_OK) {
-                        $message->addFile($attachFile[$key]);
+                        $message->addFile($file);
                     }
                 }
             }
