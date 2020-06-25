@@ -5,13 +5,17 @@ declare(strict_types=1);
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
 
+/* @var App\Form\ContactForm $form */
+/* @var Yiisoft\Router\UrlGeneratorInterface $url */
+/* @var string|null $csrf */
+
 ?>
 
-<?= Html::beginTag('div', ['class' => 'column is-4 is-offset-4']) ?>
+<div class="column is-4 is-offset-4">
 
-    <?= Html::beginTag('p', ['class' => 'subtitle has-text-black']) ?>
+    <p class="subtitle has-text-black">
         Please fill out the following to Contact.
-    <?= Html::endTag('p') ?>
+    </p>
 
     <?= Form::begin()
         ->action($url->generate('site/contact'))
@@ -24,12 +28,13 @@ use Yiisoft\Html\Html;
         )
         ->start() ?>
 
-        <?= $field->config($form, 'username', ['class' => 'field']) ?>
-        <?= $field->config($form, 'email', ['class' => 'field']) ?>
-        <?= $field->config($form, 'subject', ['class' => 'field']) ?>
-        <?= $field->config($form, 'body', ['class' => 'field'])
+        <?= $field->config($form, 'username') ?>
+        <?= $field->config($form, 'email') ?>
+        <?= $field->config($form, 'subject') ?>
+        <?= $field->config($form, 'body')
             ->textArea(['class' => 'form-control textarea', 'rows' => 2]) ?>
         <?= $field->config($form, 'attachFiles')
+            ->inputCssClass('file-input')
             ->template(
                 '<div class="file is-small is-link has-name">
                     <label class="file-label">
@@ -42,9 +47,9 @@ use Yiisoft\Html\Html;
                     </label>
                 </div>'
             )
-            ->input(
-                '',
-                ['class' => 'file-input', 'type' => 'file', 'multiple' => 'multiple', 'name' => 'attachFiles[]']
+            ->fileInput(
+                ['type' => 'file', 'multiple' => 'multiple', 'name' => 'attachFiles[]'],
+                true,
             ) ?>
 
         <?= Html::submitButton(
@@ -56,8 +61,6 @@ use Yiisoft\Html\Html;
             ]
         ) ?>
 
-        <?= Form::end() ?>
+    <?= Form::end() ?>
 
-    <?= Html::endTag('div') ?>
-
-<?php echo Html::endTag('div');
+</div>
