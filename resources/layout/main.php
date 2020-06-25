@@ -8,14 +8,12 @@ use App\Asset\CdnFontAwesomeAsset;
 use Yiisoft\Html\Html;
 
 /**
+ * @var App\ApplicationParameters $applicationParameters
+ * @var Yiisoft\Assets\AssetManager $assetManager
  * @var Yiisoft\View\WebView $this
- * @var \Yiisoft\Assets\AssetManager $assetManager
- * @var \App\ApplicationParameters $applicationParameters
  * @var string|null $csrf
  * @var string $content
  */
-
-$csrf = $csrf ?? null;
 
 $assetManager->register([
     AppAsset::class,

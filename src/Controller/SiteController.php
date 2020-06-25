@@ -25,14 +25,20 @@ class SiteController extends AbstractController
     public function index(ServerRequestInterface $request): ResponseInterface
     {
         return $this->render(
-            'index'
+            'index',
+            [
+                'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
+            ]
         );
     }
 
     public function about(ServerRequestInterface $request): ResponseInterface
     {
         return $this->render(
-            'about'
+            'about',
+            [
+                'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
+            ]
         );
     }
 
