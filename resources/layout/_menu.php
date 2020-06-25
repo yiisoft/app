@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 use Yiisoft\Html\Html;
 
-/** @var \App\ApplicationParameters $applicationParameters */
+/* @var App\ApplicationParameters $applicationParameters */
+/* @var Yiisoft\Router\UrlGeneratorInterface $url */
+/* @var Yiisoft\Router\UrlMatcherInterface $urlMatcher */
 
 $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
 ?>
@@ -22,12 +24,12 @@ $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
         </div>
         <div id="w0-navbar-Menu" class="navbar-menu">
             <div class="navbar-end">
-                <li class="navbar-item">
+                <div class="navbar-item">
                     <a class=<?= $currentUrl === '/about' ? '"navbar-item is-active"' : '""' ?> href="/about">About</a>
-                </li>
-                <li class="navbar-item">
+                </div>
+                <div class="navbar-item">
                     <a class=<?= $currentUrl === '/contact' ? '"navbar-item is-active"' : '""' ?> href="/contact">Contact</a>
-                </li>
+                </div>
             </div>
         </div>
     </div>
