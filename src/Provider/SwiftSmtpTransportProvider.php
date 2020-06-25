@@ -15,13 +15,8 @@ final class SwiftSmtpTransportProvider extends ServiceProvider
     private string $username;
     private string $password;
 
-    public function __construct(
-        string $host = 'smtp.example.com',
-        int $port = 25,
-        ?string $encryption = null,
-        string $username = '',
-        string $password = ''
-    ) {
+    public function __construct(string $host, int $port, ?string $encryption, string $username, string $password)
+    {
         $this->host = $host;
         $this->port = $port;
         $this->encryption = $encryption;
