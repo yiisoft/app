@@ -18,9 +18,11 @@ $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
                 <img src="/images/yii-logo.jpg" alt=<?= Html::encode($applicationParameters->getName()) ?>>
             </span>
             <a class="navbar-item" href="/"><?= Html::encode($applicationParameters->getName()) ?></a>
-            <span class="navbar-burger burger" data-target="navbarMenu">
-                <span></span><span></span><span></span>
-            </span>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
         <div id="w0-navbar-Menu" class="navbar-menu">
             <div class="navbar-end">
