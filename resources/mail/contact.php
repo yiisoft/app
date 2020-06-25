@@ -8,8 +8,6 @@ use Yiisoft\Html\Html;
 /* @var string $content */
 ?>
 
-<p>
-    <?= Html::encode($content) ?>
-</p>
+<?= Html::encode($content) ?>
 
 <p><?= Html::encode($name) ?></p>
