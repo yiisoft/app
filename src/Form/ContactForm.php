@@ -22,7 +22,7 @@ final class ContactForm extends FormModel
             'username' => 'Username',
             'email' => 'Email',
             'subject' => 'Subject',
-            'body' => "Body",
+            'body' => 'Body',
         ];
     }
 
