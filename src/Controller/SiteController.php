@@ -9,6 +9,7 @@ use App\Form\ContactForm;
 use App\Service\Mailer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Yiisoft\Http\Header;
 use Yiisoft\Http\Method;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Yii\Web\Flash;
@@ -79,7 +80,7 @@ class SiteController extends AbstractController
             return $this->responseFactory
                 ->createResponse(302)
                 ->withHeader(
-                    'Location',
+                    Header::LOCATION,
                     $url->generate('site/index')
                 );
         }
