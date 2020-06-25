@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use Psr\Container\ContainerInterface;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;
 
@@ -20,7 +19,7 @@ final class SwiftSmtpTransportProvider extends ServiceProvider
         string $host = 'smtp.example.com',
         int $port = 25,
         ?string $encryption = null,
-        string $username = 'admin@example.com',
+        string $username = '',
         string $password = ''
     ) {
         $this->host = $host;
