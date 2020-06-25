@@ -13,6 +13,7 @@ final class Message
     private string $subject;
     private string $content;
     private array $files = [];
+    private string $to;
 
     public function __construct(string $name, string $email, string $subject, string $content, string $to)
     {
