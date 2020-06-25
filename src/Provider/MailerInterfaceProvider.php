@@ -21,7 +21,7 @@ use Yiisoft\Mailer\SwiftMailer\Mailer;
 use Yiisoft\Mailer\SwiftMailer\Message;
 use Yiisoft\View\WebView;
 
-final class MailerProvider extends ServiceProvider
+final class MailerInterfaceProvider extends ServiceProvider
 {
     private string $composerPath;
     private bool $writeToFiles;

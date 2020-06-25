@@ -29,9 +29,9 @@ return [
 
     'yiisoft/form' => [
         'fieldConfig' => [
-            'inputCssClass()' => ['form-control input'],
+            'inputCssClass()' => ['form-control input field'],
             'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']]
+            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
         ],
     ],
 
@@ -55,9 +55,12 @@ return [
     ],
 
     'yiisoft/mailer' => [
-        'composerPath' => '@resources/mail',
-        'writeToFiles' => true,
-        'writeToFilesPath' => '@runtime/mail',
+        'emailTo' => 'admin@example.com',
+        'mailerInterface' => [
+            'composerPath' => '@resources/mail',
+            'writeToFiles' => true,
+            'writeToFilesPath' => '@runtime/mail',
+        ],
         'swiftSmtpTransport' => [
             'host' => 'smtp.example.com',
             'port' => 25,
@@ -91,7 +94,6 @@ return [
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'name' => 'My Project',
-        'email' => 'support@example.com'
+        'name' => 'My Project'
     ],
 ];

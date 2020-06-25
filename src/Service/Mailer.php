@@ -2,17 +2,31 @@
 
 declare(strict_types=1);
 
-namespace App\Helper;
+namespace App\Service;
 
+use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Mailer\MailerInterface;
 
 final class Mailer
 {
     private MailerInterface $mailer;
+    private string $emailTo;
 
-    public function __construct(MailerInterface $mailer)
+    public function __construct(string $emailTo, MailerInterface $mailer)
     {
+        $this->emailTo = $emailTo;
         $this->mailer = $mailer;
+    }
+
+    public function message(FormModelInterface $form): Message
+    {
+        return new Message(
+            $form->getAttributeValue('username'),
+            $form->getAttributeValue('email'),
+            $form->getAttributeValue('subject'),
+            $form->getAttributeValue('body'),
+            $this->emailTo,
+        );
     }
 
     public function send(Message $contactMessage)

@@ -6,8 +6,7 @@ namespace App\Controller;
 
 use App\ApplicationParameters;
 use App\Form\ContactForm;
-use App\Helper\Mailer;
-use App\Helper\Message;
+use App\Service\Mailer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\Http\Method;
@@ -54,13 +53,7 @@ class SiteController extends AbstractController
         $method = $request->getMethod();
 
         if (($method === Method::POST) && $form->load($body) && $form->validate()) {
-            $message = new Message(
-                $form->getAttributeValue('username'),
-                $form->getAttributeValue('email'),
-                $form->getAttributeValue('subject'),
-                $form->getAttributeValue('body'),
-                $app->getEmail(),
-            );
+            $message = $mailer->message($form);
 
             $attachFiles = $request->getUploadedFiles();
 

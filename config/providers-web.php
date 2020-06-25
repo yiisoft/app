@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 use App\Provider\FieldProvider;
 use App\Provider\FlashProvider;
-use App\Provider\MailerProvider;
+use App\Provider\MailerInterfaceProvider;
 use App\Provider\MiddlewareProvider;
 use App\Provider\Psr17Provider;
 use App\Provider\SessionProvider;
@@ -43,12 +43,12 @@ return [
             $params['yiisoft/mailer']['swiftSmtpTransport']['password']
         ],
     ],
-    'yiisoft/mailer/mailer' => [
-        '__class' => MailerProvider::class,
+    'yiisoft/mailer/mailerinterface' => [
+        '__class' => MailerInterfaceProvider::class,
         '__construct()' => [
-            $params['yiisoft/mailer']['composerPath'],
-            $params['yiisoft/mailer']['writeToFiles'],
-            $params['yiisoft/mailer']['writeToFilesPath'],
+            $params['yiisoft/mailer']['mailerInterface']['composerPath'],
+            $params['yiisoft/mailer']['mailerInterface']['writeToFiles'],
+            $params['yiisoft/mailer']['mailerInterface']['writeToFilesPath'],
         ],
     ],
     'yiisoft/view/webview' => [
