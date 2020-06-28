@@ -7,7 +7,7 @@
 }
 
 .navbar-item.is-active {
-    color: white !important;
+    color: #3273dc !important;
 }
 
 .input::-moz-placeholder, .textarea::-moz-placeholder, .select select::-moz-placeholder {

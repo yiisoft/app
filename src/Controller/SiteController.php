@@ -20,7 +20,7 @@ class SiteController extends AbstractController
     public function index(ServerRequestInterface $request): ResponseInterface
     {
         return $this->render(
-            'index',
+            'site/index',
             [
                 'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
             ]
@@ -30,7 +30,7 @@ class SiteController extends AbstractController
     public function about(ServerRequestInterface $request): ResponseInterface
     {
         return $this->render(
-            'about',
+            'site/about',
             [
                 'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
             ]
@@ -64,7 +64,7 @@ class SiteController extends AbstractController
             $mailer->send($message);
 
             $flash->add(
-                'info',
+                'is-success',
                 [
                     'header' => 'System mailer notification.',
                     'body' =>  'Thanks to contact us, we\'ll get in touch with you as soon as possible.'
@@ -81,11 +81,16 @@ class SiteController extends AbstractController
         }
 
         return $this->render(
-            'contact',
+            'site/contact',
             [
                 'csrf' => $request->getAttribute(Csrf::REQUEST_NAME),
                 'form' => $form
             ]
         );
+    }
+
+    public function getViewPath(): string
+    {
+        return $this->aliases->get('@views');
     }
 }

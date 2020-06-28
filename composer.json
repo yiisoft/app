@@ -30,6 +30,7 @@
         "yiisoft/router-fastroute": "@dev",
         "yiisoft/view": "@dev",
         "yiisoft/widget": "@dev",
+        "yiisoft/yii-bulma": "@dev",
         "yiisoft/yii-debug": "@dev",
         "yiisoft/yii-web": "@dev",
         "yiisoft/composer-config-plugin": "^1.0@dev"

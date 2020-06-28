@@ -31,9 +31,10 @@ final class WebViewProvider extends ServiceProvider
     {
         $container->set(WebView::class, function (ContainerInterface $container) {
             $defaultParameters = [];
+            $aliases = $container->get(Aliases::class);
 
             $webView = new WebView(
-                $container->get(Aliases::class)->get('@views'),
+                $aliases->get('@resources/layout'),
                 $container->get(Theme::class),
                 $container->get(EventDispatcherInterface::class),
                 $container->get(LoggerInterface::class)
