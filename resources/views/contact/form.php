@@ -19,7 +19,7 @@ use Yiisoft\Html\Html;
     </p>
 
     <?= Form::begin()
-        ->action($url->generate('site/contact'))
+        ->action($url->generate('contact/form'))
         ->options(
             [
                 'id' => 'form-contact',

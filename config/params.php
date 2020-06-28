@@ -55,7 +55,6 @@ return [
     ],
 
     'yiisoft/mailer' => [
-        'emailTo' => 'admin@example.com',
         'mailerInterface' => [
             'composerPath' => '@resources/mail',
             'writeToFiles' => true,
@@ -95,5 +94,9 @@ return [
         'charset' => 'UTF-8',
         'language' => 'en',
         'name' => 'My Project'
+    ],
+
+    'mailer' => [
+        'adminEmail' => 'admin@example.com',
     ],
 ];

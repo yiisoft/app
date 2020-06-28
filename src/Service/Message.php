@@ -24,7 +24,7 @@ final class Message
         $this->to = $to;
     }
 
-    public function addFile(UploadedFileInterface $file)
+    public function addFile(UploadedFileInterface $file): void
     {
         $this->files[] = $file;
     }
