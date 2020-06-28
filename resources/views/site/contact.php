@@ -8,6 +8,7 @@ use Yiisoft\Html\Html;
 /* @var App\Form\ContactForm $form */
 /* @var Yiisoft\Router\UrlGeneratorInterface $url */
 /* @var string|null $csrf */
+/* @var Yiisoft\Form\Widget\Field $field */
 
 ?>
 

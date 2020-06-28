@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Yiisoft\Html\Html;
 use Yiisoft\Yii\Bulma\Nav;
 use Yiisoft\Yii\Bulma\NavBar;
 
@@ -24,8 +23,8 @@ $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
     <?= Nav::widget()
         ->currentPath($currentUrl)
         ->items([
-            ['label' => 'About', 'url' => '/about'],
-            ['label' => 'Contact', 'url' => '/contact'],
+            ['label' => 'About', 'url' => $url->generate('site/about')],
+            ['label' => 'Contact', 'url' => $url->generate('site/contact')],
         ]) ?>
 
 <?= NavBar::end();

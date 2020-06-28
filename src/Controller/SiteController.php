@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\ApplicationParameters;
 use App\Form\ContactForm;
 use App\Service\Mailer;
 use Psr\Http\Message\ResponseInterface;
@@ -38,7 +37,6 @@ class SiteController extends AbstractController
     }
 
     public function contact(
-        ApplicationParameters $app,
         ContactForm $form,
         Flash $flash,
         Mailer $mailer,

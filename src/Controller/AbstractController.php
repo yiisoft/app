@@ -14,7 +14,7 @@ use function array_merge;
 
 abstract class AbstractController implements ViewContextInterface
 {
-    private WebView $view;
+    private WebView $webView;
     protected Aliases $aliases;
     protected DataResponseFactoryInterface $responseFactory;
 
