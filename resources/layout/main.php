@@ -3,18 +3,17 @@
 declare(strict_types=1);
 
 use App\Asset\AppAsset;
+use App\Widget\FlashMessage;
 use App\Asset\CdnFontAwesomeAsset;
 use Yiisoft\Html\Html;
 
 /**
+ * @var App\ApplicationParameters $applicationParameters
+ * @var Yiisoft\Assets\AssetManager $assetManager
  * @var Yiisoft\View\WebView $this
- * @var \Yiisoft\Assets\AssetManager $assetManager
- * @var \App\ApplicationParameters $applicationParameters
  * @var string|null $csrf
  * @var string $content
  */
-
-$csrf = $csrf ?? null;
 
 $assetManager->register([
     AppAsset::class,
@@ -34,6 +33,7 @@ $this->setJsFiles($assetManager->getJsFiles());
                 <div class="hero-head has-background-black">
                     <?= $this->render('_menu') ?>
                 </div>
+                <?= FlashMessage::widget() ?>
                 <div class="hero-body is-light">
                     <div class="container has-text-centered">
                         <?= $content ?>

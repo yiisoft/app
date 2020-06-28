@@ -6,7 +6,7 @@ namespace App\Tests;
 
 use App\Tests\AcceptanceTester;
 
-class IndexAcceptanceCest
+final class IndexCest
 {
     public function _before(AcceptanceTester $I): void
     {

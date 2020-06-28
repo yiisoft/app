@@ -5,7 +5,9 @@ declare(strict_types=1);
 use App\ApplicationParameters;
 use Psr\Log\LogLevel;
 use Yiisoft\Assets\AssetManager;
+use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
+use Yiisoft\Router\UrlMatcherInterface;
 
 return [
     'aliases' => [
@@ -22,6 +24,14 @@ return [
     'yiisoft/cache-file' => [
         'file-cache' => [
             'path' => '@runtime/cache'
+        ],
+    ],
+
+    'yiisoft/form' => [
+        'fieldConfig' => [
+            'inputCssClass()' => ['form-control input field'],
+            'labelOptions()' => [['label' => '']],
+            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
         ],
     ],
 
@@ -44,11 +54,29 @@ return [
         ],
     ],
 
+    'yiisoft/mailer' => [
+        'emailTo' => 'admin@example.com',
+        'mailerInterface' => [
+            'composerPath' => '@resources/mail',
+            'writeToFiles' => true,
+            'writeToFilesPath' => '@runtime/mail',
+        ],
+        'swiftSmtpTransport' => [
+            'host' => 'smtp.example.com',
+            'port' => 25,
+            'encryption' => null,
+            'username' => 'admin@example.com',
+            'password' => ''
+        ],
+    ],
+
     'yiisoft/view' => [
         'defaultParameters' => [
             'applicationParameters' => ApplicationParameters::class,
             'assetManager' => AssetManager::class,
+            'field' => Field::class,
             'url' => UrlGeneratorInterface::class,
+            'urlMatcher' => UrlMatcherInterface::class,
         ],
     ],
 
@@ -66,6 +94,6 @@ return [
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'name' => 'My Project',
+        'name' => 'My Project'
     ],
 ];

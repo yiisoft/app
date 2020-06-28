@@ -2,7 +2,26 @@
     padding: 1rem 1.5rem 1rem !important;
 }
 
-.navbar-item:hover {
+.hero.is-light a.navbar-item.is-active {
     background-color: transparent !important;
 }
 
+.navbar-item.is-active {
+    color: #3273dc !important;
+}
+
+.input::-moz-placeholder, .textarea::-moz-placeholder, .select select::-moz-placeholder {
+    color: hsl(0, 0%, 40%);
+}
+
+.input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .select select::-webkit-input-placeholder {
+  color: hsl(0, 0%, 40%);
+}
+
+.input:-moz-placeholder, .textarea:-moz-placeholder, .select select:-moz-placeholder {
+  color: hsl(0, 0%, 40%);
+}
+
+.input:-ms-input-placeholder, .textarea:-ms-input-placeholder, .select select:-ms-input-placeholder {
+  color: hsl(0, 0%, 40%);
+}

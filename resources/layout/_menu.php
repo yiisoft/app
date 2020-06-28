@@ -2,17 +2,30 @@
 
 declare(strict_types=1);
 
-use Yiisoft\Html\Html;
+use Yiisoft\Yii\Bulma\Nav;
+use Yiisoft\Yii\Bulma\NavBar;
 
-/** @var \App\ApplicationParameters $applicationParameters */
+/* @var App\ApplicationParameters $applicationParameters */
+/* @var Yiisoft\Router\UrlGeneratorInterface $url */
+/* @var Yiisoft\Router\UrlMatcherInterface $urlMatcher */
+
+$currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
 ?>
-<div class="navbar">
-    <div class="navbar-brand">
-        <span class="navbar-item">
-            <img src="/images/yii-logo.jpg" alt="<?= Html::encode($applicationParameters->getName()) ?>">
-        </span>
-        <a href="/" class="navbar-item has-text-light">
-            <?= Html::encode($applicationParameters->getName()) ?>
-        </a>
-    </div>
-</div>
+
+<?= NavBar::begin()
+    ->brandLabel($applicationParameters->getName())
+    ->brandImage('/images/yii-logo.jpg')
+    ->options(['class' => 'is-black', 'data-sticky' => '', 'data-sticky-shadow' => ''])
+    ->optionsItems(['class' => 'navbar-end'])
+    ->start();
+?>
+
+    <?= Nav::widget()
+        ->currentPath($currentUrl)
+        ->items([
+            ['label' => 'About', 'url' => $url->generate('site/about')],
+            ['label' => 'Contact', 'url' => $url->generate('site/contact')],
+        ]) ?>
+
+<?= NavBar::end();
+
