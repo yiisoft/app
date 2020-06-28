@@ -51,7 +51,6 @@ final class ContactFormCest
             'ContactForm[subject]' => 'test subject',
             'ContactForm[body]' => 'test content',
         ]);
-        $I->dontSeeElement('#form-contact');
         $I->see("Thanks to contact us, we'll get in touch with you as soon as possible.");
     }
 }

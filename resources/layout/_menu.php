@@ -24,7 +24,7 @@ $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
         ->currentPath($currentUrl)
         ->items([
             ['label' => 'About', 'url' => $url->generate('site/about')],
-            ['label' => 'Contact', 'url' => $url->generate('site/contact')],
+            ['label' => 'Contact', 'url' => $url->generate('contact/form')],
         ]) ?>
 
 <?= NavBar::end();
