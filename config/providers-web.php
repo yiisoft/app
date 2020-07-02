@@ -12,6 +12,7 @@ use App\Provider\Psr17Provider;
 use App\Provider\SessionProvider;
 use App\Provider\SwiftTransportProvider;
 use App\Provider\SwiftSmtpTransportProvider;
+use App\Provider\ThemeProvider;
 use App\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
@@ -49,6 +50,14 @@ return [
             $params['yiisoft/mailer']['mailerInterface']['composerPath'],
             $params['yiisoft/mailer']['mailerInterface']['writeToFiles'],
             $params['yiisoft/mailer']['mailerInterface']['writeToFilesPath'],
+        ],
+    ],
+    'yiisoft/view/theme' => [
+        '__class' => ThemeProvider::class,
+        '__construct()' => [
+            $params['yiisoft/view']['theme']['pathMap'],
+            $params['yiisoft/view']['theme']['basePath'],
+            $params['yiisoft/view']['theme']['baseUrl'],
         ],
     ],
     'yiisoft/view/webview' => [
