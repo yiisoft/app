@@ -160,6 +160,13 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
         'applicationParameters' => 'App\ApplicationParameters',
         'assetManager' => 'Yiisoft\Assets\AssetManager',
     ],
+    'theme' => [
+        // Apply pathMap example: ['@resources/layout' => '@resources/theme'] in yiisoft/app
+        // Apply pathMap example: ['@resources/layout' => '@modulealiases/theme'] in module
+        'pathMap' => [],
+        'basePath' => '',
+        'baseUrl' => null,
+    ],    
 ],
 
 ```
