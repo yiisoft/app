@@ -80,7 +80,7 @@ return [
         'theme' => [
             'pathMap' => [],
             'basePath' => '',
-            'baseUrl' => null,
+            'baseUrl' => '',
         ]
     ],
 

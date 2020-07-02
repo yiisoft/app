@@ -12,10 +12,10 @@ use Yiisoft\View\Theme;
 final class ThemeProvider extends ServiceProvider
 {
     private array $pathMap;
-    private ?string $basePath;
-    private ?string $baseUrl;
+    private string $basePath;
+    private string $baseUrl;
 
-    public function __construct(array $pathMap = [], ?string $basePath = null, ?string $baseUrl = null)
+    public function __construct(array $pathMap = [], string $basePath = '', string $baseUrl = '')
     {
         $this->pathMap = $pathMap;
         $this->basePath = $basePath;
