@@ -77,6 +77,11 @@ return [
             'url' => UrlGeneratorInterface::class,
             'urlMatcher' => UrlMatcherInterface::class,
         ],
+        'theme' => [
+            'pathMap' => [],
+            'basePath' => '',
+            'baseUrl' => '',
+        ]
     ],
 
     'yiisoft/yii-web' => [
