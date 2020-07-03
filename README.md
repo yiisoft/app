@@ -165,7 +165,7 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
         // Apply pathMap example: ['@resources/layout' => '@modulealiases/theme'] in module
         'pathMap' => [],
         'basePath' => '',
-        'baseUrl' => null,
+        'baseUrl' => '',
     ],    
 ],
 
