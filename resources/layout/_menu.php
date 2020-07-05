@@ -16,7 +16,7 @@ $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
     ->brandLabel($applicationParameters->getName())
     ->brandImage('/images/yii-logo.jpg')
     ->options(['class' => 'is-black', 'data-sticky' => '', 'data-sticky-shadow' => ''])
-    ->optionsItems(['class' => 'navbar-end'])
+    ->itemsOptions(['class' => 'navbar-end'])
     ->start();
 ?>
 
