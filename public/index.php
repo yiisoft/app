@@ -11,8 +11,8 @@ use Yiisoft\Yii\Web\Config\EventConfigurator;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
-$autoload = dirname(__dir__) . '/vendor/autoload.php';
-$c3 = dirname(__dir__) . '/c3.php';
+$autoload = dirname(__DIR__) . '/vendor/autoload.php';
+$c3 = dirname(__DIR__) . '/c3.php';
 
 if (is_file($c3)) {
     require_once $c3;
