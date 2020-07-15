@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\View\ViewContextInterface;
 use Yiisoft\View\WebView;
-use Yiisoft\Yii\Web\Data\DataResponseFactoryInterface;
+use Yiisoft\DataResponse\DataResponseFactoryInterface;
 
 use function array_merge;
 
