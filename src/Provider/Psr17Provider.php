@@ -13,10 +13,10 @@ use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UploadedFileFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
-use Yiisoft\Yii\Web\Data\DataResponseFactory;
-use Yiisoft\Yii\Web\Data\DataResponseFactoryInterface;
-use Yiisoft\Yii\Web\Data\DataResponseFormatterInterface;
-use Yiisoft\Yii\Web\Data\Formatter\HtmlDataResponseFormatter;
+use Yiisoft\DataResponse\DataResponseFactory;
+use Yiisoft\DataResponse\DataResponseFactoryInterface;
+use Yiisoft\DataResponse\DataResponseFormatterInterface;
+use Yiisoft\DataResponse\Formatter\HtmlDataResponseFormatter;
 
 final class Psr17Provider extends ServiceProvider
 {
