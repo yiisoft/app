@@ -20,6 +20,8 @@ $assetManager->register([
     CdnFontAwesomeAsset::class,
 ]);
 
+$this->registerCsrfMetaTags();
+
 $this->setCssFiles($assetManager->getCssFiles());
 $this->setJsFiles($assetManager->getJsFiles());
 ?>

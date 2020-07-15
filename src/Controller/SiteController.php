@@ -5,29 +5,17 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Yiisoft\Yii\Web\Middleware\Csrf;
 
 class SiteController extends AbstractController
 {
-    public function index(ServerRequestInterface $request): ResponseInterface
+    public function index(): ResponseInterface
     {
-        return $this->render(
-            'site/index',
-            [
-                'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
-            ]
-        );
+        return $this->render('site/index');
     }
 
-    public function about(ServerRequestInterface $request): ResponseInterface
+    public function about(): ResponseInterface
     {
-        return $this->render(
-            'site/about',
-            [
-                'csrf' => $request->getAttribute(Csrf::REQUEST_NAME)
-            ]
-        );
+        return $this->render('site/about');
     }
 
     public function getViewPath(): string

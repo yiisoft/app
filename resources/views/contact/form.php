@@ -23,7 +23,7 @@ use Yiisoft\Html\Html;
         ->options(
             [
                 'id' => 'form-contact',
-                'csrf' => $csrf,
+                'csrf' => $this->csrf(),
                 'enctype' => 'multipart/form-data',
             ]
         )
