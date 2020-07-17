@@ -15,7 +15,7 @@ use Yiisoft\Router\RouteCollection;
 use Yiisoft\Router\RouteCollectorInterface;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
-use Yiisoft\Yii\Web\Data\Middleware\FormatDataResponse;
+use Yiisoft\DataResponse\Middleware\FormatDataResponse;
 
 final class RouterProvider extends ServiceProvider
 {

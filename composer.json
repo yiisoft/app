@@ -20,6 +20,7 @@
         "yiisoft/cache": "@dev",
         "yiisoft/cache-file": "@dev",
         "yiisoft/di": "@dev",
+        "yiisoft/data-response": "@dev",
         "yiisoft/yii-event": "@dev",
         "yiisoft/form": "@dev",
         "yiisoft/log": "@dev",

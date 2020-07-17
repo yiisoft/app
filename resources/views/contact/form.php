@@ -10,6 +10,7 @@ use Yiisoft\Html\Html;
 /* @var string|null $csrf */
 /* @var Yiisoft\Form\Widget\Field $field */
 
+$this->setTitle('contact');
 ?>
 
 <div class="column is-4 is-offset-4">
