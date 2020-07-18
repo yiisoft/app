@@ -98,6 +98,7 @@ return [
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
+        'locale' => 'en-US',
         'name' => 'My Project'
     ],
 

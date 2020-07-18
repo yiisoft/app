@@ -11,6 +11,7 @@ return [
         return (new ApplicationParameters())
             ->charset($params['app']['charset'])
             ->language($params['app']['language'])
+            ->locale($params['app']['locale'])
             ->name($params['app']['name']);
     },
 ];
