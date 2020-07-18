@@ -15,7 +15,6 @@ use App\Provider\SwiftTransportProvider;
 use App\Provider\SwiftSmtpTransportProvider;
 use App\Provider\ThemeProvider;
 use App\Provider\WebViewProvider;
-use App\Provider\ValidatorFactoryProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 
 return [
@@ -68,8 +67,13 @@ return [
             $params['yiisoft/view']['defaultParameters'],
         ],
     ],
-    'yiisoft/i18n-translator/i18n' => I18nProvider::class,
-    'yiisoft/validator/validator' => ValidatorFactoryProvider::class,
+    'yiisoft/i18n-translator/i18n' => [
+        '__class' => I18nProvider::class,
+        '__construct()' => [
+            $params['yiisoft/i18n']['locale'],
+            $params['yiisoft/i18n']['translator']['path'],
+        ]
+    ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge(),
 ];

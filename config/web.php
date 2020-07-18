@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use App\ApplicationParameters;
+use Yiisoft\Validator\ValidatorFactory;
+use Yiisoft\Validator\ValidatorFactoryInterface;
 
 /* @var array $params */
 
@@ -11,7 +13,8 @@ return [
         return (new ApplicationParameters())
             ->charset($params['app']['charset'])
             ->language($params['app']['language'])
-            ->locale($params['app']['locale'])
             ->name($params['app']['name']);
     },
+
+    ValidatorFactoryInterface::class => ValidatorFactory::class,
 ];

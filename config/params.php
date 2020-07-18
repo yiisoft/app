@@ -18,7 +18,8 @@ return [
         '@public' => '@root/public',
         '@resources' => '@root/resources',
         '@runtime' => '@root/runtime',
-        '@views' => '@root/resources/views'
+        '@views' => '@root/resources/views',
+        '@translate' => '@root/resources/translate'
     ],
 
     'yiisoft/cache-file' => [
@@ -33,6 +34,13 @@ return [
             'labelOptions()' => [['label' => '']],
             'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
         ],
+    ],
+
+    'yiisoft/i18n' => [
+        'locale' => 'en-US',
+        'translator' => [
+            'path' => '@translate'
+        ]
     ],
 
     'yiisoft/log-target-file' => [
@@ -84,6 +92,10 @@ return [
         ]
     ],
 
+    'yiisoft/yii-debug' => [
+        'enabled' => true
+    ],
+
     'yiisoft/yii-web' => [
         'session' => [
             'options' => ['cookie_secure' => 0],
@@ -91,14 +103,9 @@ return [
         ],
     ],
 
-    'yiisoft/yii-debug' => [
-        'enabled' => true
-    ],
-
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'locale' => 'en-US',
         'name' => 'My Project'
     ],
 

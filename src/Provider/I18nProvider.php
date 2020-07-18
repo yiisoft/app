@@ -12,10 +12,20 @@ use Psr\EventDispatcher\EventDispatcherInterface;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;
 use Yiisoft\I18n\TranslatorInterface;
+use Yiisoft\I18n\Message\PhpFile;
 use Yiisoft\I18n\Translator\Translator;
 
 final class I18nProvider extends ServiceProvider
 {
+    private string $locale;
+    private string $translatePath;
+
+    public function __construct(string $locale = 'en-US', string $translatePath = '@translate')
+    {
+        $this->locale = $locale;
+        $this->translatePath = $translatePath;
+    }
+
     /**
      * @suppress PhanAccessMethodProtected
      *
@@ -26,15 +36,13 @@ final class I18nProvider extends ServiceProvider
         $container->set(
             TranslatorInterface::class,
             function (ContainerInterface $container) {
-                $app = $container->get(ApplicationParameters::class);
-
                 $translator = new Translator(
                     $container->get(EventDispatcherInterface::class),
-                    new MessageTranslator([]),
+                    new PhpFile($this->translatePath),
                     null
                 );
 
-                $translator->setDefaultLocale($app->getLocale());
+                $translator->setLocale($this->locale);
 
                 return $translator;
             }
