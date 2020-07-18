@@ -9,6 +9,7 @@ use App\Service\MessageTranslator;
 use App\Service\Parameters;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use Yiisoft\Aliases\Aliases;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;
 use Yiisoft\I18n\TranslatorInterface;
@@ -36,9 +37,11 @@ final class I18nProvider extends ServiceProvider
         $container->set(
             TranslatorInterface::class,
             function (ContainerInterface $container) {
+                $aliases = $container->get(Aliases::class);
+
                 $translator = new Translator(
                     $container->get(EventDispatcherInterface::class),
-                    new PhpFile($this->translatePath),
+                    new PhpFile($aliases->get($this->translatePath)),
                     null
                 );
 

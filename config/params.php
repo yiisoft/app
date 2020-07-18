@@ -39,7 +39,7 @@ return [
     'yiisoft/i18n' => [
         'locale' => 'en-US',
         'translator' => [
-            'path' => '@translate'
+            'path' => '@message/en-US.php'
         ]
     ],
 
