@@ -19,7 +19,7 @@ return [
         '@resources' => '@root/resources',
         '@runtime' => '@root/runtime',
         '@views' => '@root/resources/views',
-        '@translate' => '@root/resources/translate'
+        '@message' => '@root/resources/message'
     ],
 
     'yiisoft/cache-file' => [
