@@ -21,7 +21,7 @@ final class I18nProvider extends ServiceProvider
     private string $locale;
     private string $translatePath;
 
-    public function __construct(string $locale = 'en-US', string $translatePath = '@message')
+    public function __construct(string $locale, string $translatePath)
     {
         $this->locale = $locale;
         $this->translatePath = $translatePath;
