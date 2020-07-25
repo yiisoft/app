@@ -23,6 +23,9 @@ final class SessionProvider extends ServiceProvider
         $this->sessionHandler = $sessionHandler;
     }
 
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(

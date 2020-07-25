@@ -22,6 +22,9 @@ final class CacheProvider extends ServiceProvider
         $this->cachePath = $cachePath;
     }
 
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(
