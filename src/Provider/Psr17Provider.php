@@ -20,6 +20,9 @@ use Yiisoft\DataResponse\Formatter\HtmlDataResponseFormatter;
 
 final class Psr17Provider extends ServiceProvider
 {
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(RequestFactoryInterface::class, Psr17Factory::class);

@@ -28,6 +28,9 @@ final class FileRotatorProvider extends ServiceProvider
         $this->rotateByCopy = $rotateByCopy;
     }
 
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(

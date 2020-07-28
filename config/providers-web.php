@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 use App\Provider\FieldProvider;
 use App\Provider\FlashProvider;
+use App\Provider\I18nProvider;
 use App\Provider\MailerInterfaceProvider;
 use App\Provider\MiddlewareProvider;
 use App\Provider\Psr17Provider;
@@ -65,6 +66,13 @@ return [
         '__construct()' => [
             $params['yiisoft/view']['defaultParameters'],
         ],
+    ],
+    'yiisoft/i18n-translator/i18n' => [
+        '__class' => I18nProvider::class,
+        '__construct()' => [
+            $params['yiisoft/i18n']['locale'],
+            $params['yiisoft/i18n']['translator']['path'],
+        ]
     ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge(),

@@ -12,6 +12,9 @@ use Yiisoft\Yii\Web\Session\SessionInterface;
 
 final class FlashProvider extends ServiceProvider
 {
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(
