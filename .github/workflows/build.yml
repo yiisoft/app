@@ -87,6 +87,7 @@ jobs:
 
       - name: Run tests with codeception without coverage on Linux php 8.0
         if: matrix.os == 'ubuntu-latest' && matrix.php-version == '8.0'
+        continue-on-error: true
         run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run

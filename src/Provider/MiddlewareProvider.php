@@ -16,6 +16,9 @@ use Yiisoft\Yii\Web\Session\SessionMiddleware;
 
 final class MiddlewareProvider extends ServiceProvider
 {
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(MiddlewareDispatcher::class, static function (ContainerInterface $container) {

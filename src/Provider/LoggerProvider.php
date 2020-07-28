@@ -13,6 +13,9 @@ use Yiisoft\Log\Target\File\FileTarget;
 
 final class LoggerProvider extends ServiceProvider
 {
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(
