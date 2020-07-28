@@ -17,6 +17,9 @@ final class FieldProvider extends ServiceProvider
         $this->fieldConfig = $fieldConfig;
     }
 
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(Field::class, fn () => Field::widget($this->fieldConfig));
