@@ -31,7 +31,6 @@ $container = new Container(
     require Builder::path('web'),
     require Builder::path('providers-web')
 );
-$container = $container->get(ContainerInterface::class);
 
 $eventConfigurator = $container->get(EventConfigurator::class);
 $eventConfigurator->registerListeners(require Builder::path('events-web', dirname(__DIR__)));
