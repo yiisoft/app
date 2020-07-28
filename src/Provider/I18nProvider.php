@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use App\ApplicationParameters;
-use App\Service\MessageTranslator;
-use App\Service\Parameters;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Yiisoft\Aliases\Aliases;
