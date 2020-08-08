@@ -15,10 +15,13 @@ use Yiisoft\View\WebView;
 
 final class WebViewProvider extends ServiceProvider
 {
+    private string $basePath;
+
     private array $defaultParameters;
 
-    public function __construct(array $defaultParameters = [])
+    public function __construct(string $basePath, array $defaultParameters = [])
     {
+        $this->basePath = $basePath;
         $this->defaultParameters = $defaultParameters;
     }
 
@@ -32,7 +35,7 @@ final class WebViewProvider extends ServiceProvider
             $aliases = $container->get(Aliases::class);
 
             $webView = new WebView(
-                $aliases->get('@resources/layout'),
+                $aliases->get($this->basePath),
                 $container->get(Theme::class),
                 $container->get(EventDispatcherInterface::class),
                 $container->get(LoggerInterface::class)
