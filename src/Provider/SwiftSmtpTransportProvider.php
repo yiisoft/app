@@ -24,6 +24,9 @@ final class SwiftSmtpTransportProvider extends ServiceProvider
         $this->password = $password;
     }
 
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(\Swift_Transport::class, function () {

@@ -9,6 +9,9 @@ use Yiisoft\Di\Support\ServiceProvider;
 
 final class SwiftTransportProvider extends ServiceProvider
 {
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(\Swift_Transport::class, \Swift_SmtpTransport::class);

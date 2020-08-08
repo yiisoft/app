@@ -37,6 +37,9 @@ final class MailerInterfaceProvider extends ServiceProvider
         $this->writeToFilesPath = $writeToFilesPath;
     }
 
+    /**
+     * @suppress PhanAccessMethodProtected
+     */
     public function register(Container $container): void
     {
         $container->set(MailerInterface::class, function (ContainerInterface $container) {
