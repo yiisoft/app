@@ -24,7 +24,7 @@ $this->setTitle('contact');
         ->options(
             [
                 'id' => 'form-contact',
-                'csrf' => $this->csrf(),
+                'csrf' => $csrf,
                 'enctype' => 'multipart/form-data',
             ]
         )

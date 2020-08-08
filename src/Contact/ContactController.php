@@ -3,19 +3,27 @@
 
 namespace App\Contact;
 
-
-use App\Controller\AbstractController;
 use App\Form\ContactForm;
+use App\ViewRenderer;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\Http\Header;
 use Yiisoft\Http\Method;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Yii\Web\Flash;
-use Yiisoft\Yii\Web\Middleware\Csrf;
 
-class ContactController extends AbstractController
+class ContactController
 {
+    private ViewRenderer $viewRenderer;
+    private ResponseFactoryInterface $responseFactory;
+
+    public function __construct(ViewRenderer $viewRenderer, ResponseFactoryInterface $responseFactory)
+    {
+        $this->viewRenderer = $viewRenderer->withControllerName('contact');
+        $this->responseFactory = $responseFactory;
+    }
+
     public function contact(
         ContactForm $form,
         Flash $flash,
@@ -33,7 +41,7 @@ class ContactController extends AbstractController
                 'is-success',
                 [
                     'header' => 'System mailer notification.',
-                    'body' =>  'Thanks to contact us, we\'ll get in touch with you as soon as possible.'
+                    'body' => 'Thanks to contact us, we\'ll get in touch with you as soon as possible.'
                 ],
                 true
             );
@@ -46,17 +54,11 @@ class ContactController extends AbstractController
                 );
         }
 
-        return $this->render(
-            'contact/form',
+        return $this->viewRenderer->withCsrf()->render(
+            'form',
             [
-                'csrf' => $request->getAttribute(Csrf::REQUEST_NAME),
                 'form' => $form
             ]
         );
-    }
-
-    public function getViewPath(): string
-    {
-        return $this->aliases->get('@views');
     }
 }

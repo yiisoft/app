@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\ApplicationParameters;
+use App\ViewRenderer;
 
 /* @var array $params */
 
@@ -13,4 +14,10 @@ return [
             ->language($params['app']['language'])
             ->name($params['app']['name']);
     },
+    ViewRenderer::class => [
+        '__construct()' => [
+            'viewBasePath' => '@views',
+            'layout' => '@resources/layout/main',
+        ],
+    ],
 ];

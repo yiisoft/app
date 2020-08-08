@@ -12,7 +12,7 @@ final class ApplicationParameters
     private string $language = 'en';
     private string $name = 'My Project';
     private string $email = 'support@example.com';
-    private string $csrfParameter = Csrf::REQUEST_NAME;
+    private string $csrfAttribute = Csrf::REQUEST_NAME;
 
     public function getCharset(): string
     {
@@ -34,9 +34,9 @@ final class ApplicationParameters
         return $this->name;
     }
 
-    public function getCsrfParameter()
+    public function getCsrfParameter(): string
     {
-        return $this->csrfParameter;
+        return $this->csrfAttribute;
     }
 
     public function charset(string $value): self
@@ -67,10 +67,10 @@ final class ApplicationParameters
         return $new;
     }
 
-    public function csrfParameter(string $value): self
+    public function csrfAttribute(string $value): self
     {
         $new = clone $this;
-        $new->csrfParameter = $value;
+        $new->csrfAttribute = $value;
         return $new;
     }
 }

@@ -4,22 +4,24 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\ViewRenderer;
 use Psr\Http\Message\ResponseInterface;
 
-class SiteController extends AbstractController
+class SiteController
 {
+    private ViewRenderer $viewRenderer;
+
+    public function __construct(ViewRenderer $viewRenderer)
+    {
+        $this->viewRenderer = $viewRenderer->withControllerName('site');
+    }
     public function index(): ResponseInterface
     {
-        return $this->render('site/index');
+        return $this->viewRenderer->render('index');
     }
 
     public function about(): ResponseInterface
     {
-        return $this->render('site/about');
-    }
-
-    public function getViewPath(): string
-    {
-        return $this->aliases->get('@views');
+        return $this->viewRenderer->render('about');
     }
 }
