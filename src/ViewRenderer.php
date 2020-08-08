@@ -11,14 +11,12 @@ use Yiisoft\Strings\Inflector;
 use Yiisoft\View\ViewContextInterface;
 use Yiisoft\View\WebView;
 use Yiisoft\DataResponse\DataResponseFactoryInterface;
-use Yiisoft\Yii\Web\Middleware\Csrf;
-use Yiisoft\Yii\Web\User\User;
 
 final class ViewRenderer implements ViewContextInterface
 {
     protected ?string $name = null;
     protected DataResponseFactoryInterface $responseFactory;
-    protected User $user;
+    protected ApplicationParameters $applicationParameters;
 
     private UrlMatcherInterface $urlMatcher;
     private Aliases $aliases;
@@ -31,7 +29,7 @@ final class ViewRenderer implements ViewContextInterface
 
     public function __construct(
         DataResponseFactoryInterface $responseFactory,
-        User $user,
+        ApplicationParameters $applicationParameters,
         Aliases $aliases,
         WebView $view,
         UrlMatcherInterface $urlMatcher,
@@ -39,7 +37,7 @@ final class ViewRenderer implements ViewContextInterface
         string $layout
     ) {
         $this->responseFactory = $responseFactory;
-        $this->user = $user;
+        $this->applicationParameters = $applicationParameters;
         $this->aliases = $aliases;
         $this->view = $view;
         $this->urlMatcher = $urlMatcher;
@@ -110,10 +108,10 @@ final class ViewRenderer implements ViewContextInterface
         return $new;
     }
 
-    public function withCsrf(string $requestAttribute = Csrf::REQUEST_NAME): self
+    public function withCsrf(?string $requestAttribute = null): self
     {
         $new = clone $this;
-        $new->csrfTokenRequestAttribute = $requestAttribute;
+        $new->csrfTokenRequestAttribute = $requestAttribute ?? $this->applicationParameters->getCsrfAttribute();
         $new->csrfToken = $new->getCsrfToken();
 
         return $new;
@@ -132,7 +130,6 @@ final class ViewRenderer implements ViewContextInterface
             );
         }
         $content = $this->view->render($view, $parameters, $this);
-        $user = $this->user->getIdentity();
         $layout = $this->findLayoutFile($this->aliases->get($this->layout));
 
         if ($layout === null) {
@@ -140,7 +137,6 @@ final class ViewRenderer implements ViewContextInterface
         }
 
         $layoutParameters['content'] = $content;
-        $layoutParameters['user'] = $user;
 
         return $this->view->renderFile(
             $layout,

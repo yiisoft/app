@@ -34,7 +34,7 @@ final class ApplicationParameters
         return $this->name;
     }
 
-    public function getCsrfParameter(): string
+    public function getCsrfAttribute(): string
     {
         return $this->csrfAttribute;
     }

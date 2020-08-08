@@ -12,6 +12,7 @@ use Yiisoft\Validator\ValidatorFactoryInterface;
 return [
     ApplicationParameters::class => static function () use ($params) {
         return (new ApplicationParameters())
+            ->csrfAttribute($params['app']['csrfAttribute'])
             ->charset($params['app']['charset'])
             ->language($params['app']['language'])
             ->name($params['app']['name']);
