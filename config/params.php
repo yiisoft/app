@@ -8,6 +8,7 @@ use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
+use Yiisoft\Yii\Web\Middleware\Csrf;
 
 return [
     'aliases' => [
@@ -107,7 +108,8 @@ return [
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'name' => 'My Project'
+        'name' => 'My Project',
+        'csrfAttribute' => Csrf::REQUEST_NAME
     ],
 
     'mailer' => [
