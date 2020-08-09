@@ -64,6 +64,7 @@ return [
     'yiisoft/view/webview' => [
         '__class' => WebViewProvider::class,
         '__construct()' => [
+            $params['yiisoft/view']['basePath'],
             $params['yiisoft/view']['defaultParameters'],
         ],
     ],

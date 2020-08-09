@@ -78,6 +78,7 @@ return [
     ],
 
     'yiisoft/view' => [
+        'basePath' => '@resources/layout',
         'defaultParameters' => [
             'applicationParameters' => ApplicationParameters::class,
             'assetManager' => AssetManager::class,
