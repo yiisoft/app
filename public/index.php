@@ -27,17 +27,9 @@ require_once $autoload;
 Builder::rebuild();
 $startTime = microtime(true);
 
-
-$eventDispatcherProvider = new EventDispatcherProvider(require Builder::path('events-web'));
-
-$providers = array_merge([
-    'yiisoft/event-dispatcher/eventdispatcher' => $eventDispatcherProvider],
-    require Builder::path('providers-web')
-);
-
 $container = new Container(
     require Builder::path('web'),
-    $providers
+    require Builder::path('providers-web')
 );
 
 $application = $container->get(Application::class);

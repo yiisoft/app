@@ -75,15 +75,6 @@
                 "$common",
                 "config/console.php"
             ],
-            "providers": "config/providers.php",
-            "providers-web": [
-                "$providers",
-                "config/providers-web.php"
-            ],
-            "providers-console": [
-                "$providers",
-                "config/providers-console.php"
-            ],
             "events": "config/events.php",
             "events-web": [
                 "$events",
@@ -92,6 +83,15 @@
             "events-console": [
                 "$events",
                 "config/events-console.php"
+            ],
+            "providers": "config/providers.php",
+            "providers-web": [
+                "$providers",
+                "config/providers-web.php"
+            ],
+            "providers-console": [
+                "$providers",
+                "config/providers-console.php"
             ],
             "routes": "config/routes.php"
         }

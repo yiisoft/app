@@ -16,6 +16,7 @@ use App\Provider\SwiftSmtpTransportProvider;
 use App\Provider\ThemeProvider;
 use App\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
+use Yiisoft\Yii\Event\EventDispatcherProvider;
 
 return [
     'yiisoft/yii-web/psr17' => Psr17Provider::class,
@@ -74,6 +75,10 @@ return [
             $params['yiisoft/i18n']['locale'],
             $params['yiisoft/i18n']['translator']['path'],
         ]
+    ],
+    'yiisoft/event-dispatcher/eventdispatcher' => [
+        '__class' => EventDispatcherProvider::class,
+        '__construct()' => [$config['events-web']],
     ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge(),
