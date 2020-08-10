@@ -5,7 +5,6 @@ declare(strict_types=1);
 use Yiisoft\Composer\Config\Builder;
 use Yiisoft\Di\Container;
 use Yiisoft\Http\Method;
-use Yiisoft\Yii\Event\EventDispatcherProvider;
 use Yiisoft\Yii\Web\Application;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
