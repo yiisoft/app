@@ -20,7 +20,6 @@ return [
             $params['yiisoft/cache-file']['file-cache']['path'],
         ],
     ],
-    'yiisoft/event-dispatcher/eventdispatcher' => EventDispatcherProvider::class,
     'yiisoft/log-target-file/filerotator' => [
         '__class' => FileRotatorProvider::class,
         '__construct()' => [
