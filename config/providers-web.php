@@ -16,6 +16,7 @@ use App\Provider\SwiftSmtpTransportProvider;
 use App\Provider\ThemeProvider;
 use App\Provider\WebViewProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
+use Yiisoft\Composer\Config\Builder;
 use Yiisoft\Yii\Event\EventDispatcherProvider;
 
 return [
@@ -78,7 +79,7 @@ return [
     ],
     'yiisoft/event-dispatcher/eventdispatcher' => [
         '__class' => EventDispatcherProvider::class,
-        '__construct()' => [$config['events-web']],
+        '__construct()' => [Builder::require('events-web')],
     ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge(),

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Provider;
 
 use Psr\Container\ContainerInterface;
-use Yiisoft\Composer\Config\Builder;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;
 use Yiisoft\Router\FastRoute\UrlGenerator;
@@ -19,6 +18,13 @@ use Yiisoft\DataResponse\Middleware\FormatDataResponse;
 
 final class RouterProvider extends ServiceProvider
 {
+    private array $routes;
+
+    public function __construct(array $routes)
+    {
+        $this->routes = $routes;
+    }
+
     /**
      * @suppress PhanAccessMethodProtected
      */
@@ -26,12 +32,10 @@ final class RouterProvider extends ServiceProvider
     {
         $container->set(RouteCollectorInterface::class, Group::create());
 
-        $container->set(UrlMatcherInterface::class, static function (ContainerInterface $container) {
-            $routes = require Builder::path('routes');
-
+        $container->set(UrlMatcherInterface::class, function (ContainerInterface $container) {
             $collector = $container->get(RouteCollectorInterface::class);
             $collector->addGroup(
-                Group::create(null, $routes)
+                Group::create(null, $this->routes)
                     ->addMiddleware(FormatDataResponse::class)
             );
 
