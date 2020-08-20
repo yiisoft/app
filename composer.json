@@ -13,7 +13,6 @@
     },
     "require": {
         "php": "^7.4|^8.0",
-        "nyholm/psr7": "^1.3.0",
         "foxy/foxy": "^1.0.8",
         "yiisoft/aliases": "^1.0",
         "yiisoft/assets": "@dev",
@@ -37,7 +36,8 @@
         "yiisoft/yii-debug": "@dev",
         "yiisoft/yii-event": "@dev",
         "yiisoft/yii-web": "@dev",
-        "yiisoft/composer-config-plugin": "^1.0@dev"
+        "yiisoft/composer-config-plugin": "^1.0@dev",
+        "httpsoft/http-basis": "^1.0.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
