@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use HttpSoft\Request\RequestFactory;
-use HttpSoft\Request\ServerRequestFactory;
-use HttpSoft\Response\ResponseFactory;
-use HttpSoft\Stream\StreamFactory;
-use HttpSoft\UploadedFile\UploadedFileFactory;
-use HttpSoft\Uri\UriFactory;
+use HttpSoft\Message\RequestFactory;
+use HttpSoft\Message\ServerRequestFactory;
+use HttpSoft\Message\ResponseFactory;
+use HttpSoft\Message\StreamFactory;
+use HttpSoft\Message\UploadedFileFactory;
+use HttpSoft\Message\UriFactory;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestFactoryInterface;

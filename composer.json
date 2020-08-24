@@ -37,7 +37,7 @@
         "yiisoft/yii-event": "@dev",
         "yiisoft/yii-web": "@dev",
         "yiisoft/composer-config-plugin": "^1.0@dev",
-        "httpsoft/http-basis": "^1.0.0"
+        "httpsoft/http-message": "^1.0.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
