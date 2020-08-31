@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace App\Provider;
 
-use Nyholm\Psr7\Factory\Psr17Factory;
+use HttpSoft\Message\RequestFactory;
+use HttpSoft\Message\ServerRequestFactory;
+use HttpSoft\Message\ResponseFactory;
+use HttpSoft\Message\StreamFactory;
+use HttpSoft\Message\UploadedFileFactory;
+use HttpSoft\Message\UriFactory;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestFactoryInterface;
@@ -25,12 +30,12 @@ final class Psr17Provider extends ServiceProvider
      */
     public function register(Container $container): void
     {
-        $container->set(RequestFactoryInterface::class, Psr17Factory::class);
-        $container->set(ServerRequestFactoryInterface::class, Psr17Factory::class);
-        $container->set(ResponseFactoryInterface::class, Psr17Factory::class);
-        $container->set(StreamFactoryInterface::class, Psr17Factory::class);
-        $container->set(UriFactoryInterface::class, Psr17Factory::class);
-        $container->set(UploadedFileFactoryInterface::class, Psr17Factory::class);
+        $container->set(RequestFactoryInterface::class, RequestFactory::class);
+        $container->set(ServerRequestFactoryInterface::class, ServerRequestFactory::class);
+        $container->set(ResponseFactoryInterface::class, ResponseFactory::class);
+        $container->set(StreamFactoryInterface::class, StreamFactory::class);
+        $container->set(UriFactoryInterface::class, UriFactory::class);
+        $container->set(UploadedFileFactoryInterface::class, UploadedFileFactory::class);
         $container->set(DataResponseFormatterInterface::class, HtmlDataResponseFormatter::class);
         $container->set(DataResponseFactoryInterface::class, DataResponseFactory::class);
     }
