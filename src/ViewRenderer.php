@@ -169,7 +169,7 @@ final class ViewRenderer implements ViewContextInterface
      * @example App\Controller\FooBar\BazController -> foo-bar/baz
      * @example App\Controllers\FooBar\BazController -> foo-bar/baz
      * @example Path\To\File\BlogController -> blog
-     * @see Inflector::camel2id()
+     * @see Inflector::pascalCaseToId()
      */
     private function getName(object $controller): string
     {
@@ -185,7 +185,7 @@ final class ViewRenderer implements ViewContextInterface
         $inflector = new Inflector();
         $name = str_replace('\\', '/', $m[1]);
 
-        return $this->name = $inflector->camel2id($name);
+        return $this->name = $inflector->pascalCaseToId($name);
     }
 
     private function getCsrfToken(): string
