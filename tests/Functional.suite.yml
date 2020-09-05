@@ -5,6 +5,7 @@
 # Include one of framework modules (Symfony2, Yii2, Laravel5, Phalcon4) to use it
 # Remove this suite if you don't use frameworks
 
+suite_namespace: App\Tests\Functional
 actor: FunctionalTester
 modules:
     enabled:
