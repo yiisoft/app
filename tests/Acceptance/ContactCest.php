@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Tests;
+namespace App\Tests\Acceptance;
 
 use App\Tests\AcceptanceTester;
 
