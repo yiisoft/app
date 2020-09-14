@@ -8,7 +8,6 @@ use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
-use Yiisoft\Yii\Web\Middleware\Csrf;
 
 return [
     'aliases' => [
@@ -98,6 +97,11 @@ return [
         'enabled' => true
     ],
 
+    'yiisoft/yii-view' => [
+        'viewBasePath' => '@views',
+        'layout' => '@resources/layout/main',
+    ],
+
     'yiisoft/yii-web' => [
         'session' => [
             'options' => ['cookie_secure' => 0],
@@ -109,7 +113,6 @@ return [
         'charset' => 'UTF-8',
         'language' => 'en',
         'name' => 'My Project',
-        'csrfAttribute' => Csrf::REQUEST_NAME
     ],
 
     'mailer' => [

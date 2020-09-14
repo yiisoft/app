@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 namespace App;
 
-use Yiisoft\Yii\Web\Middleware\Csrf;
-
 final class ApplicationParameters
 {
     private string $charset = 'UTF-8';
     private string $language = 'en';
     private string $name = 'My Project';
     private string $email = 'support@example.com';
-    private string $csrfAttribute = Csrf::REQUEST_NAME;
 
     public function getCharset(): string
     {
@@ -32,11 +29,6 @@ final class ApplicationParameters
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function getCsrfAttribute(): string
-    {
-        return $this->csrfAttribute;
     }
 
     public function charset(string $value): self
@@ -64,13 +56,6 @@ final class ApplicationParameters
     {
         $new = clone $this;
         $new->name = $value;
-        return $new;
-    }
-
-    public function csrfAttribute(string $value): self
-    {
-        $new = clone $this;
-        $new->csrfAttribute = $value;
         return $new;
     }
 }
