@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Widget;
 
+use Yiisoft\Session\Flash\Flash;
 use Yiisoft\Yii\Bulma\Message;
-use Yiisoft\Yii\Web\Flash;
 
 final class FlashMessage extends \Yiisoft\Widget\Widget
 {

@@ -7,8 +7,8 @@ namespace App\Provider;
 use Psr\Container\ContainerInterface;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;
-use Yiisoft\Yii\Web\Flash;
-use Yiisoft\Yii\Web\Session\SessionInterface;
+use Yiisoft\Session\Flash\Flash;
+use Yiisoft\Session\SessionInterface;
 
 final class FlashProvider extends ServiceProvider
 {

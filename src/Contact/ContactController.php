@@ -4,19 +4,19 @@
 namespace App\Contact;
 
 use App\Form\ContactForm;
-use App\ViewRenderer;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\Http\Header;
 use Yiisoft\Http\Method;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Yii\Web\Flash;
+use Yiisoft\Session\Flash\Flash;
+use Yiisoft\Yii\View\ViewRenderer;
 
 class ContactController
 {
-    private ViewRenderer $viewRenderer;
     private ResponseFactoryInterface $responseFactory;
+    private ViewRenderer $viewRenderer;
 
     public function __construct(ViewRenderer $viewRenderer, ResponseFactoryInterface $responseFactory)
     {
