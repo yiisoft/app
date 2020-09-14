@@ -16,6 +16,7 @@ use Yiisoft\Yii\View\ViewRenderer;
 class ContactController
 {
     private ResponseFactoryInterface $responseFactory;
+    private ViewRenderer $viewRenderer;
 
     public function __construct(ViewRenderer $viewRenderer, ResponseFactoryInterface $responseFactory)
     {
