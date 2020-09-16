@@ -14,7 +14,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "foxy/foxy": "^1.0.8",
-        "httpsoft/http-message": "^1.0.0",
+        "httpsoft/http-message": "^1.0.5",
         "yiisoft/aliases": "^1.0",
         "yiisoft/assets": "@dev",
         "yiisoft/cache": "@dev",
