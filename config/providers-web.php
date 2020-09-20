@@ -79,7 +79,7 @@ return [
     ],
     'yiisoft/event-dispatcher/eventdispatcher' => [
         '__class' => EventDispatcherProvider::class,
-        '__construct()' => [Builder::require('events-web')],
+        '__construct()' => [require 'events-web.php'],
     ],
 
     ReverseBlockMerge::class => new ReverseBlockMerge(),
