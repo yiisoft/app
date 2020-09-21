@@ -26,7 +26,7 @@
         "yiisoft/form": "@dev",
         "yiisoft/i18n": "^3.0@dev",
         "yiisoft/i18n-message-php": "^3.0@dev",
-        "yiisoft/i18n-translator": "^3.0@dev",
+        "yiisoft/translator": "^3.0@dev",
         "yiisoft/log": "@dev",
         "yiisoft/log-target-file": "@dev",
         "yiisoft/mailer": "@dev",
