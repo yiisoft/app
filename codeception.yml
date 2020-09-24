@@ -1,7 +1,7 @@
 namespace: App\Tests
 paths:
     tests: tests
-    output: runtime/_output
+    output: runtime/tests/_output
     data: tests/_data
     support: tests/_support
     envs: tests/_envs
