@@ -37,5 +37,4 @@ phpunit.phar
 .env
 
 #codeception
-/tests/_output
 c3.php
