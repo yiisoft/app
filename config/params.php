@@ -22,12 +22,6 @@ return [
         '@message' => '@root/resources/message'
     ],
 
-    'yiisoft/cache-file' => [
-        'file-cache' => [
-            'path' => '@runtime/cache'
-        ],
-    ],
-
     'yiisoft/form' => [
         'fieldConfig' => [
             'inputCssClass()' => ['form-control input field'],
