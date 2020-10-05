@@ -21,12 +21,6 @@ return [
         '@message' => '@root/resources/message'
     ],
 
-    'yiisoft/cache-file' => [
-        'file-cache' => [
-            'path' => '@runtime/cache'
-        ],
-    ],
-
     'yiisoft/form' => [
         'fieldConfig' => [
             'inputCssClass()' => ['form-control input field'],
@@ -80,13 +74,6 @@ return [
     'yiisoft/yii-view' => [
         'viewBasePath' => '@views',
         'layout' => '@resources/layout/main',
-    ],
-
-    'yiisoft/yii-web' => [
-        'session' => [
-            'options' => ['cookie_secure' => 0],
-            'handler' => null
-        ],
     ],
 
     'app' => [

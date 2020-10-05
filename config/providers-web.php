@@ -10,7 +10,6 @@ use App\Provider\I18nProvider;
 use App\Provider\MailerInterfaceProvider;
 use App\Provider\MiddlewareProvider;
 use App\Provider\Psr17Provider;
-use App\Provider\SessionProvider;
 use App\Provider\SwiftTransportProvider;
 use App\Provider\SwiftSmtpTransportProvider;
 use App\Provider\ThemeProvider;
@@ -22,13 +21,6 @@ use Yiisoft\Yii\Event\EventDispatcherProvider;
 return [
     'yiisoft/yii-web/psr17' => Psr17Provider::class,
     'yiisoft/yii-web/middleware' => MiddlewareProvider::class,
-    'yiisoft/yii-web/session' => [
-        '__class' => SessionProvider::class,
-        '__construct()' => [
-            $params['yiisoft/yii-web']['session']['options'],
-            $params['yiisoft/yii-web']['session']['handler']
-        ],
-    ],
     'yiisoft/yii-web/flash' => FlashProvider::class,
     'yiisoft/form/field' => [
         '__class' => FieldProvider::class,
