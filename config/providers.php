@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 /* @var array $params */
 
-use App\Provider\FileRotatorProvider;
-use App\Provider\FileTargetProvider;
-use App\Provider\LoggerProvider;
 use App\Provider\RouterProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 use Yiisoft\Composer\Config\Builder;
@@ -25,14 +22,5 @@ return [
             $params['yiisoft/log-target-file']['file-rotator']['rotatebycopy']
         ],
     ],
-    'yiisoft/log-target-file/filetarget' => [
-        '__class' => FileTargetProvider::class,
-        '__construct()' => [
-            $params['yiisoft/log-target-file']['file-target']['file'],
-            $params['yiisoft/log-target-file']['file-target']['levels']
-        ],
-    ],
-    'yiisoft/log/logger' =>  LoggerProvider::class,
-
     ReverseBlockMerge::class => new ReverseBlockMerge()
 ];

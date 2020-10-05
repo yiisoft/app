@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\ApplicationParameters;
-use Psr\Log\LogLevel;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
@@ -35,25 +34,6 @@ return [
         'translator' => [
             'path' => '@message/en-US.php'
         ]
-    ],
-
-    'yiisoft/log-target-file' => [
-        'file-target' => [
-            'file' => '@runtime/logs/app.log',
-            'levels' => [
-                LogLevel::EMERGENCY,
-                LogLevel::ERROR,
-                LogLevel::WARNING,
-                LogLevel::INFO,
-                LogLevel::DEBUG,
-            ],
-        ],
-        'file-rotator' => [
-            'maxfilesize' => 10,
-            'maxfiles' => 5,
-            'filemode' => null,
-            'rotatebycopy' => null
-        ],
     ],
 
     'yiisoft/mailer' => [
