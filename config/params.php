@@ -102,13 +102,6 @@ return [
         'layout' => '@resources/layout/main',
     ],
 
-    'yiisoft/yii-web' => [
-        'session' => [
-            'options' => ['cookie_secure' => 0],
-            'handler' => null
-        ],
-    ],
-
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
