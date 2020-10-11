@@ -12,11 +12,11 @@ use Yiisoft\Session\SessionInterface;
 
 final class FlashProvider extends ServiceProvider
 {
-    /**
-     * @suppress PhanAccessMethodProtected
-     */
     public function register(Container $container): void
     {
+        /**
+         * @psalm-suppress InaccessibleMethod
+         */
         $container->set(
             Flash::class,
             static fn (ContainerInterface $container) => new Flash($container->get(SessionInterface::class))

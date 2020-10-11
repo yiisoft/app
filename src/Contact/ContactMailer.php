@@ -23,7 +23,7 @@ final class ContactMailer
         $this->to = $to;
     }
 
-    public function send(FormModelInterface $form, ServerRequestInterface $request)
+    public function send(FormModelInterface $form, ServerRequestInterface $request): void
     {
         $message = new Message(
             $form->getAttributeValue('username'),

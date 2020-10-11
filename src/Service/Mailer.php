@@ -13,7 +13,7 @@ class Mailer
         $this->mailer = $mailer;
     }
 
-    public function send(Message $emailMessage)
+    public function send(Message $emailMessage): void
     {
         $message = $this->mailer->compose(
             'contact',
