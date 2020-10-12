@@ -10,7 +10,7 @@ use Yiisoft\Di\Support\ServiceProvider;
 final class SwiftTransportProvider extends ServiceProvider
 {
     /**
-     * @suppress PhanAccessMethodProtected
+     * @psalm-suppress InaccessibleMethod
      */
     public function register(Container $container): void
     {

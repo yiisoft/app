@@ -25,7 +25,7 @@ final class I18nProvider extends ServiceProvider
     }
 
     /**
-     * @suppress PhanAccessMethodProtected
+     * @psalm-suppress InaccessibleMethod
      */
     public function register(Container $container): void
     {

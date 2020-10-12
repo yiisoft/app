@@ -34,7 +34,7 @@ class ContactController
         $body = $request->getParsedBody();
         $method = $request->getMethod();
 
-        if (($method === Method::POST) && $form->load($body) && $form->validate()) {
+        if (($method === Method::POST) && $form->load((array) $body) && $form->validate()) {
             $mailer->send($form, $request);
 
             $flash->add(

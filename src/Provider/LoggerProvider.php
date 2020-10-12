@@ -17,6 +17,9 @@ use Yiisoft\Log\Target\File\FileTarget;
 
 final class LoggerProvider extends ServiceProvider
 {
+    /**
+     * @psalm-suppress InaccessibleMethod
+     */
     public function register(Container $container): void
     {
         $container->set(FileRotatorInterface::class, static function () {

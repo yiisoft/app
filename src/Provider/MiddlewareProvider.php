@@ -17,7 +17,7 @@ use Yiisoft\Yii\Web\Middleware\SubFolder;
 final class MiddlewareProvider extends ServiceProvider
 {
     /**
-     * @suppress PhanAccessMethodProtected
+     * @psalm-suppress InaccessibleMethod
      */
     public function register(Container $container): void
     {

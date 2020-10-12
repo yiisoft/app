@@ -26,7 +26,7 @@ final class WebViewProvider extends ServiceProvider
     }
 
     /**
-     * @suppress PhanAccessMethodProtected
+     * @psalm-suppress InaccessibleMethod
      */
     public function register(Container $container): void
     {

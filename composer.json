@@ -26,13 +26,13 @@
         "yiisoft/form": "@dev",
         "yiisoft/i18n": "^3.0@dev",
         "yiisoft/i18n-message-php": "^3.0@dev",
-        "yiisoft/translator": "^3.0@dev",
         "yiisoft/log": "@dev",
         "yiisoft/log-target-file": "@dev",
         "yiisoft/mailer": "@dev",
         "yiisoft/mailer-swiftmailer": "@dev",
         "yiisoft/router": "@dev",
         "yiisoft/router-fastroute": "@dev",
+        "yiisoft/translator": "^3.0@dev",
         "yiisoft/view": "@dev",
         "yiisoft/widget": "@dev",
         "yiisoft/yii-bulma": "@dev",
@@ -42,11 +42,12 @@
         "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
         "codeception/codeception": "^4.1.5",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^9.3",
+        "roave/security-advisories": "dev-master",
+        "vimeo/psalm": "^3.16"
     },
     "autoload": {
         "psr-4": {

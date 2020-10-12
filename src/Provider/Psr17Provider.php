@@ -26,7 +26,7 @@ use Yiisoft\Di\Support\ServiceProvider;
 final class Psr17Provider extends ServiceProvider
 {
     /**
-     * @suppress PhanAccessMethodProtected
+     * @psalm-suppress InaccessibleMethod
      */
     public function register(Container $container): void
     {
