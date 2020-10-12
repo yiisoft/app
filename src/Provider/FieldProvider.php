@@ -18,11 +18,11 @@ final class FieldProvider extends ServiceProvider
     }
 
 
+    /**
+     * @psalm-suppress InaccessibleMethod
+     */
     public function register(Container $container): void
     {
-        /**
-         * @psalm-suppress InaccessibleMethod
-         */
         $container->set(Field::class, fn () => Field::widget($this->fieldConfig));
     }
 }

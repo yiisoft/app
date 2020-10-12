@@ -24,11 +24,11 @@ final class I18nProvider extends ServiceProvider
         $this->translatePath = $translatePath;
     }
 
+    /**
+     * @psalm-suppress InaccessibleMethod
+     */
     public function register(Container $container): void
     {
-        /**
-         * @psalm-suppress InaccessibleMethod
-         */
         $container->set(
             TranslatorInterface::class,
             function (ContainerInterface $container) {

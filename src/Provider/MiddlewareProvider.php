@@ -16,11 +16,11 @@ use Yiisoft\Yii\Web\Middleware\SubFolder;
 
 final class MiddlewareProvider extends ServiceProvider
 {
+    /**
+     * @psalm-suppress InaccessibleMethod
+     */
     public function register(Container $container): void
     {
-        /**
-         * @psalm-suppress InaccessibleMethod
-         */
         $container->set(MiddlewareDispatcher::class, static function (ContainerInterface $container) {
             return (new MiddlewareDispatcher($container))
                 ->addMiddleware($container->get(Router::class))

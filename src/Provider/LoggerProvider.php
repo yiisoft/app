@@ -17,18 +17,15 @@ use Yiisoft\Log\Target\File\FileTarget;
 
 final class LoggerProvider extends ServiceProvider
 {
+    /**
+     * @psalm-suppress InaccessibleMethod
+     */
     public function register(Container $container): void
     {
-        /**
-         * @psalm-suppress InaccessibleMethod
-         */
         $container->set(FileRotatorInterface::class, static function () {
             return new FileRotator(10);
         });
 
-        /**
-         * @psalm-suppress InaccessibleMethod
-         */
         $container->set(FileTarget::class, static function (ContainerInterface $container) {
             $fileTarget = new FileTarget(
                 $container->get(Aliases::class)->get('@runtime/logs/app.log'),
@@ -48,9 +45,6 @@ final class LoggerProvider extends ServiceProvider
             return $fileTarget;
         });
 
-        /**
-         * @psalm-suppress InaccessibleMethod
-         */
         $container->set(LoggerInterface::class, static function (ContainerInterface $container) {
             return new Logger(['file' => $container->get(FileTarget::class)]);
         });
