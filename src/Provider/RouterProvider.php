@@ -30,8 +30,6 @@ final class RouterProvider extends ServiceProvider
      */
     public function register(Container $container): void
     {
-        $container->set(RouteCollectorInterface::class, Group::create());
-
         $container->set(UrlMatcherInterface::class, function (ContainerInterface $container) {
             $collector = $container->get(RouteCollectorInterface::class);
             $collector->addGroup(
