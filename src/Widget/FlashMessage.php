@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace App\Widget;
 
-use Yiisoft\Session\Flash\Flash;
+use Yiisoft\Session\Flash\FlashInterface;
+use Yiisoft\Widget\Widget;
 use Yiisoft\Yii\Bulma\Message;
 
-final class FlashMessage extends \Yiisoft\Widget\Widget
+final class FlashMessage extends Widget
 {
-    private Flash $flash;
+    private FlashInterface $flash;
     private bool $withoutCloseButton = false;
     private string $size = '';
 
-    public function __construct(Flash $flash)
+    public function __construct(FlashInterface $flash)
     {
         $this->flash = $flash;
     }
