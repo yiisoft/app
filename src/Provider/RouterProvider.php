@@ -7,12 +7,10 @@ namespace App\Provider;
 use Psr\Container\ContainerInterface;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\Support\ServiceProvider;
-use Yiisoft\Router\FastRoute\UrlGenerator;
 use Yiisoft\Router\FastRoute\UrlMatcher;
 use Yiisoft\Router\Group;
 use Yiisoft\Router\RouteCollection;
 use Yiisoft\Router\RouteCollectorInterface;
-use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\DataResponse\Middleware\FormatDataResponse;
 
@@ -39,7 +37,5 @@ final class RouterProvider extends ServiceProvider
 
             return new UrlMatcher(new RouteCollection($collector));
         });
-
-        $container->set(UrlGeneratorInterface::class, UrlGenerator::class);
     }
 }
