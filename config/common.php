@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\ApplicationParameters;
 use App\Contact\ContactMailer;
 use App\Service\Mailer;
 use Psr\Container\ContainerInterface;
@@ -18,4 +19,10 @@ return [
         ));
     },
     CacheInterface::class => FileCache::class,
+    ApplicationParameters::class => static function () use ($params) {
+        return (new ApplicationParameters())
+            ->charset($params['app']['charset'])
+            ->language($params['app']['language'])
+            ->name($params['app']['name']);
+    },
 ];
