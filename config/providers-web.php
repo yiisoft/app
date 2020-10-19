@@ -5,7 +5,6 @@ declare(strict_types=1);
 /* @var array $params */
 
 use App\Provider\FieldProvider;
-use App\Provider\FlashProvider;
 use App\Provider\I18nProvider;
 use App\Provider\MailerInterfaceProvider;
 use App\Provider\MiddlewareProvider;
@@ -20,7 +19,6 @@ use Yiisoft\Yii\Event\EventDispatcherProvider;
 return [
     'yiisoft/yii-web/psr17' => Psr17Provider::class,
     'yiisoft/yii-web/middleware' => MiddlewareProvider::class,
-    'yiisoft/yii-web/flash' => FlashProvider::class,
     'yiisoft/form/field' => [
         '__class' => FieldProvider::class,
         '__construct()' => [
