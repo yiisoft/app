@@ -10,7 +10,6 @@ use App\Provider\I18nProvider;
 use App\Provider\MailerInterfaceProvider;
 use App\Provider\MiddlewareProvider;
 use App\Provider\Psr17Provider;
-use App\Provider\SwiftTransportProvider;
 use App\Provider\SwiftSmtpTransportProvider;
 use App\Provider\ThemeProvider;
 use App\Provider\WebViewProvider;
@@ -28,7 +27,6 @@ return [
             $params['yiisoft/form']['fieldConfig'],
         ],
     ],
-    'yiisoft/mailer/swifttransport' => SwiftTransportProvider::class,
     'yiisoft/mailer/swiftsmtptransport' => [
         '__class' => SwiftSmtpTransportProvider::class,
         '__construct()' => [
