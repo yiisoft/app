@@ -31,7 +31,9 @@ $container = new Container(
     require Builder::path('providers-web')
 );
 
+$bootstrap = $container->get(\App\BootstrapHandler::class);
 $application = $container->get(Application::class);
+$bootstrap->execute();
 
 $request = $container->get(ServerRequestFactory::class)->createFromGlobals();
 $request = $request->withAttribute('applicationStartTime', $startTime);
