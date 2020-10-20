@@ -4,25 +4,23 @@ declare(strict_types=1);
 
 namespace App;
 
-use Psr\Container\ContainerInterface;
 use Yiisoft\Injector\Injector;
 
 final class BootstrapHandler
 {
-    private ContainerInterface $container;
+    private Injector $injector;
     private array $callbacks;
 
-    public function __construct(ContainerInterface $container, array $callbacks = [])
+    public function __construct(Injector $injector, array $callbacks = [])
     {
-        $this->container = $container;
+        $this->injector = $injector;
         $this->callbacks = $callbacks;
     }
 
     public function execute(): void
     {
-        $injector = new Injector($this->container);
         foreach ($this->callbacks as $callback) {
-            $injector->invoke($callback);
+            $this->injector->invoke($callback);
         }
     }
 }
