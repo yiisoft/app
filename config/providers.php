@@ -7,15 +7,14 @@ declare(strict_types=1);
 use App\Provider\LoggerProvider;
 use App\Provider\RouterProvider;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
-use Yiisoft\Composer\Config\Builder;
 
 return [
     'yiisoft/router-fastroute/router' => [
         '__class' => RouterProvider::class,
-        '__construct()' => [Builder::require('routes')],
+        '__construct()' => [require __DIR__ . '/routes.php'],
     ],
 
     'LoggerProvider' => LoggerProvider::class,
 
-    ReverseBlockMerge::class => new ReverseBlockMerge()
+    ReverseBlockMerge::class => Buildtime::run(new ReverseBlockMerge()),
 ];
