@@ -74,10 +74,6 @@ jobs:
         if: matrix.php == '8.0'
         run: composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ignore-platform-reqs --ansi
 
-      - name: Install codeception c3 coverage on Linux php 7.4
-        if: matrix.os == 'ubuntu-latest' && matrix.php == '7.4'
-        run: wget https://raw.github.com/Codeception/c3/2.0/c3.php
-
       - name: Run tests with codeception with coverage on Linux php 7.4
         if: matrix.os == 'ubuntu-latest' && matrix.php == '7.4'
         run: |

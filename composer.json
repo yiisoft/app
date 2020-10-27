@@ -46,6 +46,7 @@
     },
     "require-dev": {
         "codeception/codeception": "^4.1.5",
+        "codeception/c3": "2.*",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
         "phpunit/phpunit": "^9.3",
