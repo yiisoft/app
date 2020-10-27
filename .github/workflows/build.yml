@@ -78,21 +78,21 @@ jobs:
       - name: Run tests with codeception with coverage on Linux php 7.4
         if: matrix.os == 'ubuntu-latest' && matrix.php == '7.4'
         run: |
-          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
+          php -S 127.0.0.1:8080 -t tests/_support/public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run --coverage --coverage-xml
 
       - name: Run tests with codeception without coverage on Linux php 8.0
         if: matrix.os == 'ubuntu-latest' && matrix.php == '8.0'
         continue-on-error: true
         run: |
-          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
+          php -S 127.0.0.1:8080 -t tests/_support/public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run
 
       - name: Run tests with codeception without coverage on Windows
         if: matrix.os == 'windows-latest'
         continue-on-error: true
         run: |
-          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
+          php -S 127.0.0.1:8080 -t tests/_support/public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run
         shell: bash
 
