@@ -46,12 +46,11 @@
     },
     "require-dev": {
         "codeception/codeception": "^4.1.5",
-        "codeception/c3": "2.*",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^9.4",
         "roave/security-advisories": "dev-master",
-        "vimeo/psalm": "^3.16"
+        "vimeo/psalm": "^4.0"
     },
     "autoload": {
         "psr-4": {
