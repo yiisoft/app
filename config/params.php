@@ -73,15 +73,7 @@ return [
     ],
 
     'yiisoft/view' => [
-        'theme' => [
-            'pathMap' => [],
-            'basePath' => '',
-            'baseUrl' => '',
-        ]
-    ],
-
-    'yiisoft/view' => [
-        'basePath' => '@resources/layout',
+        'basePath' => '@views',
         'defaultParameters' => [
             'applicationParameters' => Reference::to(ApplicationParameters::class),
             'assetManager' => Reference::to(AssetManager::class),
