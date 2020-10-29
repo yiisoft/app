@@ -76,7 +76,7 @@
             ],
             "console": [
                 "$common",
-                "config/console.php"
+                "config/console/*.php"
             ],
             "events": "config/events.php",
             "events-web": [
