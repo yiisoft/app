@@ -27,28 +27,7 @@ return [
         'fieldConfig' => [
             'inputCssClass()' => ['form-control input field'],
             'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
-        ],
-    ],
-
-    'yiisoft/log-target-file' => [
-        'file-target' => [
-            'file' => '@runtime/logs/app.log',
-            'levels' => [
-                LogLevel::EMERGENCY,
-                LogLevel::ERROR,
-                LogLevel::WARNING,
-                LogLevel::INFO,
-                LogLevel::DEBUG,
-            ],
-            'dirMode' => 0755,
-            'fileMode' => null
-        ],
-        'file-rotator' => [
-            'maxFileSize' => 10,
-            'maxFiles' => 5,
-            'fileMode' => null,
-            'rotateByCopy' => null
+            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']]
         ]
     ],
 
@@ -79,12 +58,7 @@ return [
             'assetManager' => Reference::to(AssetManager::class),
             'field' => Reference::to(Field::class),
             'url' => Reference::to(UrlGeneratorInterface::class),
-            'urlMatcher' => Reference::to(UrlMatcherInterface::class),
-        ],
-        'theme' => [
-            'pathMap' => [],
-            'basePath' => '',
-            'baseUrl' => '',
+            'urlMatcher' => Reference::to(UrlMatcherInterface::class)
         ]
     ],
 
@@ -94,16 +68,16 @@ return [
 
     'yiisoft/yii-view' => [
         'viewBasePath' => '@views',
-        'layout' => '@resources/layout/main',
+        'layout' => '@resources/layout/main'
     ],
 
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'name' => 'My Project',
+        'name' => 'My Project'
     ],
 
     'mailer' => [
-        'adminEmail' => 'admin@example.com',
+        'adminEmail' => 'admin@example.com'
     ],
 ];
