@@ -13,7 +13,14 @@ use Yiisoft\Yii\Web\ErrorHandler\ThrowableRendererInterface;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
+$c3 = dirname(__DIR__) . '/c3.php';
+
+if (is_file($c3)) {
+    require_once $c3;
+}
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
+
 // Don't do it in production, assembling takes it's time
 Builder::rebuild();
 $startTime = microtime(true);

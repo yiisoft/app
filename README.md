@@ -11,6 +11,8 @@
 [![build](https://github.com/yiisoft/app/workflows/build/badge.svg)](https://github.com/yiisoft/app/actions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yiisoft/app/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/app/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/yiisoft/app/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/app/?branch=master)
+[![static analysis](https://github.com/yiisoft/app/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/app/actions?query=workflow%3A%22static+analysis%22)
+[![type-coverage](https://shepherd.dev/github/yiisoft/app/coverage.svg)](https://shepherd.dev/github/yiisoft/app)
 
 <p align="center">
     <a href="https://github.com/yiisoft/app" target="_blank">
@@ -201,4 +203,11 @@ In order to execute tests run:
 ```
 composer run serve > ./runtime/yii.log 2>&1 &
 vendor/bin/codecept run
+```
+## Static analysis
+
+The code is statically analyzed with [Psalm](https://psalm.dev/docs). To run static analysis:
+
+```php
+./vendor/bin/psalm
 ```

@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 use App\ApplicationParameters;
+use Psr\Log\LogLevel;
 use Yiisoft\Assets\AssetManager;
+use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
@@ -25,45 +27,38 @@ return [
         'fieldConfig' => [
             'inputCssClass()' => ['form-control input field'],
             'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
-        ],
-    ],
-
-    'yiisoft/i18n' => [
-        'locale' => 'en-US',
-        'translator' => [
-            'path' => '@message/en-US.php'
+            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']]
         ]
     ],
 
     'yiisoft/mailer' => [
-        'mailerInterface' => [
-            'composerPath' => '@resources/mail',
-            'writeToFiles' => true,
-            'writeToFilesPath' => '@runtime/mail',
+        'composer' => [
+            'composerView' => '@resources/mail'
         ],
-        'swiftSmtpTransport' => [
+        'fileMailer' => [
+            'fileMailerStorage' => '@runtime/mail'
+        ],
+        'writeToFiles' => true
+    ],
+
+    'swiftmailer/swiftmailer' => [
+        'SwiftSmtpTransport' => [
             'host' => 'smtp.example.com',
             'port' => 25,
             'encryption' => null,
             'username' => 'admin@example.com',
             'password' => ''
-        ],
+        ]
     ],
 
     'yiisoft/view' => [
-        'basePath' => '@resources/layout',
+        'basePath' => '@views',
         'defaultParameters' => [
-            'applicationParameters' => ApplicationParameters::class,
-            'assetManager' => AssetManager::class,
-            'field' => Field::class,
-            'url' => UrlGeneratorInterface::class,
-            'urlMatcher' => UrlMatcherInterface::class,
-        ],
-        'theme' => [
-            'pathMap' => [],
-            'basePath' => '',
-            'baseUrl' => '',
+            'applicationParameters' => Reference::to(ApplicationParameters::class),
+            'assetManager' => Reference::to(AssetManager::class),
+            'field' => Reference::to(Field::class),
+            'url' => Reference::to(UrlGeneratorInterface::class),
+            'urlMatcher' => Reference::to(UrlMatcherInterface::class)
         ]
     ],
 
@@ -73,16 +68,16 @@ return [
 
     'yiisoft/yii-view' => [
         'viewBasePath' => '@views',
-        'layout' => '@resources/layout/main',
+        'layout' => '@resources/layout/main'
     ],
 
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'name' => 'My Project',
+        'name' => 'My Project'
     ],
 
     'mailer' => [
-        'adminEmail' => 'admin@example.com',
+        'adminEmail' => 'admin@example.com'
     ],
 ];

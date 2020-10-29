@@ -13,7 +13,7 @@
     },
     "require": {
         "php": "^7.4|^8.0",
-        "foxy/foxy": "^1.0.8",
+        "foxy/foxy": "^1.1.0",
         "httpsoft/http-message": "^1.0.5",
         "yiisoft/aliases": "^1.0",
         "yiisoft/assets": "@dev",
@@ -43,11 +43,12 @@
     },
     "require-dev": {
         "codeception/codeception": "^4.1.5",
+        "codeception/c3": "^2.6.0",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^9.4",
         "roave/security-advisories": "dev-master",
-        "vimeo/psalm": "^3.16"
+        "vimeo/psalm": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -65,18 +66,18 @@
         },
         "config-plugin-output-dir": "runtime/build/config",
         "config-plugin": {
-            "common": "config/common.php",
+            "common": "config/common/*.php",
             "params": [
                 "config/params.php",
                 "?config/params-local.php"
             ],
             "web": [
                 "$common",
-                "config/web.php"
+                "config/web/*.php"
             ],
             "console": [
                 "$common",
-                "config/console.php"
+                "config/console/*.php"
             ],
             "events": "config/events.php",
             "events-web": [
