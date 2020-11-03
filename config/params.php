@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\ApplicationParameters;
-use Psr\Log\LogLevel;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Form\Widget\Field;
@@ -11,16 +10,18 @@ use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 
 return [
-    'aliases' => [
-        '@root' => dirname(__DIR__),
-        '@assets' => '@root/public/assets',
-        '@assetsUrl' => '/assets',
-        '@npm' => '@root/node_modules',
-        '@public' => '@root/public',
-        '@resources' => '@root/resources',
-        '@runtime' => '@root/runtime',
-        '@views' => '@root/resources/views',
-        '@message' => '@root/resources/message'
+    'yiisoft/aliases' => [
+        'aliases' => [
+            '@root' => dirname(__DIR__),
+            '@assets' => '@root/public/assets',
+            '@assetsUrl' => '/assets',
+            '@npm' => '@root/node_modules',
+            '@public' => '@root/public',
+            '@resources' => '@root/resources',
+            '@runtime' => '@root/runtime',
+            '@views' => '@root/resources/views',
+            '@message' => '@root/resources/message'
+        ],
     ],
 
     'yiisoft/form' => [

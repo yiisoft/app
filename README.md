@@ -84,16 +84,18 @@ There are multiple pre-configured application services.
 #### Aliases
 
 ```php
-'aliases' => [
-    // standard directory aliases
-    '@root' => dirname(__DIR__),
-    '@assets' => '@root/public/assets',
-    '@assetsUrl' => '/assets',
-    '@npm' => '@root/node_modules',
-    '@public' => '@root/public',
-    '@resources' => '@root/resources',
-    '@runtime' => '@root/runtime',
-    '@views' => '@root/resources/views'
+'yiisoft/aliases' => [
+    'aliases' => [
+        // standard directory aliases
+        '@root' => dirname(__DIR__),
+        '@assets' => '@root/public/assets',
+        '@assetsUrl' => '/assets',
+        '@npm' => '@root/node_modules',
+        '@public' => '@root/public',
+        '@resources' => '@root/resources',
+        '@runtime' => '@root/runtime',
+        '@views' => '@root/resources/views'
+    ],
 ],
 ```
 
