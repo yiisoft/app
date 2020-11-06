@@ -22,6 +22,7 @@
         "yiisoft/csrf": "^3.0@dev",
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
+        "yiisoft/error-handler": "@dev",
         "yiisoft/form": "@dev",
         "yiisoft/i18n": "^3.0@dev",
         "yiisoft/i18n-message-php": "^3.0@dev",
