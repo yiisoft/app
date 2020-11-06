@@ -5,11 +5,11 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Yiisoft\Composer\Config\Builder;
 use Yiisoft\Di\Container;
+use Yiisoft\ErrorHandler\ErrorHandler;
+use Yiisoft\ErrorHandler\HtmlRenderer;
+use Yiisoft\ErrorHandler\ThrowableRendererInterface;
 use Yiisoft\Http\Method;
 use Yiisoft\Yii\Web\Application;
-use Yiisoft\Yii\Web\ErrorHandler\ErrorHandler;
-use Yiisoft\Yii\Web\ErrorHandler\HtmlRenderer;
-use Yiisoft\Yii\Web\ErrorHandler\ThrowableRendererInterface;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
