@@ -6,7 +6,7 @@ use Psr\Container\ContainerInterface;
 use Yiisoft\Csrf\CsrfMiddleware;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
-use Yiisoft\Yii\Web\ErrorHandler\ErrorCatcher;
+use Yiisoft\ErrorHandler\ErrorCatcher;
 use Yiisoft\Yii\Web\MiddlewareDispatcher;
 
 return [
