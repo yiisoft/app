@@ -2,8 +2,12 @@
 
 declare(strict_types=1);
 
-use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
+use Yiisoft\Arrays\Collection\ArrayCollection;
+use Yiisoft\Arrays\Collection\Modifier\SaveOrder;
 
-return [
-    ReverseBlockMerge::class => new ReverseBlockMerge(),
-];
+return new ArrayCollection(
+    [
+        // Console providers here
+    ],
+    new SaveOrder()
+);
