@@ -9,7 +9,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "serve": "yii serve"
+        "serve": "yii serve",
+        "test": [
+            "phpunit --colors --no-interaction"
+        ]
     },
     "require": {
         "php": "^7.4|^8.0",
@@ -46,9 +49,10 @@
         "codeception/c3": "^2.6.0",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "phpunit/phpunit": "^9.4",
+        "phpunit/phpunit": "^9.3",
         "roave/security-advisories": "dev-master",
-        "vimeo/psalm": "^4.0"
+        "vimeo/psalm": "^4.0",
+        "phan/phan": "^3.0"
     },
     "autoload": {
         "psr-4": {
