@@ -49,10 +49,9 @@
         "codeception/c3": "^2.6.0",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^9.4",
         "roave/security-advisories": "dev-master",
-        "vimeo/psalm": "^4.0",
-        "phan/phan": "^3.0"
+        "vimeo/psalm": "^4.1"
     },
     "autoload": {
         "psr-4": {

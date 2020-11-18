@@ -1,18 +1,36 @@
-build:
-    environment:
-        php: "7.4.12"
-    nodes:
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
+checks:
+    php: true
+
 filter:
     paths:
         - "src/*"
-checks:
-    php: true
-tools:
-    php_code_coverage:
-        enabled: true
-    external_code_coverage:
-        timeout: 600
+
+build:
+    nodes:
+        analysis:
+            environment:
+                php: 7.4.12
+
+            tests:
+                override:
+                    - php-scrutinizer-run
+
+        tests-and-coverage:
+            environment:
+                php: 7.4.12
+
+            dependencies:
+                override:
+                    - composer self-update
+                    - composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
+
+            tests:
+                override:
+                    -
+                        command: "./vendor/bin/vendor/bin/codecept run coverage.xml"
+                        on_node: 1
+                        coverage:
+                            file: runtime/tests/_output/coverage.xml
+                            format: php-clover
+
+
