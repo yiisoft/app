@@ -9,6 +9,7 @@ jobs:
     name: PHP ${{ matrix.php }}-${{ matrix.os }}
 
     env:
+      extensions: fileinfo
       key: cache-v1
 
     runs-on: ${{ matrix.os }}
@@ -30,6 +31,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          extensions: ${{ env.extensions }}
           ini-values: date.timezone='UTC'
           coverage: pcov
           tools: composer:v2
