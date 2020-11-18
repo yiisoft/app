@@ -39,7 +39,7 @@
         "yiisoft/view": "@dev",
         "yiisoft/widget": "@dev",
         "yiisoft/yii-bulma": "@dev",
-        "yiisoft/yii-debug": "@dev",
+        "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "@dev",
         "yiisoft/yii-view": "^3.0@dev",
         "yiisoft/yii-web": "@dev"
@@ -49,10 +49,9 @@
         "codeception/c3": "^2.6.0",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "phpunit/phpunit": "^9.3",
+        "phpunit/phpunit": "^9.4",
         "roave/security-advisories": "dev-master",
-        "vimeo/psalm": "^4.0",
-        "phan/phan": "^3.0"
+        "vimeo/psalm": "^4.1"
     },
     "autoload": {
         "psr-4": {

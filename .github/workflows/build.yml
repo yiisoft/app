@@ -7,8 +7,9 @@ name: build
 jobs:
   tests:
     name: PHP ${{ matrix.php }}-${{ matrix.os }}
+
     env:
-      extensions: curl, mbstring, dom, fileinfo, json, libxml, xml, xmlwriter
+      extensions: fileinfo
       key: cache-v1
 
     runs-on: ${{ matrix.os }}
@@ -26,21 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup cache environment
-        id: cache-env
-        uses: shivammathur/cache-extensions@v1
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: ${{ env.extensions }}
-          key: ${{ env.key }}
-
-      - name: Cache extensions
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.cache-env.outputs.dir }}
-          key: ${{ steps.cache-env.outputs.key }}
-          restore-keys: ${{ steps.cache-env.outputs.key }}
-
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
@@ -52,19 +38,19 @@ jobs:
 
       - name: Determine composer cache directory on Linux
         if: matrix.os == 'ubuntu-latest'
-        run: echo "::set-env name=COMPOSER_CACHE_DIR::$(composer config cache-dir)"
+        run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
 
       - name: Determine composer cache directory on Windows
         if: matrix.os == 'windows-latest'
-        run: ECHO "::set-env name=COMPOSER_CACHE_DIR::~\AppData\Local\Composer"
+        run: echo "COMPOSER_CACHE_DIR=~\AppData\Local\Composer" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - name: Cache dependencies installed with composer
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
-          key: php${{ matrix.php }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}
+          key: php${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: |
-            php${{ matrix.php }}-composer-${{ matrix.dependencies }}-
+            php${{ matrix.php }}-composer-
 
       - name: Install dependencies with composer php 7.4
         if: matrix.php == '7.4'
@@ -74,29 +60,8 @@ jobs:
         if: matrix.php == '8.0'
         run: composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ignore-platform-reqs --ansi
 
-      - name: Run tests with codeception with coverage on Linux php 7.4
-        if: matrix.os == 'ubuntu-latest' && matrix.php == '7.4'
-        run: |
-          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
-          vendor/bin/codecept run --coverage --coverage-xml
-
-      - name: Run tests with codeception without coverage on Linux php 8.0
-        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.0'
+      - name: Run tests with codeception
         continue-on-error: true
         run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run
-
-      - name: Run tests with codeception without coverage on Windows
-        if: matrix.os == 'windows-latest'
-        continue-on-error: true
-        run: |
-          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
-          vendor/bin/codecept run
-        shell: bash
-
-      - name: Upload code coverage scrutinizer on Linux php 7.4
-        if: matrix.os == 'ubuntu-latest' && matrix.php == '7.4'
-        run: |
-          wget https://scrutinizer-ci.com/ocular.phar
-          php ocular.phar code-coverage:upload --format=php-clover tests/_output/coverage.xml
