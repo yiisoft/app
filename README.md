@@ -206,13 +206,6 @@ In order to execute tests run:
 composer run serve > ./runtime/yii.log 2>&1 &
 vendor/bin/codecept run
 ```
-\### Unit testing
-
-The package is tested with [PHPUnit](https://phpunit.de/). To run tests:
-
-```shell
-./vendor/bin/phpunit
-```
 
 ### Static analysis
 
