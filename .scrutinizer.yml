@@ -27,7 +27,9 @@ build:
             tests:
                 override:
                     -
-                        command: "./vendor/bin/vendor/bin/codecept run coverage.xml"
+                        command: |
+                            "php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &"
+                            ".vendor/bin/codecept run coverage.xml"
                         on_node: 1
                         coverage:
                             file: runtime/tests/_output/coverage.xml
