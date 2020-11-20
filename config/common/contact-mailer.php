@@ -10,7 +10,7 @@ return [
     ContactMailer::class => [
         '__class' => ContactMailer::class,
         '__construct()' => [
-            'to' => $params['mailer']['adminEmail']
-        ]
-    ]
+            'to' => $params['mailer']['adminEmail'],
+        ],
+    ],
 ];

@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Contact;
 
@@ -41,7 +42,7 @@ class ContactController
                 'is-success',
                 [
                     'header' => 'System mailer notification.',
-                    'body' => 'Thanks to contact us, we\'ll get in touch with you as soon as possible.'
+                    'body' => 'Thanks to contact us, we\'ll get in touch with you as soon as possible.',
                 ],
                 true
             );
@@ -57,7 +58,7 @@ class ContactController
         return $this->viewRenderer->withCsrf()->render(
             'form',
             [
-                'form' => $form
+                'form' => $form,
             ]
         );
     }

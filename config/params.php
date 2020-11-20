@@ -20,7 +20,7 @@ return [
             '@resources' => '@root/resources',
             '@runtime' => '@root/runtime',
             '@views' => '@root/resources/views',
-            '@message' => '@root/resources/message'
+            '@message' => '@root/resources/message',
         ],
     ],
 
@@ -28,18 +28,18 @@ return [
         'fieldConfig' => [
             'inputCssClass()' => ['form-control input field'],
             'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']]
-        ]
+            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
+        ],
     ],
 
     'yiisoft/mailer' => [
         'composer' => [
-            'composerView' => '@resources/mail'
+            'composerView' => '@resources/mail',
         ],
         'fileMailer' => [
-            'fileMailerStorage' => '@runtime/mail'
+            'fileMailerStorage' => '@runtime/mail',
         ],
-        'writeToFiles' => true
+        'writeToFiles' => true,
     ],
 
     'swiftmailer/swiftmailer' => [
@@ -48,8 +48,8 @@ return [
             'port' => 25,
             'encryption' => null,
             'username' => 'admin@example.com',
-            'password' => ''
-        ]
+            'password' => '',
+        ],
     ],
 
     'yiisoft/view' => [
@@ -59,26 +59,26 @@ return [
             'assetManager' => Reference::to(AssetManager::class),
             'field' => Reference::to(Field::class),
             'url' => Reference::to(UrlGeneratorInterface::class),
-            'urlMatcher' => Reference::to(UrlMatcherInterface::class)
-        ]
+            'urlMatcher' => Reference::to(UrlMatcherInterface::class),
+        ],
     ],
 
     'yiisoft/yii-debug' => [
-        'enabled' => true
+        'enabled' => true,
     ],
 
     'yiisoft/yii-view' => [
         'viewBasePath' => '@views',
-        'layout' => '@resources/layout/main'
+        'layout' => '@resources/layout/main',
     ],
 
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'name' => 'My Project'
+        'name' => 'My Project',
     ],
 
     'mailer' => [
-        'adminEmail' => 'admin@example.com'
+        'adminEmail' => 'admin@example.com',
     ],
 ];

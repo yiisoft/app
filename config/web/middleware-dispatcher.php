@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use Psr\Container\ContainerInterface;
 use Yiisoft\Csrf\CsrfMiddleware;
+use Yiisoft\ErrorHandler\ErrorCatcher;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
-use Yiisoft\ErrorHandler\ErrorCatcher;
 use Yiisoft\Yii\Web\MiddlewareDispatcher;
 
 return [

@@ -11,6 +11,6 @@ return [
         '__class' => ApplicationParameters::class,
         'charset()' => [$params['app']['charset']],
         'language()' => [$params['app']['language']],
-        'name()' => [$params['app']['name']]
-    ]
+        'name()' => [$params['app']['name']],
+    ],
 ];

@@ -7,5 +7,5 @@ use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 /** @var array $params */
 
 return [
-    ReverseBlockMerge::class => new ReverseBlockMerge()
+    ReverseBlockMerge::class => new ReverseBlockMerge(),
 ];

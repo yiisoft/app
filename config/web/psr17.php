@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use HttpSoft\Message\RequestFactory;
-use HttpSoft\Message\ServerRequestFactory;
 use HttpSoft\Message\ResponseFactory;
+use HttpSoft\Message\ServerRequestFactory;
 use HttpSoft\Message\StreamFactory;
 use HttpSoft\Message\UploadedFileFactory;
 use HttpSoft\Message\UriFactory;
@@ -21,5 +21,5 @@ return [
     ResponseFactoryInterface::class => ResponseFactory::class,
     StreamFactoryInterface::class => StreamFactory::class,
     UriFactoryInterface::class => UriFactory::class,
-    UploadedFileFactoryInterface::class => UploadedFileFactory::class
+    UploadedFileFactoryInterface::class => UploadedFileFactory::class,
 ];
