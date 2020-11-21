@@ -17,7 +17,6 @@ finder:
         - schema1.php
 
 enabled:
-    - alpha_ordered_imports
     - alpha_ordered_traits
     - array_indentation
     - array_push
