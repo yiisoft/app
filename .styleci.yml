@@ -10,8 +10,11 @@ finder:
         - resources
         - views
         - public
+        - templates
     not-name:
         - UnionCar.php
+        - TimerUnionTypes.php
+        - schema1.php
 
 enabled:
     - alpha_ordered_imports
@@ -36,13 +39,11 @@ enabled:
     - native_function_casing
     - native_function_type_declaration_casing
     - no_alias_functions
-    - no_alternative_syntax
     - no_empty_comment
     - no_empty_phpdoc
     - no_empty_statement
     - no_extra_block_blank_lines
     - no_short_bool_cast
-    - no_short_echo_tag
     - no_superfluous_elseif
     - no_unneeded_control_parentheses
     - no_unneeded_curly_braces
@@ -72,7 +73,6 @@ enabled:
     - phpdoc_type_to_var
     - phpdoc_types
     - phpdoc_types_order
-    - phpdoc_var_without_name
     - print_to_echo
     - regular_callable_call
     - return_assignment
