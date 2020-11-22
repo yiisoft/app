@@ -10,16 +10,11 @@ use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
 
 return [
-    MiddlewareDispatcher::class => static function (ContainerInterface $container) {
-        $middlewareFactory = $container->get(\Yiisoft\Middleware\Dispatcher\MiddlewareFactoryInterface::class);
-        $middlewareStack = $container->get(\Yiisoft\Middleware\Dispatcher\MiddlewareStackInterface::class);
-
-        return (new MiddlewareDispatcher($middlewareFactory, $middlewareStack))
-             ->withMiddlewares([
-                 Router::class,
-                 SessionMiddleware::class,
-                 CsrfMiddleware::class,
-                 ErrorCatcher::class,
-             ]);
-    },
+    MiddlewareDispatcher::class => static fn (ContainerInterface $container) => $container->get(MiddlewareDispatcher::class)
+         ->withMiddlewares([
+             Router::class,
+             SessionMiddleware::class,
+             CsrfMiddleware::class,
+             ErrorCatcher::class,
+         ])
 ];
