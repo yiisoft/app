@@ -5,14 +5,21 @@ declare(strict_types=1);
 use Psr\Container\ContainerInterface;
 use Yiisoft\Csrf\CsrfMiddleware;
 use Yiisoft\ErrorHandler\ErrorCatcher;
+use Yiisoft\Middleware\Dispatcher\MiddlewareDispatcher;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
-use Yiisoft\Yii\Web\MiddlewareDispatcher;
 
 return [
-    MiddlewareDispatcher::class => static fn (ContainerInterface $container) => (new MiddlewareDispatcher($container))
-        ->addMiddleware($container->get(Router::class))
-        ->addMiddleware($container->get(SessionMiddleware::class))
-        ->addMiddleware($container->get(CsrfMiddleware::class))
-        ->addMiddleware($container->get(ErrorCatcher::class)),
+    MiddlewareDispatcher::class => static function (ContainerInterface $container) {
+        $middlewareFactory = $container->get(\Yiisoft\Middleware\Dispatcher\MiddlewareFactoryInterface::class);
+        $middlewareStack = $container->get(\Yiisoft\Middleware\Dispatcher\MiddlewareStackInterface::class);
+
+         return (new MiddlewareDispatcher($middlewareFactory, $middlewareStack))
+             ->withMiddlewares([
+                 Router::class,
+                 SessionMiddleware::class,
+                 CsrfMiddleware::class,
+                 ErrorCatcher::class,
+             ]);
+    }
 ];
