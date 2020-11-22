@@ -14,12 +14,12 @@ return [
         $middlewareFactory = $container->get(\Yiisoft\Middleware\Dispatcher\MiddlewareFactoryInterface::class);
         $middlewareStack = $container->get(\Yiisoft\Middleware\Dispatcher\MiddlewareStackInterface::class);
 
-         return (new MiddlewareDispatcher($middlewareFactory, $middlewareStack))
+        return (new MiddlewareDispatcher($middlewareFactory, $middlewareStack))
              ->withMiddlewares([
                  Router::class,
                  SessionMiddleware::class,
                  CsrfMiddleware::class,
                  ErrorCatcher::class,
              ]);
-    }
+    },
 ];
