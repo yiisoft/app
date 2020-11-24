@@ -8,7 +8,7 @@ return [
     Yiisoft\Yii\Web\Application::class => [
         'class' => Yiisoft\Yii\Web\Application::class,
         '__construct()' => [
-            'dispatcher' => Reference::to('application-dispatcher')
+            'dispatcher' => Reference::to('application-dispatcher'),
         ],
     ],
 ];
