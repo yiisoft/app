@@ -42,8 +42,7 @@
         "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "@dev",
         "yiisoft/yii-view": "^3.0@dev",
-        "yiisoft/yii-web": "@dev",
-        "yiisoft/middleware-dispatcher": "@dev"
+        "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
         "codeception/codeception": "^4.1.5",
