@@ -14,14 +14,15 @@ return [
         '__construct()' => [
             'dispatcher' => static function (Injector $injector) {
                 return ($injector->make(MiddlewareDispatcher::class))
-                    ->withMiddlewares([
-                        Router::class,
-                        SessionMiddleware::class,
-                        CsrfMiddleware::class,
-                        ErrorCatcher::class,
-                    ]
-                );
-            }
+                    ->withMiddlewares(
+                        [
+                            Router::class,
+                            SessionMiddleware::class,
+                            CsrfMiddleware::class,
+                            ErrorCatcher::class,
+                        ]
+                    );
+            },
         ],
     ],
 ];
