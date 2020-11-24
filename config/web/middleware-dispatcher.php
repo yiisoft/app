@@ -9,7 +9,7 @@ use Yiisoft\Middleware\Dispatcher\MiddlewareDispatcher;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
 
-return [    
+return [
     'application-dispatcher' => static function (Injector $injector) {
         $middlewareDispatcher = $injector->make(MiddlewareDispatcher::class);
 
@@ -19,5 +19,5 @@ return [
             CsrfMiddleware::class,
             ErrorCatcher::class,
         ]);
-    }
+    },
 ];
