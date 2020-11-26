@@ -62,7 +62,6 @@ jobs:
         run: composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ignore-platform-reqs --ansi
 
       - name: Run tests with codeception
-        continue-on-error: true
         run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run
