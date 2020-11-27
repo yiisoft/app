@@ -52,7 +52,7 @@ jobs:
 
       - name: Install template yiisoft/app with composer create project php 7.4
         if: matrix.php == '7.4'
-Fix         run: composer create-project --prefer-dist --no-interaction --no-progress --stability=dev yiisoft/app app --ansi
+        run: composer create-project --prefer-dist --no-interaction --no-progress --stability=dev yiisoft/app app --ansi
 
       - name: Install template yiisoft/app with composer create project php 8.0
         if: matrix.php == '8.0'
