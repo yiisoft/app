@@ -28,7 +28,6 @@
 /.gitignore         export-ignore
 /.scrutinizer.yml   export-ignore
 /phpunit.xml.dist   export-ignore
-/tests              export-ignore
 /docs               export-ignore
 
 # Avoid merge conflicts in CHANGELOG
