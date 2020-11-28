@@ -13,9 +13,15 @@ use Yiisoft\Yii\Web\Application;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
-// PHP built-in server should serve static files as is
-if ((PHP_SAPI === 'cli-server') && is_file(__DIR__ . $_SERVER["REQUEST_URI"])) {
-    return false;
+// PHP built-in server routing.
+if (PHP_SAPI === 'cli-server') {
+    // Serve static files as is.
+    if (is_file(__DIR__ . $_SERVER["REQUEST_URI"])) {
+        return false;
+    }
+
+    // Explicitly set for URLs with dot.
+    $_SERVER['SCRIPT_NAME'] = '/index.php';
 }
 
 $c3 = dirname(__DIR__) . '/c3.php';
