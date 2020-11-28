@@ -81,4 +81,8 @@ return [
     'mailer' => [
         'adminEmail' => 'admin@example.com',
     ],
+
+    'yiisoft/router' => [
+        'enableCache' => false,
+    ],
 ];
