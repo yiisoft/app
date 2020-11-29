@@ -10,9 +10,8 @@
     "prefer-stable": true,
     "scripts": {
         "serve": "yii serve",
-        "test": [
-            "phpunit --colors --no-interaction"
-        ]
+        "test": "phpunit --testdox --no-interaction",
+        "test-watch": "phpunit-watcher watch"
     },
     "require": {
         "php": "^7.4|^8.0",
