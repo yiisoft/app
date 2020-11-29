@@ -45,13 +45,15 @@
         "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
-        "codeception/codeception": "^4.1.5",
         "codeception/c3": "^2.6.0",
+        "codeception/codeception": "^4.1.5",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
         "phpunit/phpunit": "^9.4",
+        "roave/infection-static-analysis-plugin": "^1.5",
         "roave/security-advisories": "dev-master",
-        "vimeo/psalm": "^4.1"
+        "spatie/phpunit-watcher": "^1.23",
+        "vimeo/psalm": "^4.2"
     },
     "autoload": {
         "psr-4": {
