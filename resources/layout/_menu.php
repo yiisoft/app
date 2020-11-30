@@ -12,12 +12,12 @@ use Yiisoft\Yii\Bulma\NavBar;
 $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
 ?>
 
-<?= NavBar::begin()
+<?= NavBar::widget()
     ->brandLabel($applicationParameters->getName())
     ->brandImage('/images/yii-logo.jpg')
     ->options(['class' => 'is-black', 'data-sticky' => '', 'data-sticky-shadow' => ''])
     ->itemsOptions(['class' => 'navbar-end'])
-    ->start();
+    ->begin();
 ?>
 
     <?= Nav::widget()
