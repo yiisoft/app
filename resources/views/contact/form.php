@@ -19,7 +19,7 @@ $this->setTitle('contact');
         Please fill out the following to Contact.
     </p>
 
-    <?= Form::begin()
+    <?= Form::widget()
         ->action($url->generate('contact/form'))
         ->options(
             [
@@ -28,7 +28,7 @@ $this->setTitle('contact');
                 'enctype' => 'multipart/form-data',
             ]
         )
-        ->start() ?>
+        ->begin() ?>
 
         <?= $field->config($form, 'username') ?>
         <?= $field->config($form, 'email') ?>
