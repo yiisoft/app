@@ -31,7 +31,6 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: ${{ env.extensions }}
           ini-values: date.timezone='UTC'
-          coverage: pcov
           tools: composer:v2
 
       - name: Determine composer cache directory on Linux
