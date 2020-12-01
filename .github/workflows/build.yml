@@ -60,5 +60,5 @@ jobs:
       - name: Run tests with codeception
         run: |
           cd app
-          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
+          vendor/bin/yii serve 127.0.0.1:8080 --router=public/index-test.php > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run
