@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Contact;
 
-use App\Form\ContactForm;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
