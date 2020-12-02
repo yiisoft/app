@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Form;
+namespace App\Contact;
 
 use Yiisoft\Form\FormModel;
 use Yiisoft\Validator\Rule\Email;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
 
-/* @var App\Form\ContactForm $form */
+/* @var App\Contact\ContactForm $form */
 /* @var Yiisoft\Router\UrlGeneratorInterface $url */
 /* @var string|null $csrf */
 /* @var Yiisoft\Form\Widget\Field $field */
