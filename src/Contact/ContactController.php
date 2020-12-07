@@ -54,7 +54,7 @@ class ContactController
                 );
         }
 
-        return $this->viewRenderer->withCsrf()->render(
+        return $this->viewRenderer->render(
             'form',
             [
                 'form' => $form,

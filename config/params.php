@@ -8,6 +8,7 @@ use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
+use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
     'yiisoft/aliases' => [
@@ -70,6 +71,9 @@ return [
     'yiisoft/yii-view' => [
         'viewBasePath' => '@views',
         'layout' => '@resources/layout/main',
+        'injections' => [
+            Reference::to(CsrfViewInjection::class),
+        ],
     ],
 
     'app' => [
