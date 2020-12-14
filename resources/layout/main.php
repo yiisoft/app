@@ -22,6 +22,8 @@ $assetManager->register([
 
 $this->setCssFiles($assetManager->getCssFiles());
 $this->setJsFiles($assetManager->getJsFiles());
+$this->setJsStrings($assetManager->getJsStrings());
+$this->setJsVar($assetManager->getJsVar());
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
