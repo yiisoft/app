@@ -26,6 +26,7 @@
         "yiisoft/di": "@dev",
         "yiisoft/error-handler": "@dev",
         "yiisoft/form": "@dev",
+        "yiisoft/files": "@dev",
         "yiisoft/i18n": "^3.0@dev",
         "yiisoft/i18n-message-php": "^3.0@dev",
         "yiisoft/log": "@dev",
