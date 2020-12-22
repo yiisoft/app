@@ -27,9 +27,9 @@ return [
 
     'yiisoft/form' => [
         'fieldConfig' => [
-            'inputCssClass()' => ['form-control input field'],
+            'inputCssClass()' => ['input field mb-1'],
             'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'help is-danger is-italic']],
+            'errorOptions()' => [['class' => 'help is-danger has-text-left is-italic mt-0 mb-2']],
             'errorCssClass()' => ['is-danger'],
             'successCssClass()' => ['is-success'],
         ],
