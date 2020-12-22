@@ -29,7 +29,8 @@ return [
         'fieldConfig' => [
             'inputCssClass()' => ['form-control input field'],
             'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
+            'errorOptions()' => [['class' => 'help is-danger is-italic']],
+            'errorCssClass()' => ['is-danger'],
         ],
     ],
 

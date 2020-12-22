@@ -9,7 +9,11 @@ use Yiisoft\Yii\Bulma\NavBar;
 /* @var Yiisoft\Router\UrlGeneratorInterface $url */
 /* @var Yiisoft\Router\UrlMatcherInterface $urlMatcher */
 
-$currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
+$currentUrl = '';
+
+if ($urlMatcher->getCurrentRoute() !== null) {
+    $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
+}
 ?>
 
 <?= NavBar::widget()
