@@ -14,7 +14,6 @@ $this->setTitle('404');
     The page
     <strong><?= Html::encode($urlMatcher->getCurrentUri()->getPath()) ?></strong>
     not found.
-
 </p>
 
 <p class="has-text-grey">
