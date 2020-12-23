@@ -26,7 +26,6 @@ class ContactController
 
     public function contact(
         ContactForm $form,
-        FlashInterface $flash,
         ContactMailer $mailer,
         UrlGeneratorInterface $url,
         ServerRequestInterface $request
@@ -36,15 +35,6 @@ class ContactController
 
         if (($method === Method::POST) && $form->load((array) $body) && $form->validate()) {
             $mailer->send($form, $request);
-
-            $flash->add(
-                'is-success',
-                [
-                    'header' => 'System mailer notification.',
-                    'body' => 'Thanks to contact us, we\'ll get in touch with you as soon as possible.',
-                ],
-                true
-            );
 
             return $this->responseFactory
                 ->createResponse(302)
