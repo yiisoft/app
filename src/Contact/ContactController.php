@@ -10,7 +10,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\Http\Header;
 use Yiisoft\Http\Method;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Session\Flash\FlashInterface;
 use Yiisoft\Yii\View\ViewRenderer;
 
 class ContactController
