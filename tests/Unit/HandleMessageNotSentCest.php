@@ -20,10 +20,10 @@ final class HandleMessageNotSentCest
             ],
             'is-danger' => [
                 [
-                    'header' => "System mailer notification.",
+                    'header' => 'System mailer notification.',
                     'body' => 'testMe',
-                ]
-            ]
+                ],
+            ],
         ];
 
         $session = new Session();
