@@ -25,16 +25,6 @@ return [
         ],
     ],
 
-    'yiisoft/form' => [
-        'fieldConfig' => [
-            'inputCssClass()' => ['input field mb-1'],
-            'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'help is-danger has-text-left is-italic mt-0 mb-2']],
-            'errorCssClass()' => ['is-danger'],
-            'successCssClass()' => ['is-success'],
-        ],
-    ],
-
     'yiisoft/mailer' => [
         'composer' => [
             'composerView' => '@resources/mail',
