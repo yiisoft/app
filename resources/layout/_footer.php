@@ -1,11 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+/* @var App\ApplicationParameters $applicationParameters */
+
+use Yiisoft\Html\Html;
+
+?>
 <div class="columns is-mobile">
     <div class="column has-text-left has-text-light">
         <i class="fas fa-copyright fa-inverse is-hidden-mobile"></i>
         <a class="is-hidden-mobile" href="https://www.yiiframework.com/" target="_blank" rel="noopener">
-            Yii Framework - <?= date('Y') ?>
+            <?= date('Y') ?>  <?= Html::encode($applicationParameters->getName()) ?>
         </a>
         <a class="is-hidden-desktop is-size-6" href="https://www.yiiframework.com/" target="_blank" rel="noopener">
-            Yii Framework
+            <?= Html::encode($applicationParameters->getName()) ?>
         </a>
     </div>
 
