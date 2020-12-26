@@ -17,6 +17,6 @@ final class IndexFunctionalCest
     public function testIndexPage(FunctionalTester $I): void
     {
         $I->expectTo('see page index.');
-        $I->see('Hello World');
+        $I->see('Hello');
     }
 }
