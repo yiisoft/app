@@ -66,7 +66,7 @@ runtime/            Files generated during runtime.
 src/                Application source code.
     Asset/          Asset bundle definitions.
     Controller/     Web controller classes.
-    Command/        File command console.
+    Command/        Console commands.
 tests/              A set of Codeception tests for the application.
 vendor/             Installed Composer packages.
 ```

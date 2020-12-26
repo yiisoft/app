@@ -19,12 +19,12 @@ final class Hello extends Command
 
     public function configure(): void
     {
-        $this->setDescription('Hellow command example');
+        $this->setDescription('An example command');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->writeln('Hello Command');
+        $output->writeln('Hello!');
 
         return 1;
     }

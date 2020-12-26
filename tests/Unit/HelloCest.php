@@ -46,6 +46,6 @@ final class HelloCest
 
         $output = $commandCreate->getDisplay(true);
 
-        $I->assertStringContainsString('Hello Command', $output);
+        $I->assertStringContainsString('Hello!', $output);
     }
 }
