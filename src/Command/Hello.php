@@ -24,7 +24,7 @@ final class Hello extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->writeln("Hello Command");
+        $output->writeln('Hello Command');
 
         return 1;
     }
