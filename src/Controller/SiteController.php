@@ -20,9 +20,4 @@ class SiteController
     {
         return $this->viewRenderer->render('index');
     }
-
-    public function about(): ResponseInterface
-    {
-        return $this->viewRenderer->render('about');
-    }
 }

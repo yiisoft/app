@@ -3,13 +3,14 @@
 declare(strict_types=1);
 
 use App\Asset\AppAsset;
-use App\Widget\FlashMessage;
 use App\Asset\CdnFontAwesomeAsset;
 use Yiisoft\Html\Html;
+use Yiisoft\I18n\Locale;
 
 /**
  * @var App\ApplicationParameters $applicationParameters
  * @var Yiisoft\Assets\AssetManager $assetManager
+ * @var Locale $locale
  * @var Yiisoft\View\WebView $this
  * @var string|null $csrf
  * @var string $content
@@ -27,7 +28,7 @@ $this->setJsVar($assetManager->getJsVar());
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Html::encode($applicationParameters->getLanguage()) ?>">
+<html lang="<?= Html::encode($locale->language()) ?>">
     <?= $this->render('_head') ?>
     <?php $this->beginBody() ?>
         <body>
@@ -35,7 +36,6 @@ $this->setJsVar($assetManager->getJsVar());
                 <div class="hero-head has-background-black">
                     <?= $this->render('_menu') ?>
                 </div>
-                <?= FlashMessage::widget() ?>
                 <div class="hero-body is-light">
                     <div class="container has-text-centered">
                         <?= $content ?>
