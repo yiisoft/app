@@ -2,15 +2,23 @@
 
 declare(strict_types=1);
 
+use App\Command\Hello;
 use App\ApplicationParameters;
+use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Factory\Definitions\Reference;
-use Yiisoft\Form\Widget\Field;
+use Yiisoft\I18n\Locale;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
+    'app' => [
+        'charset' => 'UTF-8',
+        'locale' => 'en',
+        'name' => 'My Project',
+    ],
+
     'yiisoft/aliases' => [
         'aliases' => [
             '@root' => dirname(__DIR__),
@@ -25,34 +33,20 @@ return [
         ],
     ],
 
-    'yiisoft/mailer' => [
-        'composer' => [
-            'composerView' => '@resources/mail',
-        ],
-        'fileMailer' => [
-            'fileMailerStorage' => '@runtime/mail',
-        ],
-        'writeToFiles' => true,
-    ],
-
-    'swiftmailer/swiftmailer' => [
-        'SwiftSmtpTransport' => [
-            'host' => 'smtp.example.com',
-            'port' => 25,
-            'encryption' => null,
-            'username' => 'admin@example.com',
-            'password' => '',
-        ],
-    ],
-
     'yiisoft/view' => [
         'basePath' => '@views',
         'defaultParameters' => [
             'applicationParameters' => Reference::to(ApplicationParameters::class),
             'assetManager' => Reference::to(AssetManager::class),
-            'field' => Reference::to(Field::class),
+            'locale' => Reference::to(Locale::class),
             'url' => Reference::to(UrlGeneratorInterface::class),
             'urlMatcher' => Reference::to(UrlMatcherInterface::class),
+        ],
+    ],
+
+    'yiisoft/yii-console' => [
+        'commands' => [
+            'hello' => Hello::class,
         ],
     ],
 
@@ -68,17 +62,9 @@ return [
         ],
     ],
 
-    'app' => [
-        'charset' => 'UTF-8',
-        'language' => 'en',
-        'name' => 'My Project',
-    ],
-
-    'mailer' => [
-        'adminEmail' => 'admin@example.com',
-    ],
-
     'yiisoft/router' => [
         'enableCache' => false,
     ],
+
+    ReverseBlockMerge::class => new ReverseBlockMerge(),
 ];

@@ -26,10 +26,8 @@ if ($urlMatcher->getCurrentRoute() !== null) {
 
     <?= Nav::widget()
         ->currentPath($currentUrl)
-        ->items([
-            ['label' => 'About', 'url' => $url->generate('site/about')],
-            ['label' => 'Contact', 'url' => $url->generate('contact/form')],
-        ]) ?>
+        ->items([])
+    ?>
 
 <?= NavBar::end();
 

@@ -8,10 +8,17 @@ use Yiisoft\Di\Container;
 use Yiisoft\ErrorHandler\ErrorHandler;
 use Yiisoft\ErrorHandler\HtmlRenderer;
 use Yiisoft\ErrorHandler\ThrowableRendererInterface;
+use Yiisoft\Files\FileHelper;
 use Yiisoft\Http\Method;
 use Yiisoft\Yii\Web\Application;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
+
+$c3 = dirname(__DIR__) . '/c3.php';
+
+if (is_file($c3)) {
+    require_once $c3;
+}
 
 // PHP built-in server routing.
 if (PHP_SAPI === 'cli-server') {
@@ -24,16 +31,15 @@ if (PHP_SAPI === 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index-test.php';
 }
 
-$c3 = dirname(__DIR__) . '/c3.php';
-
-if (is_file($c3)) {
-    require_once $c3;
-}
-
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 // Don't do it in production, assembling takes it's time
-Builder::rebuild();
+$configTime = FileHelper::lastModifiedTime(dirname(__DIR__) . '/config/');
+$buildTime = FileHelper::lastModifiedTime(dirname(__DIR__) . '/runtime/build/config/');
+if ($buildTime < $configTime) {
+    Builder::rebuild();
+}
+
 $startTime = microtime(true);
 
 /**
