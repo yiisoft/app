@@ -25,6 +25,7 @@
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
         "yiisoft/error-handler": "@dev",
+        "yiisoft/event-dispatcher": "3.0.x-dev",
         "yiisoft/files": "@dev",
         "yiisoft/i18n": "^1.0.0",
         "yiisoft/log": "@dev",
@@ -34,7 +35,6 @@
         "yiisoft/view": "@dev",
         "yiisoft/yii-bulma": "@dev",
         "yiisoft/yii-debug": "^3.0@dev",
-        "yiisoft/yii-event": "@dev",
         "yiisoft/yii-view": "^3.0@dev",
         "yiisoft/yii-web": "@dev"
     },
