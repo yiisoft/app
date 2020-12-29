@@ -9,7 +9,6 @@ use Yiisoft\Yii\View\ContentParametersInjectionInterface;
 
 final class ContentViewInjection implements ContentParametersInjectionInterface
 {
-
     private ApplicationParameters $applicationParameters;
 
     public function __construct(
