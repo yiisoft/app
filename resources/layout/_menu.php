@@ -5,14 +5,14 @@ declare(strict_types=1);
 use Yiisoft\Yii\Bulma\Nav;
 use Yiisoft\Yii\Bulma\NavBar;
 
-/* @var App\ApplicationParameters $applicationParameters */
-/* @var Yiisoft\Router\UrlGeneratorInterface $url */
-/* @var Yiisoft\Router\UrlMatcherInterface $urlMatcher */
+/** @var App\ApplicationParameters $applicationParameters */
+/** @var Yiisoft\Router\UrlMatcherInterface $urlMatcher */
 
 $currentUrl = '';
+$currentUri = $urlMatcher->getCurrentUri();
 
-if ($urlMatcher->getCurrentRoute() !== null) {
-    $currentUrl = $url->generate($urlMatcher->getCurrentRoute()->getName());
+if ($currentUri !== null) {
+    $currentUrl = $currentUri->getPath();
 }
 ?>
 
@@ -21,7 +21,7 @@ if ($urlMatcher->getCurrentRoute() !== null) {
     ->brandImage('/images/yii-logo.jpg')
     ->options(['class' => 'is-black', 'data-sticky' => '', 'data-sticky-shadow' => ''])
     ->itemsOptions(['class' => 'navbar-end'])
-    ->begin();
+    ->begin()
 ?>
 
     <?= Nav::widget()

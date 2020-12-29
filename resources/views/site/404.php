@@ -2,8 +2,11 @@
 
 use Yiisoft\Html\Html;
 
-$this->setTitle('404');
+/** @var Yiisoft\View\WebView $this */
+/** @var Yiisoft\Router\UrlGeneratorInterface $urlGenerator */
+/** @var Yiisoft\Router\UrlMatcherInterface $urlMatcher */
 
+$this->setTitle('404');
 ?>
 
 <h1 class="is-size-1">
@@ -23,6 +26,6 @@ $this->setTitle('404');
 
 <hr class="mb-2">
 
-<a class ="button is-danger mt-5" href="<?= $url->generate('site/index') ?>">
+<a class ="button is-danger mt-5" href="<?= $urlGenerator->generate('site/index') ?>">
     Go Back Home
 </a>

@@ -5,7 +5,6 @@ declare(strict_types=1);
 /* @var App\ApplicationParameters $applicationParameters */
 
 use Yiisoft\Html\Html;
-
 ?>
 <div class="columns is-mobile">
     <div class="column has-text-left has-text-light">
