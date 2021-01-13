@@ -7,6 +7,6 @@ use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
 use Yiisoft\Router\Route;
 
 return [
-    Route::get('/', [SiteController::class, 'index'])->name('site/index'),
+    Route::get('/', [SiteController::class, 'index'])->name('home'),
     ReverseBlockMerge::class => new ReverseBlockMerge(),
 ];
