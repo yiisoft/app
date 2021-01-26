@@ -9,8 +9,9 @@ use Yiisoft\Assets\AssetBundle;
 final class CdnFontAwesomeAsset extends AssetBundle
 {
     public bool $cdn = true;
+    public ?string $baseUrl = 'https://use.fontawesome.com';
 
     public array $css = [
-        'https://use.fontawesome.com/releases/v5.13.0/css/all.css',
+        '/releases/v5.13.0/css/all.css',
     ];
 }
