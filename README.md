@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://github.com/yiisoft.png" height="100px">
+        <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
     </a>
     <h1 align="center">Yii application template</h1>
     <br>
@@ -28,8 +28,7 @@ The minimum requirement by this project template that your Web server supports P
 
 ## Installation
 
-You'll need PHP 7.4. Additionally, [NodeJs](https://nodejs.org/en/) and npm are used to fetch assets, so they
-should be installed.
+You'll need at least PHP 7.4.
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md).
@@ -67,7 +66,7 @@ runtime/            Files generated during runtime.
 src/                Application source code.
     Asset/          Asset bundle definitions.
     Controller/     Web controller classes.
-    Provider/       Providers that take configuration and configure services.
+    Command/        Console commands.
 tests/              A set of Codeception tests for the application.
 vendor/             Installed Composer packages.
 ```
@@ -206,10 +205,30 @@ In order to execute tests run:
 composer run serve > ./runtime/yii.log 2>&1 &
 vendor/bin/codecept run
 ```
-## Static analysis
 
-The code is statically analyzed with [Psalm](https://psalm.dev/docs). To run static analysis:
+### Static analysis
 
-```php
+The code is statically analyzed with [Psalm](https://psalm.dev/). To run static analysis:
+
+```shell
 ./vendor/bin/psalm
 ```
+
+### Support the project
+
+[![Open Collective](https://img.shields.io/badge/Open%20Collective-sponsor-7eadf1?logo=open%20collective&logoColor=7eadf1&labelColor=555555)](https://opencollective.com/yiisoft)
+
+### Follow updates
+
+[![Official website](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](https://www.yiiframework.com/)
+[![Twitter](https://img.shields.io/badge/twitter-follow-1DA1F2?logo=twitter&logoColor=1DA1F2&labelColor=555555?style=flat)](https://twitter.com/yiiframework)
+[![Telegram](https://img.shields.io/badge/telegram-join-1DA1F2?style=flat&logo=telegram)](https://t.me/yii3en)
+[![Facebook](https://img.shields.io/badge/facebook-join-1DA1F2?style=flat&logo=facebook&logoColor=ffffff)](https://www.facebook.com/groups/yiitalk)
+[![Slack](https://img.shields.io/badge/slack-join-1DA1F2?style=flat&logo=slack)](https://yiiframework.com/go/slack)
+
+## License
+
+The Yii application template is free software. It is released under the terms of the BSD License.
+Please see [`LICENSE`](./LICENSE.md) for more information.
+
+Maintained by [Yii Software](https://www.yiiframework.com/).

@@ -2,6 +2,15 @@
     padding: 1rem 1.5rem 1rem !important;
 }
 
+.hero-footer a {
+    color: #fff;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+    color: #72dcff;
+}
+
 .hero.is-light a.navbar-item.is-active {
     background-color: transparent !important;
 }
