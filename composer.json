@@ -53,7 +53,10 @@
     "autoload": {
         "psr-4": {
             "App\\": "src"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

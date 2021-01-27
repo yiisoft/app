@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -8,7 +10,6 @@ use Yiisoft\Di\Container;
 use Yiisoft\ErrorHandler\ErrorHandler;
 use Yiisoft\ErrorHandler\HtmlRenderer;
 use Yiisoft\ErrorHandler\ThrowableRendererInterface;
-use Yiisoft\Files\FileHelper;
 use Yiisoft\Http\Method;
 use Yiisoft\Yii\Web\Application;
 use Yiisoft\Yii\Web\SapiEmitter;
@@ -34,9 +35,7 @@ if (PHP_SAPI === 'cli-server') {
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 // Don't do it in production, assembling takes it's time
-$configTime = FileHelper::lastModifiedTime(dirname(__DIR__) . '/config/');
-$buildTime = FileHelper::lastModifiedTime(dirname(__DIR__) . '/runtime/build/config/');
-if ($buildTime < $configTime) {
+if (shouldRebuildConfigs()) {
     Builder::rebuild();
 }
 
