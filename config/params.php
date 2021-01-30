@@ -51,7 +51,7 @@ return [
         ],
     ],
 
-//    'yiisoft/router' => [
-//        'enableCache' => false,
-//    ],
+    //    'yiisoft/router' => [
+    //        'enableCache' => false,
+    //    ],
 ];

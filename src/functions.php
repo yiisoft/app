@@ -5,7 +5,8 @@ declare(strict_types=1);
 use Yiisoft\Files\FileHelper;
 use Yiisoft\VarDumper\VarDumper;
 
-function shouldRebuildConfigs(): bool {
+function shouldRebuildConfigs(): bool
+{
     $sourceDirectory = dirname(__DIR__) . '/config/';
     $buildDirectory = dirname(__DIR__) . '/runtime/build/config/';
 
