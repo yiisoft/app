@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use Yiisoft\Composer\Config\Builder;
+use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
 use Yiisoft\ErrorHandler\ErrorHandler;
 use Yiisoft\ErrorHandler\HtmlRenderer;
@@ -34,10 +34,7 @@ if (PHP_SAPI === 'cli-server') {
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-// Don't do it in production, assembling takes it's time
-if (shouldRebuildConfigs()) {
-    Builder::rebuild();
-}
+$config = new Config(dirname(__DIR__));
 
 $startTime = microtime(true);
 
@@ -52,8 +49,8 @@ $errorHandler = new ErrorHandler(new NullLogger(), new HtmlRenderer());
 $errorHandler->register();
 
 $container = new Container(
-    require Builder::path('web'),
-    require Builder::path('providers-web')
+    $config->get('web'),
+    $config->get('providers-web'),
 );
 
 /**
