@@ -20,7 +20,7 @@
         "yiisoft/assets": "@dev",
         "yiisoft/cache": "@dev",
         "yiisoft/cache-file": "@dev",
-        "yiisoft/composer-config-plugin": "^1.0@dev",
+        "yiisoft/config": "^1.0@dev",
         "yiisoft/csrf": "@dev",
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
