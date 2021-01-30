@@ -5,7 +5,7 @@ declare(strict_types=1);
 use App\Command\Hello;
 use App\ViewInjection\ContentViewInjection;
 use App\ViewInjection\LayoutViewInjection;
-use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
+use Yiisoft\Composer\Config\Merger\Modifier\ReverseBlockMerge;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 

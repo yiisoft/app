@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Controller\SiteController;
-use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
+use Yiisoft\Composer\Config\Merger\Modifier\ReverseBlockMerge;
 use Yiisoft\Router\Route;
 
 return [
