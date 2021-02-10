@@ -25,7 +25,7 @@
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
         "yiisoft/error-handler": "@dev",
-        "yiisoft/files": "@dev",
+        "yiisoft/files": "^1.0",
         "yiisoft/i18n": "^1.0.0",
         "yiisoft/log": "@dev",
         "yiisoft/log-target-file": "@dev",
