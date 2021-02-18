@@ -9,49 +9,54 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "serve": "yii serve"
+        "serve": "yii serve",
+        "test": "phpunit --testdox --no-interaction",
+        "test-watch": "phpunit-watcher watch"
     },
     "require": {
         "php": "^7.4|^8.0",
-        "foxy/foxy": "^1.0.8",
         "httpsoft/http-message": "^1.0.5",
-        "yiisoft/aliases": "^1.0",
+        "yiisoft/aliases": "^1.1.0",
         "yiisoft/assets": "@dev",
-        "yiisoft/cache": "@dev",
-        "yiisoft/cache-file": "@dev",
+        "yiisoft/cache": "^1.0",
+        "yiisoft/cache-file": "^1.0",
         "yiisoft/composer-config-plugin": "^1.0@dev",
-        "yiisoft/csrf": "^3.0@dev",
+        "yiisoft/csrf": "@dev",
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
-        "yiisoft/form": "@dev",
-        "yiisoft/i18n": "^3.0@dev",
-        "yiisoft/i18n-message-php": "^3.0@dev",
-        "yiisoft/i18n-translator": "^3.0@dev",
-        "yiisoft/log": "@dev",
-        "yiisoft/log-target-file": "@dev",
-        "yiisoft/mailer": "@dev",
-        "yiisoft/mailer-swiftmailer": "@dev",
+        "yiisoft/error-handler": "@dev",
+        "yiisoft/files": "^1.0",
+        "yiisoft/i18n": "^1.0.0",
+        "yiisoft/log": "^1.0",
+        "yiisoft/log-target-file": "^1.0",
         "yiisoft/router": "@dev",
         "yiisoft/router-fastroute": "@dev",
         "yiisoft/view": "@dev",
-        "yiisoft/widget": "@dev",
         "yiisoft/yii-bulma": "@dev",
-        "yiisoft/yii-debug": "@dev",
+        "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "@dev",
         "yiisoft/yii-view": "^3.0@dev",
         "yiisoft/yii-web": "@dev"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
+        "codeception/c3": "^2.6.0",
         "codeception/codeception": "^4.1.5",
         "codeception/module-asserts": "@dev",
         "codeception/module-phpbrowser": "@dev",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^9.5",
+        "roave/infection-static-analysis-plugin": "^1.7",
+        "roave/security-advisories": "dev-master",
+        "spatie/phpunit-watcher": "^1.23",
+        "vimeo/psalm": "^4.3",
+        "yiisoft/yii-debug-api": "3.0.x-dev"
     },
     "autoload": {
         "psr-4": {
             "App\\": "src"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -64,18 +69,18 @@
         },
         "config-plugin-output-dir": "runtime/build/config",
         "config-plugin": {
-            "common": "config/common.php",
+            "common": "config/common/*.php",
             "params": [
                 "config/params.php",
                 "?config/params-local.php"
             ],
             "web": [
                 "$common",
-                "config/web.php"
+                "config/web/*.php"
             ],
             "console": [
                 "$common",
-                "config/console.php"
+                "config/console/*.php"
             ],
             "events": "config/events.php",
             "events-web": [
@@ -96,9 +101,23 @@
                 "config/providers-console.php"
             ],
             "routes": "config/routes.php"
+        },
+        "installer-types": [
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "./node_modules/{$name}": [
+                "type:npm-asset"
+            ]
         }
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }

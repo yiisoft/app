@@ -15,13 +15,9 @@ class SiteController
     {
         $this->viewRenderer = $viewRenderer->withControllerName('site');
     }
+
     public function index(): ResponseInterface
     {
         return $this->viewRenderer->render('index');
-    }
-
-    public function about(): ResponseInterface
-    {
-        return $this->viewRenderer->render('about');
     }
 }

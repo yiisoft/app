@@ -36,6 +36,8 @@ phpunit.phar
 /node_modules
 .env
 
-#codeception
-/tests/_output
+# Codeception
 c3.php
+
+# Composer
+composer.lock

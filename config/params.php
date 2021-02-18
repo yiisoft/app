@@ -2,120 +2,61 @@
 
 declare(strict_types=1);
 
-use App\ApplicationParameters;
-use Psr\Log\LogLevel;
-use Yiisoft\Assets\AssetManager;
-use Yiisoft\Form\Widget\Field;
-use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Router\UrlMatcherInterface;
+use App\Command\Hello;
+use App\ViewInjection\ContentViewInjection;
+use App\ViewInjection\LayoutViewInjection;
+use Yiisoft\Composer\Config\Merger\Modifier\ReverseBlockMerge;
+use Yiisoft\Factory\Definitions\Reference;
+use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
-    'aliases' => [
-        '@root' => dirname(__DIR__),
-        '@assets' => '@root/public/assets',
-        '@assetsUrl' => '/assets',
-        '@npm' => '@root/node_modules',
-        '@public' => '@root/public',
-        '@resources' => '@root/resources',
-        '@runtime' => '@root/runtime',
-        '@views' => '@root/resources/views',
-        '@message' => '@root/resources/message'
+    'app' => [
+        'charset' => 'UTF-8',
+        'locale' => 'en',
+        'name' => 'My Project',
     ],
 
-    'yiisoft/cache-file' => [
-        'file-cache' => [
-            'path' => '@runtime/cache'
-        ],
-    ],
-
-    'yiisoft/form' => [
-        'fieldConfig' => [
-            'inputCssClass()' => ['form-control input field'],
-            'labelOptions()' => [['label' => '']],
-            'errorOptions()' => [['class' => 'has-text-left has-text-danger is-italic']],
-        ],
-    ],
-
-    'yiisoft/i18n' => [
-        'locale' => 'en-US',
-        'translator' => [
-            'path' => '@message/en-US.php'
-        ]
-    ],
-
-    'yiisoft/log-target-file' => [
-        'file-target' => [
-            'file' => '@runtime/logs/app.log',
-            'levels' => [
-                LogLevel::EMERGENCY,
-                LogLevel::ERROR,
-                LogLevel::WARNING,
-                LogLevel::INFO,
-                LogLevel::DEBUG,
-            ],
-        ],
-        'file-rotator' => [
-            'maxfilesize' => 10,
-            'maxfiles' => 5,
-            'filemode' => null,
-            'rotatebycopy' => null
-        ],
-    ],
-
-    'yiisoft/mailer' => [
-        'mailerInterface' => [
-            'composerPath' => '@resources/mail',
-            'writeToFiles' => true,
-            'writeToFilesPath' => '@runtime/mail',
-        ],
-        'swiftSmtpTransport' => [
-            'host' => 'smtp.example.com',
-            'port' => 25,
-            'encryption' => null,
-            'username' => 'admin@example.com',
-            'password' => ''
+    'yiisoft/aliases' => [
+        'aliases' => [
+            '@root' => dirname(__DIR__),
+            '@assets' => '@root/public/assets',
+            '@assetsUrl' => '/assets',
+            '@npm' => '@root/node_modules',
+            '@public' => '@root/public',
+            '@resources' => '@root/resources',
+            '@runtime' => '@root/runtime',
+            '@views' => '@root/resources/views',
+            '@message' => '@root/resources/message',
         ],
     ],
 
     'yiisoft/view' => [
-        'basePath' => '@resources/layout',
-        'defaultParameters' => [
-            'applicationParameters' => ApplicationParameters::class,
-            'assetManager' => AssetManager::class,
-            'field' => Field::class,
-            'url' => UrlGeneratorInterface::class,
-            'urlMatcher' => UrlMatcherInterface::class,
+        'basePath' => '@views',
+    ],
+
+    'yiisoft/yii-console' => [
+        'commands' => [
+            'hello' => Hello::class,
         ],
-        'theme' => [
-            'pathMap' => [],
-            'basePath' => '',
-            'baseUrl' => '',
-        ]
     ],
 
     'yiisoft/yii-debug' => [
-        'enabled' => true
+        'enabled' => true,
     ],
 
     'yiisoft/yii-view' => [
         'viewBasePath' => '@views',
         'layout' => '@resources/layout/main',
-    ],
-
-    'yiisoft/yii-web' => [
-        'session' => [
-            'options' => ['cookie_secure' => 0],
-            'handler' => null
+        'injections' => [
+            Reference::to(ContentViewInjection::class),
+            Reference::to(CsrfViewInjection::class),
+            Reference::to(LayoutViewInjection::class),
         ],
     ],
 
-    'app' => [
-        'charset' => 'UTF-8',
-        'language' => 'en',
-        'name' => 'My Project',
+    'yiisoft/router' => [
+        'enableCache' => false,
     ],
 
-    'mailer' => [
-        'adminEmail' => 'admin@example.com',
-    ],
+    ReverseBlockMerge::class => new ReverseBlockMerge(),
 ];
