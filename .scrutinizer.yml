@@ -4,6 +4,8 @@ checks:
 filter:
     paths:
         - "src/*"
+    excluded_paths:
+        - "src/Installer.php"
 
 build:
     nodes:
