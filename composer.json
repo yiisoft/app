@@ -11,7 +11,10 @@
     "scripts": {
         "serve": "yii serve",
         "test": "phpunit --testdox --no-interaction",
-        "test-watch": "phpunit-watcher watch"
+        "test-watch": "phpunit-watcher watch",
+        "post-update-cmd": [
+            "App\\Installer::postUpdate"
+        ]
     },
     "require": {
         "php": "^7.4|^8.0",
