@@ -122,7 +122,7 @@ final class ApplicationRunner
     {
         $sourceDirectory = dirname(__DIR__) . '/config/';
         $buildDirectory = dirname(__DIR__) . '/runtime/build/config/';
-        
+
         if (FileHelper::isEmptyDirectory($buildDirectory)) {
             return true;
         }
