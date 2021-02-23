@@ -23,9 +23,8 @@ if (PHP_SAPI === 'cli-server') {
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
+$runner = new ApplicationRunner();
 // Development mode:
-$runner = ApplicationRunner::forDevelopment();
-// Production mode:
-//$runner = ApplicationRunner::forProduction();
+$runner->debug();
 // Run application:
 $runner->run();

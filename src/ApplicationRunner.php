@@ -27,21 +27,11 @@ use function microtime;
 
 final class ApplicationRunner
 {
-    private bool $debug;
+    private bool $debug = false;
 
-    private function __construct(bool $debug)
+    public function debug(bool $enable = true): void
     {
-        $this->debug = $debug;
-    }
-
-    public static function forDevelopment(): self
-    {
-        return new self(true);
-    }
-
-    public static function forProduction(): self
-    {
-        return new self(false);
+        $this->debug = $enable;
     }
 
     public function run(): void
