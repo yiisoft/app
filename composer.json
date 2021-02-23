@@ -24,7 +24,7 @@
         "yiisoft/cache": "^1.0",
         "yiisoft/cache-file": "^1.0",
         "yiisoft/composer-config-plugin": "^1.0@dev",
-        "yiisoft/csrf": "@dev",
+        "yiisoft/csrf": "^1.0",
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
         "yiisoft/error-handler": "@dev",
