@@ -18,6 +18,7 @@ use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
 use Yiisoft\ErrorHandler\Renderer\HtmlRenderer;
 use Yiisoft\Files\FileHelper;
 use Yiisoft\Http\Method;
+use Yiisoft\Yii\Event\ListenerConfigurationChecker;
 use Yiisoft\Yii\Web\Application;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
@@ -54,6 +55,11 @@ final class ApplicationRunner
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);
 
         $container = $container->get(ContainerInterface::class);
+
+        if ($this->debug) {
+            $container->get(ListenerConfigurationChecker::class)->check(Builder::path('events-web'));
+        }
+
         $application = $container->get(Application::class);
 
         $request = $container->get(ServerRequestFactory::class)->createFromGlobals();
