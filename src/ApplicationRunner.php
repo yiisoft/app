@@ -57,7 +57,7 @@ final class ApplicationRunner
         $container = $container->get(ContainerInterface::class);
 
         if ($this->debug) {
-            $container->get(ListenerConfigurationChecker::class)->check(Builder::path('events-web'));
+            $container->get(ListenerConfigurationChecker::class)->check(require Builder::path('events-web'));
         }
 
         $application = $container->get(Application::class);
