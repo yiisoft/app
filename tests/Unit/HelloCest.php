@@ -9,7 +9,7 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\Console\Tester\CommandTester;
 use App\Tests\UnitTester;
-use Yiisoft\Composer\Config\Builder;
+use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
 
 final class HelloCest
@@ -18,16 +18,18 @@ final class HelloCest
 
     public function _before(UnitTester $I): void
     {
+        $config = $this->getConfig();
+
         $this->container = new Container(
-            require Builder::path('console'),
-            require Builder::path('providers'),
+            $config->get('console'),
+            $config->get('providers'),
         );
     }
 
     public function testExecute(UnitTester $I): void
     {
         $app = new Application();
-        $params = require Builder::path('params');
+        $params = $this->getConfig()->get('params');
 
         $loader = new ContainerCommandLoader(
             $this->container,
@@ -47,5 +49,13 @@ final class HelloCest
         $output = $commandCreate->getDisplay(true);
 
         $I->assertStringContainsString('Hello!', $output);
+    }
+
+    private function getConfig(): Config
+    {
+        return new Config(
+            dirname(__DIR__, 2),
+            '/config/packages', // Configs path.
+        );
     }
 }

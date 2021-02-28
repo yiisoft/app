@@ -6,7 +6,7 @@ namespace App\Tests\Functional;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Yiisoft\Composer\Config\Builder;
+use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
 use Yiisoft\Yii\Event\ListenerConfigurationChecker;
 
@@ -14,9 +14,14 @@ class EventListenerConfigurationTest extends TestCase
 {
     public function testConsoleListenerConfiguration(): void
     {
-        $container = (new Container(require Builder::path('console')))->get(ContainerInterface::class);
+        $config = new Config(
+            dirname(__DIR__, 2),
+            '/config/packages', // Configs path.
+        );
+
+        $container = (new Container($config->get('console')))->get(ContainerInterface::class);
         $checker = $container->get(ListenerConfigurationChecker::class);
-        $checker->check(require Builder::path('events-console'));
+        $checker->check($config->get('events-console'));
 
         self::assertInstanceOf(ListenerConfigurationChecker::class, $checker);
     }
