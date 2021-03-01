@@ -54,7 +54,7 @@ return [
         ],
     ],
 
-    'yiisoft/router' => [
+    'yiisoft/router-fastroute' => [
         'enableCache' => false,
     ],
 
