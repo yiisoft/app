@@ -23,6 +23,7 @@
         "yiisoft/assets": "@dev",
         "yiisoft/cache": "^1.0",
         "yiisoft/cache-file": "^1.0",
+        "yiisoft/config": "1.0.x-dev",
         "yiisoft/csrf": "^1.0",
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
