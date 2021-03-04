@@ -11,19 +11,17 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Log\NullLogger;
 use Throwable;
-use Yiisoft\Composer\Config\Builder;
+use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
 use Yiisoft\ErrorHandler\ErrorHandler;
 use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
 use Yiisoft\ErrorHandler\Renderer\HtmlRenderer;
-use Yiisoft\Files\FileHelper;
 use Yiisoft\Http\Method;
 use Yiisoft\Yii\Event\ListenerConfigurationChecker;
 use Yiisoft\Yii\Web\Application;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
-use function dirname;
 use function microtime;
 
 final class ApplicationRunner
@@ -42,13 +40,14 @@ final class ApplicationRunner
         $errorHandler = new ErrorHandler(new NullLogger(), new HtmlRenderer());
         $this->registerErrorHandler($errorHandler);
 
-        if ($this->debug && $this->shouldRebuildConfigs()) {
-            Builder::rebuild();
-        }
+        $config = new Config(
+            dirname(__DIR__),
+            '/config/packages', // Configs path.
+        );
 
         $container = new Container(
-            require Builder::path('web'),
-            require Builder::path('providers-web')
+            $config->get('web'),
+            $config->get('providers-web')
         );
 
         // Register error handler with real container-configured dependencies.
@@ -57,7 +56,7 @@ final class ApplicationRunner
         $container = $container->get(ContainerInterface::class);
 
         if ($this->debug) {
-            $container->get(ListenerConfigurationChecker::class)->check(require Builder::path('events-web'));
+            $container->get(ListenerConfigurationChecker::class)->check($config->get('events-web'));
         }
 
         $application = $container->get(Application::class);
@@ -112,19 +111,5 @@ final class ApplicationRunner
         }
 
         $registered->register();
-    }
-
-    private function shouldRebuildConfigs(): bool
-    {
-        $sourceDirectory = dirname(__DIR__) . '/config/';
-        $buildDirectory = dirname(__DIR__) . '/runtime/build/config/';
-
-        if (FileHelper::isEmptyDirectory($buildDirectory)) {
-            return true;
-        }
-
-        $sourceTime = FileHelper::lastModifiedTime($sourceDirectory);
-        $buildTime = FileHelper::lastModifiedTime($buildDirectory);
-        return $buildTime < $sourceTime;
     }
 }
