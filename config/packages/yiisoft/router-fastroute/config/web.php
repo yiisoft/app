@@ -10,7 +10,7 @@ use Yiisoft\Router\UrlMatcherInterface;
 
 return [
     UrlMatcherInterface::class => static function (Injector $injector) use ($params) {
-        $enableCache = $params['yiisoft/router']['enableCache'] ?? true;
+        $enableCache = $params['yiisoft/router-fastroute']['enableCache'] ?? true;
 
         $arguments = [];
         if ($enableCache === false) {

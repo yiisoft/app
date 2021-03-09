@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'yiisoft/router' => [
+    'yiisoft/router-fastroute' => [
         'enableCache' => true,
 
         /**
