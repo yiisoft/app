@@ -35,7 +35,7 @@ return [
     },
     FileTarget::class => static function (Aliases $aliases) use ($params) {
         $params = $params['yiisoft/profiler']['targets'][FileTarget::class];
-        $target = new FileTarget($aliases->get($params['filename']), $params['directoryMode']);
+        $target = new FileTarget($aliases->get($params['filename']), $params['requestBeginTime'], $params['directoryMode']);
 
         if ((bool)$params['enabled']) {
             $target = $target->enable();
