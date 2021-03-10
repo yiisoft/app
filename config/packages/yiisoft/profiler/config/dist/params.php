@@ -19,6 +19,7 @@ return [
                 'include' => [],
                 'exclude' => [],
                 'enabled' => false,
+                'requestBeginTime' => $_SERVER['REQUEST_TIME_FLOAT'],
                 'filename' => '@runtime/profiling/{date}-{time}.txt',
                 'directoryMode' => 0775,
             ],
