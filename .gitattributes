@@ -21,12 +21,6 @@
 *.gif  binary
 *.ttf  binary
 
-# Ignore some meta files when creating an archive of this repository
-/.github            export-ignore
-/.gitattributes     export-ignore
-/.scrutinizer.yml   export-ignore
-/docs               export-ignore
-
 # Avoid merge conflicts in CHANGELOG
 # https://about.gitlab.com/2015/02/10/gitlab-reduced-merge-conflicts-by-90-percent-with-changelog-placeholders/
 /CHANGELOG.md		merge=union
