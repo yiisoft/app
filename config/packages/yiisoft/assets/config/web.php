@@ -35,7 +35,6 @@ return [
     AssetManager::class => [
         '__class' => AssetManager::class,
         'setConverter()' => [Reference::to(AssetConverterInterface::class)],
-        'setPublisher()' => [Reference::to(AssetPublisherInterface::class)],
         'setBundles()' => [$params['yiisoft/assets']['assetManager']['bundles']],
         'register()' => [$params['yiisoft/assets']['assetManager']['register']],
     ],
