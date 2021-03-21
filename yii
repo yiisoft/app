@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Psr\Container\ContainerInterface;
+use Yiisoft\Config\Config;
+use Yiisoft\Di\Container;
+use Yiisoft\Yii\Console\Application;
+use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
+
+require_once 'vendor/autoload.php';
+
+$config = new Config(
+    __DIR__,
+    '/config/packages',
+);
+
+$container = new Container(
+    $config->get('console'),
+    $config->get('providers-console')
+);
+
+/** @var ContainerInterface $container */
+$container = $container->get(ContainerInterface::class);
+
+$application = $container->get(Application::class);
+$exitCode = 1;
+
+try {
+    $application->start();
+    $exitCode = $application->run(null, new ConsoleBufferedOutput());
+} catch (\Error $error) {
+    $application->renderThrowable($error, new ConsoleBufferedOutput());
+} finally {
+    $application->shutdown($exitCode);
+    exit($exitCode);
+}
