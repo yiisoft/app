@@ -9,6 +9,8 @@ use Yiisoft\Di\Container;
 use Yiisoft\Yii\Console\Application;
 use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
 
+define('YII_ENV', getenv('env') ?? 'production');
+
 require_once 'vendor/autoload.php';
 
 $config = new Config(
