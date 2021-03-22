@@ -9,7 +9,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Psr\Log\NullLogger;
 use Throwable;
 use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
@@ -17,11 +16,14 @@ use Yiisoft\ErrorHandler\ErrorHandler;
 use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
 use Yiisoft\ErrorHandler\Renderer\HtmlRenderer;
 use Yiisoft\Http\Method;
+use Yiisoft\Log\Logger;
+use Yiisoft\Log\Target\File\FileTarget;
 use Yiisoft\Yii\Event\ListenerConfigurationChecker;
 use Yiisoft\Yii\Web\Application;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
+use function dirname;
 use function microtime;
 
 final class ApplicationRunner
@@ -37,7 +39,8 @@ final class ApplicationRunner
     {
         $startTime = microtime(true);
         // Register temporary error handler to catch error while container is building.
-        $errorHandler = new ErrorHandler(new NullLogger(), new HtmlRenderer());
+        $tmpLogger = new Logger([new FileTarget(dirname(__DIR__) . '/runtime/logs/app.log')]);
+        $errorHandler = new ErrorHandler($tmpLogger, new HtmlRenderer());
         $this->registerErrorHandler($errorHandler);
 
         $config = new Config(
