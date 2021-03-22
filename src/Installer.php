@@ -11,6 +11,9 @@ use RecursiveIteratorIterator as RIterator;
 
 final class Installer
 {
+    /**
+     * @psalm-suppress UndefinedClass
+     */
     public static function postUpdate(Event $event = null): void
     {
         self::chmodRecursive('runtime', 0777);
