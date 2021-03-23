@@ -25,11 +25,25 @@ use Yiisoft\Yii\Filesystem\FilesystemInterface;
  * @var $params array
  */
 
+$common = [
+    StorageInterface::class => static function (ContainerInterface $container) use ($params) {
+        $params = $params['yiisoft/yii-debug'];
+        $filesystem = $container->get(FilesystemInterface::class);
+        $debuggerIdGenerator = $container->get(DebuggerIdGenerator::class);
+        $aliases = $container->get(Aliases::class);
+        $fileStorage = new FileStorage($params['path'], $filesystem, $debuggerIdGenerator, $aliases);
+        if (isset($params['historySize'])) {
+            $fileStorage->setHistorySize((int)$params['historySize']);
+        }
+        return $fileStorage;
+    },
+];
+
 if (!(bool)($params['yiisoft/yii-debug']['enabled'] ?? false)) {
-    return [];
+    return $common;
 }
 
-return [
+return array_merge([
     LogCollectorInterface::class => LogCollector::class,
     EventCollectorInterface::class => EventCollector::class,
     RouterCollectorInterface::class => RouterCollector::class,
@@ -52,15 +66,4 @@ return [
             $logLevel
         );
     },
-    StorageInterface::class => static function (ContainerInterface $container) use ($params) {
-        $params = $params['yiisoft/yii-debug'];
-        $filesystem = $container->get(FilesystemInterface::class);
-        $debuggerIdGenerator = $container->get(DebuggerIdGenerator::class);
-        $aliases = $container->get(Aliases::class);
-        $fileStorage = new FileStorage($params['path'], $filesystem, $debuggerIdGenerator, $aliases);
-        if (isset($params['historySize'])) {
-            $fileStorage->setHistorySize((int)$params['historySize']);
-        }
-        return $fileStorage;
-    },
-];
+], $common);
