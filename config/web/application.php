@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Handler\NotFoundHandler;
-use Yiisoft\Csrf\CsrfMiddleware;
 use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Injector\Injector;
@@ -19,7 +18,6 @@ return [
                     ->withMiddlewares(
                         [
                             Router::class,
-                            CsrfMiddleware::class,
                             SessionMiddleware::class,
                             ErrorCatcher::class,
                         ]
