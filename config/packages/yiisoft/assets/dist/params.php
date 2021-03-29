@@ -12,16 +12,19 @@ return [
             ],
             'forceConvert' => false,
         ],
-        'assetPublisher' => [
+        'assetLoader' => [
             'appendTimestamp' => false,
             'assetMap' => [],
             'basePath' => null,
             'baseUrl' => null,
+        ],
+        'assetPublisher' => [
             'forceCopy' => false,
             'linkAssets' => false,
         ],
         'assetManager' => [
-            'bundles' => [],
+            'allowedBundleNames' => [],
+            'customizedBundles' => [],
             'register' => [],
         ],
     ],
