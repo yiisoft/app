@@ -39,7 +39,7 @@
         "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "@dev",
         "yiisoft/yii-view": "^3.0@dev",
-        "yiisoft/yii-web": "@dev"
+        "yiisoft/yii-web": "^3.0@dev"
     },
     "require-dev": {
         "codeception/c3": "^2.6.0",
