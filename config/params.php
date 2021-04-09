@@ -6,7 +6,6 @@ use App\Command\Hello;
 use App\ViewInjection\ContentViewInjection;
 use App\ViewInjection\LayoutViewInjection;
 use Yiisoft\Factory\Definitions\Reference;
-use Yiisoft\Yii\Console\Command\Serve;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
@@ -42,7 +41,6 @@ return [
 
     'yiisoft/yii-console' => [
         'commands' => [
-            'serve' => Serve::class,
             'hello' => Hello::class,
         ],
     ],
