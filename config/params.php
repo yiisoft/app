@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Command\Hello;
 use App\ViewInjection\ContentViewInjection;
 use App\ViewInjection\LayoutViewInjection;
 use Yiisoft\Factory\Definitions\Reference;
+use Yiisoft\Yii\Console\Command\Serve;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
@@ -35,6 +37,13 @@ return [
             Reference::to(ContentViewInjection::class),
             Reference::to(CsrfViewInjection::class),
             Reference::to(LayoutViewInjection::class),
+        ],
+    ],
+
+    'yiisoft/yii-console' => [
+        'commands' => [
+            'serve' => Serve::class,
+            'hello' => Hello::class,
         ],
     ],
 ];
