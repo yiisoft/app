@@ -2,6 +2,12 @@
 
 declare(strict_types=1);
 
+use App\Command\Hello;
+use App\ViewInjection\ContentViewInjection;
+use App\ViewInjection\LayoutViewInjection;
+use Yiisoft\Factory\Definitions\Reference;
+use Yiisoft\Yii\View\CsrfViewInjection;
+
 return [
     'app' => [
         'charset' => 'UTF-8',
@@ -22,6 +28,20 @@ return [
             '@runtime' => '@root/runtime',
             '@vendor' => '@root/vendor',
             '@views' => '@root/resources/views',
+        ],
+    ],
+
+    'yiisoft/yii-view' => [
+        'injections' => [
+            Reference::to(ContentViewInjection::class),
+            Reference::to(CsrfViewInjection::class),
+            Reference::to(LayoutViewInjection::class),
+        ],
+    ],
+
+    'yiisoft/yii-console' => [
+        'commands' => [
+            'hello' => Hello::class,
         ],
     ],
 ];
