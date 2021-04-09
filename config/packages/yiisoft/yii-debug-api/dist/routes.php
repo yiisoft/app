@@ -18,19 +18,9 @@ if (!(bool)($params['yiisoft/yii-debug-api']['enabled'] ?? false)) {
 }
 
 return [
-    Group::create(
-        '/debug',
-        [
-            Route::methods([Method::GET, Method::OPTIONS], '[/]', [DebugController::class, 'index'])->name('debug/index'),
-            Route::methods([Method::GET, Method::OPTIONS], '/summary/{id}', [DebugController::class, 'summary'])->name('debug/summary'),
-            Route::methods([Method::GET, Method::OPTIONS], '/view/{id}[/{collector}]', [DebugController::class, 'view'])->name('debug/view'),
-            Route::methods([Method::GET, Method::OPTIONS], '/dump/{id}[/{collector}]', [DebugController::class, 'dump'])->name('debug/dump'),
-            Route::methods([Method::GET, Method::OPTIONS], '/object/{id}/{objectId}', [DebugController::class, 'object'])->name('debug/object'),
-        ]
-    )
-        ->addMiddleware(ResponseDataWrapper::class)
-        ->addMiddleware(FormatDataResponseAsJson::class)
-        ->addMiddleware(
+    Group::create('/debug')
+        ->middleware(CorsMiddleware::class)
+        ->middleware(
             static function (ResponseFactoryInterface $responseFactory) use ($params) {
                 return new IpFilter(
                     (new Ip())->ranges($params['yiisoft/yii-debug-api']['allowedIPs']),
@@ -38,5 +28,23 @@ return [
                 );
             }
         )
-        ->addMiddleware(CorsMiddleware::class),
+        ->middleware(FormatDataResponseAsJson::class)
+        ->middleware(ResponseDataWrapper::class)
+        ->routes(
+            Route::methods([Method::GET, Method::OPTIONS], '[/]')
+                ->action([DebugController::class, 'index'])
+                ->name('debug/index'),
+            Route::methods([Method::GET, Method::OPTIONS], '/summary/{id}')
+                ->action([DebugController::class, 'summary'])
+                ->name('debug/summary'),
+            Route::methods([Method::GET, Method::OPTIONS], '/view/{id}[/{collector}]')
+                ->action([DebugController::class, 'view'])
+                ->name('debug/view'),
+            Route::methods([Method::GET, Method::OPTIONS], '/dump/{id}[/{collector}]')
+                ->action([DebugController::class, 'dump'])
+                ->name('debug/dump'),
+            Route::methods([Method::GET, Method::OPTIONS], '/object/{id}/{objectId}')
+                ->action([DebugController::class, 'object'])
+                ->name('debug/object')
+        ),
 ];

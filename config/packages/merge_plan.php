@@ -8,19 +8,22 @@ return [
         '/' => [
             'config/common/*.php',
         ],
+        'yiisoft/cache' => [
+            'common.php',
+        ],
         'yiisoft/cache-file' => [
             'common.php',
         ],
         'yiisoft/log-target-file' => [
             'common.php',
         ],
-        'yiisoft/yii-debug' => [
-            'common.php',
-        ],
-        'yiisoft/cache' => [
+        'yiisoft/router-fastroute' => [
             'common.php',
         ],
         'yiisoft/view' => [
+            'common.php',
+        ],
+        'yiisoft/yii-debug' => [
             'common.php',
         ],
         'yiisoft/profiler' => [
@@ -33,9 +36,6 @@ return [
             'common.php',
         ],
         'yiisoft/router' => [
-            'common.php',
-        ],
-        'yiisoft/router-fastroute' => [
             'common.php',
         ],
         'yiisoft/yii-event' => [
@@ -86,10 +86,10 @@ return [
             '$events',
             'config/events-web.php',
         ],
-        'yiisoft/yii-debug' => [
+        'yiisoft/log' => [
             'events-web.php',
         ],
-        'yiisoft/log' => [
+        'yiisoft/yii-debug' => [
             'events-web.php',
         ],
         'yiisoft/profiler' => [
@@ -111,13 +111,16 @@ return [
         'yiisoft/log-target-file' => [
             'params.php',
         ],
+        'yiisoft/router-fastroute' => [
+            'params.php',
+        ],
         'yiisoft/yii-bulma' => [
             'params.php',
         ],
-        'yiisoft/yii-debug' => [
+        'yiisoft/yii-view' => [
             'params.php',
         ],
-        'yiisoft/yii-view' => [
+        'yiisoft/yii-debug-api' => [
             'params.php',
         ],
         'yiisoft/assets' => [
@@ -132,19 +135,16 @@ return [
         'yiisoft/view' => [
             'params.php',
         ],
+        'yiisoft/yii-debug' => [
+            'params.php',
+        ],
         'yiisoft/profiler' => [
             'params.php',
         ],
         'yiisoft/yii-console' => [
             'params.php',
         ],
-        'yiisoft/yii-web' => [
-            'params.php',
-        ],
         'yiisoft/aliases' => [
-            'params.php',
-        ],
-        'yiisoft/router-fastroute' => [
             'params.php',
         ],
     ],
@@ -152,10 +152,10 @@ return [
         '/' => [
             'config/providers.php',
         ],
-        'yiisoft/yii-debug' => [
+        'yiisoft/widget' => [
             'providers.php',
         ],
-        'yiisoft/widget' => [
+        'yiisoft/yii-debug' => [
             'providers.php',
         ],
         'yiisoft/yii-filesystem' => [
@@ -176,18 +176,21 @@ return [
             '$providers',
             'config/providers-web.php',
         ],
+        'yiisoft/yii-debug-api' => [
+            'providers-web.php',
+        ],
     ],
     'routes' => [
         '/' => [
             'config/routes.php',
         ],
+        'yiisoft/yii-debug-api' => [
+            'routes.php',
+        ],
     ],
     'tests' => [
         'yiisoft/yii-debug' => [
             'tests.php',
-        ],
-        'yiisoft/yii-web' => [
-            '$web',
         ],
     ],
     'web' => [
@@ -198,13 +201,16 @@ return [
         'yiisoft/error-handler' => [
             'web.php',
         ],
+        'yiisoft/router-fastroute' => [
+            'web.php',
+        ],
         'yiisoft/yii-bulma' => [
             'web/*.php',
         ],
-        'yiisoft/yii-debug' => [
+        'yiisoft/yii-view' => [
             'web.php',
         ],
-        'yiisoft/yii-view' => [
+        'yiisoft/yii-debug-api' => [
             'web.php',
         ],
         'yiisoft/assets' => [
@@ -222,13 +228,10 @@ return [
         'yiisoft/view' => [
             'web.php',
         ],
-        'yiisoft/yii-web' => [
+        'yiisoft/yii-debug' => [
             'web.php',
         ],
         'yiisoft/middleware-dispatcher' => [
-            'web.php',
-        ],
-        'yiisoft/router-fastroute' => [
             'web.php',
         ],
         'yiisoft/yii-event' => [
