@@ -8,7 +8,7 @@ use App\ApplicationParameters;
 
 return [
     ApplicationParameters::class => [
-        '__class' => ApplicationParameters::class,
+        'class' => ApplicationParameters::class,
         'charset()' => [$params['app']['charset']],
         'name()' => [$params['app']['name']],
     ],
