@@ -19,7 +19,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "httpsoft/http-message": "^1.0.5",
-        "yiisoft/aliases": "^1.1.0",
+        "yiisoft/aliases": "^1.1|^2.0",
         "yiisoft/assets": "@dev",
         "yiisoft/cache": "^1.0",
         "yiisoft/cache-file": "^1.0",
