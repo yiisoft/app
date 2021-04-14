@@ -27,7 +27,8 @@ return [
             '@resources' => '@root/resources',
             '@runtime' => '@root/runtime',
             '@vendor' => '@root/vendor',
-            '@views' => '@root/resources/views',
+            '@layout' => '@resources/views/layout',
+            '@views' => '@resources/views',
         ],
     ],
 
