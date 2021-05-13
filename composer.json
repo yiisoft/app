@@ -27,7 +27,7 @@
         "yiisoft/csrf": "^1.0",
         "yiisoft/data-response": "@dev",
         "yiisoft/di": "@dev",
-        "yiisoft/error-handler": "@dev",
+        "yiisoft/error-handler": "^1.0",
         "yiisoft/files": "^1.0",
         "yiisoft/i18n": "^1.0.0",
         "yiisoft/log": "^1.0",
