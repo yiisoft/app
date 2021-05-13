@@ -37,7 +37,7 @@
         "yiisoft/view": "@dev",
         "yiisoft/yii-bulma": "@dev",
         "yiisoft/yii-debug": "^3.0@dev",
-        "yiisoft/yii-event": "@dev",
+        "yiisoft/yii-event": "^1.0",
         "yiisoft/yii-view": "^3.0@dev",
         "yiisoft/yii-web": "^3.0@dev"
     },
