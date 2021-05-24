@@ -24,10 +24,11 @@ $assetManager->register([
     CdnFontAwesomeAsset::class,
 ]);
 
-$this->setCssFiles($assetManager->getCssFiles());
-$this->setJsFiles($assetManager->getJsFiles());
-$this->setJsStrings($assetManager->getJsStrings());
-$this->setJsVars($assetManager->getJsVars());
+$this->addCssFiles($assetManager->getCssFiles());
+$this->addCssStrings($assetManager->getCssStrings());
+$this->addJsFiles($assetManager->getJsFiles());
+$this->addJsStrings($assetManager->getJsStrings());
+$this->addJsVars($assetManager->getJsVars());
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
