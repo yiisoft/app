@@ -37,7 +37,6 @@
         "yiisoft/view": "@dev",
         "yiisoft/yii-bulma": "@dev",
         "yiisoft/yii-debug": "^3.0@dev",
-        "yiisoft/yii-debug-viewer": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
         "yiisoft/yii-view": "^3.0@dev",
         "yiisoft/yii-web": "^3.0@dev"
@@ -52,7 +51,8 @@
         "roave/security-advisories": "dev-master",
         "spatie/phpunit-watcher": "^1.23",
         "vimeo/psalm": "^4.3",
-        "yiisoft/yii-debug-api": "3.0.x-dev"
+        "yiisoft/yii-debug-api": "3.0.x-dev",
+        "yiisoft/yii-debug-viewer": "^3.0@dev"
     },
     "autoload": {
         "psr-4": {
