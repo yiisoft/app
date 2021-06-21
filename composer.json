@@ -29,7 +29,7 @@
         "yiisoft/cache-file": "^1.0",
         "yiisoft/config": "1.0.x-dev",
         "yiisoft/csrf": "^1.0",
-        "yiisoft/data-response": "@dev",
+        "yiisoft/data-response": "^1.0",
         "yiisoft/di": "@dev",
         "yiisoft/error-handler": "^1.0",
         "yiisoft/factory": "3.0.x-dev",
