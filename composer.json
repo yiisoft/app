@@ -9,7 +9,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "serve": "yii serve",
+        "serve": "./yii serve",
         "test": "phpunit --testdox --no-interaction",
         "test-watch": "phpunit-watcher watch",
         "post-update-cmd": [
