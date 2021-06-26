@@ -1,41 +1,41 @@
 checks:
-    php: true
+  php: true
 
 filter:
-    paths:
-        - "src/*"
-    excluded_paths:
-        - "src/ApplicationRunner.php"
-        - "src/Installer.php"
+  paths:
+    - "src/*"
+  excluded_paths:
+    - "src/ApplicationRunner.php"
+    - "src/Installer.php"
 
 build:
-    nodes:
-        analysis:
-            environment:
-                php: 7.4.12
+  nodes:
+    analysis:
+      environment:
+        php: 8.0.6
 
-            tests:
-                override:
-                    - php-scrutinizer-run
+      tests:
+        override:
+          - php-scrutinizer-run
 
-        tests-and-coverage:
-            environment:
-                php: 7.4.12
+    tests-and-coverage:
+      environment:
+        php:
+          version: 8.0.6
+          ini:
+            xdebug.mode: coverage
 
-            dependencies:
-                override:
-                    - composer self-update
-                    - composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
+      dependencies:
+        override:
+          - composer self-update
+          - composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
 
-            tests:
-                override:
-                    -
-                        command: |
-                            php -S 127.0.0.1:8080 -t public public/index-test.php > ./runtime/yii.log 2>&1 &
-                            vendor/bin/codecept run --coverage-xml
-                        on_node: 1
-                        coverage:
-                            file: runtime/tests/_output/coverage.xml
-                            format: php-clover
-
-
+      tests:
+        override:
+          - command: |
+              php -S 127.0.0.1:8080 -t public public/index-test.php > ./runtime/yii.log 2>&1 &
+              vendor/bin/codecept run --coverage-xml
+            on_node: 1
+            coverage:
+              file: runtime/tests/_output/coverage.xml
+              format: php-clover
