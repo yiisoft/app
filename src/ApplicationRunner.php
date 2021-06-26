@@ -59,6 +59,7 @@ final class ApplicationRunner
         // Register error handler with real container-configured dependencies.
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);
 
+        /** @var Container */
         $container = $container->get(ContainerInterface::class);
 
         if ($this->debug) {
