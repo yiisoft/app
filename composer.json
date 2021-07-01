@@ -17,13 +17,13 @@
         ]
     },
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "httpsoft/http-message": "^1.0.5",
         "psr/container": "^1.0",
         "psr/http-message": "^1.0",
         "psr/http-server-handler": "^1.0",
         "symfony/console": "^5.3",
-        "yiisoft/aliases": "^1.1|^2.0",
+        "yiisoft/aliases": "^2.0",
         "yiisoft/assets": "^1.0",
         "yiisoft/cache": "^1.0",
         "yiisoft/cache-file": "^1.0",
