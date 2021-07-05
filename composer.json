@@ -46,7 +46,7 @@
         "yiisoft/yii-console": "3.0.x-dev",
         "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
-        "yiisoft/yii-view": "^3.0@dev",
+        "yiisoft/yii-view": "^1.0",
         "yiisoft/yii-web": "^3.0@dev"
     },
     "require-dev": {
