@@ -52,9 +52,10 @@ final class ApplicationRunner
             $config->get('web'),
             $config->get('providers-web'),
             [],
-            null,
             $this->debug
         );
+
+        \Yiisoft\Widget\WidgetFactory::initialize($container);
 
         // Register error handler with real container-configured dependencies.
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);
