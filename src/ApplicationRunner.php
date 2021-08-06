@@ -52,7 +52,6 @@ final class ApplicationRunner
             $config->get('web'),
             $config->get('providers-web'),
             [],
-            null,
             $this->debug
         );
 
@@ -61,6 +60,16 @@ final class ApplicationRunner
 
         /** @var Container */
         $container = $container->get(ContainerInterface::class);
+
+        $bootstrapList = $config->get('bootstrap');
+        foreach ($bootstrapList as $callback) {
+            if (!(is_callable($callback))) {
+                $type = is_object($callback) ? get_class($callback) : gettype($callback);
+
+                throw new \RuntimeException("Bootstrap callback must be callable, $type given.");
+            }
+            $callback($container);
+        }
 
         if ($this->debug) {
             $container->get(ListenerConfigurationChecker::class)->check($config->get('events-web'));
