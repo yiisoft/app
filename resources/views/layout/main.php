@@ -37,9 +37,7 @@ $this->addJsVars($assetManager->getJsVars());
         <meta charset="<?= Html::encode($applicationParameters->getCharset()) ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?php if ($this->getTitle() !== null): ?>
-            <title><?= Html::encode($this->getTitle()) ?></title>
-        <?php endif ?>
+        <title><?= Html::encode($this->getTitle()) ?></title>
         <?php $this->head() ?>
     </head>
     <body>
