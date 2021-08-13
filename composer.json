@@ -112,7 +112,15 @@
                 "config/providers-console.php"
             ],
             "routes": "config/routes.php",
-            "bootstrap": "config/bootstrap.php"
+            "bootstrap": "config/bootstrap.php",
+            "bootstrap-web": [
+                "$bootstrap",
+                "config/bootstrap-web.php"
+            ],
+            "bootstrap-console": [
+                "$bootstrap",
+                "config/bootstrap-console.php"
+            ]
         },
         "installer-types": [
             "npm-asset"

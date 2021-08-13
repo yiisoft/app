@@ -61,7 +61,7 @@ final class ApplicationRunner
         /** @var Container */
         $container = $container->get(ContainerInterface::class);
 
-        $bootstrapList = $config->get('bootstrap');
+        $bootstrapList = $config->get('bootstrap-web');
         foreach ($bootstrapList as $callback) {
             if (!(is_callable($callback))) {
                 $type = is_object($callback) ? get_class($callback) : gettype($callback);

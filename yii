@@ -26,6 +26,16 @@ $container = new Container(
 /** @var ContainerInterface $container */
 $container = $container->get(ContainerInterface::class);
 
+$bootstrapList = $config->get('bootstrap-console');
+foreach ($bootstrapList as $callback) {
+    if (!(is_callable($callback))) {
+        $type = is_object($callback) ? get_class($callback) : gettype($callback);
+
+        throw new \RuntimeException("Bootstrap callback must be callable, $type given.");
+    }
+    $callback($container);
+}
+
 $application = $container->get(Application::class);
 $exitCode = 1;
 
