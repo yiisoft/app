@@ -16,7 +16,7 @@ use Yiisoft\Yii\Bulma\NavBar;
  * @var string|null $csrf
  * @var Locale $locale
  * @var Yiisoft\View\WebView $this
- * @var Yiisoft\Router\UrlMatcherInterface $urlMatcher
+ * @var Yiisoft\Router\CurrentRoute $currentRoute
  */
 
 $assetManager->register([
@@ -53,8 +53,8 @@ $this->addJsVars($assetManager->getJsVars());
 
                     <?= Nav::widget()
                         ->currentPath(
-                            $urlMatcher->getCurrentUri() !== null
-                                ? $urlMatcher->getCurrentUri()->getPath()
+                            $currentRoute->getUri() !== null
+                                ? $currentRoute->getUri()->getPath()
                                 : ''
                         )
                         ->items([]) ?>

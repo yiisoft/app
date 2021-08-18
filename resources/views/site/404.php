@@ -4,7 +4,7 @@ use Yiisoft\Html\Html;
 
 /** @var Yiisoft\View\WebView $this */
 /** @var Yiisoft\Router\UrlGeneratorInterface $urlGenerator */
-/** @var Yiisoft\Router\UrlMatcherInterface $urlMatcher */
+/** @var Yiisoft\Router\CurrentRoute $currentRoute */
 
 $this->setTitle('404');
 ?>
@@ -15,7 +15,7 @@ $this->setTitle('404');
 
 <p class="has-text-danger">
     The page
-    <strong><?= Html::encode($urlMatcher->getCurrentUri()->getPath()) ?></strong>
+    <strong><?= Html::encode($currentRoute->getUri()->getPath()) ?></strong>
     not found.
 </p>
 
