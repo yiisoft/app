@@ -8,7 +8,7 @@ use App\ApplicationParameters;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\I18n\Locale;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Router\CurrentRoute;
+use Yiisoft\Router\CurrentRouteInterface;
 use Yiisoft\Yii\View\LayoutParametersInjectionInterface;
 
 final class LayoutViewInjection implements LayoutParametersInjectionInterface
@@ -17,14 +17,14 @@ final class LayoutViewInjection implements LayoutParametersInjectionInterface
     private AssetManager $assetManager;
     private Locale $locale;
     private UrlGeneratorInterface $urlGenerator;
-    private CurrentRoute $currentRoute;
+    private CurrentRouteInterface $currentRoute;
 
     public function __construct(
         ApplicationParameters $applicationParameters,
         AssetManager $assetManager,
         Locale $locale,
         UrlGeneratorInterface $urlGenerator,
-        CurrentRoute $currentRoute
+        CurrentRouteInterface $currentRoute
     ) {
         $this->applicationParameters = $applicationParameters;
         $this->assetManager = $assetManager;
