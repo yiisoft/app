@@ -21,6 +21,8 @@ if (PHP_SAPI === 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index-test.php';
 }
 
+define('YII_ENV', getenv('env') ?: 'test');
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $runner = new ApplicationRunner();
