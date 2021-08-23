@@ -56,6 +56,13 @@ final class HelloCest
         return new Config(
             dirname(__DIR__, 2),
             '/config/packages', // Configs path.
+            null,
+            [
+                'params',
+                'events',
+                'events-web',
+                'events-console',
+            ]
         );
     }
 }

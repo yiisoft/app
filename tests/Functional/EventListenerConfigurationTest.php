@@ -17,6 +17,13 @@ class EventListenerConfigurationTest extends TestCase
         $config = new Config(
             dirname(__DIR__, 2),
             '/config/packages', // Configs path.
+            null,
+            [
+                'params',
+                'events',
+                'events-web',
+                'events-console',
+            ]
         );
 
         $container = (new Container($config->get('console')))->get(ContainerInterface::class);
