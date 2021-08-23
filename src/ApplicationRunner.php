@@ -46,7 +46,7 @@ final class ApplicationRunner
         $config = new Config(
             dirname(__DIR__),
             '/config/packages',
-            YII_ENV,
+            null,
             [
                 'params',
                 'events',

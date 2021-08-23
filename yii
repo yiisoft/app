@@ -16,7 +16,7 @@ require_once 'vendor/autoload.php';
 $config = new Config(
     __DIR__,
     '/config/packages',
-    YII_ENV,
+    null,
     [
         'params',
         'events',
