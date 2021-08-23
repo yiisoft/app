@@ -16,6 +16,13 @@ require_once 'vendor/autoload.php';
 $config = new Config(
     __DIR__,
     '/config/packages',
+    null,
+    [
+        'params',
+        'events',
+        'events-web',
+        'events-console',
+    ]
 );
 
 $container = new Container(

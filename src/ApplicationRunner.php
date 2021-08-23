@@ -45,7 +45,14 @@ final class ApplicationRunner
 
         $config = new Config(
             dirname(__DIR__),
-            '/config/packages', // Configs path.
+            '/config/packages',
+            null,
+            [
+                'params',
+                'events',
+                'events-web',
+                'events-console',
+            ]
         );
 
         $container = new Container(
