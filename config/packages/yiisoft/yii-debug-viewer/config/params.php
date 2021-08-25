@@ -8,24 +8,24 @@ return [
         'panels' => [
             'panel-info' => [
                 'name' => 'Info',
-                'route' => '/debug/panels/info'
+                'route' => '/debug/panels/info',
             ],
             'panel-routes' => [
                 'name' => 'Routes',
-                'route' => '/debug/panels/routes'
+                'route' => '/debug/panels/routes',
             ],
-			'panel-logs' => [
+            'panel-logs' => [
                 'name' => 'Logs',
-                'route' => '/debug/panels/logs'
-            ], 
+                'route' => '/debug/panels/logs',
+            ],
             'panel-events' => [
                 'name' => 'Events',
-                'route' => '/debug/panels/events'
-            ],     			
-			'panel-services' => [
+                'route' => '/debug/panels/events',
+            ],
+            'panel-services' => [
                 'name' => 'Services',
-                'route' => '/debug/panels/services'
-            ],    
+                'route' => '/debug/panels/services',
+            ],
         ],
     ],
 ];

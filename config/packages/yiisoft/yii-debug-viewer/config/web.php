@@ -9,5 +9,5 @@ use Yiisoft\Yii\Debug\Viewer\Panels\PanelCollection;
 return [
     PanelCollection::class => [
         '__construct()' => [$params['yiisoft/yii-debug-viewer']['panels']],
-    ]
+    ],
 ];
