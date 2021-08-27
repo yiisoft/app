@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Runner\ApplicationWebRunner;
+use App\Runner\WebApplicationRunner;
 
 // PHP built-in server routing.
 if (PHP_SAPI === 'cli-server') {
@@ -19,7 +19,7 @@ define('YII_ENV', getenv('env') ?: 'production');
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-$runner = new ApplicationWebRunner();
+$runner = new WebApplicationRunner();
 // Development mode:
 $runner->debug();
 // Run application:

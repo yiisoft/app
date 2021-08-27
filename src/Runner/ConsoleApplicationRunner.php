@@ -17,10 +17,7 @@ use Yiisoft\Factory\Exception\NotInstantiableException;
 use Yiisoft\Yii\Console\Application;
 use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
 
-/**
- * @codeCoverageIgnore
- */
-final class ApplicationConsoleRunner
+final class ConsoleApplicationRunner
 {
     /**
      * @throws CircularReferenceException|ErrorException|Exception|InvalidConfigException|NotFoundException
@@ -40,7 +37,6 @@ final class ApplicationConsoleRunner
             ],
         );
 
-        /** @psalm-suppress MixedArgumentTypeCoercion */
         $container = new Container(
             $config->get('console'),
             $config->get('providers-console')
@@ -49,8 +45,7 @@ final class ApplicationConsoleRunner
         $container = $container->get(ContainerInterface::class);
 
         // Register Bootstrap Service Provider
-        $bootstrapList = $config->get('bootstrap-console');
-        $this->registerBootstrap($container, $bootstrapList);
+        $this->registerBootstrap($container, $config->get('bootstrap-console'));
 
         /** @var Application */
         $application = $container->get(Application::class);

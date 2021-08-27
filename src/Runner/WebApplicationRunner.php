@@ -29,12 +29,10 @@ use Yiisoft\Yii\Web\Exception\HeadersHaveBeenSentException;
 use Yiisoft\Yii\Web\SapiEmitter;
 use Yiisoft\Yii\Web\ServerRequestFactory;
 
+use function dirname;
 use function microtime;
 
-/**
- * @codeCoverageIgnore
- */
-final class ApplicationWebRunner
+final class WebApplicationRunner
 {
     private bool $debug = false;
 
@@ -52,7 +50,7 @@ final class ApplicationWebRunner
         $startTime = microtime(true);
 
         // Register temporary error handler to catch error while container is building.
-        $errorHandler = $this->createErrorHandler();
+        $errorHandler = $this->createTemporaryErrorHandler();
         $this->registerErrorHandler($errorHandler);
 
         $config = new Config(
@@ -67,15 +65,13 @@ final class ApplicationWebRunner
             ],
         );
 
-        /** @psalm-suppress MixedArgumentTypeCoercion */
         $container = new Container($config->get('web'), $config->get('providers-web'));
 
         // Register error handler with real container-configured dependencies.
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);
 
         // Register Bootstrap Service Provider
-        $bootstrapList = $config->get('bootstrap-web');
-        $this->registerBootstrap($container, $bootstrapList);
+        $this->registerBootstrap($container, $config->get('bootstrap-web'));
 
         $container = $container->get(ContainerInterface::class);
 
@@ -112,14 +108,10 @@ final class ApplicationWebRunner
         }
     }
 
-    private function createLogger(): Logger
+    private function createTemporaryErrorHandler(): ErrorHandler
     {
-        return new Logger([new FileTarget(dirname(__DIR__) . '/runtime/logs/app.log')]);
-    }
-
-    private function createErrorHandler(): ErrorHandler
-    {
-        return new ErrorHandler($this->createLogger(), new HtmlRenderer());
+        $logger = new Logger([new FileTarget(dirname(__DIR__) . '/runtime/logs/app.log')]);
+        return new ErrorHandler($logger, new HtmlRenderer());
     }
 
     /**
