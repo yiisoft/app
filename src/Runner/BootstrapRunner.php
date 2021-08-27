@@ -6,7 +6,6 @@ namespace App\Runner;
 
 use Psr\Container\ContainerInterface;
 use RuntimeException;
-use Yiisoft\Config\Config;
 
 use function get_debug_type;
 use function is_callable;
