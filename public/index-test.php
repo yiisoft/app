@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\ApplicationRunner;
+use App\Runner\ApplicationWebRunner;
 
 $c3 = dirname(__DIR__) . '/c3.php';
 
@@ -25,7 +25,7 @@ define('YII_ENV', getenv('env') ?: 'test');
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-$runner = new ApplicationRunner();
+$runner = new ApplicationWebRunner();
 // Development mode:
 $runner->debug();
 // Run application:
