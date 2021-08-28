@@ -70,8 +70,8 @@ final class WebApplicationRunner
         // Register error handler with real container-configured dependencies.
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);
 
-        // Register Bootstrap Service Provider
-        $this->registerBootstrap($container, $config->get('bootstrap-web'));
+        // Run bootstrap
+        $this->runBootstrap($container, $config->get('bootstrap-web'));
 
         $container = $container->get(ContainerInterface::class);
 
@@ -122,11 +122,6 @@ final class WebApplicationRunner
         (new SapiEmitter())->emit($response, $request->getMethod() === Method::HEAD);
     }
 
-    private function registerBootstrap(Container $container, array $bootstrapList): void
-    {
-        (new BootstrapRunner($container, $bootstrapList))->run();
-    }
-
     /**
      * @throws ErrorException
      */
@@ -141,5 +136,10 @@ final class WebApplicationRunner
         }
 
         $registered->register();
+    }
+
+    private function runBootstrap(Container $container, array $bootstrapList): void
+    {
+        (new BootstrapRunner($container, $bootstrapList))->run();
     }
 }

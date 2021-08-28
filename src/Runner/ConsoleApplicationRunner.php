@@ -44,8 +44,8 @@ final class ConsoleApplicationRunner
 
         $container = $container->get(ContainerInterface::class);
 
-        // Register Bootstrap Service Provider
-        $this->registerBootstrap($container, $config->get('bootstrap-console'));
+        // Run bootstrap
+        $this->runBootstrap($container, $config->get('bootstrap-console'));
 
         /** @var Application */
         $application = $container->get(Application::class);
@@ -62,7 +62,7 @@ final class ConsoleApplicationRunner
         }
     }
 
-    private function registerBootstrap(ContainerInterface $container, array $bootstrapList): void
+    private function runBootstrap(ContainerInterface $container, array $bootstrapList): void
     {
         (new BootstrapRunner($container, $bootstrapList))->run();
     }
