@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\ApplicationRunner;
+use App\Runner\WebApplicationRunner;
 
 $c3 = dirname(__DIR__) . '/c3.php';
 
@@ -21,11 +21,11 @@ if (PHP_SAPI === 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index-test.php';
 }
 
-define('YII_ENV', getenv('env') ?: 'test');
+define('YII_ENV', getenv('env') ?? 'test');
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-$runner = new ApplicationRunner();
+$runner = new WebApplicationRunner();
 // Development mode:
 $runner->debug();
 // Run application:
