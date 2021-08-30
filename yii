@@ -10,6 +10,7 @@ define('YII_ENV', getenv('env') ?? 'production');
 require_once __DIR__ . '/vendor/autoload.php';
 
 $consoleRunner = new ConsoleApplicationRunner();
-
+// Development mode:
+$consoleRunner->debug();
 // Run application:
 $consoleRunner->run();

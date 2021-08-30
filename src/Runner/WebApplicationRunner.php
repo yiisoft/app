@@ -65,7 +65,13 @@ final class WebApplicationRunner
             ],
         );
 
-        $container = new Container($config->get('web'), $config->get('providers-web'));
+        $container = new Container(
+            $config->get('web'),
+            $config->get('providers-web'),
+            [],
+            $this->debug,
+            $config->get('delegates-web')
+        );
 
         // Register error handler with real container-configured dependencies.
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);

@@ -19,6 +19,13 @@ use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
 
 final class ConsoleApplicationRunner
 {
+    private bool $debug = false;
+
+    public function debug(bool $enable = true): void
+    {
+        $this->debug = $enable;
+    }
+
     /**
      * @throws CircularReferenceException|ErrorException|Exception|InvalidConfigException|NotFoundException
      * @throws NotInstantiableException
@@ -39,7 +46,10 @@ final class ConsoleApplicationRunner
 
         $container = new Container(
             $config->get('console'),
-            $config->get('providers-console')
+            $config->get('providers-console'),
+            [],
+            $this->debug,
+            $config->get('delegates-console')
         );
 
         $container = $container->get(ContainerInterface::class);

@@ -112,6 +112,15 @@
                 "$providers",
                 "config/providers-console.php"
             ],
+            "delegates": "config/delegates.php",
+            "delegates-web": [
+                "$delegates",
+                "config/delegates-web.php"
+            ],
+            "delegates-console": [
+                "$delegates",
+                "config/delegates-console.php"
+            ],
             "routes": "config/routes.php",
             "bootstrap": "config/bootstrap.php",
             "bootstrap-web": [
