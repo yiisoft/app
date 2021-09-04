@@ -12,7 +12,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 // get the params console runner
 $paramsConsoleRunner = require_once __DIR__ . '/config/params-console-runner.php';
-$env = ArrayHelper::remove($paramsConsoleRunner, 'env', true);
+$env = ArrayHelper::remove($paramsConsoleRunner, 'env', null);
 $validateContainer = ArrayHelper::remove($paramsConsoleRunner, 'validateContainer', true);
 
 // Run application:

@@ -29,7 +29,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 // get the params web runner
 $paramsWebRunner =  require_once dirname(__DIR__) . '/config/params-web-runner.php';
 $debug = ArrayHelper::remove($paramsWebRunner, 'debug', true);
-$env = ArrayHelper::remove($paramsWebRunner, 'env', true);
+$env = ArrayHelper::remove($paramsWebRunner, 'env', null);
 $validateContainer = ArrayHelper::remove($paramsWebRunner, 'validateContainer', true);
 
 // Run application:
