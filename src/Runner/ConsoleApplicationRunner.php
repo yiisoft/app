@@ -19,6 +19,15 @@ use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
 
 final class ConsoleApplicationRunner
 {
+    private ?string $env;
+    private bool $validateContainer;
+
+    public function __construct(?string $env, bool $validateContainer)
+    {
+        $this->env = $env;
+        $this->validateContainer = $validateContainer;
+    }
+
     /**
      * @throws CircularReferenceException|ErrorException|Exception|InvalidConfigException|NotFoundException
      * @throws NotInstantiableException
@@ -28,7 +37,7 @@ final class ConsoleApplicationRunner
         $config = new Config(
             dirname(__DIR__, 2),
             '/config/packages', // Configs path.
-            null,
+            $this->env,
             [
                 'params',
                 'events',
@@ -39,7 +48,9 @@ final class ConsoleApplicationRunner
 
         $container = new Container(
             $config->get('console'),
-            $config->get('providers-console')
+            $config->get('providers-console'),
+            [],
+            $this->validateContainer,
         );
 
         $container = $container->get(ContainerInterface::class);

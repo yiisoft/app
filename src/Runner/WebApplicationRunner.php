@@ -34,11 +34,15 @@ use function microtime;
 
 final class WebApplicationRunner
 {
-    private bool $debug = false;
+    private bool $debug;
+    private ?string $env;
+    private bool $validateContainer;
 
-    public function debug(bool $enable = true): void
+    public function __construct(bool $debug, ?string $env, bool $validateContainer)
     {
-        $this->debug = $enable;
+        $this->debug = $debug;
+        $this->env = $env;
+        $this->validateContainer = $validateContainer;
     }
 
     /**
@@ -56,7 +60,7 @@ final class WebApplicationRunner
         $config = new Config(
             dirname(__DIR__, 2),
             '/config/packages', // Configs path.
-            null,
+            $this->env,
             [
                 'params',
                 'events',
@@ -65,7 +69,7 @@ final class WebApplicationRunner
             ],
         );
 
-        $container = new Container($config->get('web'), $config->get('providers-web'));
+        $container = new Container($config->get('web'), $config->get('providers-web'), [], $this->validateContainer);
 
         // Register error handler with real container-configured dependencies.
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);

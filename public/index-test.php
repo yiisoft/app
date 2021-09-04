@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Runner\WebApplicationRunner;
+use Yiisoft\Arrays\ArrayHelper;
 
 $c3 = dirname(__DIR__) . '/c3.php';
 
@@ -25,8 +26,12 @@ define('YII_ENV', getenv('env') ?? 'test');
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-$runner = new WebApplicationRunner();
-// Development mode:
-$runner->debug();
+// get the params web runner
+$paramsWebRunner =  require_once dirname(__DIR__) . '/config/params-web-runner.php';
+$debug = ArrayHelper::remove($paramsWebRunner, 'debug', true);
+$env = ArrayHelper::remove($paramsWebRunner, 'env', true);
+$validateContainer = ArrayHelper::remove($paramsWebRunner, 'validateContainer', true);
+
 // Run application:
+$runner = new WebApplicationRunner($debug, $env, $validateContainer);
 $runner->run();
