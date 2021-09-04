@@ -17,6 +17,6 @@ final class ConsoleCest
     public function testCommandHello(CliTester $I): void
     {
         $I->runShellCommand(dirname(__DIR__, 2) . '/./yii hello');
-        $I->seeInShellOutput('Hello!');
+        $I->seeInShellOutput('Hello!' . PHP_EOL);
     }
 }

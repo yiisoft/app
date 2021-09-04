@@ -22,7 +22,6 @@ jobs:
 
         php:
           - 8.0
-          - 8.1
 
     steps:
       - name: Checkout
@@ -60,4 +59,4 @@ jobs:
       - name: Run tests with codeception
         run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
-          vendor/bin/codecept run --debug
+          vendor/bin/codecept run
