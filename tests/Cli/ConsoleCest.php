@@ -10,13 +10,15 @@ final class ConsoleCest
 {
     public function testCommandYii(CliTester $I): void
     {
-        $I->runShellCommand(dirname(__DIR__, 2) . '/./yii');
+        $command = dirname(__DIR__, 2) . '/yii';
+        $I->runShellCommand($command);
         $I->seeInShellOutput('Yii Console');
     }
 
     public function testCommandHello(CliTester $I): void
     {
-        $I->runShellCommand(dirname(__DIR__, 2) . '/./yii hello');
-        $I->seeInShellOutput('Hello!' . PHP_EOL);
+        $command = dirname(__DIR__, 2) . '/yii';
+        $I->runShellCommand($command . ' hello');
+        $I->seeInShellOutput('Hello!');
     }
 }
