@@ -26,6 +26,6 @@ final class Hello extends Command
     {
         $output->writeln('Hello!');
 
-        return 1;
+        return Command::SUCCESS;
     }
 }

@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit;
 
+use App\Tests\UnitTester;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\Console\Tester\CommandTester;
-use App\Tests\UnitTester;
 use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
 
@@ -44,7 +45,7 @@ final class HelloCest
 
         $commandCreate->setInputs(['yes']);
 
-        $I->assertEquals(1, $commandCreate->execute([]));
+        $I->assertSame(Command::SUCCESS, $commandCreate->execute([]));
 
         $output = $commandCreate->getDisplay(true);
 
