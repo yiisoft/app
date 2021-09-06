@@ -19,11 +19,13 @@ use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
 
 final class ConsoleApplicationRunner
 {
-    private bool $debug = false;
+    private bool $debug;
+    private ?string $environment;
 
-    public function debug(bool $enable = true): void
+    public function __construct(bool $debug, ?string $environment)
     {
-        $this->debug = $enable;
+        $this->debug = $debug;
+        $this->environment = $environment;
     }
 
     /**
@@ -35,7 +37,7 @@ final class ConsoleApplicationRunner
         $config = new Config(
             dirname(__DIR__, 2),
             '/config/packages', // Configs path.
-            null,
+            $this->environment,
             [
                 'params',
                 'events',

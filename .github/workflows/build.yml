@@ -1,6 +1,8 @@
 on:
-  - pull_request
-  - push
+  pull_request:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
 
 name: build
 
@@ -21,7 +23,7 @@ jobs:
           - windows-latest
 
         php:
-          - "8.0"
+          - 8.0
 
     steps:
       - name: Checkout
