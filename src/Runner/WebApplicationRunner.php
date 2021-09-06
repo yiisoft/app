@@ -36,13 +36,11 @@ final class WebApplicationRunner
 {
     private bool $debug;
     private ?string $environment;
-    private bool $validateContainer;
 
-    public function __construct(bool $debug, ?string $environment, bool $validateContainer)
+    public function __construct(bool $debug, ?string $environment)
     {
         $this->debug = $debug;
         $this->environment = $environment;
-        $this->validateContainer = $validateContainer;
     }
 
     /**
@@ -69,7 +67,7 @@ final class WebApplicationRunner
             ],
         );
 
-        $container = new Container($config->get('web'), $config->get('providers-web'), [], $this->validateContainer);
+        $container = new Container($config->get('web'), $config->get('providers-web'), [], $this->debug);
 
         // Register error handler with real container-configured dependencies.
         $this->registerErrorHandler($container->get(ErrorHandler::class), $errorHandler);

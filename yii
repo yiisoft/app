@@ -7,7 +7,19 @@ use App\Runner\ConsoleApplicationRunner;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+/**
+ *  Set debug value for console application runner, for default its `true` add additionally the validation of the
+ *  container-di configurations (debug mode).
+ */
+define('YII_DEBUG', getenv('YII_DEBUG') ?: true);
+
+/**
+ *  Set environment value for web application runner, for default its `null`.
+ *
+ *  @link https://github.com/yiisoft/config#environments
+ */
+define('YII_ENV', getenv('YII_ENV') ?: null);
+
 // Run console application runner
-$params = require_once __DIR__ . '/config/params-console-runner.php';
-$consoleRunner = new ConsoleApplicationRunner($params['environment'] ?? null, $params['validateContainer'] ?? true);
+$consoleRunner = new ConsoleApplicationRunner(YII_DEBUG, YII_ENV);
 $consoleRunner->run();
