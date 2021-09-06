@@ -35,13 +35,13 @@ use function microtime;
 final class WebApplicationRunner
 {
     private bool $debug;
-    private ?string $env;
+    private ?string $environment;
     private bool $validateContainer;
 
-    public function __construct(bool $debug, ?string $env, bool $validateContainer)
+    public function __construct(bool $debug, ?string $environment, bool $validateContainer)
     {
         $this->debug = $debug;
-        $this->env = $env;
+        $this->environment = $environment;
         $this->validateContainer = $validateContainer;
     }
 
@@ -60,7 +60,7 @@ final class WebApplicationRunner
         $config = new Config(
             dirname(__DIR__, 2),
             '/config/packages', // Configs path.
-            $this->env,
+            $this->environment,
             [
                 'params',
                 'events',

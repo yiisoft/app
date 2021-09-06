@@ -6,7 +6,7 @@ return [
     // Debug mode for web application runner
     'debug' => true,
     // Environment mode for web application runner
-    'env' => null,
+    'environment' => null,
     // Validate container config
     'validateContainer' => false,
 ];

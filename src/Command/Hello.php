@@ -7,6 +7,7 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Yiisoft\Yii\Console\ExitCode;
 
 final class Hello extends Command
 {
@@ -25,7 +26,6 @@ final class Hello extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Hello!');
-
-        return Command::SUCCESS;
+        return ExitCode::OK;
     }
 }

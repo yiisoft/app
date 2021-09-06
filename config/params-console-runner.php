@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
     // Environment mode for console application runner.
-    'env' => null,
+    'environment' => null,
     // Validate container config.
     'validateContainer' => true,
 ];

@@ -4,17 +4,10 @@
 declare(strict_types=1);
 
 use App\Runner\ConsoleApplicationRunner;
-use Yiisoft\Arrays\ArrayHelper;
-
-define('YII_ENV', getenv('env') ?? 'production');
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-// get the params console runner
-$paramsConsoleRunner = require_once __DIR__ . '/config/params-console-runner.php';
-$env = ArrayHelper::remove($paramsConsoleRunner, 'env', null);
-$validateContainer = ArrayHelper::remove($paramsConsoleRunner, 'validateContainer', true);
-
-// Run application:
-$consoleRunner = new ConsoleApplicationRunner($env, $validateContainer);
+// Run console application runner
+$params = require_once __DIR__ . '/config/params-console-runner.php';
+$consoleRunner = new ConsoleApplicationRunner($params['environment'] ?? null, $params['validateContainer'] ?? true);
 $consoleRunner->run();
