@@ -46,7 +46,14 @@ final class ConsoleApplicationRunner
             ],
         );
 
-        $container = new Container($config->get('console'), $config->get('providers-console'), [], $this->debug);
+        $container = new Container(
+            $config->get('console'),
+            $config->get('providers-console'),
+            [],
+            $this->debug,
+            $config->get('delegates-console')
+        );
+
         $container = $container->get(ContainerInterface::class);
 
         // Run bootstrap
