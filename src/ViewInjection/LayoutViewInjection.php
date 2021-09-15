@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\ViewInjection;
 
-use App\ApplicationParameters;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\I18n\Locale;
 use Yiisoft\Router\UrlGeneratorInterface;
