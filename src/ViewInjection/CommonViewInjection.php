@@ -7,7 +7,7 @@ namespace App\ViewInjection;
 use App\ApplicationParameters;
 use Yiisoft\Yii\View\CommonParametersInjectionInterface;
 
-final class ContentViewInjection implements CommonParametersInjectionInterface
+final class CommonViewInjection implements CommonParametersInjectionInterface
 {
     private ApplicationParameters $applicationParameters;
 
