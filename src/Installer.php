@@ -35,7 +35,7 @@ final class Installer
         }
     }
 
-    public static function copyEnvFile()
+    public static function copyEnvFile(): void
     {
         if (!file_exists('.env')) {
             copy('.env.example', '.env');
