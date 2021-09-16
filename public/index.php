@@ -19,19 +19,9 @@ if (PHP_SAPI === 'cli-server') {
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-/**
- * Set debug value for web application runner, for default its `true` add additionally the validation of the
- * container-di configurations (debug mode).
- */
-define('YII_DEBUG', getenv('YII_DEBUG') ? (bool)getenv('YII_DEBUG') : true);
-
-/**
- * Set environment value for web application runner, for default its `null`.
- *
- * @link https://github.com/yiisoft/config#environments
- */
-define('YII_ENV', getenv('YII_ENV') ?: null);
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 
 // Run web application runner
-$runner = new WebApplicationRunner(YII_DEBUG, YII_ENV);
+$runner = new WebApplicationRunner(filter_var($_ENV['YII_DEBUG'], FILTER_VALIDATE_BOOL, FILTER_NULL_ON_FAILURE), $_ENV['YII_ENV']);
 $runner->run();
