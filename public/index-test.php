@@ -2,7 +2,12 @@
 
 declare(strict_types=1);
 
+use App\Runner\Environment;
 use App\Runner\WebApplicationRunner;
+
+/**
+ * @psalm-var string $_SERVER['REQUEST_URI']
+ */
 
 $c3 = dirname(__DIR__) . '/c3.php';
 
@@ -24,9 +29,8 @@ if (PHP_SAPI === 'cli-server') {
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-$dotenv->load();
+Environment::prepare();
 
 // Run web application runner
-$runner = new WebApplicationRunner(filter_var($_ENV['YII_DEBUG'], FILTER_VALIDATE_BOOL, FILTER_NULL_ON_FAILURE), $_ENV['YII_ENV']);
+$runner = new WebApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
 $runner->run();
