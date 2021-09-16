@@ -19,15 +19,16 @@ if (PHP_SAPI === 'cli-server') {
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
- *  Set debug value for web application runner, for default its `true` add additionally the validation of the
- *  container-di configurations (debug mode).
+ * Set debug value for web application runner, for default its `true` add additionally the validation of the
+ * container-di configurations (debug mode).
  */
-define('YII_DEBUG', getenv('YII_DEBUG') ?: true);
+$debug = getenv('YII_DEBUG');
+define('YII_DEBUG', $debug === false || $debug === '' || $debug);
 
 /**
- *  Set environment value for web application runner, for default its `null`.
+ * Set environment value for web application runner, for default its `null`.
  *
- *  @link https://github.com/yiisoft/config#environments
+ * @link https://github.com/yiisoft/config#environments
  */
 define('YII_ENV', getenv('YII_ENV') ?: null);
 
