@@ -15,7 +15,10 @@ use Yiisoft\Definitions\Exception\InvalidConfigException;
 use Yiisoft\Definitions\Exception\NotFoundException;
 use Yiisoft\Definitions\Exception\NotInstantiableException;
 use Yiisoft\Yii\Console\Application;
+use Yiisoft\Yii\Console\ExitCode;
 use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
+
+use function dirname;
 
 final class ConsoleApplicationRunner
 {
@@ -61,7 +64,7 @@ final class ConsoleApplicationRunner
 
         /** @var Application */
         $application = $container->get(Application::class);
-        $exitCode = 1;
+        $exitCode = ExitCode::UNSPECIFIED_ERROR;
 
         try {
             $application->start();

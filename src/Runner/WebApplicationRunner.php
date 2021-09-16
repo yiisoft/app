@@ -135,9 +135,7 @@ final class WebApplicationRunner
      */
     private function registerErrorHandler(ErrorHandler $registered, ErrorHandler $unregistered = null): void
     {
-        if ($unregistered !== null) {
-            $unregistered->unregister();
-        }
+        $unregistered?->unregister();
 
         if ($this->debug) {
             $registered->debug();
