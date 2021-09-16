@@ -17,6 +17,7 @@ final class Installer
     {
         self::chmodRecursive('runtime', 0777);
         self::chmodRecursive('public/assets', 0777);
+        self::copyEnvFile();
     }
 
     private static function chmodRecursive(string $path, int $mode): void
@@ -31,6 +32,13 @@ final class Installer
 
         foreach ($iterator as $item) {
             chmod($item, $mode);
+        }
+    }
+
+    public static function copyEnvFile()
+    {
+        if (!file_exists('.env')) {
+            copy('.env.example', '.env');
         }
     }
 }
