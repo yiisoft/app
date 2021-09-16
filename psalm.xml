@@ -7,10 +7,14 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 >
     <projectFiles>
-        <directory name="src" />
+        <directory name="src"/>
         <file name="public/index.php"/>
         <file name="public/index-test.php"/>
         <file name="yii"/>
     </projectFiles>
+    <globals>
+        <var name="_ENV['YII_ENV']" type="string|null"/>
+        <var name="_ENV['YII_DEBUG']" type="bool"/>
+    </globals>
 </psalm>
 

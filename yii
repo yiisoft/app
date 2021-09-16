@@ -4,12 +4,12 @@
 declare(strict_types=1);
 
 use App\Runner\ConsoleApplicationRunner;
+use App\Runner\Environment;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+Environment::prepare();
 
 // Run web application runner
-$runner = new ConsoleApplicationRunner(filter_var($_ENV['YII_DEBUG'], FILTER_VALIDATE_BOOL, FILTER_NULL_ON_FAILURE), $_ENV['YII_ENV']);
+$runner = new ConsoleApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
 $runner->run();
