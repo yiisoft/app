@@ -13,6 +13,7 @@ if (is_file($c3)) {
 // PHP built-in server routing.
 if (PHP_SAPI === 'cli-server') {
     // Serve static files as is.
+    /** @psalm-suppress MixedArgument */
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     if (is_file(__DIR__ . $path)) {
         return false;

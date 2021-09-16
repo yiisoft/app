@@ -8,6 +8,9 @@
 >
     <projectFiles>
         <directory name="src" />
+        <file name="public/index.php"/>
+        <file name="public/index-test.php"/>
+        <file name="yii"/>
     </projectFiles>
 </psalm>
 
