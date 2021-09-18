@@ -23,8 +23,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
  * Set debug value for web application runner, for default its `true` add additionally the validation of the
  * container-di configurations (debug mode).
  */
-$debug = getenv('YII_DEBUG');
-define('YII_DEBUG', $debug === false || $debug === '' || $debug);
+define('YII_DEBUG', getenv('YII_DEBUG') ? (bool)getenv('YII_DEBUG') : true);
 
 /**
  * Set environment value for web application runner, for default its `null`.
