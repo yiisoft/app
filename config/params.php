@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Command\Hello;
-use App\ViewInjection\ContentViewInjection;
+use App\ViewInjection\CommonViewInjection;
 use App\ViewInjection\LayoutViewInjection;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
@@ -34,7 +34,7 @@ return [
 
     'yiisoft/yii-view' => [
         'injections' => [
-            Reference::to(ContentViewInjection::class),
+            Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
             Reference::to(LayoutViewInjection::class),
         ],

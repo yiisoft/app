@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\ViewInjection;
 
 use App\ApplicationParameters;
-use Yiisoft\Yii\View\ContentParametersInjectionInterface;
+use Yiisoft\Yii\View\CommonParametersInjectionInterface;
 
-final class ContentViewInjection implements ContentParametersInjectionInterface
+final class CommonViewInjection implements CommonParametersInjectionInterface
 {
     private ApplicationParameters $applicationParameters;
 
@@ -17,7 +17,7 @@ final class ContentViewInjection implements ContentParametersInjectionInterface
         $this->applicationParameters = $applicationParameters;
     }
 
-    public function getContentParameters(): array
+    public function getCommonParameters(): array
     {
         return [
             'applicationParameters' => $this->applicationParameters,
