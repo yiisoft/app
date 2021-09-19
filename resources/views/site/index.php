@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-/** @var App\ApplicationParameters $applicationParameters */
-
-$this->params['breadcrumbs'] = '/';
+/**
+ * @var \Yiisoft\View\WebView $this
+ * @var \App\ApplicationParameters $applicationParameters
+ */
 
 $this->setTitle($applicationParameters->getName());
 ?>
