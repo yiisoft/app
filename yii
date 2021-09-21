@@ -4,11 +4,11 @@
 declare(strict_types=1);
 
 use App\Runner\ConsoleApplicationRunner;
-use App\Runner\Environment;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-Environment::prepare();
+// Setup environment variables
+require_once __DIR__ . '/environment.php';
 
 // Run web application runner
 $runner = new ConsoleApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);

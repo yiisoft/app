@@ -24,7 +24,15 @@ if (PHP_SAPI === 'cli-server') {
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-Environment::prepare();
+// Setup environment variables
+require_once dirname(__DIR__) . '/environment.php';
+
+if ($_ENV['YII_ENV'] === 'test') {
+    $c3 = dirname(__DIR__) . '/c3.php';
+    if (file_exists($c3)) {
+        require_once $c3;
+    }
+}
 
 // Run web application runner
 $runner = new WebApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
