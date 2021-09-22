@@ -7,6 +7,6 @@ use App\Runner\ConsoleApplicationRunner;
 
 require_once __DIR__ . '/bootstrap.php';
 
-// Run web application runner
+// Run console application runner
 $runner = new ConsoleApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
 $runner->run();
