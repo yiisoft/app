@@ -10,6 +10,7 @@
         <directory name="src"/>
         <file name="public/index.php"/>
         <file name="yii"/>
+        <file name="bootstrap.php"/>
     </projectFiles>
 </psalm>
 
