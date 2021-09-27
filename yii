@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 use App\Runner\ConsoleApplicationRunner;
 
-require_once __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/preload.php';
 
 // Run web application runner
 $runner = new ConsoleApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);

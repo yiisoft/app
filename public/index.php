@@ -22,7 +22,7 @@ if (PHP_SAPI === 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
 }
 
-require_once dirname(__DIR__) . '/bootstrap.php';
+require_once dirname(__DIR__) . '/preload.php';
 
 if ($_ENV['YII_ENV'] === 'test') {
     $c3 = dirname(__DIR__) . '/c3.php';
