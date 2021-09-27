@@ -12,15 +12,11 @@ use Yiisoft\Yii\Console\ExitCode;
 final class Hello extends Command
 {
     protected static $defaultName = 'hello';
+    protected static $defaultDescription = 'An example command';
 
     public function __construct()
     {
         parent::__construct();
-    }
-
-    public function configure(): void
-    {
-        $this->setDescription('An example command');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
