@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 use App\Runner\WebApplicationRunner;
 
+/**
+ * @psalm-var string $_SERVER['REQUEST_URI']
+ */
+
 // PHP built-in server routing.
 if (PHP_SAPI === 'cli-server') {
     // Serve static files as is.
@@ -17,21 +21,15 @@ if (PHP_SAPI === 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
 }
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/preload.php';
 
-/**
- * Set debug value for web application runner, for default its `true` add additionally the validation of the
- * container-di configurations (debug mode).
- */
-define('YII_DEBUG', getenv('YII_DEBUG') ? (bool)getenv('YII_DEBUG') : true);
-
-/**
- * Set environment value for web application runner, for default its `null`.
- *
- * @link https://github.com/yiisoft/config#environments
- */
-define('YII_ENV', getenv('YII_ENV') ?: null);
+if ($_ENV['YII_ENV'] === 'test') {
+    $c3 = dirname(__DIR__) . '/c3.php';
+    if (file_exists($c3)) {
+        require_once $c3;
+    }
+}
 
 // Run web application runner
-$runner = new WebApplicationRunner(YII_DEBUG, YII_ENV);
+$runner = new WebApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
 $runner->run();
