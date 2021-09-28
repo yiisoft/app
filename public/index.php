@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Runner\Environment;
 use App\Runner\WebApplicationRunner;
 
 /**

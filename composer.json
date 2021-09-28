@@ -13,10 +13,11 @@
         "test": "phpunit --testdox --no-interaction",
         "test-watch": "phpunit-watcher watch",
         "post-update-cmd": [
-            "App\\Installer::postUpdate"
+            "App\\Installer::postUpdate",
+            "App\\Installer::copyEnvFile"
         ],
         "post-create-project-cmd": [
-            "php -r \"copy('.env.example', '.env');\""
+            "App\\Installer::copyEnvFile"
         ]
     },
     "require": {
