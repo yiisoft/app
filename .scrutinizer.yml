@@ -20,7 +20,7 @@ build:
     phpunit:
       environment:
         php:
-          version: 8.0.6
+          version: 8.0.11
           ini:
             "xdebug.mode": coverage
 
@@ -32,7 +32,7 @@ build:
       tests:
         override:
           - command: |
-              php -S 127.0.0.1:8080 -t public public/index-test.php > ./runtime/yii.log 2>&1 &
+              php -S 127.0.0.1:8080 -t public public/index.php > ./runtime/yii.log 2>&1 &
               vendor/bin/codecept run --coverage-xml
             on_node: 1
             coverage:
