@@ -28,11 +28,13 @@ build:
         override:
           - composer self-update
           - composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
+          - sed -i "23 a require_once dirname(__DIR__) . '/C3.php';" public/index.php
+
 
       tests:
         override:
           - command: |
-              CODE_COVERAGE=C3 php -S 127.0.0.1:8080 -t public public/index.php > ./runtime/yii.log 2>&1 &
+              php -S 127.0.0.1:8080 -t public public/index.php > ./runtime/yii.log 2>&1 &
               vendor/bin/codecept run --coverage-xml
             on_node: 1
             coverage:

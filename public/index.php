@@ -21,13 +21,6 @@ if (PHP_SAPI === 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
 }
 
-if (getenv('CODE_COVERAGE') === 'C3') {
-    $c3 = dirname(__DIR__) . '/c3.php';
-    if (file_exists($c3)) {
-        require_once $c3;
-    }
-}
-
 require_once dirname(__DIR__) . '/preload.php';
 
 // Run web application runner
