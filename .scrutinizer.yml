@@ -23,6 +23,8 @@ build:
           version: 8.0.11
           ini:
             "xdebug.mode": coverage
+        variables:
+          YII_ENV: 'test'
 
       dependencies:
         override:
