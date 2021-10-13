@@ -19,7 +19,7 @@ return [
         'aliases' => [
             '@root' => dirname(__DIR__),
             '@assets' => '@root/public/assets',
-            '@assetsUrl' => '/assets',
+            '@assetsUrl' => '@baseUrl/assets',
             '@baseUrl' => '/',
             '@message' => '@root/resources/message',
             '@npm' => '@root/node_modules',
