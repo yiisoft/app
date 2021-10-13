@@ -28,7 +28,7 @@ build:
         override:
           - composer self-update
           - composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
-          - sed -i "23 a require_once dirname(__DIR__) . '/C3.php';" public/index.php
+          - sed -i "23 a require_once dirname(__DIR__) . '/c3.php';" public/index.php
 
       tests:
         override:
