@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit;
 
+use App\Runner\ConfigFactory;
 use App\Tests\UnitTester;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application;
@@ -54,16 +55,6 @@ final class HelloCest
 
     private function getConfig(): Config
     {
-        return new Config(
-            dirname(__DIR__, 2),
-            '/config/packages', // Configs path.
-            null,
-            [
-                'params',
-                'events',
-                'events-web',
-                'events-console',
-            ]
-        );
+        return ConfigFactory::create(null);
     }
 }
