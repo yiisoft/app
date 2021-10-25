@@ -22,7 +22,7 @@ final class ConfigFactory
         ];
 
         return new Config(
-            new ConfigPaths(dirname(__DIR__, 2)),
+            new ConfigPaths(dirname(__DIR__, 2), 'config'),
             $environment,
             [
                 ReverseMerge::groups(...$eventGroups),
