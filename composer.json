@@ -136,7 +136,8 @@
             "bootstrap-console": [
                 "$bootstrap",
                 "bootstrap-console.php"
-            ]
+            ],
+            "widgets": "widgets.php"
         },
         "installer-types": [
             "npm-asset"
