@@ -19,7 +19,7 @@ use Yiisoft\Yii\Bulma\NavBar;
  * @var Yiisoft\Router\CurrentRoute $currentRoute
  */
 
-$assetManager->register([
+$assetManager->registerMany([
     AppAsset::class,
     CdnFontAwesomeAsset::class,
 ]);
