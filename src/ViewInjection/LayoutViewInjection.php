@@ -7,7 +7,7 @@ namespace App\ViewInjection;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\I18n\Locale;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Router\CurrentRoute;
+use Yiisoft\Router\CurrentRouteInterface;
 use Yiisoft\Yii\View\LayoutParametersInjectionInterface;
 
 final class LayoutViewInjection implements LayoutParametersInjectionInterface
@@ -15,13 +15,13 @@ final class LayoutViewInjection implements LayoutParametersInjectionInterface
     private AssetManager $assetManager;
     private Locale $locale;
     private UrlGeneratorInterface $urlGenerator;
-    private CurrentRoute $currentRoute;
+    private CurrentRouteInterface $currentRoute;
 
     public function __construct(
         AssetManager $assetManager,
         Locale $locale,
         UrlGeneratorInterface $urlGenerator,
-        CurrentRoute $currentRoute
+        CurrentRouteInterface $currentRoute
     ) {
         $this->assetManager = $assetManager;
         $this->locale = $locale;

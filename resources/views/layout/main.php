@@ -16,7 +16,7 @@ use Yiisoft\Yii\Bulma\NavBar;
  * @var string|null $csrf
  * @var Locale $locale
  * @var Yiisoft\View\WebView $this
- * @var Yiisoft\Router\CurrentRoute $currentRoute
+ * @var Yiisoft\Router\CurrentRouteInterface $currentRoute
  */
 
 $assetManager->registerMany([
