@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use App\Command\Hello;
-use App\ViewInjection\ContentViewInjection;
+use App\ViewInjection\CommonViewInjection;
 use App\ViewInjection\LayoutViewInjection;
-use Yiisoft\Factory\Definition\Reference;
+use Yiisoft\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
@@ -19,7 +19,7 @@ return [
         'aliases' => [
             '@root' => dirname(__DIR__),
             '@assets' => '@root/public/assets',
-            '@assetsUrl' => '/assets',
+            '@assetsUrl' => '@baseUrl/assets',
             '@baseUrl' => '/',
             '@message' => '@root/resources/message',
             '@npm' => '@root/node_modules',
@@ -34,7 +34,7 @@ return [
 
     'yiisoft/yii-view' => [
         'injections' => [
-            Reference::to(ContentViewInjection::class),
+            Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
             Reference::to(LayoutViewInjection::class),
         ],

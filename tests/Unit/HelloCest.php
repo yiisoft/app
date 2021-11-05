@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit;
 
+use App\Runner\ConfigFactory;
+use App\Tests\UnitTester;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\Console\Tester\CommandTester;
-use App\Tests\UnitTester;
 use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
+use Yiisoft\Yii\Console\ExitCode;
 
 final class HelloCest
 {
@@ -44,7 +46,7 @@ final class HelloCest
 
         $commandCreate->setInputs(['yes']);
 
-        $I->assertEquals(1, $commandCreate->execute([]));
+        $I->assertSame(ExitCode::OK, $commandCreate->execute([]));
 
         $output = $commandCreate->getDisplay(true);
 
@@ -53,9 +55,6 @@ final class HelloCest
 
     private function getConfig(): Config
     {
-        return new Config(
-            dirname(__DIR__, 2),
-            '/config/packages', // Configs path.
-        );
+        return ConfigFactory::create(null);
     }
 }

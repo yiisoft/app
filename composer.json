@@ -13,7 +13,11 @@
         "test": "phpunit --testdox --no-interaction",
         "test-watch": "phpunit-watcher watch",
         "post-update-cmd": [
-            "App\\Installer::postUpdate"
+            "App\\Installer::postUpdate",
+            "App\\Installer::copyEnvFile"
+        ],
+        "post-create-project-cmd": [
+            "App\\Installer::copyEnvFile"
         ]
     },
     "require": {
@@ -23,36 +27,39 @@
         "psr/http-message": "^1.0",
         "psr/http-server-handler": "^1.0",
         "symfony/console": "^5.3",
+        "vlucas/phpdotenv": "^5.3",
         "yiisoft/aliases": "^2.0",
-        "yiisoft/assets": "^1.0",
+        "yiisoft/assets": "^2.0",
         "yiisoft/cache": "^1.0",
         "yiisoft/cache-file": "^1.0",
-        "yiisoft/config": "1.0.x-dev",
+        "yiisoft/config": "^1.0@dev",
         "yiisoft/csrf": "^1.0",
         "yiisoft/data-response": "^1.0",
+        "yiisoft/definitions": "3.0.x-dev",
         "yiisoft/di": "@dev",
         "yiisoft/error-handler": "^1.0",
         "yiisoft/factory": "3.0.x-dev",
         "yiisoft/files": "^1.0",
-        "yiisoft/html": "^1.2",
+        "yiisoft/html": "^2.0",
         "yiisoft/http": "^1.1",
         "yiisoft/i18n": "^1.0.0",
         "yiisoft/log": "^1.0",
         "yiisoft/log-target-file": "^1.0",
         "yiisoft/router": "@dev",
         "yiisoft/router-fastroute": "@dev",
-        "yiisoft/view": "^1.0",
+        "yiisoft/view": "^4.0",
         "yiisoft/yii-bulma": "@dev",
-        "yiisoft/yii-console": "3.0.x-dev",
+        "yiisoft/yii-console": "^1.0",
         "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
-        "yiisoft/yii-view": "^1.0",
+        "yiisoft/yii-view": "^4.0",
         "yiisoft/yii-web": "^3.0@dev"
     },
     "require-dev": {
         "codeception/c3": "^2.6.0",
         "codeception/codeception": "^4.1.5",
         "codeception/module-asserts": "@dev",
+        "codeception/module-cli": "^1.1",
         "codeception/module-phpbrowser": "@dev",
         "phpunit/phpunit": "^9.5",
         "roave/infection-static-analysis-plugin": "^1.7",
@@ -77,50 +84,60 @@
             "dev-master": "1.0.x-dev"
         },
         "config-plugin-options": {
-            "output-directory": "config/packages"
+            "source-directory": "config"
         },
         "config-plugin": {
-            "common": "config/common/*.php",
+            "common": "common/*.php",
             "params": [
-                "config/params.php",
-                "?config/params-local.php"
+                "params.php",
+                "?params-local.php"
             ],
             "web": [
                 "$common",
-                "config/web/*.php"
+                "web/*.php"
             ],
             "console": [
                 "$common",
-                "config/console/*.php"
+                "console/*.php"
             ],
-            "events": "config/events.php",
+            "events": "events.php",
             "events-web": [
                 "$events",
-                "config/events-web.php"
+                "events-web.php"
             ],
             "events-console": [
                 "$events",
-                "config/events-console.php"
+                "events-console.php"
             ],
-            "providers": "config/providers.php",
+            "providers": "providers.php",
             "providers-web": [
                 "$providers",
-                "config/providers-web.php"
+                "providers-web.php"
             ],
             "providers-console": [
                 "$providers",
-                "config/providers-console.php"
+                "providers-console.php"
             ],
-            "routes": "config/routes.php",
-            "bootstrap": "config/bootstrap.php",
+            "delegates": "delegates.php",
+            "delegates-web": [
+                "$delegates",
+                "delegates-web.php"
+            ],
+            "delegates-console": [
+                "$delegates",
+                "delegates-console.php"
+            ],
+            "routes": "routes.php",
+            "bootstrap": "bootstrap.php",
             "bootstrap-web": [
                 "$bootstrap",
-                "config/bootstrap-web.php"
+                "bootstrap-web.php"
             ],
             "bootstrap-console": [
                 "$bootstrap",
-                "config/bootstrap-console.php"
-            ]
+                "bootstrap-console.php"
+            ],
+            "widgets": "widgets.php"
         },
         "installer-types": [
             "npm-asset"

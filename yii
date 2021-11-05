@@ -3,48 +3,10 @@
 
 declare(strict_types=1);
 
-use Psr\Container\ContainerInterface;
-use Yiisoft\Config\Config;
-use Yiisoft\Di\Container;
-use Yiisoft\Yii\Console\Application;
-use Yiisoft\Yii\Console\Output\ConsoleBufferedOutput;
+use App\Runner\ConsoleApplicationRunner;
 
-define('YII_ENV', getenv('env') ?: 'production');
+require_once __DIR__ . '/preload.php';
 
-require_once 'vendor/autoload.php';
-
-$config = new Config(
-    __DIR__,
-    '/config/packages',
-);
-
-$container = new Container(
-    $config->get('console'),
-    $config->get('providers-console')
-);
-
-/** @var ContainerInterface $container */
-$container = $container->get(ContainerInterface::class);
-
-$bootstrapList = $config->get('bootstrap-console');
-foreach ($bootstrapList as $callback) {
-    if (!(is_callable($callback))) {
-        $type = is_object($callback) ? get_class($callback) : gettype($callback);
-
-        throw new \RuntimeException("Bootstrap callback must be callable, $type given.");
-    }
-    $callback($container);
-}
-
-$application = $container->get(Application::class);
-$exitCode = 1;
-
-try {
-    $application->start();
-    $exitCode = $application->run(null, new ConsoleBufferedOutput());
-} catch (\Error $error) {
-    $application->renderThrowable($error, new ConsoleBufferedOutput());
-} finally {
-    $application->shutdown($exitCode);
-    exit($exitCode);
-}
+// Run console application runner
+$runner = new ConsoleApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
+$runner->run();
