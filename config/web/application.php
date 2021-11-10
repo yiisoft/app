@@ -13,7 +13,7 @@ return [
         '__construct()' => [
             'dispatcher' => DynamicReference::to(static function (Injector $injector) use ($params) {
                 return ($injector->make(MiddlewareDispatcher::class))
-                    ->withMiddlewares(array_reverse($params['middlewares']));
+                    ->withMiddlewares($params['middlewares']);
             }),
             'fallbackHandler' => Reference::to(NotFoundHandler::class),
         ],
