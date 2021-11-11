@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit;
 
-use App\Runner\ConfigFactory;
 use App\Tests\UnitTester;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Application;
@@ -13,6 +12,9 @@ use Symfony\Component\Console\Tester\CommandTester;
 use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
 use Yiisoft\Yii\Console\ExitCode;
+use Yiisoft\Yii\Runner\ConfigFactory;
+
+use function dirname;
 
 final class HelloCest
 {
@@ -55,6 +57,6 @@ final class HelloCest
 
     private function getConfig(): Config
     {
-        return ConfigFactory::create(null);
+        return ConfigFactory::create(dirname(__DIR__, 2), null);
     }
 }
