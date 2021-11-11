@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Runner\WebApplicationRunner;
+use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 
 /**
  * @psalm-var string $_SERVER['REQUEST_URI']
@@ -30,6 +30,6 @@ if ($_ENV['YII_ENV'] === 'test') {
     }
 }
 
-// Run web application runner
-$runner = new WebApplicationRunner($_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
+// Run HTTP application runner
+$runner = new HttpApplicationRunner(dirname(__DIR__), $_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
 $runner->run();

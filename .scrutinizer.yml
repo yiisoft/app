@@ -5,7 +5,6 @@ filter:
   paths:
     - "src/*"
   excluded_paths:
-    - "src/ApplicationRunner.php"
     - "src/Installer.php"
 
 build:

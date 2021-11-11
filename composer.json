@@ -52,6 +52,9 @@
         "yiisoft/yii-console": "^1.0",
         "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
+        "yiisoft/yii-http": "dev-master",
+        "yiisoft/yii-runner-console": "dev-master",
+        "yiisoft/yii-runner-http": "dev-master",
         "yiisoft/yii-view": "^4.0",
         "yiisoft/yii-web": "^3.0@dev"
     },
