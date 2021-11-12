@@ -55,8 +55,7 @@
         "yiisoft/yii-http": "dev-master",
         "yiisoft/yii-runner-console": "dev-master",
         "yiisoft/yii-runner-http": "dev-master",
-        "yiisoft/yii-view": "^4.0",
-        "yiisoft/yii-web": "^3.0@dev"
+        "yiisoft/yii-view": "^4.0"
     },
     "require-dev": {
         "codeception/c3": "^2.6.0",
