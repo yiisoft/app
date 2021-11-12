@@ -147,7 +147,7 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 #### Session
 
 ```php
-'yiisoft/yii-web' => [
+'yiisoft/session' => [
     'session' => [
         // options for cookies
         'options' => ['cookie_secure' => 0],
