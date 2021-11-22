@@ -33,7 +33,7 @@
         "yiisoft/cache": "^1.0",
         "yiisoft/cache-file": "^1.0",
         "yiisoft/config": "^1.0@dev",
-        "yiisoft/csrf": "^1.0",
+        "yiisoft/csrf": "^1.2",
         "yiisoft/data-response": "^1.0",
         "yiisoft/definitions": "3.0.x-dev",
         "yiisoft/di": "@dev",
