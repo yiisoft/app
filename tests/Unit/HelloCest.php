@@ -11,6 +11,7 @@ use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\Console\Tester\CommandTester;
 use Yiisoft\Config\Config;
 use Yiisoft\Di\Container;
+use Yiisoft\Di\ContainerConfig;
 use Yiisoft\Yii\Console\ExitCode;
 use Yiisoft\Yii\Runner\ConfigFactory;
 
@@ -24,10 +25,10 @@ final class HelloCest
     {
         $config = $this->getConfig();
 
-        $this->container = new Container(
-            $config->get('console'),
-            $config->get('providers'),
-        );
+        $containerConfig = ContainerConfig::create()
+            ->withDefinitions($config->get('console'))
+            ->withProviders($config->get('providers'));
+        $this->container = new Container($containerConfig);
     }
 
     public function testExecute(UnitTester $I): void

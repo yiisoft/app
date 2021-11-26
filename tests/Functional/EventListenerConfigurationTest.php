@@ -7,6 +7,7 @@ namespace App\Tests\Functional;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Yiisoft\Di\Container;
+use Yiisoft\Di\ContainerConfig;
 use Yiisoft\Yii\Event\ListenerConfigurationChecker;
 use Yiisoft\Yii\Runner\ConfigFactory;
 
@@ -18,7 +19,9 @@ class EventListenerConfigurationTest extends TestCase
     {
         $config = ConfigFactory::create(dirname(__DIR__, 2), null);
 
-        $container = (new Container($config->get('console')))->get(ContainerInterface::class);
+        $containerConfig = ContainerConfig::create()
+            ->withDefinitions($config->get('console'));
+        $container = (new Container($containerConfig))->get(ContainerInterface::class);
         $checker = $container->get(ListenerConfigurationChecker::class);
         $checker->check($config->get('events-console'));
 
