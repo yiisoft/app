@@ -38,7 +38,7 @@
         "yiisoft/definitions": "^1.0",
         "yiisoft/di": "^1.0",
         "yiisoft/error-handler": "^2.0",
-        "yiisoft/factory": "3.0.x-dev",
+        "yiisoft/factory": "^1.0",
         "yiisoft/files": "^1.0",
         "yiisoft/html": "^2.0",
         "yiisoft/http": "^1.2",
