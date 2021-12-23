@@ -6,6 +6,7 @@ namespace App\Tests\Functional;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
+use Yiisoft\Config\ConfigPaths;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\ContainerConfig;
 use Yiisoft\Yii\Event\ListenerConfigurationChecker;
@@ -17,7 +18,7 @@ class EventListenerConfigurationTest extends TestCase
 {
     public function testConsoleListenerConfiguration(): void
     {
-        $config = ConfigFactory::create(dirname(__DIR__, 2), null);
+        $config = ConfigFactory::create(new ConfigPaths(dirname(__DIR__, 2), 'config'), null);
 
         $containerConfig = ContainerConfig::create()
             ->withDefinitions($config->get('console'));
