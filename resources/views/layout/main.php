@@ -45,18 +45,14 @@ $this->addJsVars($assetManager->getJsVars());
             <section class="hero is-fullheight is-light">
                 <div class="hero-head has-background-black">
                     <?= NavBar::widget()
-                        ->brandLabel($applicationParameters->getName())
+                        ->attributes(['class' => 'is-black', 'data-sticky' => '', 'data-sticky-shadow' => ''])
                         ->brandImage('/images/yii-logo.jpg')
-                        ->options(['class' => 'is-black', 'data-sticky' => '', 'data-sticky-shadow' => ''])
-                        ->itemsOptions(['class' => 'navbar-end'])
+                        ->brandText($applicationParameters->getName())
                         ->begin() ?>
 
                     <?= Nav::widget()
-                        ->currentPath(
-                            $currentRoute->getUri() !== null
-                                ? $currentRoute->getUri()->getPath()
-                                : ''
-                        )
+                        ->currentPath($currentRoute->getUri() !== null ? $currentRoute->getUri()->getPath() : '')
+                        ->enclosedByEndMenu()
                         ->items([]) ?>
 
                     <?= NavBar::end() ?>
