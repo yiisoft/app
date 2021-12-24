@@ -4,7 +4,7 @@ use Yiisoft\Html\Html;
 
 /** @var Yiisoft\View\WebView $this */
 /** @var Yiisoft\Router\UrlGeneratorInterface $urlGenerator */
-/** @var Yiisoft\Router\CurrentRouteInterface $currentRoute */
+/** @var Yiisoft\Router\CurrentRoute $currentRoute */
 
 $this->setTitle('404');
 ?>
