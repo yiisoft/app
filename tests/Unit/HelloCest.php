@@ -10,7 +10,6 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\Console\Tester\CommandTester;
 use Yiisoft\Config\Config;
-use Yiisoft\Config\ConfigPaths;
 use Yiisoft\Di\Container;
 use Yiisoft\Di\ContainerConfig;
 use Yiisoft\Yii\Console\ExitCode;
