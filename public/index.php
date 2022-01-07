@@ -21,7 +21,7 @@ if (PHP_SAPI === 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
 }
 
-require_once dirname(__DIR__) . '/preload.php';
+require_once dirname(__DIR__) . '/autoload.php';
 
 if (getenv('YII_ENV') === 'test') {
     $c3 = dirname(__DIR__) . '/c3.php';
