@@ -11,6 +11,7 @@ use Yiisoft\Yii\Bulma\NavBar;
 
 /**
  * @var App\ApplicationParameters $applicationParameters
+ * @var Yiisoft\Aliases\Aliases $aliases
  * @var Yiisoft\Assets\AssetManager $assetManager
  * @var string $content
  * @var string|null $csrf
@@ -46,7 +47,7 @@ $this->addJsVars($assetManager->getJsVars());
                 <div class="hero-head has-background-black">
                     <?= NavBar::widget()
                         ->attributes(['class' => 'is-black', 'data-sticky' => '', 'data-sticky-shadow' => ''])
-                        ->brandImage('/images/yii-logo.jpg')
+                        ->brandImage($aliases->get('@baseUrl/images/yii-logo.jpg'))
                         ->brandText($applicationParameters->getName())
                         ->begin() ?>
 
