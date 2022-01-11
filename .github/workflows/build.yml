@@ -5,7 +5,9 @@ on:
       - 'README.md'
       - 'CHANGELOG.md'
       - '.gitignore'
+      - '.env.example'
       - '.gitattributes'
+      - 'infection.json.dist'
       - 'psalm.xml'
 
   push:
@@ -14,7 +16,9 @@ on:
       - 'README.md'
       - 'CHANGELOG.md'
       - '.gitignore'
+      - '.env.example'
       - '.gitattributes'
+      - 'infection.json.dist'
       - 'psalm.xml'
 
   schedule:
