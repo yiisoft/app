@@ -48,7 +48,6 @@
         "yiisoft/router": "^1.0",
         "yiisoft/router-fastroute": "^1.0",
         "yiisoft/view": "^4.0",
-        "yiisoft/yii-bulma": "@dev",
         "yiisoft/yii-console": "^1.0",
         "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
