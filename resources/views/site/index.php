@@ -10,12 +10,14 @@ declare(strict_types=1);
 $this->setTitle($applicationParameters->getName());
 ?>
 
-<h1 class="title">Hello!</h1>
+<div class="text-center">
+    <h1>Hello!</h1>
 
-<p class="subtitle">Let's start something great with <strong>Yii3</strong>!</p>
+    <p>Let's start something great with <strong>Yii3</strong>!</p>
 
-<p class="subtitle is-italic">
-    <a href="https://github.com/yiisoft/docs/tree/master/guide/en" target="_blank" rel="noopener">
-        Don't forget to check the guide.
-    </a>
-</p>
+    <p>
+        <a href="https://github.com/yiisoft/docs/tree/master/guide/en" target="_blank" rel="noopener">
+            <i>Don't forget to check the guide.</i>
+        </a>
+    </p>
+</div>
