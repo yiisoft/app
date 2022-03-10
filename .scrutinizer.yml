@@ -13,7 +13,7 @@ build:
       YII_ENV: test
 
     php:
-      version: 8.0.11
+      version: 8.0.16
       ini:
         xdebug.mode: coverage
 
