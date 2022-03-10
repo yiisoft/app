@@ -3,6 +3,7 @@
         <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
     </a>
     <h1 align="center">Yii application template</h1>
+    <h3 align="center">Yii application template for Yii 3 is best for rapidly creating projects.</h3>
     <br>
 </p>
 
@@ -19,8 +20,6 @@
         <img src="docs/images/home.png" alt="Home page" >
     </a>
 </p>
-
-Yii application template for Yii 3 is best for rapidly creating projects.
 
 ## Requirements
 
