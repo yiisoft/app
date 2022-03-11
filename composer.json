@@ -139,29 +139,14 @@
                 "bootstrap-console.php"
             ],
             "widgets": "widgets.php"
-        },
-        "installer-types": [
-            "npm-asset"
-        ],
-        "installer-paths": {
-            "./node_modules/{$name}": [
-                "type:npm-asset"
-            ]
         }
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "codeception/c3": true,
+            "yiisoft/config": true,
             "infection/extension-installer": true,
-            "composer/package-versions-deprecated": true,
-            "yiisoft/config": true
+            "codeception/c3": true
         }
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ]
+    }
 }
