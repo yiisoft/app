@@ -4,17 +4,13 @@ declare(strict_types=1);
 
 namespace App\Tests\Acceptance;
 
-use App\Tests\AcceptanceTester;
+use App\Tests\Support\AcceptanceTester;
 
 final class ErrorCest
 {
-    public function _before(AcceptanceTester $I): void
-    {
-        $I->amOnPage('/error');
-    }
-
     public function aboutPage(AcceptanceTester $I): void
     {
+        $I->amOnPage('/error');
         $I->wantTo('see about page.');
         $I->see('404');
         $I->see('The page /error not found.');
