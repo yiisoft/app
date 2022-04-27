@@ -73,6 +73,7 @@ jobs:
           key: php${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: |
             php${{ matrix.php }}-composer-
+
       - name: Update composer
         run: composer self-update
 
