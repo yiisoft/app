@@ -6,7 +6,7 @@ namespace App\Tests\Acceptance;
 
 use App\Tests\Support\AcceptanceTester;
 
-final class ErrorCest
+final class NotFoundHandlerCest
 {
     public function aboutPage(AcceptanceTester $I): void
     {

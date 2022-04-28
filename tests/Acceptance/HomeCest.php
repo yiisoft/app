@@ -6,7 +6,7 @@ namespace App\Tests\Acceptance;
 
 use App\Tests\Support\AcceptanceTester;
 
-final class IndexCest
+final class HomeCest
 {
     public function testIndexPage(AcceptanceTester $I): void
     {
