@@ -10,9 +10,9 @@ final class HomeCest
 {
     public function testIndexPage(AcceptanceTester $I): void
     {
-        $I->wantTo('index page works.');
+        $I->wantTo('home page works.');
         $I->amOnPage('/');
-        $I->expectTo('see page index.');
-        $I->see('Hello');
+        $I->expectTo('see page home.');
+        $I->see('Hello!');
     }
 }
