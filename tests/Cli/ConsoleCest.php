@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Cli;
 
-use App\Tests\CliTester;
+use App\Tests\Support\CliTester;
 
 final class ConsoleCest
 {

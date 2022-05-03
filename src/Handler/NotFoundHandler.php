@@ -14,17 +14,11 @@ use Yiisoft\Yii\View\ViewRenderer;
 
 final class NotFoundHandler implements RequestHandlerInterface
 {
-    private UrlGeneratorInterface $urlGenerator;
-    private CurrentRoute $currentRoute;
-    private ViewRenderer $viewRenderer;
-
     public function __construct(
-        UrlGeneratorInterface $urlGenerator,
-        CurrentRoute $currentRoute,
-        ViewRenderer $viewRenderer
+        private UrlGeneratorInterface $urlGenerator,
+        private CurrentRoute $currentRoute,
+        private ViewRenderer $viewRenderer
     ) {
-        $this->urlGenerator = $urlGenerator;
-        $this->currentRoute = $currentRoute;
         $this->viewRenderer = $viewRenderer->withControllerName('site');
     }
 
