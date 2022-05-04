@@ -61,7 +61,7 @@
         "codeception/codeception": "^5.0",
         "codeception/module-asserts": "^2.0",
         "codeception/module-cli": "^2.0",
-        "codeception/module-phpbrowser": "^2.0",
+        "codeception/module-phpbrowser": "^3.0",
         "phpunit/phpunit": "^9.5",
         "roave/infection-static-analysis-plugin": "^1.16",
         "roave/security-advisories": "dev-master",
