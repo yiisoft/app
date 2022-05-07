@@ -15,6 +15,7 @@ use Yiisoft\I18n\Locale;
  * @var Locale $locale
  * @var Yiisoft\View\WebView $this
  * @var Yiisoft\Router\CurrentRoute $currentRoute
+ * @var Yiisoft\Router\UrlGeneratorInterface $urlGenerator
  */
 
 $assetManager->register(AppAsset::class);
