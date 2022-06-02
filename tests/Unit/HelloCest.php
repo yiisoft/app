@@ -35,7 +35,9 @@ final class HelloCest
     public function testExecute(UnitTester $I): void
     {
         $app = new Application();
-        $params = $this->getConfig()->get('params');
+        $params = $this
+            ->getConfig()
+            ->get('params');
 
         $loader = new ContainerCommandLoader(
             $this->container,
