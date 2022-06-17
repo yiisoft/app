@@ -35,7 +35,7 @@
         "yiisoft/config": "^1.0",
         "yiisoft/csrf": "^1.2",
         "yiisoft/data-response": "^1.0",
-        "yiisoft/definitions": "^1.0",
+        "yiisoft/definitions": "^2.0",
         "yiisoft/di": "^1.0",
         "yiisoft/error-handler": "^2.0",
         "yiisoft/factory": "^1.0",
