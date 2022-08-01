@@ -26,7 +26,7 @@
         "psr/container": "^2.0",
         "psr/http-message": "^1.0",
         "psr/http-server-handler": "^1.0",
-        "symfony/console": "^5.3",
+        "symfony/console": "^6.0",
         "vlucas/phpdotenv": "^5.3",
         "yiisoft/aliases": "^2.0",
         "yiisoft/assets": "^2.0",
