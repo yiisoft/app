@@ -1,65 +1,21 @@
 on:
-  push:
+  pull_request:
     paths-ignore:
       - 'docs/**'
       - 'README.md'
       - 'CHANGELOG.md'
       - '.gitignore'
-      - '.env.example'
       - '.gitattributes'
       - 'infection.json.dist'
-      - 'phpunit.xml.dist'
+      - 'psalm.xml'
 
 name: rector
 
 jobs:
   rector:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.0
-          tools: composer:v2
-          coverage: none
-
-      - name: Determine composer cache directory
-        run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
-
-      - name: Cache dependencies installed with composer
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.COMPOSER_CACHE_DIR }}
-          key: php${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys: |
-            php${{ matrix.php }}-composer-
-
-      - name: Update composer
-        run: composer self-update
-
-      - name: Install dependencies with composer
-        run: composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
-
-      - run: vendor/bin/rector process --ansi
-
-      - name: Check for Rector modified files
-        id: rector-git-check
-        run: echo ::set-output name=modified::$(if git diff --exit-code --no-patch; then echo "false"; else echo "true"; fi)
-
-      - name: Git config
-        if: steps.rector-git-check.outputs.modified == 'true'
-        run: |
-          git config --global user.name 'rector-bot'
-          git config --global user.email 'rector@yiiframework.com'
-
-      - name: Commit Rector changes
-        if: steps.rector-git-check.outputs.modified == 'true'
-        run: git commit -am "[rector] Apply fixes"
-
-      - name: Push changes
-        if: steps.rector-git-check.outputs.modified == 'true'
-        run: git push
-
+    uses: yiisoft/actions/.github/workflows/rector.yml@master
+    with:
+      os: >-
+        ['ubuntu-latest']
+      php: >-
+        ['8.0']
