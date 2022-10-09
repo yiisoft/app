@@ -68,7 +68,8 @@
         "spatie/phpunit-watcher": "^1.23",
         "vimeo/psalm": "^4.22",
         "yiisoft/yii-debug-api": "3.0.x-dev",
-        "yiisoft/yii-debug-viewer": "^3.0@dev"
+        "yiisoft/yii-debug-viewer": "^3.0@dev",
+        "yiisoft/yii-testing": "dev-master"
     },
     "autoload": {
         "psr-4": {
