@@ -33,6 +33,7 @@ jobs:
     env:
       extensions: fileinfo
       key: cache-v1
+      YII_C3: true
 
     runs-on: ${{ matrix.os }}
 
