@@ -85,7 +85,7 @@ jobs:
 
       - name: Run tests with codeception
         run: |
-          php -S 127.0.0.1:8080 -t public public/index.php > ./runtime/yii.log 2>&1 &
+          ./yii serve > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run --coverage-xml
 
       - name: Upload coverage to codecov
