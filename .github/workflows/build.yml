@@ -83,9 +83,16 @@ jobs:
       - name: Install dependencies with composer
         run: composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
 
-      - name: Run tests with codeception
+      - name: Run tests codeception
+        if: matrix.os != 'ubuntu-latest' && matrix.php != '8.0'
         run: |
-          YII_C3=true ./yii serve > ./runtime/yii.log 2>&1 &
+          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
+          vendor/bin/codecept run
+
+      - name: Run tests codeception with coverage
+        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.0'
+        run: |
+          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run --coverage-xml
 
       - name: Upload coverage to codecov
