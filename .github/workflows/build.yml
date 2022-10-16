@@ -33,6 +33,7 @@ jobs:
     env:
       extensions: fileinfo
       key: cache-v1
+      YII_C3: true
 
     runs-on: ${{ matrix.os }}
 
@@ -45,6 +46,7 @@ jobs:
         php:
           - 8.0
           - 8.1
+          - 8.2
 
     steps:
       - name: Checkout
@@ -57,6 +59,7 @@ jobs:
           extensions: ${{ env.extensions }}
           ini-values: date.timezone='UTC'
           tools: composer:v2
+          coverage: pcov
 
       - name: Determine composer cache directory on Linux
         if: matrix.os == 'ubuntu-latest'
@@ -80,7 +83,20 @@ jobs:
       - name: Install dependencies with composer
         run: composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
 
-      - name: Run tests with codeception
+      - name: Run tests codeception
+        if: matrix.os != 'ubuntu-latest' || matrix.php != '8.0'
         run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run
+
+      - name: Run tests codeception with coverage
+        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.0'
+        run: |
+          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
+          vendor/bin/codecept run --coverage-xml
+
+      - name: Upload coverage to codecov
+        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.0'
+        uses: codecov/codecov-action@v3
+        with:
+          file: tests/_output/coverage.xml
