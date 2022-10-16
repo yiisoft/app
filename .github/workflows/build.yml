@@ -33,7 +33,6 @@ jobs:
     env:
       extensions: fileinfo
       key: cache-v1
-      YII_C3: true
 
     runs-on: ${{ matrix.os }}
 
@@ -85,7 +84,7 @@ jobs:
 
       - name: Run tests with codeception
         run: |
-          ./yii serve > ./runtime/yii.log 2>&1 &
+          YII_C3=true ./yii serve > ./runtime/yii.log 2>&1 &
           vendor/bin/codecept run --coverage-xml
 
       - name: Upload coverage to codecov
