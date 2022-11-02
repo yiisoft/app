@@ -88,6 +88,23 @@
         "config-plugin-options": {
             "source-directory": "config"
         },
+        "config-plugin-environments": {
+            "dev": {
+                "params": [
+                    "test/params.php"
+                ]
+            },
+            "prod": {
+                "params": [
+                    "test/params.php"
+                ]
+            },
+            "test": {
+                "params": [
+                    "test/params.php"
+                ]
+            }
+        },
         "config-plugin": {
             "common": "common/*.php",
             "params": [
