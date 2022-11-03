@@ -22,3 +22,6 @@ coverage:
         exclude:
             - src/Asset/*
             - src/Installer.php
+params:
+  - .env
+  - .env.test
