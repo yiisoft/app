@@ -45,6 +45,7 @@ return [
             Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
             Reference::to(LayoutViewInjection::class),
+            Reference::to(TranslatorViewInjection::class),
         ],
     ],
 
