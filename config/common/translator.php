@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Translator\CategorySource;
+use Yiisoft\Translator\Formatter\Intl\IntlMessageFormatter;
 use Yiisoft\Translator\Message\Php\MessageSource;
 
 /** @var array $params */
@@ -14,7 +15,7 @@ return [
         return new CategorySource(
             $params['yiisoft/translator']['defaultCategory'],
             new MessageSource($aliases->get('@messages')),
-            new \Yiisoft\Translator\IntlMessageFormatter(),
+            new IntlMessageFormatter(),
         );
     },
 ];
