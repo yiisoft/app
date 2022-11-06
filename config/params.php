@@ -5,10 +5,12 @@ declare(strict_types=1);
 use App\Command\Hello;
 use App\ViewInjection\CommonViewInjection;
 use App\ViewInjection\LayoutViewInjection;
+use App\ViewInjection\TranslatorViewInjection;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
+use Yiisoft\Yii\Middleware\Locale;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
@@ -17,9 +19,16 @@ return [
         'locale' => 'en',
         'name' => 'My Project',
     ],
+    'locale' => [
+        'locales' => ['en' => 'en-US', 'ru' => 'ru-RU'],
+        'ignoredRequests' => [
+            '/debug**',
+        ],
+    ],
     'middlewares' => [
         ErrorCatcher::class,
         SessionMiddleware::class,
+        Locale::class,
         Router::class,
     ],
 
@@ -29,7 +38,7 @@ return [
             '@assets' => '@root/public/assets',
             '@assetsUrl' => '@baseUrl/assets',
             '@baseUrl' => '/',
-            '@message' => '@root/resources/message',
+            '@messages' => '@resources/messages',
             '@npm' => '@root/node_modules',
             '@public' => '@root/public',
             '@resources' => '@root/resources',
@@ -40,11 +49,23 @@ return [
         ],
     ],
 
+    'yiisoft/translator' => [
+        'locale' => 'en',
+        'fallbackLocale' => 'en',
+        'defaultCategory' => 'app',
+        'categorySources' => [
+            // You can add categories from your application and additional modules using `Reference::to` below
+            // Reference::to(ApplicationCategorySource::class),
+            Reference::to('translation.app'),
+        ],
+    ],
+
     'yiisoft/yii-view' => [
         'injections' => [
             Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
             Reference::to(LayoutViewInjection::class),
+            Reference::to(TranslatorViewInjection::class),
         ],
     ],
 
