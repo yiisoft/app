@@ -10,7 +10,7 @@
     "prefer-stable": true,
     "scripts": {
         "serve": "./yii serve",
-        "test": "phpunit --testdox --no-interaction",
+        "test": "codecept run",
         "test-watch": "phpunit-watcher watch",
         "post-update-cmd": [
             "App\\Installer::postUpdate",
