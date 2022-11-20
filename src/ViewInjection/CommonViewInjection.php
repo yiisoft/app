@@ -9,12 +9,8 @@ use Yiisoft\Yii\View\CommonParametersInjectionInterface;
 
 final class CommonViewInjection implements CommonParametersInjectionInterface
 {
-    private ApplicationParameters $applicationParameters;
-
-    public function __construct(
-        ApplicationParameters $applicationParameters
-    ) {
-        $this->applicationParameters = $applicationParameters;
+    public function __construct(private ApplicationParameters $applicationParameters)
+    {
     }
 
     public function getCommonParameters(): array

@@ -10,7 +10,7 @@
     "prefer-stable": true,
     "scripts": {
         "serve": "./yii serve",
-        "test": "phpunit --testdox --no-interaction",
+        "test": "codecept run",
         "test-watch": "phpunit-watcher watch",
         "post-update-cmd": [
             "App\\Installer::postUpdate",
@@ -22,36 +22,40 @@
     },
     "require": {
         "php": "^8.0",
+        "ext-intl": "*",
         "httpsoft/http-message": "^1.0.5",
         "psr/container": "^2.0",
         "psr/http-message": "^1.0",
         "psr/http-server-handler": "^1.0",
-        "symfony/console": "^5.3",
+        "symfony/console": "^6.0",
         "vlucas/phpdotenv": "^5.3",
         "yiisoft/aliases": "^2.0",
-        "yiisoft/assets": "^2.0",
+        "yiisoft/assets": "^2.1",
         "yiisoft/cache": "^2.0",
         "yiisoft/cache-file": "^2.0",
         "yiisoft/config": "^1.1",
         "yiisoft/csrf": "^1.2",
         "yiisoft/data-response": "^1.0",
-        "yiisoft/definitions": "^2.0",
-        "yiisoft/di": "^1.0",
+        "yiisoft/definitions": "^3.0",
+        "yiisoft/di": "^1.2",
         "yiisoft/error-handler": "^2.0",
         "yiisoft/factory": "^1.0",
         "yiisoft/files": "^2.0",
-        "yiisoft/html": "^2.0",
+        "yiisoft/html": "^2.5",
         "yiisoft/http": "^1.2",
-        "yiisoft/i18n": "^1.0.0",
+        "yiisoft/i18n": "^1.1",
         "yiisoft/log": "^2.0",
         "yiisoft/log-target-file": "^2.0",
-        "yiisoft/router": "^1.0",
-        "yiisoft/router-fastroute": "^1.0",
+        "yiisoft/router": "^2.0",
+        "yiisoft/router-fastroute": "^2.0",
+        "yiisoft/translator": "^2.0",
+        "yiisoft/translator-message-php": "^1.1",
         "yiisoft/view": "^6.0",
         "yiisoft/yii-console": "^1.3",
         "yiisoft/yii-debug": "^3.0@dev",
         "yiisoft/yii-event": "^1.0",
         "yiisoft/yii-http": "^1.0",
+        "yiisoft/yii-middleware": "dev-master",
         "yiisoft/yii-runner-console": "^1.0",
         "yiisoft/yii-runner-http": "^1.0",
         "yiisoft/yii-view": "^5.0"
@@ -63,6 +67,7 @@
         "codeception/module-cli": "^2.0",
         "codeception/module-phpbrowser": "^3.0",
         "phpunit/phpunit": "^9.5",
+        "rector/rector": "^0.14.3",
         "roave/infection-static-analysis-plugin": "^1.16",
         "roave/security-advisories": "dev-master",
         "spatie/phpunit-watcher": "^1.23",
@@ -87,6 +92,23 @@
         },
         "config-plugin-options": {
             "source-directory": "config"
+        },
+        "config-plugin-environments": {
+            "dev": {
+                "params": [
+                    "test/params.php"
+                ]
+            },
+            "prod": {
+                "params": [
+                    "test/params.php"
+                ]
+            },
+            "test": {
+                "params": [
+                    "test/params.php"
+                ]
+            }
         },
         "config-plugin": {
             "common": "common/*.php",
