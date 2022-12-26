@@ -21,7 +21,7 @@
         ]
     },
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-intl": "*",
         "httpsoft/http-message": "^1.0.5",
         "psr/container": "^2.0",
