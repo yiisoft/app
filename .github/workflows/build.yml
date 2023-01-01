@@ -15,7 +15,7 @@ jobs:
   rector:
     uses: yiisoft/actions/.github/workflows/codeception.yml@codeception
     with:
-      extension: fileinfo, intl
+      extensions: fileinfo, intl
       os: >-
         ['ubuntu-latest']
       php: >-
