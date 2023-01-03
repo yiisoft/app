@@ -22,7 +22,7 @@ on:
 name: build
 
 jobs:
-  rector:
+  build:
     uses: yiisoft/actions/.github/workflows/codeception.yml@codeception
     with:
       extensions: fileinfo, intl
