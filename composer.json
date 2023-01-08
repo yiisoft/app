@@ -96,12 +96,12 @@
         "config-plugin-environments": {
             "dev": {
                 "params": [
-                    "test/params.php"
+                    "dev/params.php"
                 ]
             },
             "prod": {
                 "params": [
-                    "test/params.php"
+                    "prod/params.php"
                 ]
             },
             "test": {
