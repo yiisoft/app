@@ -23,7 +23,7 @@ name: build
 
 jobs:
   build:
-    uses: yiisoft/actions/.github/workflows/codeception.yml@codeception
+    uses: yiisoft/actions/.github/workflows/codeception.yml@master
     with:
       extensions: fileinfo, intl
       os: >-
