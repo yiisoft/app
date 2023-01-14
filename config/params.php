@@ -11,6 +11,7 @@ use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
 use Yiisoft\Yii\Middleware\Locale;
+use Yiisoft\Yii\Middleware\SubFolder;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
@@ -18,15 +19,21 @@ return [
         'charset' => 'UTF-8',
         'locale' => 'en',
         'name' => 'My Project',
+        // Sub folder where the application is located. If the application is located in the root folder,
+        // leave it '/'.
+        'prefix' => '/',
     ],
+
     'locale' => [
         'locales' => ['en' => 'en-US', 'ru' => 'ru-RU'],
         'ignoredRequests' => [
             '/debug**',
         ],
     ],
+
     'middlewares' => [
         ErrorCatcher::class,
+        SubFolder::class,
         SessionMiddleware::class,
         Locale::class,
         Router::class,
@@ -37,7 +44,6 @@ return [
             '@root' => dirname(__DIR__),
             '@assets' => '@root/public/assets',
             '@assetsUrl' => '@baseUrl/assets',
-            '@baseUrl' => '/',
             '@messages' => '@resources/messages',
             '@npm' => '@root/node_modules',
             '@public' => '@root/public',
