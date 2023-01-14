@@ -9,7 +9,7 @@ use Yiisoft\Aliases\Aliases;
 return [
     Aliases::class => [
         '__construct()' => [
-            array_merge($params['yiisoft/aliases']['aliases'], ['@baseUrl' => $params['app']['prefix']])
+            array_merge($params['yiisoft/aliases']['aliases'], ['@baseUrl' => $params['app']['prefix']]),
         ],
     ],
 ];
