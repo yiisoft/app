@@ -55,24 +55,6 @@ return [
             '$events',
             'console/events.php'
         ],
-        'providers' => 'common/providers.php',
-        'providers-web' => [
-            '$providers',
-            'web/providers.php'
-        ],
-        'providers-console' => [
-            '$providers',
-            'console/providers.php'
-        ],
-        'delegates' => 'common/delegates.php',
-        'delegates-web' => [
-            '$delegates',
-            'web/delegates.php'
-        ],
-        'delegates-console' => [
-            '$delegates',
-            'console/delegates.php'
-        ],
         'routes' => 'web/routes.php',
         'bootstrap' => 'common/bootstrap.php',
         'bootstrap-web' => [
