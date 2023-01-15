@@ -52,7 +52,7 @@ return [
                 'config/common.php',
             ],
             '/' => [
-                'common/*.php',
+                'common/container/*.php',
             ],
         ],
         'params' => [
@@ -114,8 +114,7 @@ return [
                 'config/params.php',
             ],
             '/' => [
-                'params.php',
-                '?params-local.php',
+                'common/params.php',
             ],
         ],
         'web' => [
@@ -161,10 +160,6 @@ return [
             'yiisoft/yii-event' => [
                 'config/web.php',
             ],
-            '/' => [
-                '$common',
-                'web/*.php',
-            ],
         ],
         'bootstrap-web' => [
             'yiisoft/yii-debug-api' => [
@@ -172,7 +167,7 @@ return [
             ],
             '/' => [
                 '$bootstrap',
-                'bootstrap-web.php',
+                'web/bootstrap.php',
             ],
         ],
         'routes' => [
@@ -183,7 +178,7 @@ return [
                 'config/routes.php',
             ],
             '/' => [
-                'routes.php',
+                'web/routes.php',
             ],
         ],
         'providers-web' => [
@@ -192,7 +187,7 @@ return [
             ],
             '/' => [
                 '$providers',
-                'providers-web.php',
+                'web/providers.php',
             ],
         ],
         'console' => [
@@ -207,10 +202,6 @@ return [
             ],
             'yiisoft/yii-event' => [
                 'config/console.php',
-            ],
-            '/' => [
-                '$common',
-                'console/*.php',
             ],
         ],
         'events-console' => [
@@ -229,7 +220,7 @@ return [
             ],
             '/' => [
                 '$events',
-                'events-console.php',
+                'console/events.php',
             ],
         ],
         'events-web' => [
@@ -248,7 +239,7 @@ return [
             ],
             '/' => [
                 '$events',
-                'events-web.php',
+                'web/events.php',
             ],
         ],
         'providers' => [
@@ -256,7 +247,7 @@ return [
                 'config/providers.php',
             ],
             '/' => [
-                'providers.php',
+                'common/providers.php',
             ],
         ],
         'providers-console' => [
@@ -265,7 +256,7 @@ return [
             ],
             '/' => [
                 '$providers',
-                'providers-console.php',
+                'console/providers.php',
             ],
         ],
         'events' => [
@@ -273,61 +264,87 @@ return [
                 'config/events.php',
             ],
             '/' => [
-                'events.php',
+                'common/events.php',
+            ],
+        ],
+        'params-web' => [
+            '/' => [
+                '$params',
+                'web/params.php',
+            ],
+        ],
+        'params-console' => [
+            '/' => [
+                '$params',
+                'console/params.php',
+            ],
+        ],
+        'container-web' => [
+            '/' => [
+                '$common',
+                '$web',
+                'web/container/*.php',
+            ],
+        ],
+        'container-console' => [
+            '/' => [
+                '$common',
+                '$console',
+                'console/container/*.php',
             ],
         ],
         'delegates' => [
             '/' => [
-                'delegates.php',
+                'common/delegates.php',
             ],
         ],
         'delegates-web' => [
             '/' => [
                 '$delegates',
-                'delegates-web.php',
+                'web/delegates.php',
             ],
         ],
         'delegates-console' => [
             '/' => [
                 '$delegates',
-                'delegates-console.php',
+                'console/delegates.php',
             ],
         ],
         'bootstrap' => [
             '/' => [
-                'bootstrap.php',
+                'common/bootstrap.php',
             ],
         ],
         'bootstrap-console' => [
             '/' => [
                 '$bootstrap',
-                'bootstrap-console.php',
+                'console/bootstrap.php',
             ],
         ],
         'widgets' => [
             '/' => [
-                'widgets.php',
+                'web/widgets.php',
             ],
         ],
     ],
     'dev' => [
         'params' => [
             '/' => [
-                'test/params.php',
+                'environments/dev/params.php',
             ],
         ],
     ],
     'prod' => [
         'params' => [
             '/' => [
-                'test/params.php',
+                'environments/prod/params.php',
             ],
         ],
     ],
     'test' => [
         'params' => [
             '/' => [
-                'test/params.php',
+                'environments/test/params.php',
             ],
         ],
     ],

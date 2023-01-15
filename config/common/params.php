@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Command\Hello;
 use App\ViewInjection\CommonViewInjection;
 use App\ViewInjection\LayoutViewInjection;
 use App\ViewInjection\TranslatorViewInjection;
@@ -33,20 +32,7 @@ return [
     ],
 
     'yiisoft/aliases' => [
-        'aliases' => [
-            '@root' => dirname(__DIR__),
-            '@assets' => '@root/public/assets',
-            '@assetsUrl' => '@baseUrl/assets',
-            '@baseUrl' => '/',
-            '@messages' => '@resources/messages',
-            '@npm' => '@root/node_modules',
-            '@public' => '@root/public',
-            '@resources' => '@root/resources',
-            '@runtime' => '@root/runtime',
-            '@vendor' => '@root/vendor',
-            '@layout' => '@resources/views/layout',
-            '@views' => '@resources/views',
-        ],
+        'aliases' => require __DIR__ . '/aliases.php',
     ],
 
     'yiisoft/translator' => [
@@ -61,12 +47,6 @@ return [
             Reference::to(CsrfViewInjection::class),
             Reference::to(LayoutViewInjection::class),
             Reference::to(TranslatorViewInjection::class),
-        ],
-    ],
-
-    'yiisoft/yii-console' => [
-        'commands' => [
-            'hello' => Hello::class,
         ],
     ],
 ];
