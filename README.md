@@ -97,7 +97,7 @@ To test it in action run the following command:
 php -S 127.0.0.1:8080 <all projects root path>
 ```
 
-using in browser `http://localhost:8080/yii3/public` to access the application.
+Now you can use `http://localhost:8080/yii3/public` to access the application.
 
 ## Testing
 
