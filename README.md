@@ -94,7 +94,7 @@ Here's how `config/params.php` should be adjusted:
 To test it in action run the following command:
 
 ```bash
-/d/develop$>php -S 127.0.0.1:8080 //web server entry point
+php -S 127.0.0.1:8080 <all projects root path>
 ```
 
 using in browser `http://localhost:8080/yii3/public` to access the application.
