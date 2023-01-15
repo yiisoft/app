@@ -79,7 +79,11 @@ configs, and the most interesting is [params.php](/config/params.php). Below the
 
 If you want to use subfolder middleware for URL routing, you need to adjust `config/params.php` file.
 
-For example directory develop in the root of the project, and public directory is in the `yii3/public` folder.
+For our example let's assume that web server root is pointing to the all projects root. There is `yii3` project with its `yii3/public` directory that should be accessed as `http://localhost/yii3/public`.
+
+> Note: While being a common practice for local development, it is recommended to prefer separate hosts for separate projects pointint directly to `public` directory.
+
+Here's how `config/params.php` should be adjusted:
 
 ```php
 'app' => [
