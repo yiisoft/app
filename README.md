@@ -91,7 +91,7 @@ Here's how `config/params.php` should be adjusted:
 ],
 ```
 
-run the following command:
+To test it in action run the following command:
 
 ```bash
 /d/develop$>php -S 127.0.0.1:8080 //web server entry point
