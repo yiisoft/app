@@ -77,7 +77,7 @@ configs, and the most interesting is [params.php](/config/params.php). Below the
 
 ## Using SubFolder Middleware for URL Routing
 
-If you want to use subfolder middleware for URL routing, you need to change the following code to the `config/params.php` file:
+If you want to use subfolder middleware for URL routing, you need to adjust `config/params.php` file.
 
 For example directory develop in the root of the project, and public directory is in the `yii3/public` folder.
 
