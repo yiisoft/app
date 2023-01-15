@@ -185,10 +185,6 @@ return [
             'yiisoft/yii-debug-api' => [
                 'config/providers-web.php',
             ],
-            '/' => [
-                '$providers',
-                'web/providers.php',
-            ],
         ],
         'console' => [
             'yiisoft/yii-testing' => [
@@ -246,17 +242,10 @@ return [
             'yiisoft/yii-debug' => [
                 'config/providers.php',
             ],
-            '/' => [
-                'common/providers.php',
-            ],
         ],
         'providers-console' => [
             'yiisoft/yii-console' => [
                 'config/providers-console.php',
-            ],
-            '/' => [
-                '$providers',
-                'console/providers.php',
             ],
         ],
         'events' => [
@@ -291,23 +280,6 @@ return [
                 '$common',
                 '$console',
                 'console/container/*.php',
-            ],
-        ],
-        'delegates' => [
-            '/' => [
-                'common/delegates.php',
-            ],
-        ],
-        'delegates-web' => [
-            '/' => [
-                '$delegates',
-                'web/delegates.php',
-            ],
-        ],
-        'delegates-console' => [
-            '/' => [
-                '$delegates',
-                'console/delegates.php',
             ],
         ],
         'bootstrap' => [
