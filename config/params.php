@@ -19,8 +19,6 @@ return [
         'charset' => 'UTF-8',
         'locale' => 'en',
         'name' => 'My Project',
-        // Sub folder where the application is located. If the application is located in the root folder,
-        // leave it '/'.
         'prefix' => '/',
     ],
 
