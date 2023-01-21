@@ -16,7 +16,7 @@ return [
         ],
         'di' => [
             '$common',
-            'common/di/*.php'
+            'common/di/*.php',
         ],
         'di-web' => [
             '$di',
