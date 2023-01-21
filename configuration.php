@@ -9,7 +9,6 @@ return [
         ],
         'params-web' => [
             '$params',
-            'web/params.php',
         ],
         'params-console' => [
             '$params',
@@ -27,28 +26,22 @@ return [
         'di-console' => [
             '$di',
             '$console',
-            'console/di/*.php',
         ],
-        'events' => 'common/events.php',
+        'events' => [],
         'events-web' => [
             '$events',
-            'web/events.php',
         ],
         'events-console' => [
             '$events',
-            'console/events.php',
         ],
         'routes' => 'web/routes.php',
-        'bootstrap' => 'common/bootstrap.php',
+        'bootstrap' => [],
         'bootstrap-web' => [
             '$bootstrap',
-            'web/bootstrap.php',
         ],
         'bootstrap-console' => [
             '$bootstrap',
-            'console/bootstrap.php',
         ],
-        'widgets' => 'web/widgets.php',
     ],
     'config-plugin-environments' => [
         'dev' => [

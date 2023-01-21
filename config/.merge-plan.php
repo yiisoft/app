@@ -164,7 +164,6 @@ return [
             ],
             '/' => [
                 '$bootstrap',
-                'web/bootstrap.php',
             ],
         ],
         'routes' => [
@@ -213,7 +212,6 @@ return [
             ],
             '/' => [
                 '$events',
-                'console/events.php',
             ],
         ],
         'events-web' => [
@@ -232,7 +230,6 @@ return [
             ],
             '/' => [
                 '$events',
-                'web/events.php',
             ],
         ],
         'providers' => [
@@ -249,14 +246,11 @@ return [
             'yiisoft/yii-event' => [
                 'config/events.php',
             ],
-            '/' => [
-                'common/events.php',
-            ],
+            '/' => [],
         ],
         'params-web' => [
             '/' => [
                 '$params',
-                'web/params.php',
             ],
         ],
         'params-console' => [
@@ -282,23 +276,14 @@ return [
             '/' => [
                 '$di',
                 '$console',
-                'console/di/*.php',
             ],
         ],
         'bootstrap' => [
-            '/' => [
-                'common/bootstrap.php',
-            ],
+            '/' => [],
         ],
         'bootstrap-console' => [
             '/' => [
                 '$bootstrap',
-                'console/bootstrap.php',
-            ],
-        ],
-        'widgets' => [
-            '/' => [
-                'web/widgets.php',
             ],
         ],
     ],
