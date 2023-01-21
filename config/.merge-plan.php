@@ -51,9 +51,6 @@ return [
             'yiisoft/yii-event' => [
                 'config/common.php',
             ],
-            '/' => [
-                'common/container/*.php',
-            ],
         ],
         'params' => [
             'yiisoft/cache-file' => [
@@ -268,18 +265,24 @@ return [
                 'console/params.php',
             ],
         ],
-        'container-web' => [
+        'di' => [
             '/' => [
                 '$common',
-                '$web',
-                'web/container/*.php',
+                'common/di/*.php',
             ],
         ],
-        'container-console' => [
+        'di-web' => [
             '/' => [
-                '$common',
+                '$di',
+                '$web',
+                'web/di/*.php',
+            ],
+        ],
+        'di-console' => [
+            '/' => [
+                '$di',
                 '$console',
-                'console/container/*.php',
+                'console/di/*.php',
             ],
         ],
         'bootstrap' => [

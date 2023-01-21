@@ -3,28 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'config-plugin-options' => [
-        'source-directory' => 'config',
-    ],
-    'config-plugin-environments' => [
-        'dev' => [
-            'params' => [
-                'environments/dev/params.php',
-            ],
-        ],
-        'prod' => [
-            'params' => [
-                'environments/prod/params.php',
-            ],
-        ],
-        'test' => [
-            'params' => [
-                'environments/test/params.php',
-            ],
-        ],
-    ],
     'config-plugin' => [
-        'common' => 'common/container/*.php',
         'params' => [
             'common/params.php',
         ],
@@ -36,15 +15,19 @@ return [
             '$params',
             'console/params.php',
         ],
-        'container-web' => [
+        'di' => [
             '$common',
-            '$web',
-            'web/container/*.php',
+            'common/di/*.php'
         ],
-        'container-console' => [
-            '$common',
+        'di-web' => [
+            '$di',
+            '$web',
+            'web/di/*.php',
+        ],
+        'di-console' => [
+            '$di',
             '$console',
-            'console/container/*.php',
+            'console/di/*.php',
         ],
         'events' => 'common/events.php',
         'events-web' => [
@@ -66,5 +49,25 @@ return [
             'console/bootstrap.php',
         ],
         'widgets' => 'web/widgets.php',
+    ],
+    'config-plugin-environments' => [
+        'dev' => [
+            'params' => [
+                'environments/dev/params.php',
+            ],
+        ],
+        'prod' => [
+            'params' => [
+                'environments/prod/params.php',
+            ],
+        ],
+        'test' => [
+            'params' => [
+                'environments/test/params.php',
+            ],
+        ],
+    ],
+    'config-plugin-options' => [
+        'source-directory' => 'config',
     ],
 ];
