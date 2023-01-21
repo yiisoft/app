@@ -151,6 +151,9 @@ return [
             'yiisoft/yii-debug' => [
                 'config/web.php',
             ],
+            'yiisoft/middleware-dispatcher' => [
+                'config/web.php',
+            ],
             'yiisoft/yii-event' => [
                 'config/web.php',
             ],
@@ -248,6 +251,7 @@ return [
         'params-web' => [
             '/' => [
                 '$params',
+                'web/params.php',
             ],
         ],
         'params-console' => [

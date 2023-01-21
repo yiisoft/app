@@ -9,6 +9,7 @@ return [
         ],
         'params-web' => [
             '$params',
+            'web/params.php',
         ],
         'params-console' => [
             '$params',
