@@ -174,7 +174,7 @@ return [
                 'config/routes.php',
             ],
             '/' => [
-                'web/routes.php',
+                'common/routes.php',
             ],
         ],
         'providers-web' => [

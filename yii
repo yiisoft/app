@@ -11,8 +11,6 @@ require_once __DIR__ . '/autoload.php';
 $runner = new ConsoleApplicationRunner(
     rootPath: __DIR__,
     debug: $_ENV['YII_DEBUG'],
-    paramsConfigGroup: 'params-console',
-    containerConfigGroup: 'container-console',
     environment: $_ENV['YII_ENV']
 );
 $runner->run();
