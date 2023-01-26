@@ -15,6 +15,9 @@ return [
             'yiisoft/yii-testing' => [
                 'config/common.php',
             ],
+            'yiisoft/aliases' => [
+                'config/common.php',
+            ],
             'yiisoft/cache' => [
                 'config/common.php',
             ],
@@ -36,13 +39,7 @@ return [
             'yiisoft/validator' => [
                 'config/common.php',
             ],
-            'yiisoft/yii-filesystem' => [
-                'config/common.php',
-            ],
             'yiisoft/yii-queue' => [
-                'config/common.php',
-            ],
-            'yiisoft/aliases' => [
                 'config/common.php',
             ],
             'yiisoft/translator' => [
@@ -74,6 +71,9 @@ return [
             'yiisoft/yii-testing' => [
                 'config/params.php',
             ],
+            'yiisoft/aliases' => [
+                'config/params.php',
+            ],
             'yiisoft/assets' => [
                 'config/params.php',
             ],
@@ -102,9 +102,6 @@ return [
                 'config/params.php',
             ],
             'yiisoft/yii-queue' => [
-                'config/params.php',
-            ],
-            'yiisoft/aliases' => [
                 'config/params.php',
             ],
             'yiisoft/translator' => [
@@ -153,9 +150,6 @@ return [
                 'config/web.php',
             ],
             'yiisoft/yii-debug' => [
-                'config/web.php',
-            ],
-            'yiisoft/middleware-dispatcher' => [
                 'config/web.php',
             ],
             'yiisoft/yii-event' => [
@@ -313,14 +307,14 @@ return [
     'dev' => [
         'params' => [
             '/' => [
-                'test/params.php',
+                'dev/params.php',
             ],
         ],
     ],
     'prod' => [
         'params' => [
             '/' => [
-                'test/params.php',
+                'prod/params.php',
             ],
         ],
     ],
