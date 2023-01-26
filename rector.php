@@ -12,15 +12,15 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/tests',
     ]);
 
+    $rectorConfig->skip([
+        __DIR__ . '/config/*',
+    ]);
+
     // register a single rule
     $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
 
     // define sets of rules
     $rectorConfig->sets([
         LevelSetList::UP_TO_PHP_80,
-    ]);
-
-    $rectorConfig->skip([
-        __DIR__ . '/config/.merge-plan.php',
     ]);
 };
