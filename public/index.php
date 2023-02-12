@@ -33,6 +33,7 @@ require_once dirname(__DIR__) . '/autoload.php';
 $runner = new HttpApplicationRunner(
     rootPath: dirname(__DIR__),
     debug: $_ENV['YII_DEBUG'],
+    checkEvents: $_ENV['YII_DEBUG'],
     environment: $_ENV['YII_ENV'],
 );
 $runner->run();
