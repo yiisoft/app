@@ -35,7 +35,7 @@
         "yiisoft/aliases": "^2.0",
         "yiisoft/assets": "^3.0",
         "yiisoft/cache": "^2.0",
-        "yiisoft/cache-file": "^2.0",
+        "yiisoft/cache-file": "^3.0",
         "yiisoft/config": "^1.1",
         "yiisoft/csrf": "^1.2",
         "yiisoft/data-response": "^1.0",
