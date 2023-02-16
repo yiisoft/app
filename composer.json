@@ -61,7 +61,7 @@
         "yiisoft/yii-middleware": "dev-master",
         "yiisoft/yii-runner-console": "^1.0",
         "yiisoft/yii-runner-http": "^1.0",
-        "yiisoft/yii-view": "^5.0"
+        "yiisoft/yii-view": "^6.0"
     },
     "require-dev": {
         "codeception/c3": "^2.7",
