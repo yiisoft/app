@@ -50,7 +50,7 @@
         "yiisoft/log": "^2.0",
         "yiisoft/log-target-file": "^2.0",
         "yiisoft/router": "^2.0",
-        "yiisoft/router-fastroute": "^2.0",
+        "yiisoft/router-fastroute": "^3.0",
         "yiisoft/translator": "^2.0",
         "yiisoft/translator-message-php": "^1.1",
         "yiisoft/view": "^7.0",
