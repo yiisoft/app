@@ -11,17 +11,25 @@ use Yiisoft\Yii\Console\ExitCode;
 
 final class Hello extends Command
 {
-    protected static $defaultName = 'hello';
-    protected static $defaultDescription = 'An example command';
-
     public function __construct()
     {
         parent::__construct();
     }
 
+    public static function getDefaultName(): string
+    {
+        return 'hello';
+    }
+
+    public static function getDefaultDescription(): string
+    {
+        return 'An example command';
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Hello!');
+
         return ExitCode::OK;
     }
 }

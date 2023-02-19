@@ -9,7 +9,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "serve": "./yii serve",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "./yii serve"
+        ],
         "test": "codecept run",
         "test-watch": "phpunit-watcher watch",
         "post-update-cmd": [
