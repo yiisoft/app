@@ -22,9 +22,9 @@ return [
     ],
     \Yiisoft\Yii\Middleware\Locale::class => [
         '__construct()' => [
-            'locales' => $params['locale']['locales'],
-            'ignoredRequests' => $params['locale']['ignoredRequests'],
+            'supportedLocales' => $params['locale']['locales'],
+            'ignoredRequestUrlPatterns' => $params['locale']['ignoredRequests'],
         ],
-        'withEnableSaveLocale()' => [false],
+        'withSaveLocale()' => [false],
     ],
 ];
