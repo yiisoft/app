@@ -29,8 +29,8 @@ The minimum requirement by this project template that your Web server supports P
 
 You'll need at least PHP 8.0.
 
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md).
+If you do not have [Composer](https://getcomposer.org/), you may install it by following the instructions
+at [getcomposer.org](https://getcomposer.org/doc/00-intro.md).
 
 You can then install this project template using the following command:
 
