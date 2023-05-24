@@ -25,6 +25,5 @@ return [
             'supportedLocales' => $params['locale']['locales'],
             'ignoredRequestUrlPatterns' => $params['locale']['ignoredRequests'],
         ],
-        'withSaveLocale()' => [false],
     ],
 ];
