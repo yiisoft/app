@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\EventHandler;
 
 use Yiisoft\Translator\TranslatorInterface;
@@ -9,8 +11,8 @@ final class SetLocaleEventHandler
 {
     public function __construct(
         private TranslatorInterface $translator
-    )
-    {}
+    ) {
+    }
 
     public function handle(SetLocaleEvent $event): void
     {
