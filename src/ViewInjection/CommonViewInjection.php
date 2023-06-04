@@ -13,8 +13,7 @@ final class CommonViewInjection implements CommonParametersInjectionInterface
     public function __construct(
         private ApplicationParameters $applicationParameters,
         private UrlGeneratorInterface $urlGenerator,
-    )
-    {
+    ) {
     }
 
     public function getCommonParameters(): array
