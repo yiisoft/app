@@ -10,6 +10,5 @@ return [
     Group::create('/{_language}')
         ->routes(
             Route::get('/')->action([SiteController::class, 'index'])->name('home'),
-        )
-
+        ),
 ];
