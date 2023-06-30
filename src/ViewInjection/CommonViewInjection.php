@@ -6,21 +6,21 @@ namespace App\ViewInjection;
 
 use App\ApplicationParameters;
 use Yiisoft\Yii\View\CommonParametersInjectionInterface;
+use Yiisoft\Router\UrlGeneratorInterface;
 
 final class CommonViewInjection implements CommonParametersInjectionInterface
 {
-    private ApplicationParameters $applicationParameters;
-
     public function __construct(
-        ApplicationParameters $applicationParameters
+        private ApplicationParameters $applicationParameters,
+        private UrlGeneratorInterface $urlGenerator,
     ) {
-        $this->applicationParameters = $applicationParameters;
     }
 
     public function getCommonParameters(): array
     {
         return [
             'applicationParameters' => $this->applicationParameters,
+            'urlGenerator' => $this->urlGenerator,
         ];
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 
-if (getenv('YII_ENV') === 'test') {
+if (getenv('YII_C3')) {
     $c3 = dirname(__DIR__) . '/c3.php';
     if (file_exists($c3)) {
         require_once $c3;
@@ -30,5 +30,10 @@ if (PHP_SAPI === 'cli-server') {
 require_once dirname(__DIR__) . '/autoload.php';
 
 // Run HTTP application runner
-$runner = new HttpApplicationRunner(dirname(__DIR__), $_ENV['YII_DEBUG'], $_ENV['YII_ENV']);
+$runner = new HttpApplicationRunner(
+    rootPath: dirname(__DIR__),
+    debug: $_ENV['YII_DEBUG'],
+    checkEvents: $_ENV['YII_DEBUG'],
+    environment: $_ENV['YII_ENV'],
+);
 $runner->run();

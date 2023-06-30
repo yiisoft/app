@@ -14,10 +14,16 @@ return [
     Yiisoft\Yii\Http\Application::class => [
         '__construct()' => [
             'dispatcher' => DynamicReference::to(static function (Injector $injector) use ($params) {
-                return ($injector->make(MiddlewareDispatcher::class))
+                return $injector->make(MiddlewareDispatcher::class)
                     ->withMiddlewares($params['middlewares']);
             }),
             'fallbackHandler' => Reference::to(NotFoundHandler::class),
+        ],
+    ],
+    \Yiisoft\Yii\Middleware\Locale::class => [
+        '__construct()' => [
+            'supportedLocales' => $params['locale']['locales'],
+            'ignoredRequestUrlPatterns' => $params['locale']['ignoredRequests'],
         ],
     ],
 ];

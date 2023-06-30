@@ -1,20 +1,12 @@
 preset: psr12
 risky: true
 
-version: 8
+version: 8.1
 
 finder:
   exclude:
     - docs
     - vendor
-    - resources
-    - views
-    - public
-    - templates
-  not-name:
-    - UnionCar.php
-    - TimerUnionTypes.php
-    - schema1.php
 
 enabled:
   - alpha_ordered_traits
@@ -64,7 +56,6 @@ enabled:
   - phpdoc_order
   - phpdoc_property
   - phpdoc_scalar
-  - phpdoc_separation
   - phpdoc_singular_inheritdoc
   - phpdoc_trim
   - phpdoc_trim_consecutive_blank_line_separation
@@ -86,3 +77,9 @@ enabled:
   - trailing_comma_in_multiline_array
   - unalign_double_arrow
   - unalign_equals
+  - empty_loop_body_braces
+  - integer_literal_case
+  - union_type_without_spaces
+
+disabled:
+  - function_declaration

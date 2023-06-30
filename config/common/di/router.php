@@ -18,7 +18,7 @@ return [
             ->middleware(CsrfMiddleware::class)
             ->middleware(FormatDataResponse::class)
             ->addGroup(
-                Group::create(null)
+                Group::create()
                     ->routes(...$config->get('routes'))
             );
 

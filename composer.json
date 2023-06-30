@@ -9,8 +9,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "serve": "./yii serve",
-        "test": "phpunit --testdox --no-interaction",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "./yii serve"
+        ],
+        "test": "codecept run",
         "test-watch": "phpunit-watcher watch",
         "post-update-cmd": [
             "App\\Installer::postUpdate",
@@ -22,53 +25,59 @@
     },
     "require": {
         "php": "^8.0",
-        "httpsoft/http-message": "^1.0.5",
+        "ext-intl": "*",
+        "httpsoft/http-message": "^1.1",
         "psr/container": "^2.0",
-        "psr/http-message": "^1.0",
+        "psr/http-message": "^1.1|^2.0",
         "psr/http-server-handler": "^1.0",
-        "symfony/console": "^5.3",
+        "symfony/console": "^6.0",
         "vlucas/phpdotenv": "^5.3",
-        "yiisoft/aliases": "^2.0",
-        "yiisoft/assets": "^2.0",
-        "yiisoft/cache": "^2.0",
-        "yiisoft/cache-file": "^2.0",
+        "yiisoft/aliases": "^3.0",
+        "yiisoft/assets": "^4.0",
+        "yiisoft/cache": "^3.0",
+        "yiisoft/cache-file": "^3.0",
         "yiisoft/config": "^1.1",
-        "yiisoft/csrf": "^1.2",
-        "yiisoft/data-response": "^1.0",
-        "yiisoft/definitions": "^2.0",
-        "yiisoft/di": "^1.0",
-        "yiisoft/error-handler": "^2.0",
+        "yiisoft/csrf": "^2.0",
+        "yiisoft/data-response": "^2.0",
+        "yiisoft/definitions": "^3.0",
+        "yiisoft/di": "^1.2",
+        "yiisoft/error-handler": "^3.0",
         "yiisoft/factory": "^1.0",
         "yiisoft/files": "^2.0",
-        "yiisoft/html": "^2.0",
+        "yiisoft/html": "^3.0",
         "yiisoft/http": "^1.2",
-        "yiisoft/i18n": "^1.0.0",
+        "yiisoft/i18n": "^1.1",
         "yiisoft/log": "^2.0",
-        "yiisoft/log-target-file": "^2.0",
-        "yiisoft/router": "^1.0",
-        "yiisoft/router-fastroute": "^1.0",
-        "yiisoft/view": "^6.0",
-        "yiisoft/yii-console": "^1.3",
+        "yiisoft/log-target-file": "^3.0",
+        "yiisoft/router": "^3.0",
+        "yiisoft/router-fastroute": "^3.0",
+        "yiisoft/translator": "^3.0",
+        "yiisoft/translator-message-php": "^1.1",
+        "yiisoft/view": "^8.0",
+        "yiisoft/yii-console": "^2.0",
         "yiisoft/yii-debug": "^3.0@dev",
-        "yiisoft/yii-event": "^1.0",
+        "yiisoft/yii-event": "^2.0",
         "yiisoft/yii-http": "^1.0",
-        "yiisoft/yii-runner-console": "^1.0",
-        "yiisoft/yii-runner-http": "^1.0",
-        "yiisoft/yii-view": "^5.0"
+        "yiisoft/yii-middleware": "^1.0",
+        "yiisoft/yii-runner-console": "^2.0",
+        "yiisoft/yii-runner-http": "^2.0",
+        "yiisoft/yii-view": "^6.0"
     },
     "require-dev": {
-        "codeception/c3": "^2.6",
+        "codeception/c3": "^2.7",
         "codeception/codeception": "^5.0",
         "codeception/module-asserts": "^3.0",
         "codeception/module-cli": "^2.0",
         "codeception/module-phpbrowser": "^3.0",
         "phpunit/phpunit": "^9.5",
-        "roave/infection-static-analysis-plugin": "^1.16",
+        "rector/rector": "^0.17.0",
+        "roave/infection-static-analysis-plugin": "^1.25",
         "roave/security-advisories": "dev-master",
         "spatie/phpunit-watcher": "^1.23",
-        "vimeo/psalm": "^4.22",
+        "vimeo/psalm": "^4.30|^5.4",
         "yiisoft/yii-debug-api": "3.0.x-dev",
-        "yiisoft/yii-debug-viewer": "^3.0@dev"
+        "yiisoft/yii-debug-viewer": "^3.0@dev",
+        "yiisoft/yii-testing": "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -84,69 +93,15 @@
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         },
-        "config-plugin-options": {
-            "source-directory": "config"
-        },
-        "config-plugin": {
-            "common": "common/*.php",
-            "params": [
-                "params.php",
-                "?params-local.php"
-            ],
-            "web": [
-                "$common",
-                "web/*.php"
-            ],
-            "console": [
-                "$common",
-                "console/*.php"
-            ],
-            "events": "events.php",
-            "events-web": [
-                "$events",
-                "events-web.php"
-            ],
-            "events-console": [
-                "$events",
-                "events-console.php"
-            ],
-            "providers": "providers.php",
-            "providers-web": [
-                "$providers",
-                "providers-web.php"
-            ],
-            "providers-console": [
-                "$providers",
-                "providers-console.php"
-            ],
-            "delegates": "delegates.php",
-            "delegates-web": [
-                "$delegates",
-                "delegates-web.php"
-            ],
-            "delegates-console": [
-                "$delegates",
-                "delegates-console.php"
-            ],
-            "routes": "routes.php",
-            "bootstrap": "bootstrap.php",
-            "bootstrap-web": [
-                "$bootstrap",
-                "bootstrap-web.php"
-            ],
-            "bootstrap-console": [
-                "$bootstrap",
-                "bootstrap-console.php"
-            ],
-            "widgets": "widgets.php"
-        }
+        "config-plugin-file": "configuration.php"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "yiisoft/config": true,
             "infection/extension-installer": true,
-            "codeception/c3": true
+            "codeception/c3": true,
+            "composer/installers": true
         }
     }
 }
