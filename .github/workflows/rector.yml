@@ -14,8 +14,10 @@ name: rector
 jobs:
   rector:
     uses: yiisoft/actions/.github/workflows/rector.yml@master
+    secrets:
+      token: ${{ secrets.YIISOFT_GITHUB_TOKEN }}
     with:
       os: >-
         ['ubuntu-latest']
       php: >-
-        ['8.0']
+        ['8.3']
