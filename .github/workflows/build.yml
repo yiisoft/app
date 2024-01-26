@@ -23,8 +23,9 @@ name: build
 
 jobs:
   build:
-    uses: yiisoft/actions/.github/workflows/codeception.yml@master
+    uses: yiisoft/actions/.github/workflows/codeception.yml@add-debug-mode-to-codeception
     with:
+      debug: true
       extensions: fileinfo, intl
       os: >-
         ['ubuntu-latest']
