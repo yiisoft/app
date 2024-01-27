@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 
-if (getenv('YII_C3')) {
+if (getenv('YII_C3') === true) {
     $c3 = dirname(__DIR__) . '/c3.php';
     if (file_exists($c3)) {
         require_once $c3;
