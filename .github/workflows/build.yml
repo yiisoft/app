@@ -34,7 +34,7 @@ jobs:
     uses: yiisoft/actions/.github/workflows/codeception.yml@allowed-custom-codeception-command
     with:
       extensions: fileinfo, intl
-      codeception-command: vendor/bin/codecept run --coverage-xml --env yii-serve
+      codeception-command: vendor\bin\codecept run --env yii-serve
       os: >-
         ['ubuntu-latest']
       php: >-
