@@ -22,11 +22,20 @@ on:
 name: build
 
 jobs:
-  build:
+  build-linux:
     uses: yiisoft/actions/.github/workflows/codeception.yml@master
     with:
       extensions: fileinfo, intl
       os: >-
-        ['ubuntu-latest', 'windows-latest']
+        ['ubuntu-latest']
+      php: >-
+        ['8.1', '8.2', '8.3']
+  build-windows:
+    uses: yiisoft/actions/.github/workflows/codeception.yml@allowed-custom-codeception-command
+    with:
+      extensions: fileinfo, intl
+      codeception-command: vendor/bin/codecept run --coverage-xml --env yii-serve
+      os: >-
+        ['ubuntu-latest']
       php: >-
         ['8.1', '8.2', '8.3']
