@@ -25,6 +25,7 @@ jobs:
   build:
     uses: yiisoft/actions/.github/workflows/codeception.yml@master
     with:
+      debug: true
       extensions: fileinfo, intl
       os: >-
         ['ubuntu-latest', 'windows-latest']
