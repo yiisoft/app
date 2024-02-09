@@ -33,7 +33,7 @@ jobs:
   yii-serve:
     uses: yiisoft/actions/.github/workflows/codeception.yml@custom-command-codeception
     with:
-      codeception-command: vendor\bin\codecept run --env yii-serve
+      codeception-command: vendor/bin/codecept run --env yii-serve
       extensions: fileinfo, intl
       os: >-
         ['ubuntu-latest', 'windows-latest']
