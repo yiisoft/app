@@ -1,5 +1,0 @@
-extensions:
-  enabled:
-    - Codeception\Extension\RunProcess:
-        0: yii serve --docroot=public --port=8881
-        sleep: 1
