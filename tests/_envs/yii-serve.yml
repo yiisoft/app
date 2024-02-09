@@ -2,4 +2,4 @@ extensions:
   enabled:
     - Codeception\Extension\RunProcess:
         0: composer serve
-        sleep: 1
+        sleep: 3
