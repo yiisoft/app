@@ -11,7 +11,7 @@
     "scripts": {
         "serve": [
             "Composer\\Config::disableProcessTimeout",
-            "./yii serve"
+            "@php ./yii serve"
         ],
         "test": "codecept run",
         "test-watch": "phpunit-watcher watch",
