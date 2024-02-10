@@ -2,4 +2,4 @@
 
 ## 1.0.0 under development
 
-- Initial release.
+- Enh: Add composer require checker into CI
