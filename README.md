@@ -34,13 +34,13 @@ at [getcomposer.org](https://getcomposer.org/doc/00-intro.md).
 
 You can then install this project template using the following command:
 
-```
+```shell
 composer create-project --prefer-dist --stability=dev yiisoft/app <your project>
 ```
 
 In order to launch development web server run:
 
-```
+```shell
 composer run serve
 ```
 
@@ -77,7 +77,7 @@ configs, and the most interesting is `params.php`. Below there are details about
 
 ### Application Services
 
-There are multiple pre-configured application services. 
+There are multiple pre-configured application services.
 
 #### Aliases
 
@@ -200,7 +200,7 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 The template comes with ready to use [Codeception](https://codeception.com/) configuration.
 In order to execute tests run:
 
-```
+```shell
 composer run serve > ./runtime/yii.log 2>&1 &
 vendor/bin/codecept run
 ```
