@@ -205,19 +205,20 @@ composer run serve > ./runtime/yii.log 2>&1 &
 vendor/bin/codecept run
 ```
 
-### Static analysis
+## Documentation
 
-The code is statically analyzed with [Psalm](https://psalm.dev/). To run static analysis:
+- More information can be found in the [Internals.](docs/internals.md)
 
-```shell
-./vendor/bin/psalm
-```
+## Support
 
-### Support the project
+If you need help or have a question, the [Yii Forum](https://forum.yiiframework.com/c/yii-3-0/63) is a good place for that.
+You may also check out other [Yii Community Resources](https://www.yiiframework.com/community).
+
+## Support the project
 
 [![Open Collective](https://img.shields.io/badge/Open%20Collective-sponsor-7eadf1?logo=open%20collective&logoColor=7eadf1&labelColor=555555)](https://opencollective.com/yiisoft)
 
-### Follow updates
+## Follow updates
 
 [![Official website](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](https://www.yiiframework.com/)
 [![Twitter](https://img.shields.io/badge/twitter-follow-1DA1F2?logo=twitter&logoColor=1DA1F2&labelColor=555555?style=flat)](https://twitter.com/yiiframework)
@@ -227,7 +228,7 @@ The code is statically analyzed with [Psalm](https://psalm.dev/). To run static 
 
 ## License
 
-The Yii application template is free software. It is released under the terms of the BSD License.
+The Yii Access is free software. It is released under the terms of the BSD License.
 Please see [`LICENSE`](./LICENSE.md) for more information.
 
 Maintained by [Yii Software](https://www.yiiframework.com/).
