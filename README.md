@@ -23,11 +23,9 @@
 
 ## Requirements
 
-The minimum requirement by this project template that your Web server supports PHP 8.0.
+- PHP 8.1 or higher.
 
 ## Installation
-
-You'll need at least PHP 8.0.
 
 If you do not have [Composer](https://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](https://getcomposer.org/doc/00-intro.md).
@@ -51,7 +49,7 @@ Usually it is `http://localhost:8080`.
 
 The application template has the following structure:
 
-```
+```text
 config/             Configuration files.
 docs/               Documentation.
 public/             Files publically accessible from the Internet.
