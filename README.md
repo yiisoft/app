@@ -2,8 +2,8 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
     </a>
-    <h1 align="center">Yii application template</h1>
-    <h3 align="center">Yii application template for Yii 3 is best for rapidly creating projects.</h3>
+    <h1 align="center">Yii Application Template</h1>
+    <h3 align="center">Yii Application Template for Yii 3 is best for rapidly creating projects.</h3>
     <br>
 </p>
 
@@ -226,7 +226,7 @@ You may also check out other [Yii Community Resources](https://www.yiiframework.
 
 ## License
 
-The Yii Access is free software. It is released under the terms of the BSD License.
+The Yii Application Template for Yii 3 is free software. It is released under the terms of the BSD License.
 Please see [`LICENSE`](./LICENSE.md) for more information.
 
 Maintained by [Yii Software](https://www.yiiframework.com/).
