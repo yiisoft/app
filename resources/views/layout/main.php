@@ -29,7 +29,6 @@ $this->addJsVars($assetManager->getJsVars());
 $this->beginPage()
 ?><!DOCTYPE html>
 <html lang="<?= Html::encode($locale->language()) ?>">
-
 <head>
     <meta charset="<?= Html::encode($applicationParameters->getCharset()) ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
