@@ -36,7 +36,6 @@ $this->beginPage()
     <title><?= Html::encode($this->getTitle()) ?></title>
     <?php $this->head() ?>
 </head>
-
 <body>
     <?php $this->beginBody() ?>
 
