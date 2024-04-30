@@ -210,6 +210,7 @@ The code is statically analyzed with [Psalm](https://psalm.dev/). To run static 
 ```shell
 ./vendor/bin/psalm
 ```
+
 If you need help or have a question, the [Yii Forum](https://forum.yiiframework.com/c/yii-3-0/63) is a good place for that.
 You may also check out other [Yii Community Resources](https://www.yiiframework.com/community).
 
