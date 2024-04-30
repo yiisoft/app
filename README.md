@@ -2,8 +2,8 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
     </a>
-    <h1 align="center">Yii application template</h1>
-    <h3 align="center">Yii application template for Yii 3 is best for rapidly creating projects.</h3>
+    <h1 align="center">Yii Application Template</h1>
+    <h3 align="center">Application template for Yii 3 is best for rapidly creating projects.</h3>
     <br>
 </p>
 
@@ -23,24 +23,22 @@
 
 ## Requirements
 
-The minimum requirement by this project template that your Web server supports PHP 8.0.
+- PHP 8.1 or higher.
 
 ## Installation
-
-You'll need at least PHP 8.0.
 
 If you do not have [Composer](https://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](https://getcomposer.org/doc/00-intro.md).
 
 You can then install this project template using the following command:
 
-```
+```shell
 composer create-project --prefer-dist --stability=dev yiisoft/app <your project>
 ```
 
 In order to launch development web server run:
 
-```
+```shell
 composer run serve
 ```
 
@@ -200,12 +198,12 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 The template comes with ready to use [Codeception](https://codeception.com/) configuration.
 In order to execute tests run:
 
-```
+```shell
 composer run serve > ./runtime/yii.log 2>&1 &
 vendor/bin/codecept run
 ```
 
-### Static analysis
+## Static analysis
 
 The code is statically analyzed with [Psalm](https://psalm.dev/). To run static analysis:
 
@@ -213,11 +211,14 @@ The code is statically analyzed with [Psalm](https://psalm.dev/). To run static 
 ./vendor/bin/psalm
 ```
 
-### Support the project
+If you need help or have a question, the [Yii Forum](https://forum.yiiframework.com/c/yii-3-0/63) is a good place for that.
+You may also check out other [Yii Community Resources](https://www.yiiframework.com/community).
+
+## Support the project
 
 [![Open Collective](https://img.shields.io/badge/Open%20Collective-sponsor-7eadf1?logo=open%20collective&logoColor=7eadf1&labelColor=555555)](https://opencollective.com/yiisoft)
 
-### Follow updates
+## Follow updates
 
 [![Official website](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](https://www.yiiframework.com/)
 [![Twitter](https://img.shields.io/badge/twitter-follow-1DA1F2?logo=twitter&logoColor=1DA1F2&labelColor=555555?style=flat)](https://twitter.com/yiiframework)
@@ -227,7 +228,7 @@ The code is statically analyzed with [Psalm](https://psalm.dev/). To run static 
 
 ## License
 
-The Yii application template is free software. It is released under the terms of the BSD License.
+The Yii Application Template is free software. It is released under the terms of the BSD License.
 Please see [`LICENSE`](./LICENSE.md) for more information.
 
 Maintained by [Yii Software](https://www.yiiframework.com/).
