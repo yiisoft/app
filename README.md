@@ -193,9 +193,25 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 ],
 ```
 
-## Documentation
+## Codeception testing
 
-- [Internals](docs/internals.md)
+The template comes with ready to use [Codeception](https://codeception.com/) configuration.
+In order to execute tests run:
+
+```shell
+composer run serve > ./runtime/yii.log 2>&1 &
+vendor/bin/codecept run
+```
+
+## Static analysis
+
+The code is statically analyzed with [Psalm](https://psalm.dev/). To run static analysis:
+
+```shell
+./vendor/bin/psalm
+```
+
+## Support
 
 If you need help or have a question, the [Yii Forum](https://forum.yiiframework.com/c/yii-3-0/63) is a good place for that.
 You may also check out other [Yii Community Resources](https://www.yiiframework.com/community).
