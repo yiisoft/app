@@ -27,8 +27,8 @@
 
 ## Installation
 
-If you do not have [Composer](https://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](https://getcomposer.org/doc/00-intro.md).
+If you do not have [Composer](https://getcomposer.org), you may install it by following the instructions
+at [Composer](https://getcomposer.org/doc/00-intro.md).
 
 You can then install this project template using the following command:
 
