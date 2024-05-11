@@ -16,6 +16,16 @@
         "irc": "ircs://irc.libera.chat:6697/yii",
         "chat": "https://t.me/yii3en"
     },
+    "funding": [
+        {
+            "type": "opencollective",
+            "url": "https://opencollective.com/yiisoft"
+        },
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/yiisoft"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {

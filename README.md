@@ -1,9 +1,9 @@
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
+        <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px" alt="Yii">
     </a>
     <h1 align="center">Yii Application Template</h1>
-    <h3 align="center">Application template for Yii 3 is best for rapidly creating projects.</h3>
+    <h3 align="center">Application template for Yii 3 is best for rapidly creating projects</h3>
     <br>
 </p>
 
@@ -27,13 +27,10 @@
 
 ## Installation
 
-If you do not have [Composer](https://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](https://getcomposer.org/doc/00-intro.md).
-
-You can then install this project template using the following command:
+The package could be installed with [Composer](https://getcomposer.org):
 
 ```shell
-composer create-project --prefer-dist --stability=dev yiisoft/app <your project>
+composer create-project --stability=dev yiisoft/app <your project>
 ```
 
 In order to launch development web server run:
@@ -51,6 +48,10 @@ The application template has the following structure:
 
 ```
 config/             Configuration files.
+    common/
+    console/
+    environments/
+    web/
 docs/               Documentation.
 public/             Files publically accessible from the Internet.
     assets/         Published assets.
@@ -58,24 +59,28 @@ public/             Files publically accessible from the Internet.
 resources/          Application resources.
     assets/         Asset bundle resources.
     layout/         Layout view templates.
-    view/           View templates.
+    messages/
+    views/          View templates.
 runtime/            Files generated during runtime.
 src/                Application source code.
     Asset/          Asset bundle definitions.
-    Controller/     Web controller classes.
     Command/        Console commands.
+    Controller/     Web controller classes.
+    EventHandler/
+    Handler/
+    ViewInjection/
 tests/              A set of Codeception tests for the application.
 vendor/             Installed Composer packages.
 ```
 
 ## Configuration
 
-You can find configuration in `config` directory. There are multiple
-configs, and the most interesting is `params.php`. Below there are details about its sections:
+You can find configuration in `config` directory. There are multiple configs,
+and the most interesting is `common\params.php`. Below there are details about its sections:
 
 ### Application Services
 
-There are multiple pre-configured application services. 
+There are multiple pre-configured application services.
 
 #### Aliases
 
@@ -193,32 +198,16 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 ],
 ```
 
-## Testing
+## Documentation
 
-The template comes with ready to use [Codeception](https://codeception.com/) configuration.
-In order to execute tests run:
-
-```shell
-composer run serve > ./runtime/yii.log 2>&1 &
-vendor/bin/codecept run
-```
-
-## Static analysis
-
-The code is statically analyzed with [Psalm](https://psalm.dev/). To run static analysis:
-
-```shell
-./vendor/bin/psalm
-```
-
-## Support
+- [Internals](docs/internals.md)
 
 If you need help or have a question, the [Yii Forum](https://forum.yiiframework.com/c/yii-3-0/63) is a good place for that.
 You may also check out other [Yii Community Resources](https://www.yiiframework.com/community).
 
 ## License
 
-The Yii Application Template is free software. It is released under the terms of the BSD License.
+The Yii application template is free software. It is released under the terms of the BSD License.
 Please see [`LICENSE`](./LICENSE.md) for more information.
 
 Maintained by [Yii Software](https://www.yiiframework.com/).
