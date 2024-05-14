@@ -27,7 +27,9 @@
 
 ## Installation
 
-The package could be installed with [Composer](https://getcomposer.org):
+If you do not have Composer, you may install it by following the instructions at [Composer](https://getcomposer.org/doc/00-intro.md).
+
+You can then install this project template using the following command:
 
 ```shell
 composer create-project --stability=dev yiisoft/app <your project>
@@ -48,10 +50,6 @@ The application template has the following structure:
 
 ```
 config/             Configuration files.
-    common/
-    console/
-    environments/
-    web/
 docs/               Documentation.
 public/             Files publically accessible from the Internet.
     assets/         Published assets.
@@ -198,9 +196,25 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 ],
 ```
 
-## Documentation
+## Testing
 
-- [Internals](docs/internals.md)
+The template comes with ready to use [Codeception](https://codeception.com/) configuration.
+In order to execute tests run:
+
+```shell
+composer run serve > ./runtime/yii.log 2>&1 &
+vendor/bin/codecept run
+```
+
+## Static analysis
+
+The code is statically analyzed with [Psalm](https://psalm.dev/). To run static analysis:
+
+```shell
+./vendor/bin/psalm
+```
+
+## Support
 
 If you need help or have a question, the [Yii Forum](https://forum.yiiframework.com/c/yii-3-0/63) is a good place for that.
 You may also check out other [Yii Community Resources](https://www.yiiframework.com/community).

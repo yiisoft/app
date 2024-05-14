@@ -6,7 +6,6 @@
         "yii3",
         "app"
     ],
-    "homepage": "https://github.com/yiisoft/app/",
     "license": "BSD-3-Clause",
     "support": {
         "issues": "https://github.com/yiisoft/app/issues?state=open",
