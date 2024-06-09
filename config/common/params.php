@@ -47,5 +47,4 @@ return [
             Reference::to(TranslatorViewInjection::class),
         ],
     ],
-
 ];
