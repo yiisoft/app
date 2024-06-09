@@ -92,7 +92,7 @@
         "codeception/module-asserts": "^3.0",
         "codeception/module-cli": "^2.0",
         "codeception/module-phpbrowser": "^3.0",
-        "maglnet/composer-require-checker": "^4.11",
+        "maglnet/composer-require-checker": "^4.5",
         "phpunit/phpunit": "^9.5",
         "rector/rector": "^1.0.0",
         "roave/infection-static-analysis-plugin": "^1.34",
