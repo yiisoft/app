@@ -23,7 +23,6 @@ return [
                     ->routes(...$config->get('routes'))
             );
 
-
         if (!str_starts_with(getenv('YII_ENV') ?: '', 'prod')) {
             $collector->prependMiddleware(ToolbarMiddleware::class);
         }
