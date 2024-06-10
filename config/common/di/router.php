@@ -9,6 +9,7 @@ use Yiisoft\Router\Group;
 use Yiisoft\Router\RouteCollection;
 use Yiisoft\Router\RouteCollectionInterface;
 use Yiisoft\Router\RouteCollectorInterface;
+use Yiisoft\Yii\Debug\Viewer\Middleware\ToolbarMiddleware;
 
 /** @var Config $config */
 
@@ -21,6 +22,10 @@ return [
                 Group::create()
                     ->routes(...$config->get('routes'))
             );
+
+        if (!str_starts_with(getenv('YII_ENV') ?: '', 'prod')) {
+            $collector->prependMiddleware(ToolbarMiddleware::class);
+        }
 
         return new RouteCollection($collector);
     },
