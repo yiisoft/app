@@ -21,7 +21,7 @@ return [
         'di-console' => '$di',
         'di-providers-web' => [
             '$di-providers',
-            '*di-providers-web.php'
+            '*di-providers-web.php',
         ],
         'events' => [],
         'events-web' => [
