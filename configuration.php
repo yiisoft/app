@@ -19,6 +19,13 @@ return [
             'web/di/*.php',
         ],
         'di-console' => '$di',
+        'di-providers' => [],
+        'di-providers-web' => [
+            '$di-providers',
+        ],
+        'di-providers-console' => [
+            '$di-providers',
+        ],
         'events' => [],
         'events-web' => [
             '$events',
