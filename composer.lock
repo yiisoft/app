@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c4b9880c869282389f276243c8ae8b6",
+    "content-hash": "d44699b5bb7e88df19d658c25f9b8f81",
     "packages": [
         {
             "name": "alexkart/curl-builder",
@@ -3507,16 +3507,16 @@
         },
         {
             "name": "yiisoft/log",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/log.git",
-                "reference": "e46f498fa30c43a4b4d3ef30a14fc8f1a0fb58ac"
+                "reference": "9d549952f5099a3e3081e11cccb3841c77587dac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/log/zipball/e46f498fa30c43a4b4d3ef30a14fc8f1a0fb58ac",
-                "reference": "e46f498fa30c43a4b4d3ef30a14fc8f1a0fb58ac",
+                "url": "https://api.github.com/repos/yiisoft/log/zipball/9d549952f5099a3e3081e11cccb3841c77587dac",
+                "reference": "9d549952f5099a3e3081e11cccb3841c77587dac",
                 "shasum": ""
             },
             "require": {
@@ -3528,11 +3528,12 @@
                 "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
-                "ext-json": "*",
+                "maglnet/composer-require-checker": "^4.4",
                 "phpunit/phpunit": "^9.5",
+                "rector/rector": "^1.2",
                 "roave/infection-static-analysis-plugin": "^1.18",
                 "spatie/phpunit-watcher": "^1.23",
-                "vimeo/psalm": "^4.22"
+                "vimeo/psalm": "^4.30|^5.25"
             },
             "suggest": {
                 "yiisoft/log-target-db": "Allows writing log messages to the database",
@@ -3571,22 +3572,22 @@
             "support": {
                 "chat": "https://t.me/yii3en",
                 "forum": "https://www.yiiframework.com/forum/",
-                "irc": "irc://irc.freenode.net/yii",
-                "issues": "https://github.com/yiisoft/log/issues",
+                "irc": "ircs://irc.libera.chat:6697/yii",
+                "issues": "https://github.com/yiisoft/log/issues?state=open",
                 "source": "https://github.com/yiisoft/log",
                 "wiki": "https://www.yiiframework.com/wiki/"
             },
             "funding": [
                 {
-                    "url": "https://github.com/yiisoft",
+                    "url": "https://github.com/sponsors/yiisoft",
                     "type": "github"
                 },
                 {
                     "url": "https://opencollective.com/yiisoft",
-                    "type": "open_collective"
+                    "type": "opencollective"
                 }
             ],
-            "time": "2022-05-22T12:30:35+00:00"
+            "time": "2024-07-03T10:13:44+00:00"
         },
         {
             "name": "yiisoft/log-target-file",
@@ -8709,16 +8710,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.11.6",
+            "version": "1.11.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "6ac78f1165346c83b4a753f7e4186d969c6ad0ee"
+                "reference": "52d2bbfdcae7f895915629e4694e9497d0f8e28d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6ac78f1165346c83b4a753f7e4186d969c6ad0ee",
-                "reference": "6ac78f1165346c83b4a753f7e4186d969c6ad0ee",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/52d2bbfdcae7f895915629e4694e9497d0f8e28d",
+                "reference": "52d2bbfdcae7f895915629e4694e9497d0f8e28d",
                 "shasum": ""
             },
             "require": {
@@ -8763,7 +8764,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-01T15:33:06+00:00"
+            "time": "2024-07-06T11:17:41+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -9532,12 +9533,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "27714b56f04815b654c3805502ab77207505ac19"
+                "reference": "4a150f693df8f5d7b60a8557b15660a60b4d17bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/27714b56f04815b654c3805502ab77207505ac19",
-                "reference": "27714b56f04815b654c3805502ab77207505ac19",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4a150f693df8f5d7b60a8557b15660a60b4d17bd",
+                "reference": "4a150f693df8f5d7b60a8557b15660a60b4d17bd",
                 "shasum": ""
             },
             "conflict": {
@@ -9545,7 +9546,10 @@
                 "admidio/admidio": "<4.2.13",
                 "adodb/adodb-php": "<=5.20.20|>=5.21,<=5.21.3",
                 "aheinze/cockpit": "<2.2",
+                "aimeos/ai-admin-graphql": ">=2022.04.1,<2022.10.10|>=2023.04.1,<2023.10.6|>=2024.04.1,<2024.04.6",
+                "aimeos/ai-admin-jsonadm": "<2020.10.13|>=2021.04.1,<2021.10.6|>=2022.04.1,<2022.10.3|>=2023.04.1,<2023.10.4|==2024.04.1",
                 "aimeos/ai-client-html": ">=2020.04.1,<2020.10.27|>=2021.04.1,<2021.10.22|>=2022.04.1,<2022.10.13|>=2023.04.1,<2023.10.15|>=2024.04.1,<2024.04.7",
+                "aimeos/ai-controller-frontend": "<2020.10.15|>=2021.04.1,<2021.10.8|>=2022.04.1,<2022.10.8|>=2023.04.1,<2023.10.9",
                 "aimeos/aimeos-core": ">=2022.04.1,<2022.10.17|>=2023.04.1,<2023.10.17|>=2024.04.1,<2024.04.7",
                 "aimeos/aimeos-typo3": "<19.10.12|>=20,<20.10.5",
                 "airesvsg/acf-to-rest-api": "<=3.1",
@@ -10328,7 +10332,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-26T15:05:17+00:00"
+            "time": "2024-07-05T21:04:37+00:00"
         },
         {
             "name": "sanmai/later",
@@ -12507,12 +12511,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii-debug-api.git",
-                "reference": "db81ccad2a43e98a299f5d678c31cf8a34c4d2d1"
+                "reference": "a0a3f4e8253d491b5ed6401ab5b3cca41d75e989"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii-debug-api/zipball/db81ccad2a43e98a299f5d678c31cf8a34c4d2d1",
-                "reference": "db81ccad2a43e98a299f5d678c31cf8a34c4d2d1",
+                "url": "https://api.github.com/repos/yiisoft/yii-debug-api/zipball/a0a3f4e8253d491b5ed6401ab5b3cca41d75e989",
+                "reference": "a0a3f4e8253d491b5ed6401ab5b3cca41d75e989",
                 "shasum": ""
             },
             "require": {
@@ -12619,7 +12623,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2024-06-24T08:27:31+00:00"
+            "time": "2024-07-05T07:03:14+00:00"
         },
         {
             "name": "yiisoft/yii-debug-viewer",
@@ -12829,16 +12833,16 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "4.10.0",
+            "version": "4.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "2d983ce67b9eb7e18403ae7bc5e765f8ce7b8d56"
+                "reference": "ad3f913d39b2a4dfb6e59ee4babb35a6b4a2b998"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/2d983ce67b9eb7e18403ae7bc5e765f8ce7b8d56",
-                "reference": "2d983ce67b9eb7e18403ae7bc5e765f8ce7b8d56",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/ad3f913d39b2a4dfb6e59ee4babb35a6b4a2b998",
+                "reference": "ad3f913d39b2a4dfb6e59ee4babb35a6b4a2b998",
                 "shasum": ""
             },
             "require": {
@@ -12904,9 +12908,9 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/4.10.0"
+                "source": "https://github.com/zircote/swagger-php/tree/4.10.3"
             },
-            "time": "2024-06-06T22:42:02+00:00"
+            "time": "2024-07-04T07:53:11+00:00"
         }
     ],
     "aliases": [],
