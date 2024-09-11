@@ -10,7 +10,7 @@ use Yiisoft\Definitions\Reference;
 use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Translator\TranslatorInterface;
-use Yiisoft\Yii\View\CsrfViewInjection;
+use Yiisoft\Yii\View\Renderer\CsrfViewInjection;
 
 return [
     'app' => [
@@ -39,7 +39,9 @@ return [
         ],
     ],
 
-    'yiisoft/yii-view' => [
+    'yiisoft/yii-view-renderer' => [
+        'viewPath' => '@views',
+        'layout' => '@layout/main.php',
         'injections' => [
             Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
