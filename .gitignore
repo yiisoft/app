@@ -34,7 +34,7 @@ phpunit.phar
 
 # NPM packages
 /node_modules
-.env
+/.env
 
 # Codeception
 c3.php
