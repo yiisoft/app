@@ -14,6 +14,8 @@
 [![static analysis](https://github.com/yiisoft/app/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/app/actions?query=workflow%3A%22static+analysis%22)
 [![type-coverage](https://shepherd.dev/github/yiisoft/app/coverage.svg)](https://shepherd.dev/github/yiisoft/app)
 
+Web application template for Yii 3.
+
 <p align="center">
     <a href="https://github.com/yiisoft/app" target="_blank">
         <img src="docs/images/home.png" alt="Home page" >
@@ -24,25 +26,49 @@
 
 - PHP 8.1 or higher.
 
-## Installation
+## Local installation
 
 If you do not have [Composer](https://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](https://getcomposer.org/doc/00-intro.md).
 
-You can then install this project template using the following command:
+Create a project:
 
 ```shell
-composer create-project --stability=dev yiisoft/app <your project>
+composer create-project --stability=dev yiisoft/app myproject
+cd myproject
 ```
 
-In order to launch development web server run:
+To run the app:
 
-```shell
-composer run serve
+```
+./yii serve
 ```
 
 Now you should be able to access the application through the URL printed to console.
 Usually it is `http://localhost:8080`.
+
+## Installation with Docker
+
+Fork the repository, clone it, then:
+
+```shell
+cd myproject
+make composer update
+```
+
+To run the app:
+
+```shell
+make up
+```
+
+To stop the app:
+
+```shell
+make down
+```
+
+The application is available at `https://localhost`.
 
 ## Directory structure
 
@@ -50,6 +76,7 @@ The application template has the following structure:
 
 ```
 config/             Configuration files.
+docker/             Docker-specific files.
 docs/               Documentation.
 public/             Files publically accessible from the Internet.
     assets/         Published assets.
@@ -69,6 +96,7 @@ src/                Application source code.
     ViewInjection/
 tests/              A set of Codeception tests for the application.
 vendor/             Installed Composer packages.
+Makefile            Config for make command.
 ```
 
 ## Configuration
@@ -130,7 +158,7 @@ use Psr\Log\LogLevel;
         ],
     ],
     'file-rotator' => [
-        // maximum file size, in kilo-bytes. Defaults to 10240, meaning 10MB.
+        // maximum file size, in kilobytes. Defaults to 10240, meaning 10MB.
         'maxfilesize' => 10,
         // number of files used for rotation. Defaults to 5.
         'maxfiles' => 5,
@@ -199,11 +227,21 @@ See ["Logging"](https://github.com/yiisoft/docs/blob/master/guide/en/runtime/log
 ## Testing
 
 The template comes with ready to use [Codeception](https://codeception.com/) configuration.
-In order to execute tests run:
+To execute tests, in local installation run:
 
 ```shell
-composer run serve > ./runtime/yii.log 2>&1 &
-vendor/bin/codecept run
+./vendor/bin/codecept build
+
+./yii serve > ./runtime/yii.log 2>&1 &
+./vendor/bin/codecept run
+```
+
+For Docker:
+
+```shell
+make codecept build
+
+make codecept run
 ```
 
 ## Static analysis
@@ -212,6 +250,12 @@ The code is statically analyzed with [Psalm](https://psalm.dev/). To run static 
 
 ```shell
 ./vendor/bin/psalm
+```
+
+or, using Docker:
+
+```shell
+make psalm
 ```
 
 ## Support
