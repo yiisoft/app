@@ -101,6 +101,7 @@
         "vimeo/psalm": "^5.20",
         "yiisoft/yii-debug-api": "3.0.x-dev",
         "yiisoft/yii-debug-viewer": "^3.0@dev",
+        "yiisoft/yii-gii": "dev-master",
         "yiisoft/yii-testing": "dev-master"
     },
     "autoload": {
