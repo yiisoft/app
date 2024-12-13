@@ -94,7 +94,7 @@
         "codeception/module-phpbrowser": "^3.0",
         "maglnet/composer-require-checker": "^4.5",
         "phpunit/phpunit": "^9.5",
-        "rector/rector": "^1.0.0",
+        "rector/rector": "^2.0.3",
         "roave/infection-static-analysis-plugin": "^1.34",
         "roave/security-advisories": "dev-master",
         "spatie/phpunit-watcher": "^1.23",
