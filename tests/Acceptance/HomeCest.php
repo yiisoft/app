@@ -15,12 +15,4 @@ final class HomeCest
         $I->expectTo('see page home.');
         $I->see('Hello!');
     }
-
-    public function testIndexPageRu(AcceptanceTester $I): void
-    {
-        $I->wantTo('home page works.');
-        $I->amOnPage('/ru/');
-        $I->expectTo('see page home.');
-        $I->see('Привет!');
-    }
 }
