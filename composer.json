@@ -56,7 +56,7 @@
         "symfony/console": "^6.0",
         "vlucas/phpdotenv": "^5.3",
         "yiisoft/aliases": "^3.0",
-        "yiisoft/assets": "^4.0",
+        "yiisoft/assets": "^5.0",
         "yiisoft/cache": "^3.0",
         "yiisoft/cache-file": "^3.0",
         "yiisoft/config": "^1.1",
