@@ -11,7 +11,6 @@ use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\Console\Tester\CommandTester;
 use Yiisoft\Config\ConfigInterface;
 use Yiisoft\Yii\Console\ExitCode;
-
 use Yiisoft\Yii\Runner\Console\ConsoleApplicationRunner;
 
 use function dirname;
