@@ -21,6 +21,7 @@ RUN <<SH
     php-frankenphp-8.3-mbstring \
     php-frankenphp-8.3-intl \
     php-frankenphp-8.3-dom \
+    php-frankenphp-8.3-ctype \
     php-frankenphp-8.3-curl \
     php-frankenphp-8.3-phar \
     php-frankenphp-8.3-openssl \
