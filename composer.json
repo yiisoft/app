@@ -64,7 +64,7 @@
         "yiisoft/data-response": "^2.0",
         "yiisoft/definitions": "^3.0",
         "yiisoft/di": "^1.2",
-        "yiisoft/error-handler": "^3.0",
+        "yiisoft/error-handler": "^4.0",
         "yiisoft/factory": "^1.0",
         "yiisoft/files": "^2.0",
         "yiisoft/html": "^3.0",
@@ -83,7 +83,7 @@
         "yiisoft/yii-http": "^1.0",
         "yiisoft/yii-middleware": "^1.0",
         "yiisoft/yii-runner-console": "^2.0",
-        "yiisoft/yii-runner-http": "^2.0",
+        "yiisoft/yii-runner-http": "^3.0",
         "yiisoft/yii-view-renderer": "^7.1"
     },
     "require-dev": {
@@ -93,7 +93,6 @@
         "codeception/module-cli": "^2.0",
         "codeception/module-phpbrowser": "^3.0",
         "maglnet/composer-require-checker": "^4.5",
-        "phpunit/phpunit": "^9.5",
         "rector/rector": "^2.0.3",
         "roave/infection-static-analysis-plugin": "^1.34",
         "roave/security-advisories": "dev-master",
