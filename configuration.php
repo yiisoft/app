@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Environment;
+
 return [
     'config-plugin' => [
         'params' => 'common/params.php',
@@ -38,19 +40,19 @@ return [
         'bootstrap-console' => '$bootstrap',
     ],
     'config-plugin-environments' => [
-        'dev' => [
+        Environment::DEVELOPMENT => [
             'params' => [
                 'environments/dev/params.php',
             ],
         ],
-        'prod' => [
-            'params' => [
-                'environments/prod/params.php',
-            ],
-        ],
-        'test' => [
+        Environment::TESTING => [
             'params' => [
                 'environments/test/params.php',
+            ],
+        ],
+        Environment::PRODUCTION => [
+            'params' => [
+                'environments/prod/params.php',
             ],
         ],
     ],
