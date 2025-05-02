@@ -82,7 +82,7 @@ final class Environment
     private static function setString(string $key, string $default): void
     {
         $value = self::getRawValue($key);
-        self::$values[$key] = $value === null ? $default : $value;
+        self::$values[$key] = $value ?? $default;
     }
 
     private static function getRawValue(string $key): ?string
