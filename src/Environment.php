@@ -87,11 +87,16 @@ final class Environment
 
     private static function getRawValue(string $key): ?string
     {
-        if (isset($_ENV[$key])) {
-            return $_ENV[$key];
+        $value = getenv($key, true);
+        if ($value !== false) {
+            return $value;
         }
 
-        $result = getenv($key);
-        return $result === false ? null : $result;
+        $value = getenv($key);
+        if ($value !== false) {
+            return $value;
+        }
+
+        return $_ENV[$key] ?? null;
     }
 }
