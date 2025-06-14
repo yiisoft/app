@@ -78,12 +78,12 @@
         "yiisoft/translator-message-php": "^1.1",
         "yiisoft/view": "^12.0",
         "yiisoft/yii-console": "^2.0",
-        "yiisoft/yii-debug": "dev-master|dev-php80",
+        "yiisoft/yii-debug": "dev-master",
         "yiisoft/yii-event": "^2.0",
         "yiisoft/yii-http": "^1.0",
         "yiisoft/yii-middleware": "^1.0",
         "yiisoft/yii-runner-console": "^2.0",
-        "yiisoft/yii-runner-http": "^3.0",
+        "yiisoft/yii-runner-http": "^3.2",
         "yiisoft/yii-view-renderer": "^7.1"
     },
     "require-dev": {
@@ -100,8 +100,7 @@
         "vimeo/psalm": "^5.20",
         "yiisoft/yii-debug-api": "3.0.x-dev",
         "yiisoft/yii-debug-viewer": "^3.0@dev",
-        "yiisoft/yii-gii": "dev-master",
-        "yiisoft/yii-testing": "dev-master"
+        "yiisoft/yii-gii": "dev-master"
     },
     "autoload": {
         "psr-4": {
