@@ -33,7 +33,6 @@ class FunctionalTester extends \Codeception\Actor
     /**
      * Define custom actions here
      */
-
     public function sendRequest(ServerRequestInterface $request): ResponseInterface
     {
         $runner = new HttpApplicationRunner(
