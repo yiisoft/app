@@ -8,13 +8,10 @@ services:
         UID: ${UID}
         GID: ${GID}
     environment:
-      XDEBUG_MODE: "${XDEBUG_MODE:-develop}"
-      YII_ENV: "${YII_ENV:-development}"
-      YII_DEBUG: ${YII_DEBUG:-true}
+      XDEBUG_MODE: "off"
+      YII_ENV: "testing"
+      YII_DEBUG: "false"
       SERVER_NAME: ":80"
-    restart: unless-stopped
-    ports:
-      - "${DEV_PORT:-80}:80"
     volumes:
       - ../:/app
       - ../runtime:/app/runtime
