@@ -7,6 +7,7 @@ namespace App;
 use RuntimeException;
 
 use function in_array;
+use function sprintf;
 
 final class Environment
 {
@@ -63,7 +64,9 @@ final class Environment
     {
         $environment = self::getRawValue('YII_ENV');
         if (!in_array($environment, [self::DEVELOPMENT, self::TESTING, self::PRODUCTION], true)) {
-            throw new RuntimeException('Invalid environment.');
+            throw new RuntimeException(
+                sprintf('"%s" is invalid environment.', $environment ?? '')
+            );
         }
         self::$values['YII_ENV'] = $environment;
     }
