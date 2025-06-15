@@ -28,6 +28,7 @@ final class Environment
      */
     public static function environment(): string
     {
+        /** @var non-empty-string */
         return self::$values['YII_ENV'];
     }
 
@@ -48,11 +49,13 @@ final class Environment
 
     public static function yiiC3(): bool
     {
+        /** @var bool */
         return self::$values['YII_C3'];
     }
 
     public static function yiiDebug(): bool
     {
+        /** @var bool */
         return self::$values['YII_DEBUG'];
     }
 
@@ -97,6 +100,6 @@ final class Environment
             return $value;
         }
 
-        return $_ENV[$key] ?? null;
+        return isset($_ENV[$key]) ? (string) $_ENV[$key] : null;
     }
 }
