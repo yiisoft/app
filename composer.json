@@ -48,6 +48,7 @@
     },
     "require": {
         "php": "^8.1",
+        "ext-filter": "*",
         "ext-intl": "*",
         "httpsoft/http-message": "^1.1",
         "psr/container": "^2.0",
