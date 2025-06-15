@@ -6,6 +6,8 @@ namespace App\Tests\Cli;
 
 use App\Tests\Support\CliTester;
 
+use function dirname;
+
 final class ConsoleCest
 {
     public function testCommandYii(CliTester $I): void

@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      dockerfile: docker/Dockerfile
+      context: ..
+      target: dev
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    environment:
+      XDEBUG_MODE: "off"
+      YII_ENV: "testing"
+      YII_DEBUG: "false"
+      SERVER_NAME: ":80"
+    volumes:
+      - ../:/app
+      - ../runtime:/app/runtime
+      - ${COMPOSER_CACHE_DIR:-~/.cache/composer}:/var/www/.composer
+      - caddy_data:/data
+      - caddy_config:/config
+    tty: true
+

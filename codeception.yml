@@ -23,5 +23,3 @@ coverage:
       - src/Asset/*
       - src/Installer.php
 bootstrap: bootstrap.php
-params:
-  - tests/params.php
