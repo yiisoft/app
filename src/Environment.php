@@ -33,17 +33,17 @@ final class Environment
         return self::$values['YII_ENV'];
     }
 
-    public static function isDevelopment(): bool
+    public static function isDev(): bool
     {
         return self::environment() === self::DEV;
     }
 
-    public static function isTesting(): bool
+    public static function isTest(): bool
     {
         return self::environment() === self::TEST;
     }
 
-    public static function isProduction(): bool
+    public static function isProd(): bool
     {
         return self::environment() === self::PROD;
     }
