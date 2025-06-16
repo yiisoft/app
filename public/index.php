@@ -36,6 +36,6 @@ $runner = new HttpApplicationRunner(
     rootPath: dirname(__DIR__),
     debug: Environment::yiiDebug(),
     checkEvents: Environment::yiiDebug(),
-    environment: Environment::environment(),
+    environment: Environment::yiiEnv(),
 );
 $runner->run();

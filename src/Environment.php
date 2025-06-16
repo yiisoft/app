@@ -27,7 +27,7 @@ final class Environment
     /**
      * @return non-empty-string
      */
-    public static function environment(): string
+    public static function yiiEnv(): string
     {
         /** @var non-empty-string */
         return self::$values['YII_ENV'];
@@ -35,17 +35,17 @@ final class Environment
 
     public static function isDev(): bool
     {
-        return self::environment() === self::DEV;
+        return self::yiiEnv() === self::DEV;
     }
 
     public static function isTest(): bool
     {
-        return self::environment() === self::TEST;
+        return self::yiiEnv() === self::TEST;
     }
 
     public static function isProd(): bool
     {
-        return self::environment() === self::PROD;
+        return self::yiiEnv() === self::PROD;
     }
 
     public static function yiiC3(): bool
