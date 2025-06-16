@@ -40,17 +40,17 @@ return [
         'bootstrap-console' => '$bootstrap',
     ],
     'config-plugin-environments' => [
-        Environment::DEVELOPMENT => [
+        Environment::DEV => [
             'params' => [
                 'environments/dev/params.php',
             ],
         ],
-        Environment::TESTING => [
+        Environment::TEST => [
             'params' => [
                 'environments/test/params.php',
             ],
         ],
-        Environment::PRODUCTION => [
+        Environment::PROD => [
             'params' => [
                 'environments/prod/params.php',
             ],

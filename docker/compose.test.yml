@@ -9,7 +9,7 @@ services:
         GID: ${GID}
     environment:
       XDEBUG_MODE: "off"
-      YII_ENV: "testing"
+      YII_ENV: "test"
       YII_DEBUG: "false"
       SERVER_NAME: ":80"
     volumes:

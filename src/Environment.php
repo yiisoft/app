@@ -11,9 +11,9 @@ use function sprintf;
 
 final class Environment
 {
-    public const DEVELOPMENT = 'development';
-    public const TESTING = 'testing';
-    public const PRODUCTION = 'production';
+    public const DEV = 'dev';
+    public const TEST = 'test';
+    public const PROD = 'prod';
 
     private static array $values = [];
 
@@ -35,17 +35,17 @@ final class Environment
 
     public static function isDevelopment(): bool
     {
-        return self::environment() === self::DEVELOPMENT;
+        return self::environment() === self::DEV;
     }
 
     public static function isTesting(): bool
     {
-        return self::environment() === self::TESTING;
+        return self::environment() === self::TEST;
     }
 
     public static function isProduction(): bool
     {
-        return self::environment() === self::PRODUCTION;
+        return self::environment() === self::PROD;
     }
 
     public static function yiiC3(): bool
@@ -63,7 +63,7 @@ final class Environment
     private static function setEnvironment(): void
     {
         $environment = self::getRawValue('YII_ENV');
-        if (!in_array($environment, [self::DEVELOPMENT, self::TESTING, self::PRODUCTION], true)) {
+        if (!in_array($environment, [self::DEV, self::TEST, self::PROD], true)) {
             throw new RuntimeException(
                 sprintf('"%s" is invalid environment.', $environment ?? '')
             );
