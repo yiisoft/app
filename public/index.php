@@ -5,7 +5,8 @@ declare(strict_types=1);
 use App\Environment;
 use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 
-require_once dirname(__DIR__) . '/src/bootstrap.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+Environment::prepare();
 
 if (Environment::yiiC3()) {
     $c3 = dirname(__DIR__) . '/c3.php';
