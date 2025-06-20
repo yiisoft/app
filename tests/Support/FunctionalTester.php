@@ -38,7 +38,7 @@ class FunctionalTester extends \Codeception\Actor
     {
         $runner = new HttpApplicationRunner(
             rootPath: dirname(__DIR__, 2),
-            environment: Environment::yiiEnv(),
+            environment: Environment::appEnv(),
         );
 
         $response = $runner->runAndGetResponse($request);

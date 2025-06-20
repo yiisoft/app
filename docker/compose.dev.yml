@@ -9,8 +9,8 @@ services:
         GID: ${GID}
     environment:
       XDEBUG_MODE: "${XDEBUG_MODE:-develop}"
-      YII_ENV: "${YII_ENV:-dev}"
-      YII_DEBUG: ${YII_DEBUG:-true}
+      APP_ENV: "${APP_ENV:-dev}"
+      APP_DEBUG: ${APP_DEBUG:-true}
       SERVER_NAME: ":80"
     restart: unless-stopped
     ports:

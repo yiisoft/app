@@ -8,7 +8,7 @@ use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 Environment::prepare();
 
-if (Environment::yiiC3()) {
+if (Environment::appC3()) {
     $c3 = dirname(__DIR__) . '/c3.php';
     if (file_exists($c3)) {
         require_once $c3;
@@ -34,8 +34,8 @@ if (PHP_SAPI === 'cli-server') {
 // Run HTTP application runner
 $runner = new HttpApplicationRunner(
     rootPath: dirname(__DIR__),
-    debug: Environment::yiiDebug(),
-    checkEvents: Environment::yiiDebug(),
-    environment: Environment::yiiEnv(),
+    debug: Environment::appDebug(),
+    checkEvents: Environment::appDebug(),
+    environment: Environment::appEnv(),
 );
 $runner->run();

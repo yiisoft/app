@@ -9,8 +9,8 @@ services:
       - caddy_config:/config
     environment:
       SERVER_NAME: ":80"
-      YII_ENV: "${YII_ENV:-prod}"
-      YII_DEBUG: ${YII_DEBUG:-false}
+      APP_ENV: "${APP_ENV:-prod}"
+      APP_DEBUG: ${APP_DEBUG:-false}
     deploy:
       replicas: 2
       update_config:

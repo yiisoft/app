@@ -20,55 +20,55 @@ final class Environment
     public static function prepare(): void
     {
         self::setEnvironment();
-        self::setBoolean('YII_C3', false);
-        self::setBoolean('YII_DEBUG', false);
+        self::setBoolean('APP_C3', false);
+        self::setBoolean('APP_DEBUG', false);
     }
 
     /**
      * @return non-empty-string
      */
-    public static function yiiEnv(): string
+    public static function appEnv(): string
     {
         /** @var non-empty-string */
-        return self::$values['YII_ENV'];
+        return self::$values['APP_ENV'];
     }
 
     public static function isDev(): bool
     {
-        return self::yiiEnv() === self::DEV;
+        return self::appEnv() === self::DEV;
     }
 
     public static function isTest(): bool
     {
-        return self::yiiEnv() === self::TEST;
+        return self::appEnv() === self::TEST;
     }
 
     public static function isProd(): bool
     {
-        return self::yiiEnv() === self::PROD;
+        return self::appEnv() === self::PROD;
     }
 
-    public static function yiiC3(): bool
+    public static function appC3(): bool
     {
         /** @var bool */
-        return self::$values['YII_C3'];
+        return self::$values['APP_C3'];
     }
 
-    public static function yiiDebug(): bool
+    public static function appDebug(): bool
     {
         /** @var bool */
-        return self::$values['YII_DEBUG'];
+        return self::$values['APP_DEBUG'];
     }
 
     private static function setEnvironment(): void
     {
-        $environment = self::getRawValue('YII_ENV');
+        $environment = self::getRawValue('APP_ENV');
         if (!in_array($environment, [self::DEV, self::TEST, self::PROD], true)) {
             throw new RuntimeException(
                 sprintf('"%s" is invalid environment.', $environment ?? '')
             );
         }
-        self::$values['YII_ENV'] = $environment;
+        self::$values['APP_ENV'] = $environment;
     }
 
     private static function setBoolean(string $key, bool $default): void

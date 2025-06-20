@@ -27,9 +27,9 @@ jobs:
 
     env:
       key: cache-v1
-      YII_C3: true
-      YII_ENV: test
-      YII_DEBUG: false
+      APP_C3: true
+      APP_ENV: test
+      APP_DEBUG: false
 
     runs-on: ${{ matrix.os }}
 
