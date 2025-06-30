@@ -46,7 +46,7 @@ RUN --mount=type=cache,target=/tmp/cache \
 SH
 
 FROM base AS prod
-ENV YII_ENV=prod
+ENV APP_ENV=prod
 
 COPY --from=prod-builder --chown=www-data:www-data /app /app
 USER www-data

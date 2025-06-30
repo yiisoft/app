@@ -29,6 +29,9 @@ exec: ## Run a command within the existing container.
 run: ## Run a command within a temporary container.
 	docker compose -f docker/compose.yml -f docker/compose.dev.yml run --rm --entrypoint $(CMD) app $(RUN_ARGS)
 
+run-test: ## Run a command in testing environment.
+	docker compose -f docker/compose.yml -f docker/compose.test.yml run --rm --entrypoint $(CMD) app $(RUN_ARGS)
+
 shell: CMD="/bin/sh" ## Get into container shell.
 shell: exec
 
@@ -39,7 +42,7 @@ composer: CMD="composer" ## Run Composer.
 composer: run
 
 codecept: CMD="./vendor/bin/codecept" ## Run Codeception.
-codecept: run
+codecept: run-test
 
 psalm: CMD="./vendor/bin/psalm" ## Run Psalm.
 psalm: run

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Support;
 
+use App\Environment;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
@@ -37,7 +38,7 @@ class FunctionalTester extends \Codeception\Actor
     {
         $runner = new HttpApplicationRunner(
             rootPath: dirname(__DIR__, 2),
-            environment: $_ENV['YII_ENV'],
+            environment: Environment::appEnv(),
         );
 
         $response = $runner->runAndGetResponse($request);
