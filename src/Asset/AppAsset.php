@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Asset\Asset;
+namespace App\Asset;
 
 use Yiisoft\Assets\AssetBundle;
 use Yiisoft\Assets\AssetManager;
