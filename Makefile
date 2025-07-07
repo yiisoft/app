@@ -47,6 +47,9 @@ codecept: run-test
 psalm: CMD="./vendor/bin/psalm" ## Run Psalm.
 psalm: run
 
+rector: CMD="./vendor/bin/rector" ## Run Rector.
+rector: run
+
 build-prod: ## Build an image.
 	docker build --file docker/Dockerfile --target prod --pull -t ${IMAGE}:${IMAGE_TAG} .
 

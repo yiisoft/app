@@ -1,6 +1,6 @@
 FROM composer/composer:latest-bin AS composer
 
-FROM ghcr.io/shyim/wolfi-php/frankenphp:8.3 AS base
+FROM ghcr.io/shyim/wolfi-php/frankenphp:8.2 AS base
 ARG UID=10001
 ARG GID=10001
 RUN <<SH
@@ -17,18 +17,18 @@ RUN <<SH
 
     # Install extra packages.
     apk add --no-cache \
-    php-frankenphp-8.3-opcache \
-    php-frankenphp-8.3-mbstring \
-    php-frankenphp-8.3-intl \
-    php-frankenphp-8.3-dom \
-    php-frankenphp-8.3-ctype \
-    php-frankenphp-8.3-curl \
-    php-frankenphp-8.3-phar \
-    php-frankenphp-8.3-openssl \
-    php-frankenphp-8.3-xml \
-    php-frankenphp-8.3-xmlwriter \
-    php-frankenphp-8.3-simplexml \
-    php-frankenphp-8.3-pdo
+    php-frankenphp-8.2-opcache \
+    php-frankenphp-8.2-mbstring \
+    php-frankenphp-8.2-intl \
+    php-frankenphp-8.2-dom \
+    php-frankenphp-8.2-ctype \
+    php-frankenphp-8.2-curl \
+    php-frankenphp-8.2-phar \
+    php-frankenphp-8.2-openssl \
+    php-frankenphp-8.2-xml \
+    php-frankenphp-8.2-xmlwriter \
+    php-frankenphp-8.2-simplexml \
+    php-frankenphp-8.2-pdo
 SH
 
 FROM base AS prod-builder
@@ -58,7 +58,7 @@ RUN <<SH
 
     # Install extra packages for dev only.
     apk add --no-cache \
-    php-frankenphp-8.3-xdebug
+    php-frankenphp-8.2-xdebug
 SH
 
 COPY --from=composer /composer /usr/bin/composer

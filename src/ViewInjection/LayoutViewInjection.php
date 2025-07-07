@@ -10,7 +10,7 @@ use Yiisoft\I18n\Locale;
 use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Yii\View\Renderer\LayoutParametersInjectionInterface;
 
-final class LayoutViewInjection implements LayoutParametersInjectionInterface
+final readonly class LayoutViewInjection implements LayoutParametersInjectionInterface
 {
     public function __construct(
         private Aliases $aliases,
