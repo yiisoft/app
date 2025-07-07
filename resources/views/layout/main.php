@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Asset\Asset\AppAsset;use Yiisoft\Html\Html;use Yiisoft\I18n\Locale;
+use App\Asset\Asset\AppAsset;
+use Yiisoft\Html\Html;
+use Yiisoft\I18n\Locale;
 
 /**
  * @var App\ApplicationParameters $applicationParameters
