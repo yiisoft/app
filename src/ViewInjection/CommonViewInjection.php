@@ -8,7 +8,7 @@ use App\ApplicationParameters;
 use Yiisoft\Yii\View\Renderer\CommonParametersInjectionInterface;
 use Yiisoft\Router\UrlGeneratorInterface;
 
-final class CommonViewInjection implements CommonParametersInjectionInterface
+final readonly class CommonViewInjection implements CommonParametersInjectionInterface
 {
     public function __construct(
         private ApplicationParameters $applicationParameters,

@@ -1,7 +1,7 @@
 {
     "name": "yiisoft/app",
     "type": "project",
-    "description": "Yii 3 application template",
+    "description": "Yii3 application template",
     "keywords": [
         "yii3",
         "app"
@@ -25,8 +25,6 @@
             "url": "https://github.com/sponsors/yiisoft"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "serve": [
             "Composer\\Config::disableProcessTimeout",
@@ -42,59 +40,56 @@
         ]
     },
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ext-filter": "*",
         "ext-intl": "*",
-        "httpsoft/http-message": "^1.1",
-        "psr/container": "^2.0",
-        "psr/http-message": "^1.1|^2.0",
-        "psr/http-server-handler": "^1.0",
-        "symfony/console": "^6.0",
+        "httpsoft/http-message": "^1.1.6",
+        "psr/container": "^2.0.2",
+        "psr/http-message": "^2.0",
+        "psr/http-server-handler": "^1.0.2",
+        "symfony/console": "^7.3.1",
         "yiisoft/aliases": "^3.0",
-        "yiisoft/assets": "^4.0",
-        "yiisoft/cache": "^3.0",
-        "yiisoft/cache-file": "^3.0",
-        "yiisoft/config": "^1.1",
-        "yiisoft/csrf": "^2.0",
-        "yiisoft/data-response": "^2.0",
-        "yiisoft/definitions": "^3.0",
-        "yiisoft/di": "^1.2",
-        "yiisoft/error-handler": "^4.0",
-        "yiisoft/factory": "^1.0",
+        "yiisoft/assets": "^5.1",
+        "yiisoft/cache": "^3.1",
+        "yiisoft/cache-file": "^3.2",
+        "yiisoft/config": "^1.6",
+        "yiisoft/csrf": "^2.2.2",
+        "yiisoft/data-response": "^2.1",
+        "yiisoft/definitions": "^3.4",
+        "yiisoft/di": "^1.4",
+        "yiisoft/error-handler": "^4.1",
+        "yiisoft/factory": "^1.3",
         "yiisoft/files": "^2.0",
-        "yiisoft/html": "^3.0",
+        "yiisoft/html": "^3.11",
         "yiisoft/http": "^1.2",
-        "yiisoft/i18n": "^1.1",
-        "yiisoft/log": "^2.1",
+        "yiisoft/i18n": "^1.2.1",
+        "yiisoft/log": "^2.1.1",
         "yiisoft/log-target-file": "^3.0",
-        "yiisoft/router": "^3.0",
-        "yiisoft/router-fastroute": "^3.0",
-        "yiisoft/translator": "^3.0",
-        "yiisoft/translator-message-php": "^1.1",
-        "yiisoft/view": "^12.0",
-        "yiisoft/yii-console": "^2.0",
-        "yiisoft/yii-debug": "dev-master",
-        "yiisoft/yii-event": "^2.0",
-        "yiisoft/yii-http": "^1.0",
-        "yiisoft/yii-middleware": "^1.0",
-        "yiisoft/yii-runner-console": "^2.0",
+        "yiisoft/router": "^4",
+        "yiisoft/router-fastroute": "^4.0.1",
+        "yiisoft/translator": "^3.1",
+        "yiisoft/translator-message-php": "^1.1.1",
+        "yiisoft/view": "^12.2",
+        "yiisoft/yii-console": "^2.3",
+        "yiisoft/yii-event": "^2.1",
+        "yiisoft/yii-http": "^1.0.4",
+        "yiisoft/yii-middleware": "^1.1.0",
+        "yiisoft/yii-runner-console": "^2.2",
         "yiisoft/yii-runner-http": "^3.2",
-        "yiisoft/yii-view-renderer": "^7.1"
+        "yiisoft/yii-view-renderer": "^7.3"
     },
     "require-dev": {
-        "codeception/c3": "^2.7",
-        "codeception/codeception": "^5.0",
-        "codeception/module-asserts": "^3.0",
-        "codeception/module-cli": "^2.0",
-        "codeception/module-phpbrowser": "^3.0",
-        "maglnet/composer-require-checker": "^4.5",
-        "rector/rector": "^2.0.3",
-        "roave/infection-static-analysis-plugin": "^1.34",
-        "roave/security-advisories": "dev-master",
-        "spatie/phpunit-watcher": "^1.23",
-        "vimeo/psalm": "^5.20",
-        "yiisoft/yii-debug-api": "3.0.x-dev",
-        "yiisoft/yii-debug-viewer": "^3.0@dev"
+        "codeception/c3": "^2.9",
+        "codeception/codeception": "^5.3.2",
+        "codeception/module-asserts": "^3.2",
+        "codeception/module-cli": "^2.0.1",
+        "codeception/module-phpbrowser": "^3.0.1",
+        "maglnet/composer-require-checker": "^4.16.1",
+        "rector/rector": "^2.1.0",
+        "roave/infection-static-analysis-plugin": "^1.38",
+        "roave/security-advisories": "dev-latest",
+        "spatie/phpunit-watcher": "^1.24",
+        "vimeo/psalm": "^6.12.1"
     },
     "autoload": {
         "psr-4": {
@@ -107,13 +102,11 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        },
         "config-plugin-file": "configuration.php"
     },
     "config": {
         "sort-packages": true,
+        "bump-after-update": true,
         "allow-plugins": {
             "yiisoft/config": true,
             "infection/extension-installer": true,
