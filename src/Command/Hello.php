@@ -16,6 +16,7 @@ use Yiisoft\Yii\Console\ExitCode;
 )]
 final class Hello extends Command
 {
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Hello!');
