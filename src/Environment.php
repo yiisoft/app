@@ -65,7 +65,7 @@ final class Environment
         $environment = self::getRawValue('APP_ENV');
         if (!in_array($environment, [self::DEV, self::TEST, self::PROD], true)) {
             throw new RuntimeException(
-                sprintf('"%s" is invalid environment.', $environment ?? '')
+                sprintf('"%s" is invalid environment.', $environment ?? ''),
             );
         }
         self::$values['APP_ENV'] = $environment;

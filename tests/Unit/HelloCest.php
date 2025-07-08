@@ -38,7 +38,7 @@ final class HelloCest
 
         $loader = new ContainerCommandLoader(
             $this->container,
-            $params['yiisoft/yii-console']['commands']
+            $params['yiisoft/yii-console']['commands'],
         );
 
         $app->setCommandLoader($loader);

@@ -9,9 +9,7 @@ use Yiisoft\Yii\View\Renderer\CommonParametersInjectionInterface;
 
 final readonly class TranslatorViewInjection implements CommonParametersInjectionInterface
 {
-    public function __construct(private TranslatorInterface $translator)
-    {
-    }
+    public function __construct(private TranslatorInterface $translator) {}
 
     public function getCommonParameters(): array
     {

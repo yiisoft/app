@@ -50,6 +50,9 @@ psalm: run
 rector: CMD="./vendor/bin/rector" ## Run Rector.
 rector: run
 
+cs-fix:
+	docker compose -f docker/compose.yml -f docker/compose.dev.yml run --rm --entrypoint ./vendor/bin/php-cs-fixer app fix --config=.php-cs-fixer.php --diff
+
 build-prod: ## Build an image.
 	docker build --file docker/Dockerfile --target prod --pull -t ${IMAGE}:${IMAGE_TAG} .
 
