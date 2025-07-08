@@ -17,7 +17,7 @@ final class NotFoundHandler implements RequestHandlerInterface
     public function __construct(
         private readonly UrlGeneratorInterface $urlGenerator,
         private readonly CurrentRoute $currentRoute,
-        private ViewRenderer $viewRenderer
+        private ViewRenderer $viewRenderer,
     ) {
         $this->viewRenderer = $viewRenderer->withControllerName('site');
     }

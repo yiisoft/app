@@ -17,8 +17,7 @@ final readonly class LayoutViewInjection implements LayoutParametersInjectionInt
         private AssetManager $assetManager,
         private Locale $locale,
         private CurrentRoute $currentRoute,
-    ) {
-    }
+    ) {}
 
     public function getLayoutParameters(): array
     {

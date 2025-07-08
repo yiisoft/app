@@ -84,6 +84,7 @@
         "codeception/module-asserts": "^3.2",
         "codeception/module-cli": "^2.0.1",
         "codeception/module-phpbrowser": "^3.0.1",
+        "friendsofphp/php-cs-fixer": "^3.75",
         "maglnet/composer-require-checker": "^4.16.1",
         "rector/rector": "^2.1.0",
         "roave/infection-static-analysis-plugin": "^1.38",

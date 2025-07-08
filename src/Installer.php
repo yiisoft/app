@@ -26,7 +26,7 @@ final class Installer
         /** @psalm-var iterable<array-key, string> $iterator */
         $iterator = new RIterator(
             new DirIterator($path, FSIterator::SKIP_DOTS | FSIterator::CURRENT_AS_PATHNAME),
-            RIterator::SELF_FIRST
+            RIterator::SELF_FIRST,
         );
 
         foreach ($iterator as $item) {
