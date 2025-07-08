@@ -1,4 +1,4 @@
-name: cs fixer
+name: Code Style
 
 on:
   pull_request:
@@ -12,7 +12,7 @@ on:
       - 'psalm.xml'
 
 jobs:
-  php-cs-fixer:
+  cs-fix:
     runs-on: ubuntu-latest
     permissions:
       contents: write
