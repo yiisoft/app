@@ -1,2 +1,4 @@
-*
-!.gitignore
+/.php-cs-fixer.cache
+/debug/*
+/logs/*
+/tests/*
