@@ -17,7 +17,6 @@ services:
       - ../:/app
       - ../runtime:/app/runtime
       - ${COMPOSER_CACHE_DIR:-~/.cache/composer}:/var/www/.composer
-      - ../runtime/psalm-cache:/var/www/.psalm
       - caddy_data:/data
       - caddy_config:/config
     tty: true
