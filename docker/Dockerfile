@@ -19,6 +19,15 @@ RUN install-php-extensions \
     simplexml \
     pdo
 
+#
+# Development
+#
+
+FROM base AS dev
+RUN install-php-extensions \
+    xdebug
+COPY --from=composer /composer /usr/bin/composer
+USER www-data
 
 #
 # Production
@@ -35,15 +44,4 @@ RUN --mount=type=cache,target=/tmp/cache \
 FROM base AS prod
 ENV APP_ENV=prod
 COPY --from=prod-builder --chown=www-data:www-data /app /app
-USER www-data
-
-
-#
-# Development
-#
-
-FROM base AS dev
-RUN install-php-extensions \
-    xdebug
-COPY --from=composer /composer /usr/bin/composer
 USER www-data
