@@ -37,7 +37,6 @@ FROM base AS prod-builder
 COPY --from=composer /composer /usr/bin/composer
 COPY .. /app
 RUN --mount=type=cache,target=/tmp/cache \
-    set -ex && \
     composer install --no-dev --no-progress --no-interaction --classmap-authoritative && \
     rm composer.lock composer.json
 
