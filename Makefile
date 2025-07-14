@@ -26,6 +26,9 @@ up: ## Up the dev environment
 down: ## Down the dev environment
 	$(DOCKER_COMPOSE_DEV) down --remove-orphans
 
+clear: ## Remove development docker containers and volumes
+	$(DOCKER_COMPOSE_DEV) down --volumes --remove-orphans
+
 shell: ## Get into container shell
 	$(DOCKER_COMPOSE_DEV) exec app /bin/sh
 
