@@ -1,68 +1,70 @@
 .DEFAULT_GOAL := help
 
-# Run silent.
-MAKEFLAGS += --silent
-
-RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-$(eval $(RUN_ARGS):;@:)
+CLI_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+$(eval $(CLI_ARGS):;@:)
 
 include docker/.env
 
-# Current user ID and group ID.
+# Current user ID and group ID
 export UID=$(shell id -u)
 export GID=$(shell id -g)
 
 export COMPOSE_PROJECT_NAME=${STACK_NAME}
+DOCKER_COMPOSE_DEV := docker compose -f docker/compose.yml -f docker/compose.dev.yml
+DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/compose.test.yml
 
-up: ## Up the dev environment.
-	docker compose -f docker/compose.yml -f docker/compose.dev.yml up -d --remove-orphans
+#
+# Development
+#
 
-up-build: ## Up the dev environment rebuilding images.
-	docker compose -f docker/compose.yml -f docker/compose.dev.yml up -d --remove-orphans --build
+build: ## Build docker images
+	$(DOCKER_COMPOSE_DEV) build $(CLI_ARGS)
 
-down: ## Down the dev environment.
-	docker compose -f docker/compose.yml -f docker/compose.dev.yml down --remove-orphans
+up: ## Up the dev environment
+	$(DOCKER_COMPOSE_DEV) up -d --remove-orphans
 
-exec: ## Run a command within the existing container.
-	docker compose -f docker/compose.yml -f docker/compose.dev.yml exec app $(CMD) $(RUN_ARGS)
+down: ## Down the dev environment
+	$(DOCKER_COMPOSE_DEV) down --remove-orphans
 
-run: ## Run a command within a temporary container.
-	docker compose -f docker/compose.yml -f docker/compose.dev.yml run --rm --entrypoint $(CMD) app $(RUN_ARGS)
+shell: ## Get into container shell
+	$(DOCKER_COMPOSE_DEV) exec app /bin/sh
 
-run-test: ## Run a command in testing environment.
-	docker compose -f docker/compose.yml -f docker/compose.test.yml run --rm --entrypoint $(CMD) app $(RUN_ARGS)
+yii: ## Execute Yii command
+	$(DOCKER_COMPOSE_DEV) run --rm app ./yii $(CLI_ARGS)
+.PHONY: yii
 
-shell: CMD="/bin/sh" ## Get into container shell.
-shell: exec
+composer: ## Run Composer
+	$(DOCKER_COMPOSE_DEV) run --rm app composer $(CLI_ARGS)
 
-yii: CMD="./yii" ## Execute Yii command.
-yii: run
+codecept: ## Run Codeception
+	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept $(CLI_ARGS)
 
-composer: CMD="composer" ## Run Composer.
-composer: run
+psalm: ## Run Psalm
+	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/psalm $(CLI_ARGS)
 
-codecept: CMD="./vendor/bin/codecept" ## Run Codeception.
-codecept: run-test
-
-psalm: CMD="./vendor/bin/psalm" ## Run Psalm.
-psalm: run
-
-rector: CMD="./vendor/bin/rector" ## Run Rector.
-rector: run
+rector: ## Run Rector
+	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/rector $(CLI_ARGS)
 
 cs-fix:
-	docker compose -f docker/compose.yml -f docker/compose.dev.yml run --rm --entrypoint ./vendor/bin/php-cs-fixer app fix --config=.php-cs-fixer.php --diff
+	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff
 
-build-prod: ## Build an image.
+#
+# Production
+#
+
+prod-build: ## PROD | Build an image
 	docker build --file docker/Dockerfile --target prod --pull -t ${IMAGE}:${IMAGE_TAG} .
 
-push-prod: ## Push image to repository.
+prod-push: ## PROD | Push image to repository
 	docker push ${IMAGE}:${IMAGE_TAG}
 
-deploy-prod: ## Deploy to production.
+prod-deploy: ## PROD | Deploy to production
 	docker -H ${PROD_SSH} stack deploy --with-registry-auth -d -c docker/compose.yml -c docker/compose.prod.yml ${STACK_NAME}
 
+#
+# Other
+#
+
 # Output the help for each task, see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-.PHONY: help
 help: ## This help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)

@@ -4,9 +4,7 @@ services:
       dockerfile: docker/Dockerfile
       context: ..
       target: dev
-      args:
-        UID: ${UID}
-        GID: ${GID}
+    user: ${UID}:${GID}
     environment:
       XDEBUG_MODE: "${XDEBUG_MODE:-develop}"
       APP_ENV: "${APP_ENV:-dev}"
