@@ -26,8 +26,8 @@ RUN install-php-extensions \
 FROM base AS dev
 ARG USER_ID=10001
 ARG GROUP_ID=10001
-ARG USER_NAME=appuser
-ARG GROUP_NAME=appuser
+ARG USER_NAME=www-data
+ARG GROUP_NAME=www-data
 
 RUN install-php-extensions \
     xdebug
