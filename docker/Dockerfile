@@ -24,10 +24,25 @@ RUN install-php-extensions \
 #
 
 FROM base AS dev
+ARG USER_ID=10001
+ARG GROUP_ID=10001
+ARG USER_NAME=www-data
+ARG GROUP_NAME=www-data
+
 RUN install-php-extensions \
     xdebug
+
 COPY --from=composer /composer /usr/bin/composer
-USER www-data
+
+# Based on https://frankenphp.dev/docs/docker/#running-as-a-non-root-user
+RUN \
+	groupadd --gid ${GROUP_ID} ${GROUP_NAME}; \
+    useradd --gid ${GROUP_ID} --uid ${USER_ID} ${GROUP_NAME}; \
+	# Add additional capability to bind to port 80 and 443
+	setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp; \
+	# Give write access to /data/caddy and /config/caddy
+	chown -R ${USER_NAME}:${GROUP_NAME} /data/caddy && chown -R ${USER_NAME}:${GROUP_NAME} /config/caddy
+USER ${USER_NAME}
 
 #
 # Production

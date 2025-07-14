@@ -4,7 +4,9 @@ services:
       dockerfile: docker/Dockerfile
       context: ..
       target: dev
-    user: ${UID}:${GID}
+      args:
+        USER_ID: ${UID}
+        GROUP_ID: ${GID}
     environment:
       XDEBUG_MODE: "off"
       APP_ENV: "test"
