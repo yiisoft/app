@@ -8,8 +8,10 @@ use App\ApplicationParameters;
 
 return [
     ApplicationParameters::class => [
-        'class' => ApplicationParameters::class,
-        'charset()' => [$params['app']['charset']],
-        'name()' => [$params['app']['name']],
+        '__construct()' => [
+            'name' => $params['app']['name'],
+            'charset' => $params['app']['charset'],
+            'locale' => $params['app']['locale'],
+        ],
     ],
 ];

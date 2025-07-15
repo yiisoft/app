@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use App\Asset\AppAsset;
 use Yiisoft\Html\Html;
-use Yiisoft\I18n\Locale;
 
 /**
  * @var App\ApplicationParameters $applicationParameters
@@ -12,7 +11,6 @@ use Yiisoft\I18n\Locale;
  * @var Yiisoft\Assets\AssetManager $assetManager
  * @var string $content
  * @var string|null $csrf
- * @var Locale $locale
  * @var Yiisoft\View\WebView $this
  * @var Yiisoft\Router\CurrentRoute $currentRoute
  * @var Yiisoft\Router\UrlGeneratorInterface $urlGenerator
@@ -30,7 +28,7 @@ $this->beginPage()
 ?><!DOCTYPE html>
 <html lang="<?= Html::encode($locale->language()) ?>">
 <head>
-    <meta charset="<?= Html::encode($applicationParameters->getCharset()) ?>">
+    <meta charset="<?= Html::encode($applicationParameters->charset) ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= Html::encode($this->getTitle()) ?></title>
@@ -77,7 +75,7 @@ $this->beginPage()
 <div class="footer">
     <div class="footer_copyright">
         <a href="https://www.yiiframework.com/" target="_blank" rel="noopener">
-            © <?= date('Y') ?>  <?= Html::encode($applicationParameters->getName()) ?>
+            © <?= date('Y') ?>  <?= Html::encode($applicationParameters->name) ?>
         </a>
     </div>
     <div class="footer_icons">
