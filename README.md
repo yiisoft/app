@@ -41,7 +41,7 @@ cd myproject
 To run the app:
 
 ```
-./yii serve
+APP_ENV=dev ./yii serve
 ```
 
 Now you should be able to access the application through the URL printed to console.
@@ -232,7 +232,7 @@ To execute tests, in local installation run:
 ```shell
 ./vendor/bin/codecept build
 
-./yii serve > ./runtime/yii.log 2>&1 &
+APP_ENV=test ./yii serve > ./runtime/yii.log 2>&1 &
 ./vendor/bin/codecept run
 ```
 
