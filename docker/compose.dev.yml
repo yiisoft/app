@@ -12,13 +12,13 @@ services:
       APP_ENV: "${APP_ENV:-dev}"
       APP_DEBUG: ${APP_DEBUG:-true}
       SERVER_NAME: ":80"
+      COMPOSER_CACHE_DIR: /app/runtime/cache/composer
     restart: unless-stopped
     ports:
       - "${DEV_PORT:-80}:80"
     volumes:
       - ../:/app
       - ../runtime:/app/runtime
-      - ${COMPOSER_CACHE_DIR:-~/.cache/composer}:/var/www/.composer
       - caddy_data:/data
       - caddy_config:/config
     tty: true
