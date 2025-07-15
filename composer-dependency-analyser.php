@@ -6,42 +6,16 @@ use ShipMonk\ComposerDependencyAnalyser\Config\Configuration;
 use ShipMonk\ComposerDependencyAnalyser\Config\ErrorType;
 
 $root = __DIR__;
-
-$prodPaths = [
-    'src',
-    'config',
-    'resources/views',
-    'public/index.php',
-    'yii',
-];
-
-$devPaths = [
-    'tests',
-];
-
-$ignoreProdDependenciesOnlyInDev = [
-    'psr/container',
-    'yiisoft/config',
-    'yiisoft/yii-event',
-];
-
-$ignoreUnusedDependencies = [
-    'yiisoft/router-fastroute',
-];
-
-$configuration = (new Configuration())
+return (new Configuration())
     ->disableComposerAutoloadPathScan()
-    ->setFileExtensions(['php']);
-foreach ($prodPaths as $path) {
-    $configuration->addPathToScan($root . '/' . $path, isDev: false);
-}
-foreach ($devPaths as $path) {
-    $configuration->addPathToScan($root . '/' . $path, isDev: true);
-}
-foreach ($ignoreProdDependenciesOnlyInDev as $package) {
-    $configuration->ignoreErrorsOnPackage($package, [ErrorType::PROD_DEPENDENCY_ONLY_IN_DEV]);
-}
-foreach ($ignoreUnusedDependencies as $package) {
-    $configuration->ignoreErrorsOnPackage($package, [ErrorType::UNUSED_DEPENDENCY]);
-}
-return $configuration;
+    ->setFileExtensions(['php'])
+    ->addPathToScan($root . '/src', isDev: false)
+    ->addPathToScan($root . '/config', isDev: false)
+    ->addPathToScan($root . '/resources/views', isDev: false)
+    ->addPathToScan($root . '/public/index.php', isDev: false)
+    ->addPathToScan($root . '/yii', isDev: false)
+    ->addPathToScan($root . '/tests', isDev: true)
+    ->ignoreErrorsOnPackage('psr/container', [ErrorType::PROD_DEPENDENCY_ONLY_IN_DEV])
+    ->ignoreErrorsOnPackage('yiisoft/config', [ErrorType::PROD_DEPENDENCY_ONLY_IN_DEV])
+    ->ignoreErrorsOnPackage('yiisoft/yii-event', [ErrorType::PROD_DEPENDENCY_ONLY_IN_DEV])
+    ->ignoreErrorsOnPackage('yiisoft/router-fastroute', [ErrorType::UNUSED_DEPENDENCY]);
