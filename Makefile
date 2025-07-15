@@ -48,8 +48,11 @@ psalm: ## Run Psalm
 rector: ## Run Rector
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/rector $(CLI_ARGS)
 
-cs-fix:
+cs-fix: ## Run PHP CS Fixer
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff
+
+composer-dependency-analyser: ## Run Composer Dependency Analyser
+	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/composer-dependency-analyser --config=composer-dependency-analyser.php $(CLI_ARGS)
 
 #
 # Production
