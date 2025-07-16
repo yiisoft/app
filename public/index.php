@@ -3,13 +3,20 @@
 declare(strict_types=1);
 
 use App\Environment;
+use Psr\Log\LogLevel;
+use Yiisoft\ErrorHandler\ErrorHandler;
+use Yiisoft\ErrorHandler\Renderer\HtmlRenderer;
+use Yiisoft\Log\Logger;
+use Yiisoft\Log\Target\File\FileTarget;
 use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 
-require_once dirname(__DIR__) . '/vendor/autoload.php';
+$root = dirname(__DIR__);
+
+require_once $root . '/vendor/autoload.php';
 Environment::prepare();
 
 if (Environment::appC3()) {
-    $c3 = dirname(__DIR__) . '/c3.php';
+    $c3 = $root . '/c3.php';
     if (file_exists($c3)) {
         require_once $c3;
     }
@@ -33,9 +40,21 @@ if (PHP_SAPI === 'cli-server') {
 
 // Run HTTP application runner
 $runner = new HttpApplicationRunner(
-    rootPath: dirname(__DIR__),
+    rootPath: $root,
     debug: Environment::appDebug(),
     checkEvents: Environment::appDebug(),
     environment: Environment::appEnv(),
+    temporaryErrorHandler: new ErrorHandler(
+        new Logger(
+            [
+                (new FileTarget($root . '/runtime/logs/app-container-building.log'))->setLevels([
+                    LogLevel::EMERGENCY,
+                    LogLevel::ERROR,
+                    LogLevel::WARNING,
+                ]),
+            ],
+        ),
+        new HtmlRenderer(),
+    ),
 );
 $runner->run();
