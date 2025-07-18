@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Asset;
+namespace App\Layout\Main;
 
 use Yiisoft\Assets\AssetBundle;
 use Yiisoft\Assets\AssetManager;
@@ -10,7 +10,7 @@ use Yiisoft\Assets\AssetManager;
 /**
  * @psalm-import-type CssFile from AssetManager
  */
-final class AppAsset extends AssetBundle
+final class MainAsset extends AssetBundle
 {
     public ?string $basePath = '@assets';
     public ?string $baseUrl = '@assetsUrl';

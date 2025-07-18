@@ -30,7 +30,7 @@ return [
     ],
 
     'yiisoft/view' => [
-        'basePath' => '@views',
+        'basePath' => '',
         'parameters' => [
             'assetManager' => Reference::to(AssetManager::class),
             'urlGenerator' => Reference::to(UrlGeneratorInterface::class),
@@ -40,8 +40,8 @@ return [
     ],
 
     'yiisoft/yii-view-renderer' => [
-        'viewPath' => '@views',
-        'layout' => '@layout/main.php',
+        'viewPath' => null,
+        'layout' => '@src/Layout/Main/layout.php',
         'injections' => [
             Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
