@@ -5,9 +5,14 @@ $(eval $(CLI_ARGS):;@:)
 
 include docker/.env
 
-# Current user ID and group ID
-export UID=$(shell id -u)
-export GID=$(shell id -g)
+# Current user ID and group ID except MacOS where it conflicts with Docker abilities
+ifeq ($(shell uname), Darwin)
+    export UID=1000
+    export GID=1000
+else
+    export UID=$(shell id -u)
+    export GID=$(shell id -g)
+endif
 
 export COMPOSE_PROJECT_NAME=${STACK_NAME}
 DOCKER_COMPOSE_DEV := docker compose -f docker/compose.yml -f docker/compose.dev.yml
