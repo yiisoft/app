@@ -23,7 +23,7 @@ final readonly class NotFoundHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         return $this->viewRenderer
-            ->render(__DIR__ . '/404', ['urlGenerator' => $this->urlGenerator, 'currentRoute' => $this->currentRoute])
+            ->render(__DIR__ . '/template', ['urlGenerator' => $this->urlGenerator, 'currentRoute' => $this->currentRoute])
             ->withStatus(Status::NOT_FOUND);
     }
 }

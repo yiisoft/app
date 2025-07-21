@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
+use App\ApplicationParameters;
+use Yiisoft\Translator\TranslatorInterface;
+use Yiisoft\View\WebView;
+
 /**
  * @var WebView $this
  * @var TranslatorInterface $translator
  * @var ApplicationParameters $applicationParameters
  */
-
-use App\ApplicationParameters;
-use Yiisoft\Translator\TranslatorInterface;
-use Yiisoft\View\WebView;
 
 $this->setTitle($applicationParameters->name);
 ?>
