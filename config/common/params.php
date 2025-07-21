@@ -30,7 +30,7 @@ return [
     ],
 
     'yiisoft/view' => [
-        'basePath' => '',
+        'basePath' => null,
         'parameters' => [
             'assetManager' => Reference::to(AssetManager::class),
             'urlGenerator' => Reference::to(UrlGeneratorInterface::class),
