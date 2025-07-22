@@ -21,9 +21,7 @@ $this->setTitle('404');
 
     <p>
         The page
-        <strong><?= Html::encode($currentRoute
-                ->getUri()
-                ->getPath()) ?></strong>
+        <strong><?= Html::encode($currentRoute->getUri()?->getPath() ?? 'unknown') ?></strong>
         not found.
     </p>
 

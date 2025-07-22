@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Asset\AppAsset;
+use App\Layout\Main\MainAsset;
 use Yiisoft\Html\Html;
 
 /**
@@ -16,7 +16,7 @@ use Yiisoft\Html\Html;
  * @var Yiisoft\Router\UrlGeneratorInterface $urlGenerator
  */
 
-$assetManager->register(AppAsset::class);
+$assetManager->register(MainAsset::class);
 
 $this->addCssFiles($assetManager->getCssFiles());
 $this->addCssStrings($assetManager->getCssStrings());

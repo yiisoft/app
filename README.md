@@ -121,7 +121,6 @@ There are multiple pre-configured application services.
         '@public' => '@root/public',
         '@resources' => '@root/resources',
         '@runtime' => '@root/runtime',
-        '@views' => '@root/resources/views'
     ],
 ],
 ```

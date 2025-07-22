@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace App\Handler\NotFound;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -12,20 +12,18 @@ use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Yii\View\Renderer\ViewRenderer;
 
-final class NotFoundHandler implements RequestHandlerInterface
+final readonly class NotFoundHandler implements RequestHandlerInterface
 {
     public function __construct(
-        private readonly UrlGeneratorInterface $urlGenerator,
-        private readonly CurrentRoute $currentRoute,
+        private UrlGeneratorInterface $urlGenerator,
+        private CurrentRoute $currentRoute,
         private ViewRenderer $viewRenderer,
-    ) {
-        $this->viewRenderer = $viewRenderer->withControllerName('site');
-    }
+    ) {}
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         return $this->viewRenderer
-            ->render('404', ['urlGenerator' => $this->urlGenerator, 'currentRoute' => $this->currentRoute])
+            ->render(__DIR__ . '/template', ['urlGenerator' => $this->urlGenerator, 'currentRoute' => $this->currentRoute])
             ->withStatus(Status::NOT_FOUND);
     }
 }
