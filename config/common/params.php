@@ -9,7 +9,6 @@ use Yiisoft\Assets\AssetManager;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Translator\TranslatorInterface;
 use Yiisoft\Yii\View\Renderer\CsrfViewInjection;
 
 return [
@@ -23,19 +22,12 @@ return [
         'aliases' => require __DIR__ . '/aliases.php',
     ],
 
-    'yiisoft/translator' => [
-        'locale' => 'en',
-        'fallbackLocale' => 'en',
-        'defaultCategory' => 'app',
-    ],
-
     'yiisoft/view' => [
         'basePath' => null,
         'parameters' => [
             'assetManager' => Reference::to(AssetManager::class),
             'urlGenerator' => Reference::to(UrlGeneratorInterface::class),
             'currentRoute' => Reference::to(CurrentRoute::class),
-            'translator' => Reference::to(TranslatorInterface::class),
         ],
     ],
 
@@ -46,7 +38,6 @@ return [
             Reference::to(CommonViewInjection::class),
             Reference::to(CsrfViewInjection::class),
             Reference::to(LayoutViewInjection::class),
-            Reference::to(TranslatorViewInjection::class),
         ],
     ],
 ];

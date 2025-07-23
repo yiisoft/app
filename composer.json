@@ -65,8 +65,6 @@
         "yiisoft/router": "^4",
         "yiisoft/router-fastroute": "^4.0.1",
         "yiisoft/session": "^3.0",
-        "yiisoft/translator": "^3.1",
-        "yiisoft/translator-message-php": "^1.1.1",
         "yiisoft/view": "^12.2.1",
         "yiisoft/yii-console": "^2.3",
         "yiisoft/yii-event": "^2.1",
