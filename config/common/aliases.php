@@ -7,10 +7,10 @@ return [
     '@src' => '@root/src',
     '@assets' => '@root/public/assets',
     '@assetsUrl' => '@baseUrl/assets',
+    '@assetsSource' => '@root/assets',
     '@baseUrl' => '/',
     '@npm' => '@root/node_modules',
     '@public' => '@root/public',
-    '@resources' => '@root/resources',
     '@runtime' => '@root/runtime',
     '@vendor' => '@root/vendor',
 ];
