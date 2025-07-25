@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use App\ViewInjection\CommonViewInjection;
 use App\ViewInjection\LayoutViewInjection;
-use App\ViewInjection\TranslatorViewInjection;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Router\CurrentRoute;
