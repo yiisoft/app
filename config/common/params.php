@@ -11,11 +11,7 @@ use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Yii\View\Renderer\CsrfViewInjection;
 
 return [
-    'app' => [
-        'charset' => 'UTF-8',
-        'locale' => 'en',
-        'name' => 'My Project',
-    ],
+    'application' => require __DIR__ . '/application.php',
 
     'yiisoft/aliases' => [
         'aliases' => require __DIR__ . '/aliases.php',

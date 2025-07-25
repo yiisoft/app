@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use App\ApplicationParameters;
+use App\ApplicationParams;
 use Yiisoft\View\WebView;
 
 /**
  * @var WebView $this
- * @var ApplicationParameters $applicationParameters
+ * @var ApplicationParams $applicationParams
  */
 
-$this->setTitle($applicationParameters->name);
+$this->setTitle($applicationParams->name);
 ?>
 
 <div class="text-center">
