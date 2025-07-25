@@ -11,6 +11,7 @@ ini_set('memory_limit', '512M');
 $root = __DIR__;
 $finder = (new Finder())
     ->in([
+        $root . '/config',
         $root . '/src',
         $root . '/tests',
     ])
