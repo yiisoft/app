@@ -6,7 +6,7 @@ use App\Layout\Main\MainAsset;
 use Yiisoft\Html\Html;
 
 /**
- * @var App\ApplicationParameters $applicationParameters
+ * @var App\ApplicationParams $applicationParams
  * @var Yiisoft\Aliases\Aliases $aliases
  * @var Yiisoft\Assets\AssetManager $assetManager
  * @var string $content
@@ -26,9 +26,9 @@ $this->addJsVars($assetManager->getJsVars());
 
 $this->beginPage()
 ?><!DOCTYPE html>
-<html lang="<?= Html::encode($applicationParameters->locale) ?>">
+<html lang="<?= Html::encode($applicationParams->locale) ?>">
 <head>
-    <meta charset="<?= Html::encode($applicationParameters->charset) ?>">
+    <meta charset="<?= Html::encode($applicationParams->charset) ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= Html::encode($this->getTitle()) ?></title>
@@ -75,7 +75,7 @@ $this->beginPage()
 <div class="footer">
     <div class="footer_copyright">
         <a href="https://www.yiiframework.com/" target="_blank" rel="noopener">
-            © <?= date('Y') ?>  <?= Html::encode($applicationParameters->name) ?>
+            © <?= date('Y') ?>  <?= Html::encode($applicationParams->name) ?>
         </a>
     </div>
     <div class="footer_icons">
