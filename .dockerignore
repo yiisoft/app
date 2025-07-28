@@ -7,7 +7,6 @@
 !/public
 !/src
 !autoload.php
-!configuration.php
 !yii
 !composer.json
 !composer.lock
