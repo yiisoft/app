@@ -29,11 +29,8 @@ return [
             '$di-providers',
         ],
         'events' => [],
-        'events-web' => [
-            '$events',
-            'web/events.php',
-        ],
-        'events-console' => '$events',
+        'events-web' => ['$events'],
+        'events-console' => ['$events'],
         'routes' => 'common/routes.php',
         'bootstrap' => [],
         'bootstrap-web' => '$bootstrap',
