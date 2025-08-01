@@ -25,7 +25,8 @@ $this->addJsStrings($assetManager->getJsStrings());
 $this->addJsVars($assetManager->getJsVars());
 
 $this->beginPage()
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="<?= Html::encode($applicationParams->locale) ?>">
 <head>
     <meta charset="<?= Html::encode($applicationParams->charset) ?>">
