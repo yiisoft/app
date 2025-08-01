@@ -31,6 +31,7 @@ $this->beginPage()
     <meta charset="<?= Html::encode($applicationParams->charset) ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?= $aliases->get('@baseUrl/favicon.svg') ?>" type="image/svg+xml">
     <title><?= Html::encode($this->getTitle()) ?></title>
     <?php $this->head() ?>
 </head>
