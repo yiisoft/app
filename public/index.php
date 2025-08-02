@@ -12,7 +12,7 @@ use Yiisoft\Yii\Runner\Http\HttpApplicationRunner;
 
 $root = dirname(__DIR__);
 
-require_once $root . '/src/bootstrap.php';
+require_once $root . '/src/autoload.php';
 
 if (Environment::appC3()) {
     $c3 = $root . '/c3.php';
