@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Environment;
 
+// NOTE: After making changes in this file, run `composer yii-config-rebuild` to update the merge plan.
 return [
     'config-plugin' => [
         'params' => 'common/params.php',

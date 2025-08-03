@@ -9,7 +9,6 @@ return [
     '@assetsUrl' => '@baseUrl/assets',
     '@assetsSource' => '@root/assets',
     '@baseUrl' => '/',
-    '@npm' => '@root/node_modules',
     '@public' => '@root/public',
     '@runtime' => '@root/runtime',
     '@vendor' => '@root/vendor',

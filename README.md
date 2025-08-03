@@ -117,7 +117,6 @@ There are multiple pre-configured application services.
         '@root' => dirname(__DIR__),
         '@assets' => '@root/public/assets',
         '@assetsUrl' => '/assets',
-        '@npm' => '@root/node_modules',
         '@public' => '@root/public',
         '@resources' => '@root/resources',
         '@runtime' => '@root/runtime',
