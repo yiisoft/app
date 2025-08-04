@@ -31,7 +31,6 @@
             "@php ./yii serve"
         ],
         "test": "codecept run",
-        "test-watch": "phpunit-watcher watch",
         "post-install-cmd": [
             "App\\Installer::postUpdate"
         ],
@@ -83,7 +82,6 @@
         "roave/infection-static-analysis-plugin": "^1.38",
         "roave/security-advisories": "dev-latest",
         "shipmonk/composer-dependency-analyser": "^1.8.3",
-        "spatie/phpunit-watcher": "^1.24",
         "vimeo/psalm": "^6.13.0"
     },
     "autoload": {
