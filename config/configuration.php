@@ -33,7 +33,7 @@ return [
         'events-web' => ['$events'],
         'events-console' => ['$events'],
         'routes' => 'common/routes.php',
-        'bootstrap' => [],
+        'bootstrap' => 'common/bootstrap.php',
         'bootstrap-web' => '$bootstrap',
         'bootstrap-console' => '$bootstrap',
     ],
