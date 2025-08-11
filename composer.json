@@ -30,13 +30,7 @@
             "Composer\\Config::disableProcessTimeout",
             "@php ./yii serve"
         ],
-        "test": "codecept run",
-        "post-install-cmd": [
-            "App\\Installer::postUpdate"
-        ],
-        "post-update-cmd": [
-            "App\\Installer::postUpdate"
-        ]
+        "test": "codecept run"
     },
     "require": {
         "php": "^8.2",

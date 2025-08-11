@@ -21,5 +21,4 @@ coverage:
       - src/*
     exclude:
       - src/Asset/*
-      - src/Installer.php
 bootstrap: bootstrap.php
