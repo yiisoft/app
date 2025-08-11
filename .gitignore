@@ -16,25 +16,11 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
-# composer vendor dir
-/vendor
-
-# composer itself is not needed
-composer.phar
-
 # Mac DS_Store Files
 .DS_Store
 
-# phpunit itself is not needed
-phpunit.phar
-.phpunit.result.cache
+# composer vendor dir
+/vendor
 
-# local phpunit config
-/phpunit.xml
-
-# NPM packages
-/node_modules
-/.env
-
-# Codeception
+# Codeception C3
 c3.php
