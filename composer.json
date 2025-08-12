@@ -48,6 +48,7 @@
         "yiisoft/csrf": "^2.2.2",
         "yiisoft/data-response": "^2.1",
         "yiisoft/definitions": "^3.4",
+        "yiisoft/di": "^1.4",
         "yiisoft/error-handler": "^4.1",
         "yiisoft/html": "^3.11",
         "yiisoft/http": "^1.2",
