@@ -157,7 +157,7 @@ use Psr\Log\LogLevel;
     ],
     'file-rotator' => [
         // maximum file size, in kilobytes. Defaults to 10240, meaning 10MB.
-        'maxfilesize' => 10,
+        'maxfilesize' => 10240,
         // number of files used for rotation. Defaults to 5.
         'maxfiles' => 5,
         // the permission to be set for newly created files.
