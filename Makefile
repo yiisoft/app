@@ -35,7 +35,7 @@ clear: ## Remove development docker containers and volumes
 	$(DOCKER_COMPOSE_DEV) down --volumes --remove-orphans
 
 shell: ## Get into container shell
-	$(DOCKER_COMPOSE_DEV) exec app /bin/sh
+	$(DOCKER_COMPOSE_DEV) exec app /bin/bash
 
 yii: ## Execute Yii command
 	$(DOCKER_COMPOSE_DEV) run --rm app ./yii $(CLI_ARGS)
