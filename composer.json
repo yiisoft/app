@@ -46,7 +46,7 @@
         "yiisoft/assets": "^5.1",
         "yiisoft/config": "^1.6",
         "yiisoft/csrf": "^2.2.2",
-        "yiisoft/data-response": "^2.1",
+        "yiisoft/data-response": "^2.1.1",
         "yiisoft/definitions": "^3.4",
         "yiisoft/di": "^1.4",
         "yiisoft/error-handler": "^4.1",
