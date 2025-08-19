@@ -53,6 +53,7 @@ Fork the repository, clone it, then:
 
 ```shell
 cd myproject
+cp docker/.env.example docker/.env
 make composer update
 ```
 
