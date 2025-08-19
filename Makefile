@@ -44,17 +44,27 @@ yii: ## Execute Yii command
 composer: ## Run Composer
 	$(DOCKER_COMPOSE_DEV) run --rm app composer $(CLI_ARGS)
 
-codecept: ## Run Codeception
-	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept $(CLI_ARGS)
-
-psalm: ## Run Psalm
-	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/psalm $(CLI_ARGS)
-
 rector: ## Run Rector
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/rector $(CLI_ARGS)
 
 cs-fix: ## Run PHP CS Fixer
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff
+
+#
+# Tests and analysis
+#
+
+test:
+	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept run $(CLI_ARGS)
+
+test-coverage:
+	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept run --coverage --coverage-html --disable-coverage-php
+
+codecept: ## Run Codeception
+	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept $(CLI_ARGS)
+
+psalm: ## Run Psalm
+	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/psalm $(CLI_ARGS)
 
 composer-dependency-analyser: ## Run Composer Dependency Analyser
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/composer-dependency-analyser --config=composer-dependency-analyser.php $(CLI_ARGS)

@@ -1,24 +1,26 @@
 namespace: App\Tests
 support_namespace: Support
+bootstrap: bootstrap.php
+
+settings:
+  shuffle: true
+  colors: true
+
 paths:
   tests: tests
-  output: runtime/tests/_output
+  output: tests/_output
   data: tests/Support/Data
   support: tests/Support
-  envs: tests/_envs
-actor_suffix: Tester
+
+coverage:
+  enabled: true
+  show_uncovered: true
+  show_only_summary: true
+  include:
+    - src/*
+    - public/index.php
+    - yii
+
 extensions:
   enabled:
     - Codeception\Extension\RunFailed
-settings:
-  suite_class: \PHPUnit_Framework_TestSuite
-  memory_limit: 1024M
-  colors: true
-coverage:
-  enabled: true
-  whitelist:
-    include:
-      - src/*
-    exclude:
-      - src/Asset/*
-bootstrap: bootstrap.php

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Acceptance;
+namespace App\Tests\Web;
 
-use App\Tests\Support\AcceptanceTester;
+use App\Tests\Support\WebTester;
 
-final class HomeCest
+final class HomePageCest
 {
-    public function testIndexPage(AcceptanceTester $I): void
+    public function base(WebTester $I): void
     {
         $I->wantTo('home page works.');
         $I->amOnPage('/');
