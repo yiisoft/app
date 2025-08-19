@@ -6,9 +6,8 @@ namespace App\Tests\Support;
 
 /**
  * Inherited Methods
- *
- * @method void wantToTest($text)
  * @method void wantTo($text)
+ * @method void wantToTest($text)
  * @method void execute($callable)
  * @method void expectTo($prediction)
  * @method void expect($prediction)
@@ -20,9 +19,9 @@ namespace App\Tests\Support;
  *
  * @SuppressWarnings(PHPMD)
 */
-class AcceptanceTester extends \Codeception\Actor
+class WebTester extends \Codeception\Actor
 {
-    use _generated\AcceptanceTesterActions;
+    use _generated\WebTesterActions;
 
     /**
      * Define custom actions here
