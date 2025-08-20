@@ -7,13 +7,10 @@ services:
       args:
         USER_ID: ${UID}
         GROUP_ID: ${GID}
-    environment:
-      XDEBUG_MODE: "coverage"
-      APP_ENV: "test"
-      APP_DEBUG: "false"
-      APP_C3: "true"
-      SERVER_NAME: ":80"
-      COMPOSER_CACHE_DIR: /app/runtime/cache/composer
+    env_file:
+      - path: ./test/.env
+      - path: ./test/override.env
+        required: false
     volumes:
       - ../:/app
       - ../runtime:/app/runtime
