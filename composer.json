@@ -72,7 +72,7 @@
         "codeception/module-cli": "^2.0.1",
         "codeception/module-phpbrowser": "^3.0.1",
         "friendsofphp/php-cs-fixer": "^3.86.0",
-        "phpunit/phpunit": "^11.5.33",
+        "phpunit/phpunit": "^11.5.34",
         "rector/rector": "^2.1.4",
         "roave/infection-static-analysis-plugin": "^1.38",
         "roave/security-advisories": "dev-latest",
