@@ -7,10 +7,10 @@ services:
       - runtime:/app/runtime
       - caddy_data:/data
       - caddy_config:/config
-    environment:
-      SERVER_NAME: ":80"
-      APP_ENV: "${APP_ENV:-prod}"
-      APP_DEBUG: ${APP_DEBUG:-false}
+    env_file:
+      - path: ./prod/.env
+      - path: ./prod/override.env
+        required: false
     deploy:
       replicas: 2
       update_config:

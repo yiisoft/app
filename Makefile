@@ -15,8 +15,8 @@ else
 endif
 
 export COMPOSE_PROJECT_NAME=${STACK_NAME}
-DOCKER_COMPOSE_DEV := docker compose -f docker/compose.yml -f docker/compose.dev.yml
-DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/compose.test.yml
+DOCKER_COMPOSE_DEV := docker compose -f docker/compose.yml -f docker/dev/compose.yml
+DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/test/compose.yml
 
 #
 # Development
@@ -80,7 +80,7 @@ prod-push: ## PROD | Push image to repository
 	docker push ${IMAGE}:${IMAGE_TAG}
 
 prod-deploy: ## PROD | Deploy to production
-	docker -H ${PROD_SSH} stack deploy --with-registry-auth -d -c docker/compose.yml -c docker/compose.prod.yml ${STACK_NAME}
+	docker -H ${PROD_SSH} stack deploy --with-registry-auth -d -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME}
 
 #
 # Other
