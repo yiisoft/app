@@ -3,7 +3,7 @@
         <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px" alt="Yii">
     </a>
     <h1 align="center">Yii Application Template</h1>
-    <h3 align="center">Application template for Yii 3 is best for rapidly creating projects</h3>
+    <h3 align="center">Application template for Yii3 is best for rapidly creating projects</h3>
     <br>
 </p>
 
