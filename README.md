@@ -13,11 +13,9 @@
 [![static analysis](https://github.com/yiisoft/app/workflows/static%20analysis/badge.svg)](https://github.com/yiisoft/app/actions?query=workflow%3A%22static+analysis%22)
 [![type-coverage](https://shepherd.dev/github/yiisoft/app/coverage.svg)](https://shepherd.dev/github/yiisoft/app)
 
-<p align="center">
-    <a href="https://github.com/yiisoft/app" target="_blank">
-        <img src="docs/images/home.png" alt="Home page" >
-    </a>
-</p>
+<a href="https://github.com/yiisoft/app" target="_blank">
+    <img src="docs/images/home.png" alt="Home page">
+</a>
 
 The package is a classic web application template. If you need console only or API please start with corresponding
 templates:
