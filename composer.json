@@ -1,7 +1,7 @@
 {
     "name": "yiisoft/app",
     "type": "project",
-    "description": "Yii3 application template",
+    "description": "Yii3 web application template",
     "keywords": [
         "yii3",
         "app"

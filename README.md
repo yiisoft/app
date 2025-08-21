@@ -154,7 +154,7 @@ If you need help or have a question, check out [Yii Community Resources](https:/
 
 ## License
 
-The Yii application template is free software. It is released under the terms of the BSD License.
+The Yii Web Application template is free software. It is released under the terms of the BSD License.
 Please see [`LICENSE`](./LICENSE.md) for more information.
 
 Maintained by [Yii Software](https://www.yiiframework.com/).
