@@ -2,7 +2,9 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px" alt="Yii">
     </a>
-    <h1 align="center">Yii Web Application</h1>
+    <h1 align="center">Yii3 web application</h1>
+    <h3 align="center">An application template for a new web project</h3>
+    
     <br>
 </p>
 
