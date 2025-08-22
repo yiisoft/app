@@ -4,6 +4,7 @@
     </a>
     <h1 align="center">Yii3 web application</h1>
     <h3 align="center">An application template for a new web project</h3>
+    <br>
 </p>
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/app/v)](https://packagist.org/packages/yiisoft/app)
