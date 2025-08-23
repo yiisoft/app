@@ -16,7 +16,7 @@
 
 <p>
     <a href="https://github.com/yiisoft/app" target="_blank">
-        <img src="docs/images/home.png" alt="Home page">
+        <img src="screenshot.png" alt="Home page">
     </a>
 </p>
 
