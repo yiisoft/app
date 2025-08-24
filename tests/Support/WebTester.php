@@ -21,7 +21,7 @@ namespace App\Tests\Support;
 */
 class WebTester extends \Codeception\Actor
 {
-    use _generated\WebTesterActions;
+    use _generated\AcceptanceTesterActions;
 
     /**
      * Define custom actions here
