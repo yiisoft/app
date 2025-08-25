@@ -23,7 +23,7 @@ use function dirname;
  */
 class ConsoleTester extends \Codeception\Actor
 {
-    use _generated\CliTesterActions;
+    use _generated\ConsoleTesterActions;
 
     /**
      * Define custom actions here
