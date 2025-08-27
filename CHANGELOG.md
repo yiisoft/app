@@ -1,4 +1,4 @@
-# Yii 3 Application Template Change Log
+# Yii3 Web Application Template Change Log
 
 ## 1.0.1 under development
 
