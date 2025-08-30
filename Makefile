@@ -23,7 +23,9 @@ DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/test/compo
 #
 
 build: ## Build docker images
+ifeq ($(filter codecept yii,$(MAKECMDGOALS)),)
 	$(DOCKER_COMPOSE_DEV) build $(CLI_ARGS)
+endif
 
 up: ## Up the dev environment
 	$(DOCKER_COMPOSE_DEV) up -d --remove-orphans
@@ -89,3 +91,7 @@ prod-deploy: ## PROD | Deploy to production
 # Output the help for each task, see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## This help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+# Prevent make from trying to build arguments as targets.
+%:
+	@:
