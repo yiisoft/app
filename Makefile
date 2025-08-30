@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 CLI_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-$(eval $(filter-out build,$(CLI_ARGS)):;@:)
+$(eval $(CLI_ARGS):;@:)
 
 include docker/.env
 
@@ -23,12 +23,7 @@ DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/test/compo
 #
 
 build: ## Build docker images
-ifneq ($(filter codecept yii,$(MAKECMDGOALS)),)
-	@echo "Skipping build target when called with codecept or yii"
-else
 	$(DOCKER_COMPOSE_DEV) build $(CLI_ARGS)
-endif
-.PHONY: build
 
 up: ## Up the dev environment
 	$(DOCKER_COMPOSE_DEV) up -d --remove-orphans
@@ -67,7 +62,6 @@ test-coverage:
 
 codecept: ## Run Codeception
 	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept $(CLI_ARGS)
-.PHONY: codecept
 
 psalm: ## Run Psalm
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/psalm $(CLI_ARGS)
@@ -95,7 +89,3 @@ prod-deploy: ## PROD | Deploy to production
 # Output the help for each task, see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## This help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
-
-# Catch-all rule to prevent "No rule to make target" errors
-%:
-	@:
