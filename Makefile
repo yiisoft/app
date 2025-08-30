@@ -23,7 +23,9 @@ DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/test/compo
 #
 
 build: ## Build docker images
+ifeq ($(filter codecept yii,$(MAKECMDGOALS)),)
 	$(DOCKER_COMPOSE_DEV) build $(CLI_ARGS)
+endif
 
 up: ## Up the dev environment
 	$(DOCKER_COMPOSE_DEV) up -d --remove-orphans
