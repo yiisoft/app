@@ -2,7 +2,7 @@
 
 ## 1.0.1 under development
 
-- no changes in this release.
+- Bug #402: Always use only one goal in Makefile (@vjik)
 
 ## 1.0.0 August 25, 2025
 
