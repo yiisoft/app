@@ -2,7 +2,7 @@
 
 ## 1.0.1 under development
 
-- no changes in this release.
+- Bug #403: Add DI container delegates configuration (@vjik)
 
 ## 1.0.0 August 25, 2025
 
