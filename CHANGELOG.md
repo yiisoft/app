@@ -2,7 +2,7 @@
 
 ## 1.0.1 under development
 
-- no changes in this release.
+- Enh #399: Improve message for missing or invalid APP_ENV (@samdark)
 
 ## 1.0.0 August 25, 2025
 
