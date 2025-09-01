@@ -22,6 +22,9 @@ return [
             'web/di/*.php',
         ],
         'di-console' => '$di',
+        'di-delegates' => [],
+        'di-delegates-console' => '$di-delegates',
+        'di-delegates-web' => '$di-delegates',
         'di-providers' => [],
         'di-providers-web' => [
             '$di-providers',
