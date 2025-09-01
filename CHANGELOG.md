@@ -2,6 +2,7 @@
 
 ## 1.0.1 under development
 
+- Bug #402: Always use only one goal in Makefile (@vjik)
 - Bug #403: Add DI container delegates configuration (@vjik)
 - Enh #399: Improve message for missing or invalid APP_ENV (@samdark)
 
