@@ -15,6 +15,12 @@ final class Environment
     public const TEST = 'test';
     public const PROD = 'prod';
 
+    public const ENVIRONMENTS = [
+        self::DEV,
+        self::TEST,
+        self::PROD,
+    ];
+
     private static array $values = [];
 
     public static function prepare(): void
@@ -73,10 +79,17 @@ final class Environment
     private static function setEnvironment(): void
     {
         $environment = self::getRawValue('APP_ENV');
-        if (!in_array($environment, [self::DEV, self::TEST, self::PROD], true)) {
-            throw new RuntimeException(
-                sprintf('"%s" is invalid environment.', $environment ?? ''),
-            );
+
+        if (!in_array($environment, self::ENVIRONMENTS, true)) {
+            if ($environment === null) {
+                $message = 'APP_ENV environment variable is empty.';
+            } else {
+                $message = sprintf('APP_ENV="%s" environment is invalid.', $environment);
+            }
+
+            $message .= sprintf(' Valid values are "%s".', implode('", "', self::ENVIRONMENTS));
+
+            throw new RuntimeException($message);
         }
         self::$values['APP_ENV'] = $environment;
     }
