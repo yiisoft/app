@@ -55,6 +55,9 @@ Usually it is `http://localhost:8080`.
 
 ### Installation with Docker
 
+> [!WARNING]
+> Docker compose version 2.24 or above is required.
+
 Fork the repository, clone it, then:
 
 ```shell
