@@ -1,10 +1,11 @@
 {
-    "name": "yiisoft/app",
+    "name": "yiisoft/app/egm",
     "type": "project",
-    "description": "Yii3 web application template",
+    "description": "Yii3 web application egm",
     "keywords": [
         "yii3",
-        "app"
+        "app",
+        "egm"
     ],
     "license": "BSD-3-Clause",
     "support": {
@@ -22,7 +23,7 @@
         },
         {
             "type": "github",
-            "url": "https://github.com/sponsors/yiisoft"
+            "url": "https://github.com/sponsors/egmsystems"
         }
     ],
     "scripts": {
@@ -94,7 +95,10 @@
     "extra": {
         "config-plugin-file": "config/configuration.php"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
+        "vendor-dir": "../../../download/yii3",
         "sort-packages": true,
         "bump-after-update": true,
         "allow-plugins": {
