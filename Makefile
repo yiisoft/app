@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 CLI_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-$(eval $( sort$(subst :, ,$(CLI_ARGS))):;@:)
+$(eval $(sort $(subst :, ,$(CLI_ARGS))):;@:)
 
 PRIMARY_GOAL := $(firstword $(MAKECMDGOALS))
 
