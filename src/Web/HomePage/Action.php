@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\HomePage;
+namespace App\Web\HomePage;
 
 use Psr\Http\Message\ResponseInterface;
 use Yiisoft\Yii\View\Renderer\ViewRenderer;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\ApplicationParams;
+use App\Shared\ApplicationParams;
 
 /** @var array $params */
 

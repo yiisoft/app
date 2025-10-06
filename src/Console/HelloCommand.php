@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Command;
+namespace App\Console;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -14,12 +14,11 @@ use Yiisoft\Yii\Console\ExitCode;
     name: 'hello',
     description: 'An example command',
 )]
-final class Hello extends Command
+final class HelloCommand extends Command
 {
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Hello!');
-
         return ExitCode::OK;
     }
 }
