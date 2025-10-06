@@ -7,6 +7,9 @@
 - Bug #403: Add DI container delegates configuration (@vjik)
 - Enh #399: Improve message for missing or invalid APP_ENV (@samdark)
 - Enh #404: Remove `<meta http-equiv="X-UA-Compatible" content="IE=edge">` from layout (@proweb)
+- Enh #412: Update composer dependencies (@vjik)
+- Enh #412: Use relative path for Psalm cache directory (@vjik)
+- Chg #412: Update structure in `src/` directory (@vjik)
 
 ## 1.0.0 August 25, 2025
 
