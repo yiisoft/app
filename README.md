@@ -90,33 +90,32 @@ make help
 The application template has the following structure:
 
 ```
-assets/                     Asset bundle source files.
-config/                     Configuration files.
-    common/                 Common configuration and DI definitions.
-    console/                Console-specific configuration.
-    environments/           Environment-specific configuration (dev/test/prod).
-    web/                    Web-specific configuration.
-docker/                     Docker-specific files.
-docs/                       Documentation.
-public/                     Files publically accessible from the Internet.
-    assets/                 Published/compiled assets.
-    index.php               Entry script.
-runtime/                    Files generated during runtime.
-src/                        Application source code.
-    Command/                Console commands.
-    Controller/             Web controller classes with templates.
-    Handler/                Request handlers (e.g., NotFound).
-    Layout/                 Layout components and templates.
-    ApplicationParams.php   Application parameters class.
-    Environment.php         Environment configuration class.
-tests/                      A set of Codeception tests for the application.
-    Console/                Console command tests.
-    Functional/             Functional tests.
-    Unit/                   Unit tests.
-    Web/                    Web interface tests.
-vendor/                     Installed Composer packages.
-Makefile                    Config for make command.
-yii                         Console application entry point.
+assets/                 Asset bundle source files.
+config/                 Configuration files.
+    common/             Common configuration and DI definitions.
+    console/            Console-specific configuration.
+    environments/       Environment-specific configuration (dev/test/prod).
+    web/                Web-specific configuration.
+docker/                 Docker-specific files.
+public/                 Files publically accessible from the Internet.
+    assets/             Published/compiled assets.
+    index.php           Entry script.
+runtime/                Files generated during runtime.
+src/                    Application source code.
+    Console/            Console commands.
+    Shared/             Code shared between web and console applications.
+    Web/                Web-specific code (actions, handlers, layout).
+        Shared/         Shared web components.
+            Layout/     Layout components and templates.
+    Environment.php     Environment configuration class.
+tests/                  A set of Codeception tests for the application.
+    Console/            Console command tests.
+    Functional/         Functional tests.
+    Unit/               Unit tests.
+    Web/                Web actions tests.
+vendor/                 Installed Composer packages.
+Makefile                Config for make command.
+yii                     Console application entry point.
 ```
 
 ## Testing

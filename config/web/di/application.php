@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Handler\NotFound\NotFoundHandler;
+use App\Web\NotFound\NotFoundHandler;
 use Yiisoft\Csrf\CsrfTokenMiddleware;
 use Yiisoft\DataResponse\Middleware\FormatDataResponse;
 use Yiisoft\Definitions\DynamicReference;
