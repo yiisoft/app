@@ -41,6 +41,11 @@ down: ## Down the dev environment
 	$(DOCKER_COMPOSE_DEV) down --remove-orphans
 endif
 
+ifeq ($(PRIMARY_GOAL),stop)
+stop: ## Stop the dev environment
+	$(DOCKER_COMPOSE_DEV) down --remove-orphans
+endif
+
 ifeq ($(PRIMARY_GOAL),clear)
 clear: ## Remove development docker containers and volumes
 	$(DOCKER_COMPOSE_DEV) down --volumes --remove-orphans
