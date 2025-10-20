@@ -10,6 +10,7 @@
 - Enh #412: Update composer dependencies (@vjik)
 - Enh #412: Use relative path for Psalm cache directory (@vjik)
 - Chg #412: Update structure in `src/` directory (@vjik)
+- New #413, #414: Add Makefile `stop` goal for stopping Docker containers (@samdark, @vjik)
 
 ## 1.0.0 August 25, 2025
 

@@ -43,7 +43,7 @@ endif
 
 ifeq ($(PRIMARY_GOAL),stop)
 stop: ## Stop the dev environment
-	$(DOCKER_COMPOSE_DEV) down --remove-orphans
+	$(DOCKER_COMPOSE_DEV) stop
 endif
 
 ifeq ($(PRIMARY_GOAL),clear)
