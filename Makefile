@@ -122,7 +122,7 @@ endif
 
 ifeq ($(PRIMARY_GOAL),prod-deploy)
 prod-deploy: ## PROD | Deploy to production
-	docker -H ${PROD_SSH} stack deploy --with-registry-auth -d -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME}
+	docker -H ${PROD_SSH} stack deploy --prune --detach=false --with-registry-auth -d -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME}
 endif
 
 #
