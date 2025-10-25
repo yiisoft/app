@@ -2,6 +2,7 @@
 
 ## 1.0.1 under development
 
+- Enh #415: Prune unused container and do not detach on `make prod-deploy` (@samdark)
 - Bug #402, #411: Always use only one goal in Makefile (@vjik)
 - Bug #409, #410: Fix fake goals in Makefile (@vjik)
 - Bug #403: Add DI container delegates configuration (@vjik)
