@@ -80,13 +80,13 @@ final class Environment
     {
         $environment = self::getRawValue('APP_ENV');
 
-        if (!in_array($environment, self::ENVIRONMENTS, true)) {
-            if ($environment === null) {
-                $message = 'APP_ENV environment variable is empty.';
-            } else {
-                $message = sprintf('APP_ENV="%s" environment is invalid.', $environment);
-            }
+        // Default to prod when APP_ENV is not set (production deployment scenario)
+        if ($environment === null) {
+            $environment = self::PROD;
+        }
 
+        if (!in_array($environment, self::ENVIRONMENTS, true)) {
+            $message = sprintf('APP_ENV="%s" environment is invalid.', $environment);
             $message .= sprintf(' Valid values are "%s".', implode('", "', self::ENVIRONMENTS));
 
             throw new RuntimeException($message);

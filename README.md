@@ -44,7 +44,26 @@ composer create-project yiisoft/app myproject
 cd myproject
 ```
 
+Configure the environment by creating a `.env` file from the example:
+
+```shell
+cp .env.example .env
+```
+
+The `.env` file allows you to configure the application environment and other settings:
+- `APP_ENV`: Application environment (`dev`, `test`, or `prod`)
+- `APP_DEBUG`: Enable debug mode (`true` or `false`)
+
+> **Note:** The `.env` file is excluded from version control. When deployed to production without a `.env` file,
+> the application will default to the `prod` environment.
+
 To run the app:
+
+```shell
+./yii serve
+```
+
+Or with explicit environment override:
 
 ```shell
 APP_ENV=dev ./yii serve
@@ -90,6 +109,7 @@ make help
 The application template has the following structure:
 
 ```
+.env.example            Example environment configuration (copy to .env).
 assets/                 Asset bundle source files.
 config/                 Configuration files.
     common/             Common configuration and DI definitions.
@@ -107,6 +127,7 @@ src/                    Application source code.
     Web/                Web-specific code (actions, handlers, layout).
         Shared/         Shared web components.
             Layout/     Layout components and templates.
+    DotEnvLoader.php    Simple .env file loader for non-Docker environments.
     Environment.php     Environment configuration class.
 tests/                  A set of Codeception tests for the application.
     Console/            Console command tests.

@@ -24,3 +24,6 @@ Thumbs.db
 
 # Codeception C3
 c3.php
+
+# Environment configuration
+/.env
