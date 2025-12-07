@@ -8,7 +8,6 @@ use App\DotEnvLoader;
 use Codeception\Test\Unit;
 
 use function PHPUnit\Framework\assertSame;
-use function PHPUnit\Framework\assertFalse;
 
 final class DotEnvLoaderTest extends Unit
 {
@@ -28,10 +27,10 @@ final class DotEnvLoaderTest extends Unit
 
     public function testLoadEnvFileWithBasicVariables(): void
     {
-        $content = <<<'ENV'
-APP_ENV=dev
-APP_DEBUG=true
-ENV;
+        $content = <<<'ENV_WRAP'
+        APP_ENV=dev
+        APP_DEBUG=true
+        ENV_WRAP;
         file_put_contents($this->testEnvFile, $content);
 
         DotEnvLoader::load($this->testEnvFile);
@@ -56,12 +55,12 @@ ENV;
 
     public function testLoadEnvFileSkipsComments(): void
     {
-        $content = <<<'ENV'
-# This is a comment
-APP_ENV=dev
-# Another comment
-APP_DEBUG=true
-ENV;
+        $content = <<<'ENV_WRAP'
+        # This is a comment
+        APP_ENV=dev
+        # Another comment
+        APP_DEBUG=true
+        ENV_WRAP;
         file_put_contents($this->testEnvFile, $content);
 
         DotEnvLoader::load($this->testEnvFile);
@@ -74,7 +73,7 @@ ENV;
     {
         // Should not throw an exception
         DotEnvLoader::load('/non/existent/file.env');
-        
+
         // Test passes if no exception is thrown
         assertSame(1, 1);
     }
