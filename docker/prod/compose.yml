@@ -8,8 +8,8 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     env_file:
-      - path: ./prod/.env
-      - path: ./prod/override.env
+      - path: ../.env.prod.example
+      - path: ../.env.prod
         required: false
     deploy:
       replicas: 2

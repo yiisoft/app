@@ -8,8 +8,8 @@ services:
         USER_ID: ${UID}
         GROUP_ID: ${GID}
     env_file:
-      - path: ./test/.env
-      - path: ./test/override.env
+      - path: ../.env.test.example
+      - path: ../.env.test
         required: false
     volumes:
       - ../:/app

@@ -27,3 +27,7 @@ c3.php
 
 # Environment configuration
 /.env
+/.env.dev
+/.env.prod
+/.env.test
+/.env.override

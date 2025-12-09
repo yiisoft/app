@@ -84,6 +84,13 @@ cd myproject
 make composer update
 ```
 
+Docker uses environment-specific configuration files from the root directory:
+- `.env.dev.example` - Development environment (used by default)
+- `.env.prod.example` - Production environment
+- `.env.test.example` - Test environment
+
+You can customize settings by creating override files (e.g., `.env.dev`) which are automatically loaded if present.
+
 To run the app:
 
 ```shell
@@ -109,7 +116,11 @@ make help
 The application template has the following structure:
 
 ```
-.env.example            Example environment configuration (copy to .env) for non-Docker deploy
+.env.example            Example environment configuration for local development
+.env.dev.example        Docker development environment configuration
+.env.prod.example       Docker production environment configuration
+.env.test.example       Docker test environment configuration
+.env.override.example   Example override file for custom local settings
 assets/                 Asset bundle source files.
 config/                 Configuration files.
     common/             Common configuration and DI definitions.
