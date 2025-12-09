@@ -1,19 +1,19 @@
 services:
   app:
     build:
-      dockerfile: docker/Dockerfile
-      context: ..
+      dockerfile: Dockerfile
+      context: .
       target: dev
       args:
         USER_ID: ${UID}
         GROUP_ID: ${GID}
     env_file:
-      - path: ../.env.test.example
-      - path: ../.env.test
+      - path: .env.test.example
+      - path: .env.test
         required: false
     volumes:
-      - ../:/app
-      - ../runtime:/app/runtime
+      - ./:/app
+      - ./runtime:/app/runtime
       - caddy_data:/data
       - caddy_config:/config
     tty: true

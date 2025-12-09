@@ -116,18 +116,24 @@ make help
 The application template has the following structure:
 
 ```
+.dockerignore           Docker ignore file
 .env.example            Example environment configuration for local development
 .env.dev.example        Docker development environment configuration
 .env.prod.example       Docker production environment configuration
 .env.test.example       Docker test environment configuration
 .env.override.example   Example override file for custom local settings
+Dockerfile              Docker image definition
+compose.yml             Base Docker Compose configuration
+compose.dev.yml         Docker Compose configuration for development
+compose.prod.yml        Docker Compose configuration for production
+compose.test.yml        Docker Compose configuration for testing
 assets/                 Asset bundle source files.
 config/                 Configuration files.
     common/             Common configuration and DI definitions.
     console/            Console-specific configuration.
     environments/       Environment-specific configuration (dev/test/prod).
     web/                Web-specific configuration.
-docker/                 Docker-specific files.
+docker/                 Docker-specific environment variables.
 public/                 Files publically accessible from the Internet.
     assets/             Published/compiled assets.
     index.php           Entry script.

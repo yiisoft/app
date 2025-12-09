@@ -19,8 +19,8 @@ else
 endif
 
 export COMPOSE_PROJECT_NAME=${STACK_NAME}
-DOCKER_COMPOSE_DEV := docker compose -f docker/compose.yml -f docker/dev/compose.yml
-DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/test/compose.yml
+DOCKER_COMPOSE_DEV := docker compose -f compose.yml -f compose.dev.yml
+DOCKER_COMPOSE_TEST := docker compose -f compose.yml -f compose.test.yml
 
 #
 # Development
@@ -112,7 +112,7 @@ endif
 
 ifeq ($(PRIMARY_GOAL),prod-build)
 prod-build: ## PROD | Build an image
-	docker build --file docker/Dockerfile --target prod --pull -t ${IMAGE}:${IMAGE_TAG} .
+	docker build --file Dockerfile --target prod --pull -t ${IMAGE}:${IMAGE_TAG} .
 endif
 
 ifeq ($(PRIMARY_GOAL),prod-push)
@@ -122,7 +122,7 @@ endif
 
 ifeq ($(PRIMARY_GOAL),prod-deploy)
 prod-deploy: ## PROD | Deploy to production
-	docker -H ${PROD_SSH} stack deploy --prune --detach=false --with-registry-auth -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME}
+	docker -H ${PROD_SSH} stack deploy --prune --detach=false --with-registry-auth -c compose.yml -c compose.prod.yml ${STACK_NAME}
 endif
 
 #
