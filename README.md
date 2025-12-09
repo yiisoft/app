@@ -109,7 +109,7 @@ make help
 The application template has the following structure:
 
 ```
-.env.example            Example environment configuration (copy to .env).
+.env.example            Example environment configuration (copy to .env) for non-Docker deploy
 assets/                 Asset bundle source files.
 config/                 Configuration files.
     common/             Common configuration and DI definitions.
