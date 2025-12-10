@@ -81,10 +81,12 @@ Fork the repository, clone it, then:
 
 ```shell
 cd myproject
+cp .env.docker.example .env.docker
 make composer update
 ```
 
 Docker uses environment-specific configuration files from the root directory:
+- `.env.docker` - Docker-specific variables (stack name, ports, image names, etc.)
 - `.env.dev.example` - Development environment (used by default)
 - `.env.prod.example` - Production environment
 - `.env.test.example` - Test environment
@@ -118,6 +120,7 @@ The application template has the following structure:
 ```
 .dockerignore           Docker ignore file
 .env.example            Example environment configuration for local development
+.env.docker.example     Docker-specific variables (stack name, ports, image names, etc.)
 .env.dev.example        Docker development environment configuration
 .env.prod.example       Docker production environment configuration
 .env.test.example       Docker test environment configuration
@@ -133,7 +136,6 @@ config/                 Configuration files.
     console/            Console-specific configuration.
     environments/       Environment-specific configuration (dev/test/prod).
     web/                Web-specific configuration.
-docker/                 Docker-specific environment variables.
 public/                 Files publically accessible from the Internet.
     assets/             Published/compiled assets.
     index.php           Entry script.

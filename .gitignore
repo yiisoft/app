@@ -31,3 +31,4 @@ c3.php
 /.env.prod
 /.env.test
 /.env.override
+/.env.docker

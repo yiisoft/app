@@ -7,7 +7,7 @@ else
 PRIMARY_GOAL := $(firstword $(MAKECMDGOALS))
 endif
 
-include docker/.env
+-include .env.docker
 
 # Current user ID and group ID except MacOS where it conflicts with Docker abilities
 ifeq ($(shell uname), Darwin)
