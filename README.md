@@ -146,7 +146,6 @@ src/                    Application source code.
     Web/                Web-specific code (actions, handlers, layout).
         Shared/         Shared web components.
             Layout/     Layout components and templates.
-    DotEnvLoader.php    Simple .env file loader for non-Docker environments.
     Environment.php     Environment configuration class.
 tests/                  A set of Codeception tests for the application.
     Console/            Console command tests.
