@@ -44,7 +44,26 @@ composer create-project yiisoft/app myproject
 cd myproject
 ```
 
+Configure the environment by creating a `.env` file from the example:
+
+```shell
+cp .env.example .env
+```
+
+The `.env` file allows you to configure the application environment and other settings:
+- `APP_ENV`: Application environment (`dev`, `test`, or `prod`)
+- `APP_DEBUG`: Enable debug mode (`true` or `false`)
+
+> **Note:** The `.env` file is excluded from version control. When deployed to production without a `.env` file,
+> the application will default to the `prod` environment.
+
 To run the app:
+
+```shell
+./yii serve
+```
+
+Or with explicit environment override:
 
 ```shell
 APP_ENV=dev ./yii serve
@@ -62,8 +81,17 @@ Fork the repository, clone it, then:
 
 ```shell
 cd myproject
+cp .env.docker.example .env.docker
 make composer update
 ```
+
+Docker uses environment-specific configuration files from the root directory:
+- `.env.docker` - Docker-specific variables (stack name, ports, image names, etc.)
+- `.env.dev.example` - Development environment (used by default)
+- `.env.prod.example` - Production environment
+- `.env.test.example` - Test environment
+
+You can customize settings by creating override files (e.g., `.env.dev`) which are automatically loaded if present.
 
 To run the app:
 
@@ -90,13 +118,24 @@ make help
 The application template has the following structure:
 
 ```
+.dockerignore           Docker ignore file
+.env.example            Example environment configuration for local development
+.env.docker.example     Docker-specific variables (stack name, ports, image names, etc.)
+.env.dev.example        Docker development environment configuration
+.env.prod.example       Docker production environment configuration
+.env.test.example       Docker test environment configuration
+.env.override.example   Example override file for custom local settings
+Dockerfile              Docker image definition
+compose.yml             Base Docker Compose configuration
+compose.dev.yml         Docker Compose configuration for development
+compose.prod.yml        Docker Compose configuration for production
+compose.test.yml        Docker Compose configuration for testing
 assets/                 Asset bundle source files.
 config/                 Configuration files.
     common/             Common configuration and DI definitions.
     console/            Console-specific configuration.
     environments/       Environment-specific configuration (dev/test/prod).
     web/                Web-specific configuration.
-docker/                 Docker-specific files.
 public/                 Files publically accessible from the Internet.
     assets/             Published/compiled assets.
     index.php           Entry script.

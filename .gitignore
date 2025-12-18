@@ -24,3 +24,11 @@ Thumbs.db
 
 # Codeception C3
 c3.php
+
+# Environment configuration
+/.env
+/.env.dev
+/.env.prod
+/.env.test
+/.env.override
+/.env.docker
