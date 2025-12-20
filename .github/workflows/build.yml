@@ -54,7 +54,7 @@ jobs:
         with:
           coverage: false
           extensions: fileinfo, intl
-          ini-values: date.timezone='UTC'
+          ini-values: date.timezone='UTC', register_argc_argv=On
           php-version: ${{ matrix.php }}
 
       - name: Install Composer dependencies
