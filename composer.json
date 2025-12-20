@@ -33,7 +33,7 @@
         "test": "codecept run"
     },
     "require": {
-        "php": "^8.2",
+        "php": "8.2 - 8.5",
         "ext-filter": "*",
         "httpsoft/http-message": "^1.1.6",
         "psr/container": "^2.0.2",
