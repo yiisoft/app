@@ -1,5 +1,9 @@
 # Yii3 Web Application Template Change Log
 
+## 1.1.1 under development
+
+- no changes in this release.
+
 ## 1.1.0 December 20, 2025
 
 - New #413, #414: Add Makefile `stop` goal for stopping Docker containers (@samdark, @vjik)
