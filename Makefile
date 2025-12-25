@@ -122,7 +122,18 @@ endif
 
 ifeq ($(PRIMARY_GOAL),prod-deploy)
 prod-deploy: ## PROD | Deploy to production
-	docker -H ${PROD_SSH} stack deploy --prune --detach=false --with-registry-auth -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME}
+	set -euo pipefail
+	docker -H ${PROD_SSH} stack deploy --prune --detach=false --with-registry-auth -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME} 2>&1 | tee deploy.log
+	if grep -qiE 'rollback:|update rolled back' deploy.log; then
+		FAILED_TASK_ID="$(grep -oiE 'task[[:space:]]+[a-z0-9]+' deploy.log | head -n 1 | awk '{print $2}')"
+		if [ -n "${FAILED_TASK_ID}" ]; then
+			echo "Docker Swarm update rolled back; failing job. Failed task ID: ${FAILED_TASK_ID}"
+			echo "--- docker service logs (${FAILED_TASK_ID}) ---"
+			docker -H ${PROD_SSH} service logs --timestamps --tail 500 "${FAILED_TASK_ID}" || true
+		else
+			echo 'Docker Swarm update rolled back; failing job. Failed task ID: not found in deploy output.'
+		fi
+	fi
 endif
 
 #
