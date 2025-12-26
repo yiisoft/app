@@ -2,7 +2,7 @@
 
 ## 1.1.1 under development
 
-- no changes in this release.
+- New #421: Improve `prod-deploy` error handling so exact error is printed in case of rollback (@samdark)
 
 ## 1.1.0 December 20, 2025
 
