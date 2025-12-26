@@ -19,7 +19,7 @@ $this->setTitle($applicationParams->name);
     <p>Let's start something great with <strong>Yii3</strong>!</p>
 
     <p>
-        <a href="https://yiisoft.github.io/" target="_blank" rel="noopener">
+        <a href="https://yiisoft.github.io/docs" target="_blank" rel="noopener">
             <i>Don't forget to check the guide.</i>
         </a>
     </p>
