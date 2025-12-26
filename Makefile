@@ -133,6 +133,7 @@ prod-deploy: ## PROD | Deploy to production
 		else
 			echo 'Docker Swarm update rolled back; failing job. Failed task ID: not found in deploy output.'
 		fi
+		exit 1
 	fi
 endif
 
