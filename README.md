@@ -9,7 +9,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/app/v)](https://packagist.org/packages/yiisoft/app)
 [![Total Downloads](https://poser.pugx.org/yiisoft/app/downloads)](https://packagist.org/packages/yiisoft/app)
-[![Build status](https://github.com/yiisoft/app/actions/workflows/build.yml/badge.svg)](https://github.com/yiisoft/app/actions/workflows/build.yml)
+[![Build status](https://github.com/yiisoft/app/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/yiisoft/app/actions/workflows/build.yml?query=branch%3Amaster)
 [![Code Coverage](https://codecov.io/gh/yiisoft/app/branch/master/graph/badge.svg?token=TDZ2bErTcN)](https://codecov.io/gh/yiisoft/app)
 [![Static analysis](https://github.com/yiisoft/app/actions/workflows/static.yml/badge.svg?branch=master)](https://github.com/yiisoft/app/actions/workflows/static.yml?query=branch%3Amaster)
 [![type-coverage](https://shepherd.dev/github/yiisoft/app/coverage.svg)](https://shepherd.dev/github/yiisoft/app)
