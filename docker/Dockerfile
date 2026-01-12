@@ -36,12 +36,14 @@ COPY --from=composer /composer /usr/bin/composer
 
 # Based on https://frankenphp.dev/docs/docker/#running-as-a-non-root-user
 RUN \
-	groupadd --gid ${GROUP_ID} ${GROUP_NAME}; \
-    useradd --gid ${GROUP_ID} --uid ${USER_ID} ${GROUP_NAME}; \
+	# Create group if it doesn't exist \
+	getent group ${GROUP_ID} || groupadd --gid ${GROUP_ID} ${GROUP_NAME}; \
+	# Create user \
+    useradd --gid ${GROUP_ID} --uid ${USER_ID} ${USER_NAME}; \
 	# Add additional capability to bind to port 80 and 443 \
 	setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/frankenphp; \
 	# Give write access to /data/caddy and /config/caddy \
-	chown -R ${USER_NAME}:${GROUP_NAME} /data/caddy && chown -R ${USER_NAME}:${GROUP_NAME} /config/caddy
+	chown -R ${USER_NAME}:${GROUP_ID} /data/caddy && chown -R ${USER_NAME}:${GROUP_ID} /config/caddy
 USER ${USER_NAME}
 
 #
