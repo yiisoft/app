@@ -44,6 +44,9 @@ composer create-project yiisoft/app myproject
 cd myproject
 ```
 
+> [!NOTE]
+> Ensure that Composer is executed with the same PHP version that will be used to run the application.
+
 To run the app:
 
 ```shell
