@@ -3,6 +3,7 @@
 ## 1.1.1 under development
 
 - Enh #424: Refactor `Makefile` default command help logic (@samdark)
+- Enh #435: Set locale `C.UTF-8` in `Dockerfile` (@vjik)
 
 ## 1.1.0 December 20, 2025
 
