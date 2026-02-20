@@ -1,15 +1,17 @@
 name: Code Style
 
 on:
-  pull_request:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.md'
-      - 'CHANGELOG.md'
-      - '.gitignore'
-      - '.gitattributes'
-      - 'infection.json.dist'
-      - 'psalm.xml'
+  pull_request_target:
+    paths:
+      - '.github/workflows/cs.yml'
+      - 'config/**'
+      - 'public/index.php'
+      - 'src/**'
+      - 'tests/**'
+      - '.php-cs-fixer.dist.php'
+      - 'composer.json'
+      - 'rector.php'
+      - 'yii'
 
 jobs:
   cs-fix:

@@ -19,6 +19,8 @@ RUN install-php-extensions \
     simplexml \
     pdo
 
+ENV LC_ALL=C.UTF-8
+
 #
 # Development
 #

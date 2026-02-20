@@ -1,10 +1,9 @@
 CLI_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 $(eval $(sort $(subst :,\:,$(CLI_ARGS))):;@:)
 
-ifeq ($(MAKECMDGOALS),)
-PRIMARY_GOAL := help
-else
 PRIMARY_GOAL := $(firstword $(MAKECMDGOALS))
+ifeq ($(PRIMARY_GOAL),)
+    PRIMARY_GOAL := help
 endif
 
 include docker/.env
