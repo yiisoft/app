@@ -6,7 +6,6 @@ on:
       - 'CHANGELOG.md'
       - '.gitignore'
       - '.gitattributes'
-      - 'infection.json.dist'
       - 'phpunit.xml.dist'
 
   push:
@@ -17,7 +16,6 @@ on:
       - 'CHANGELOG.md'
       - '.gitignore'
       - '.gitattributes'
-      - 'infection.json.dist'
       - 'phpunit.xml.dist'
 
 name: static analysis
