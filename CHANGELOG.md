@@ -1,5 +1,9 @@
 # Yii3 Web Application Template Change Log
 
+## 1.2.1 under development
+
+- no changes in this release.
+
 ## 1.2.0 February 20, 2026
 
 - New #421: Improve `prod-deploy` error handling so exact error is printed in case of rollback (@samdark)
