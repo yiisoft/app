@@ -1,12 +1,12 @@
 # Yii3 Web Application Template Change Log
 
-## 1.1.1 under development
+## 1.2.0 February 20, 2026
 
-- Chg #442: Remove `roave/security-advisories` since Composer handles security advisories natively (@samdark)
 - New #421: Improve `prod-deploy` error handling so exact error is printed in case of rollback (@samdark)
+- Chg #437: Remove mutation testing (@samdark)
+- Chg #442: Remove `roave/security-advisories` since Composer handles security advisories natively (@samdark)
 - Enh #424: Refactor `Makefile` default command help logic (@samdark)
 - Enh #435: Set locale `C.UTF-8` in `Dockerfile` (@vjik)
-- Chg #437: Remove mutation testing (@samdark)
 
 ## 1.1.0 December 20, 2025
 
