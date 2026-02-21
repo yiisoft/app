@@ -11,11 +11,11 @@ use function sprintf;
 
 final class Environment
 {
-    public const DEV = 'dev';
-    public const TEST = 'test';
-    public const PROD = 'prod';
+    public const string DEV = 'dev';
+    public const string TEST = 'test';
+    public const string PROD = 'prod';
 
-    public const ENVIRONMENTS = [
+    public const array ENVIRONMENTS = [
         self::DEV,
         self::TEST,
         self::PROD,
