@@ -8,10 +8,25 @@ endif
 
 include docker/.env
 
-# Current user ID and group ID except MacOS where it conflicts with Docker abilities
-ifeq ($(shell uname), Darwin)
+# Current user ID and group ID with platform-specific handling
+# Detect OS
+UNAME_S := $(shell uname -s 2>/dev/null || echo Unknown)
+
+# MacOS: Use fixed UIDs to avoid conflicts with existing groups
+ifeq ($(UNAME_S),Darwin)
     export UID=1000
     export GID=1000
+# Windows (Git Bash/MSYS/MinGW): Use fixed UIDs
+else ifneq (,$(findstring MINGW,$(UNAME_S)))
+    export UID=1000
+    export GID=1000
+else ifneq (,$(findstring MSYS,$(UNAME_S)))
+    export UID=1000
+    export GID=1000
+else ifneq (,$(findstring CYGWIN,$(UNAME_S)))
+    export UID=1000
+    export GID=1000
+# Linux (including WSL): Use current user's IDs
 else
     export UID=$(shell id -u)
     export GID=$(shell id -g)
