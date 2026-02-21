@@ -28,7 +28,7 @@ templates:
 
 ## Requirements
 
-- PHP 8.2 - 8.5.
+- PHP 8.5.
 
 ## Installation
 
