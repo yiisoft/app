@@ -54,7 +54,6 @@
         "yiisoft/http": "^1.3",
         "yiisoft/input-http": "^1.0.1",
         "yiisoft/log": "^2.2.0",
-        "yiisoft/log-target-file": "^3.1",
         "yiisoft/middleware-dispatcher": "^5.4",
         "yiisoft/request-provider": "^1.2",
         "yiisoft/router": "^4.0.2",
