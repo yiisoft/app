@@ -2,7 +2,7 @@
 
 ## 1.2.1 under development
 
-- no changes in this release.
+- Chg #447: Allow symfony/console 8 (@samdark)
 
 ## 1.2.0 February 20, 2026
 
