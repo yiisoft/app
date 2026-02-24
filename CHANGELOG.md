@@ -3,6 +3,8 @@
 ## 1.2.1 under development
 
 - Chg #447: Allow symfony/console 8 (@samdark)
+- Enh #449: Update `yiisoft/yii-view-renderer` and refactor to replace use of deprecated classes (@vjik)
+- Chg #449: Remove `yiisoft/data-response` dependency (@vjik)
 
 ## 1.2.0 February 20, 2026
 
