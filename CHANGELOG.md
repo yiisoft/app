@@ -2,7 +2,10 @@
 
 ## 1.2.1 under development
 
-- no changes in this release.
+- Chg #447: Allow symfony/console 8 (@samdark)
+- Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
+- Enh #449: Update composer dependencies and refactor to replace use of deprecated classes (@vjik)
+- Chg #449: Remove `yiisoft/data-response` dependency (@vjik)
 
 ## 1.2.0 February 20, 2026
 
