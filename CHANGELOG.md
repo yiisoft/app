@@ -3,6 +3,7 @@
 ## 1.2.1 under development
 
 - Chg #447: Allow symfony/console 8 (@samdark)
+- Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
 
 ## 1.2.0 February 20, 2026
 
