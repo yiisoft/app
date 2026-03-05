@@ -6,6 +6,7 @@
 - Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
 - Enh #449: Update composer dependencies and refactor to replace use of deprecated classes (@vjik)
 - Chg #449: Remove `yiisoft/data-response` dependency (@vjik)
+- Chg #443: Do not write logs to file since that's not needed for both Docker and `./yii serve` (@samdark)
 
 ## 1.2.0 February 20, 2026
 
