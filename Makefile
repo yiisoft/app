@@ -148,7 +148,7 @@ ifeq ($(PRIMARY_GOAL),help)
 # Output the help for each task
 help: ## This help.
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} \
-	/^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-25s\033[0m %s\n", $$1, $$2 } \
+	/^[a-zA-Z_-]+:.*##/ { printf "  \033[36m%-25s\033[0m %s\n", $$1, $$2 } \
 	/^#$$/ { expect_title = 1; next } \
 	expect_title && /^# [a-zA-Z]/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 3); expect_title = 0 } \
 	!/^# [a-zA-Z]/ { expect_title = 0 }' $(MAKEFILE_LIST)
