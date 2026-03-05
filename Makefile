@@ -145,7 +145,6 @@ endif
 #
 
 ifeq ($(PRIMARY_GOAL),help)
-# Output the help for each task
 help: ## This help.
 	@awk 'BEGIN { printf "\nUsage:\n  make \033[36m<target>\033[0m\n" } \
 	/^#$$/ { blank = 1; next } \
