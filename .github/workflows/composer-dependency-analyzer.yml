@@ -6,7 +6,6 @@ on:
       - 'CHANGELOG.md'
       - '.gitignore'
       - '.gitattributes'
-      - 'infection.json.dist'
       - 'phpunit.xml.dist'
       - 'psalm.xml'
 
@@ -18,7 +17,6 @@ on:
       - 'CHANGELOG.md'
       - '.gitignore'
       - '.gitattributes'
-      - 'infection.json.dist'
       - 'phpunit.xml.dist'
       - 'psalm.xml'
 

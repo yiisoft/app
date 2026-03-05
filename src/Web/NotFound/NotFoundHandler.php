@@ -10,14 +10,14 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Yiisoft\Http\Status;
 use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Yii\View\Renderer\ViewRenderer;
+use Yiisoft\Yii\View\Renderer\WebViewRenderer;
 
 final readonly class NotFoundHandler implements RequestHandlerInterface
 {
     public function __construct(
         private UrlGeneratorInterface $urlGenerator,
         private CurrentRoute $currentRoute,
-        private ViewRenderer $viewRenderer,
+        private WebViewRenderer $viewRenderer,
     ) {}
 
     public function handle(ServerRequestInterface $request): ResponseInterface

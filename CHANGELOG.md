@@ -1,8 +1,19 @@
 # Yii3 Web Application Template Change Log
 
-## 1.1.1 under development
+## 1.2.1 under development
 
+- Chg #447: Allow symfony/console 8 (@samdark)
+- Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
+- Enh #449: Update composer dependencies and refactor to replace use of deprecated classes (@vjik)
+- Chg #449: Remove `yiisoft/data-response` dependency (@vjik)
+
+## 1.2.0 February 20, 2026
+
+- New #421: Improve `prod-deploy` error handling so exact error is printed in case of rollback (@samdark)
+- Chg #437: Remove mutation testing (@samdark)
+- Chg #442: Remove `roave/security-advisories` since Composer handles security advisories natively (@samdark)
 - Enh #424: Refactor `Makefile` default command help logic (@samdark)
+- Enh #435: Set locale `C.UTF-8` in `Dockerfile` (@vjik)
 
 ## 1.1.0 December 20, 2025
 

@@ -41,53 +41,57 @@ DOCKER_COMPOSE_TEST := docker compose -f docker/compose.yml -f docker/test/compo
 #
 
 ifeq ($(PRIMARY_GOAL),build)
-build: ## Build docker images
+build: ## Build docker images.
 	$(DOCKER_COMPOSE_DEV) build $(CLI_ARGS)
 endif
 
 ifeq ($(PRIMARY_GOAL),up)
-up: ## Up the dev environment
+up: ## Up the dev environment.
 	$(DOCKER_COMPOSE_DEV) up -d --remove-orphans
 endif
 
 ifeq ($(PRIMARY_GOAL),down)
-down: ## Down the dev environment
+down: ## Down the dev environment.
 	$(DOCKER_COMPOSE_DEV) down --remove-orphans
 endif
 
 ifeq ($(PRIMARY_GOAL),stop)
-stop: ## Stop the dev environment
+stop: ## Stop the dev environment.
 	$(DOCKER_COMPOSE_DEV) stop
 endif
 
 ifeq ($(PRIMARY_GOAL),clear)
-clear: ## Remove development docker containers and volumes
+clear: ## Remove development docker containers and volumes.
 	$(DOCKER_COMPOSE_DEV) down --volumes --remove-orphans
 endif
 
 ifeq ($(PRIMARY_GOAL),shell)
-shell: ## Get into container shell
+shell: ## Get into container shell.
 	$(DOCKER_COMPOSE_DEV) exec app /bin/bash
 endif
 
+#
+# Tools
+#
+
 ifeq ($(PRIMARY_GOAL),yii)
-yii: ## Execute Yii command
+yii: ## Execute Yii command.
 	$(DOCKER_COMPOSE_DEV) run --rm app ./yii $(CLI_ARGS)
 .PHONY: yii
 endif
 
 ifeq ($(PRIMARY_GOAL),composer)
-composer: ## Run Composer
+composer: ## Run Composer.
 	$(DOCKER_COMPOSE_DEV) run --rm app composer $(CLI_ARGS)
 endif
 
 ifeq ($(PRIMARY_GOAL),rector)
-rector: ## Run Rector
+rector: ## Run Rector.
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/rector $(CLI_ARGS)
 endif
 
 ifeq ($(PRIMARY_GOAL),cs-fix)
-cs-fix: ## Run PHP CS Fixer
+cs-fix: ## Run PHP CS Fixer.
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff
 endif
 
@@ -96,27 +100,27 @@ endif
 #
 
 ifeq ($(PRIMARY_GOAL),test)
-test:
+test: ## Run tests.
 	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept run $(CLI_ARGS)
 endif
 
 ifeq ($(PRIMARY_GOAL),test-coverage)
-test-coverage:
+test-coverage: ## Run tests with coverage.
 	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept run --coverage --coverage-html --disable-coverage-php
 endif
 
 ifeq ($(PRIMARY_GOAL),codecept)
-codecept: ## Run Codeception
+codecept: ## Run Codeception.
 	$(DOCKER_COMPOSE_TEST) run --rm app ./vendor/bin/codecept $(CLI_ARGS)
 endif
 
 ifeq ($(PRIMARY_GOAL),psalm)
-psalm: ## Run Psalm
+psalm: ## Run Psalm.
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/psalm $(CLI_ARGS)
 endif
 
 ifeq ($(PRIMARY_GOAL),composer-dependency-analyser)
-composer-dependency-analyser: ## Run Composer Dependency Analyser
+composer-dependency-analyser: ## Run Composer Dependency Analyser.
 	$(DOCKER_COMPOSE_DEV) run --rm app ./vendor/bin/composer-dependency-analyser --config=composer-dependency-analyser.php $(CLI_ARGS)
 endif
 
@@ -125,18 +129,30 @@ endif
 #
 
 ifeq ($(PRIMARY_GOAL),prod-build)
-prod-build: ## PROD | Build an image
+prod-build: ## Build an image.
 	docker build --file docker/Dockerfile --target prod --pull -t ${IMAGE}:${IMAGE_TAG} .
 endif
 
 ifeq ($(PRIMARY_GOAL),prod-push)
-prod-push: ## PROD | Push image to repository
+prod-push: ## Push image to repository.
 	docker push ${IMAGE}:${IMAGE_TAG}
 endif
 
 ifeq ($(PRIMARY_GOAL),prod-deploy)
-prod-deploy: ## PROD | Deploy to production
-	docker -H ${PROD_SSH} stack deploy --prune --detach=false --with-registry-auth -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME}
+prod-deploy: ## Deploy to production.
+	set -euo pipefail \
+	docker -H ${PROD_SSH} stack deploy --prune --detach=false --with-registry-auth -c docker/compose.yml -c docker/prod/compose.yml ${STACK_NAME} 2>&1 | tee deploy.log \
+	if grep -qiE 'rollback:|update rolled back' deploy.log then \
+		FAILED_TASK_ID="$(grep -oiE 'task[[:space:]]+[a-z0-9]+' deploy.log | head -n 1 | awk '{print $2}')" \
+		if [ -n "${FAILED_TASK_ID}" ]; then \
+			echo "Docker Swarm update rolled back; failing job. Failed task ID: ${FAILED_TASK_ID}" \
+			echo "--- docker service logs (${FAILED_TASK_ID}) ---" \
+			docker -H ${PROD_SSH} service logs --timestamps --tail 500 "${FAILED_TASK_ID}" || true \
+		else \
+			echo 'Docker Swarm update rolled back; failing job. Failed task ID: not found in deploy output.' \
+		fi \
+		exit 1 \
+	fi
 endif
 
 #
@@ -144,7 +160,16 @@ endif
 #
 
 ifeq ($(PRIMARY_GOAL),help)
-# Output the help for each task, see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help: ## This help.
-	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+	@awk 'BEGIN { printf "\nUsage:\n  make \033[36m<target>\033[0m\n" } \
+	/^#$$/ { blank = 1; next } \
+	blank && /^# [a-zA-Z]/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 3); blank = 0; next } \
+	/^[a-zA-Z_-]+:([^=]|$$)/ { \
+		split($$0, parts, "##"); \
+		target = parts[1]; sub(/:.*/, "", target); \
+		desc = parts[2]; \
+		gsub(/^[[:space:]]+|[[:space:]]+$$/, "", desc); \
+		printf "  \033[36m%-25s\033[0m %s\n", target, desc; \
+		blank = 0; \
+	}' $(MAKEFILE_LIST)
 endif
