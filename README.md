@@ -80,7 +80,7 @@ To stop the app:
 make down
 ```
 
-The application is available at `https://localhost`.
+The application is available at `http://localhost`.
 
 Other make commands are available in the `Makefile` and can be listed with:
 
