@@ -40,7 +40,6 @@ return [
             '$widgets',
             'web/widgets.php',
         ],
-        'widgets-console' => '$widgets',
         'routes' => 'common/routes.php',
         'bootstrap' => 'common/bootstrap.php',
         'bootstrap-web' => '$bootstrap',

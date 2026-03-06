@@ -4,6 +4,7 @@
 
 - Chg #436: Add widgets configuration file (@dbuhonov)
 - Chg #430: Replace deprecated PHP CS Fixer rule set `@PER-CS2.0` with `@PER-CS` (@dbuhonov)
+- Chg #452: Add widgets configuration file (@dbuhonov)
 - Chg #447, #450: Allow symfony/console 8 (@samdark)
 - Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
 - Enh #449: Update composer dependencies and refactor to replace use of deprecated classes (@vjik)
