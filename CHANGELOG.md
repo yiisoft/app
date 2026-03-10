@@ -2,6 +2,7 @@
 
 ## 1.2.1 under development
 
+- Chg #452: Add widgets configuration file (@dbuhonov)
 - Chg #447, #450: Allow symfony/console 8 (@samdark)
 - Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
 - Enh #449: Update composer dependencies and refactor to replace use of deprecated classes (@vjik)
