@@ -35,6 +35,12 @@ return [
         'events' => [],
         'events-web' => ['$events'],
         'events-console' => ['$events'],
+        'widgets' => [],
+        'widgets-web' => [
+            '$widgets',
+            'web/widgets.php',
+        ],
+        'widgets-console' => '$widgets',
         'routes' => 'common/routes.php',
         'bootstrap' => 'common/bootstrap.php',
         'bootstrap-web' => '$bootstrap',
