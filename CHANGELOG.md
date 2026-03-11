@@ -2,7 +2,7 @@
 
 ## 1.2.1 under development
 
-- Chg #452: Add widgets configuration file (@dbuhonov)
+- Chg #436: Add widgets configuration file (@dbuhonov)
 - Chg #430: Replace deprecated PHP CS Fixer rule set `@PER-CS2.0` with `@PER-CS` (@dbuhonov)
 - Chg #447, #450: Allow symfony/console 8 (@samdark)
 - Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
