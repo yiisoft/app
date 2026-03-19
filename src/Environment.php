@@ -58,7 +58,7 @@ final class Environment
     /**
      * @return non-empty-string|null
      */
-    public static function appHostPath(): string|null
+    public static function appHostPath(): ?string
     {
         /** @var non-empty-string|null */
         return self::$values['APP_HOST_PATH'];
@@ -114,7 +114,7 @@ final class Environment
         self::$values[$key] = $value ?? $default;
     }
 
-    private static function setNonEmptyStringOrNull(string $key, string|null $default): void
+    private static function setNonEmptyStringOrNull(string $key, ?string $default): void
     {
         $value = self::getRawValue($key);
         self::$values[$key] = $value === null || $value === '' ? $default : $value;

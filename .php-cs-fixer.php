@@ -23,7 +23,7 @@ return (new Config())
     ->setCacheFile(__DIR__ . '/runtime/cache/.php-cs-fixer.cache')
     ->setParallelConfig(ParallelConfigFactory::detect())
     ->setRules([
-        '@PER-CS2.0' => true,
+        '@PER-CS' => true,
         'no_unused_imports' => true,
     ])
     ->setFinder($finder);
