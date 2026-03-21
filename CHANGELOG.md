@@ -3,9 +3,9 @@
 ## 1.2.1 under development
 
 - Chg #430: Replace deprecated PHP CS Fixer rule set `@PER-CS2.0` with `@PER-CS` (@dbuhonov)
-- Chg #447, #450: Allow symfony/console 8 (@samdark)
+- Chg #447, #450: Allow `symfony/console` 8 (@samdark)
 - Enh #448: Add grouping to `make` help output (@Xakki, @samdark)
-- Enh #449: Update composer dependencies and refactor to replace use of deprecated classes (@vjik)
+- Enh #449, #457: Update composer dependencies and refactor to replace use of deprecated classes (@vjik)
 - Chg #449: Remove `yiisoft/data-response` dependency (@vjik)
 - Chg #443: Do not write logs to file since that's not needed for both Docker and `./yii serve` (@samdark)
 - Enh #456: Add "service update paused" case for swarm deployment log parsing (@samdark)

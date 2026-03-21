@@ -41,7 +41,7 @@
         "psr/http-message": "^2.0",
         "psr/http-server-handler": "^1.0.2",
         "psr/log": "^3.0.2",
-        "symfony/console": "^7.4.6 || ^8.0.6",
+        "symfony/console": "^7.4.7 || ^8.0.7",
         "yiisoft/aliases": "^3.1.1",
         "yiisoft/assets": "^5.1.2",
         "yiisoft/config": "^1.6.2",
@@ -49,7 +49,7 @@
         "yiisoft/definitions": "^3.4.1",
         "yiisoft/di": "^1.4.1",
         "yiisoft/error-handler": "^4.3.2",
-        "yiisoft/html": "^3.12",
+        "yiisoft/html": "^4",
         "yiisoft/http": "^1.3",
         "yiisoft/input-http": "^1.0.1",
         "yiisoft/log": "^2.2.0",
@@ -58,24 +58,24 @@
         "yiisoft/router": "^4.0.2",
         "yiisoft/router-fastroute": "^4.0.3",
         "yiisoft/session": "^3.0.1",
-        "yiisoft/view": "^12.2.3",
+        "yiisoft/view": "^12.2.4",
         "yiisoft/yii-console": "^2.4.2",
         "yiisoft/yii-http": "^1.1.1",
         "yiisoft/yii-runner-console": "^2.2.1",
         "yiisoft/yii-runner-http": "^3.2.1",
-        "yiisoft/yii-view-renderer": "^7.4"
+        "yiisoft/yii-view-renderer": "^7.4.1"
     },
     "require-dev": {
         "codeception/c3": "^2.9",
         "codeception/codeception": "^5.3.5",
         "codeception/module-asserts": "^3.3.0",
         "codeception/module-cli": "^2.0.1",
-        "codeception/module-phpbrowser": "^3.0.2",
+        "codeception/module-phpbrowser": "^4",
         "friendsofphp/php-cs-fixer": "^3.94.2",
         "phpunit/phpunit": "^11.5.55",
-        "rector/rector": "^2.3.8",
+        "rector/rector": "^2.3.9",
         "shipmonk/composer-dependency-analyser": "^1.8.4",
-        "vimeo/psalm": "^6.15.1"
+        "vimeo/psalm": "^6.16.1"
     },
     "autoload": {
         "psr-4": {
