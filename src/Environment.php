@@ -86,7 +86,7 @@ final class Environment
                     'APP_ENV="%s" is invalid. Valid values are "%s".',
                     $environment,
                     implode('", "', self::ENVIRONMENTS),
-                )
+                ),
             );
         }
 
