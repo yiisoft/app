@@ -78,7 +78,7 @@ final class Environment
 
     private static function setEnvironment(): void
     {
-        $environment = self::getRawValue('APP_ENV') ?? self::PROD;
+        $environment = self::getRawValue('APP_ENV') ?: self::PROD;
 
         if (!in_array($environment, self::ENVIRONMENTS, true)) {
             throw new RuntimeException(
