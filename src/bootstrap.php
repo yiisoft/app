@@ -8,6 +8,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 // Load .env for non-Docker/non-container environments.
 // Existing process environment variables take precedence (Docker, CI, server config).
-(Dotenv\Dotenv::createImmutable(dirname(__DIR__)))->safeLoad();
+// phpdotenv is a dev dependency — not available in production (composer install --no-dev).
+if (class_exists(\Dotenv\Dotenv::class)) {
+    \Dotenv\Dotenv::createImmutable(dirname(__DIR__))->safeLoad();
+}
 
 Environment::prepare();
