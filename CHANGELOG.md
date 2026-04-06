@@ -1,5 +1,9 @@
 # Yii3 Web Application Template Change Log
 
+## 1.3.1 under development
+
+- no changes in this release.
+
 ## 1.3.0 April 06, 2026
 
 - Chg #430: Replace deprecated PHP CS Fixer rule set `@PER-CS2.0` with `@PER-CS` (@dbuhonov)
