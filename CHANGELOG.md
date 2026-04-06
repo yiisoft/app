@@ -9,6 +9,7 @@
 - Chg #449: Remove `yiisoft/data-response` dependency (@vjik)
 - Chg #443: Do not write logs to file since that's not needed for both Docker and `./yii serve` (@samdark)
 - Enh #456: Add "service update paused" case for swarm deployment log parsing (@samdark)
+- Enh #417: Add `.env` for development without Docker (@samdark)
 
 ## 1.2.0 February 20, 2026
 
