@@ -46,6 +46,8 @@ RUN \
 	chown -R ${USER_NAME}:${GROUP_NAME} /data/caddy && chown -R ${USER_NAME}:${GROUP_NAME} /config/caddy
 USER ${USER_NAME}
 
+COPY docker/dev/Caddyfile /etc/frankenphp/Caddyfile
+
 #
 # Production
 #
@@ -59,5 +61,6 @@ RUN --mount=type=cache,target=/tmp/cache \
 
 FROM base AS prod
 ENV APP_ENV=prod
+COPY docker/Caddyfile /etc/frankenphp/Caddyfile
 COPY --from=prod-builder --chown=www-data:www-data /app /app
 USER www-data
