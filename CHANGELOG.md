@@ -1,6 +1,6 @@
 # Yii3 Web Application Template Change Log
 
-## 1.4.0 under development
+## 1.4.0 April 12, 2026
 
 - New #459: Add explicit `Caddyfile`s for dev and prod (@samdark)
 
