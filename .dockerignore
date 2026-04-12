@@ -3,6 +3,7 @@
 
 # except:
 
+!/docker/**/Caddyfile
 !/config
 !/public
 !/src

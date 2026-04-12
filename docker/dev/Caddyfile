@@ -1,0 +1,19 @@
+# Development mode config
+# https://frankenphp.dev/docs/config
+# https://caddyserver.com/docs/caddyfile
+
+{
+	skip_install_trust
+
+	frankenphp {
+
+	}
+}
+
+:80 {
+	encode zstd br gzip
+	php_server {
+	    try_files {path} index.php
+	    root /app/public
+	}
+}
