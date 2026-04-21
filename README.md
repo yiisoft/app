@@ -84,6 +84,12 @@ To run the app:
 make up
 ```
 
+To open the running app in your default browser:
+
+```shell
+make open
+```
+
 To stop the app:
 
 ```shell

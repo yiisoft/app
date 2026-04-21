@@ -2,7 +2,7 @@
 
 ## 1.4.1 under development
 
-- no changes in this release.
+- Enh #461: Enhance `make up` and add `make open` (@samdark)
 
 ## 1.4.0 April 12, 2026
 
