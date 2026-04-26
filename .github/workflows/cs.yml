@@ -1,7 +1,7 @@
 name: Code Style
 
 on:
-  pull_request_target:
+  pull_request:
     paths:
       - '.github/workflows/cs.yml'
       - 'config/**'
@@ -20,11 +20,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.YIISOFT_GITHUB_TOKEN }}
-          ref: ${{ github.head_ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
+        uses: actions/checkout@v6
 
       - name: Install PHP
         uses: shivammathur/setup-php@v2
@@ -34,7 +30,7 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies
-        uses: "ramsey/composer-install@v3"
+        uses: "ramsey/composer-install@v4"
 
       - name: Run PHP CS Fixer
         run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php
@@ -43,7 +39,7 @@ jobs:
         run: ./vendor/bin/rector --output-format=github
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Apply PHP CS Fixer and Rector changes (CI)"
           file_pattern: '*.php'
