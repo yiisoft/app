@@ -18,7 +18,7 @@ final class Environment
     public const ENVIRONMENTS = [
         self::DEV,
         self::TEST,
-        self::PROD
+        self::PROD,
     ];
 
     private static array $values = [];
