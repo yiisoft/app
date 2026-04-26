@@ -30,7 +30,10 @@
             "Composer\\Config::disableProcessTimeout",
             "@php ./yii serve"
         ],
-        "test": "codecept run"
+        "test": "codecept run",
+        "pre-autoload-dump": [
+            "cat /dev/stdin"
+        ]
     },
     "require": {
         "php": "8.2 - 8.5",
