@@ -20,6 +20,8 @@ on:
 
 name: static analysis
 
+permissions:
+  contents: read
 jobs:
   psalm:
     name: PHP ${{ matrix.php }}-${{ matrix.os }}
@@ -37,17 +39,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
 
       - name: Install PHP with extensions
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45
         with:
           coverage: none
           php-version: ${{ matrix.php }}
           tools: composer:v2, cs2pr
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f
 
       - name: Static analysis
         run: vendor/bin/psalm --shepherd --stats --output-format=checkstyle --no-cache --php-version=${{ matrix.php }} | cs2pr --graceful-warnings --colorize

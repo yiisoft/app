@@ -20,6 +20,8 @@ on:
 
 name: build
 
+permissions:
+  contents: read
 jobs:
   codeception:
     name: PHP ${{ matrix.php }}-${{ matrix.os }}
@@ -45,10 +47,12 @@ jobs:
 
     steps:
       - name: Checkout.
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
 
       - name: Install PHP with extensions.
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45
         with:
           coverage: false
           extensions: fileinfo, intl
@@ -56,7 +60,7 @@ jobs:
           php-version: ${{ matrix.php }}
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f
 
       - name: Run codeception build.
         run: vendor/bin/codecept build
@@ -72,7 +76,7 @@ jobs:
 
       - name: Upload coverage to Codecov.
         if: matrix.os == 'ubuntu-latest'
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: runtime/tests/_output/coverage.xml

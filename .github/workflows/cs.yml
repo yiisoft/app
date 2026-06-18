@@ -13,6 +13,8 @@ on:
       - 'rector.php'
       - 'yii'
 
+permissions:
+  contents: read
 jobs:
   cs-fix:
     runs-on: ubuntu-latest
@@ -20,17 +22,19 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          persist-credentials: false
 
       - name: Install PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45
         with:
           php-version: 8.4
           tools: composer:v2
           coverage: none
 
       - name: Install Composer dependencies
-        uses: "ramsey/composer-install@v4"
+        uses: ramsey/composer-install@26d8a556604053a9612623447203a691f406fbe6
 
       - name: Run PHP CS Fixer
         run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php
@@ -38,8 +42,13 @@ jobs:
       - name: Run Rector
         run: ./vendor/bin/rector --output-format=github
 
+      - name: Configure Git credentials
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: git config --global credential.helper '!f() { echo username=x-access-token; echo password=$GH_TOKEN; }; f'
+
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v7
+        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9
         with:
           commit_message: "Apply PHP CS Fixer and Rector changes (CI)"
           file_pattern: '*.php'
