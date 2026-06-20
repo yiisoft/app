@@ -9,6 +9,8 @@ updates:
       open-pull-requests-limit: 0
 
     # Maintain dependencies for Composer
+      ignore:
+        - dependency-name: "yiisoft/*"
     - package-ecosystem: "composer"
       directory: "/"
       schedule:
@@ -20,3 +22,5 @@ updates:
       interval: "weekly"
     cooldown:
       default-days: 7
+      ignore:
+        - dependency-name: "yiisoft/*"
