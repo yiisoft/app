@@ -22,6 +22,12 @@ on:
 
 name: Composer dependency analyzer
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 jobs:
   analyzer:
     name: PHP ${{ matrix.php }}-${{ matrix.os }}
@@ -40,17 +46,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
 
       - name: Install PHP with extensions
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
         with:
           coverage: none
           php-version: ${{ matrix.php }}
           tools: composer:v2, cs2pr
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f # 3.2.1
 
       - name: Run composer dependency analyzer
         run: vendor/bin/composer-dependency-analyser --config=composer-dependency-analyser.php
