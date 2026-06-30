@@ -20,6 +20,10 @@ on:
 
 name: static analysis
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 jobs:
@@ -39,19 +43,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           persist-credentials: false
 
       - name: Install PHP with extensions
-        uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45
+        uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45 # v2 zizmor: ignore[stale-action-refs]
         with:
           coverage: none
           php-version: ${{ matrix.php }}
           tools: composer:v2, cs2pr
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f
+        uses: ramsey/composer-install@a8d0d959dab41457692a5e2041bd9b757a119e3f # 3.2.1
 
       - name: Static analysis
-        run: vendor/bin/psalm --shepherd --stats --output-format=checkstyle --no-cache --php-version=${{ matrix.php }} | cs2pr --graceful-warnings --colorize
+        env:
+          PHP_VERSION: ${{ matrix.php }}
+        run: vendor/bin/psalm --shepherd --stats --output-format=checkstyle --no-cache --php-version="$PHP_VERSION" | cs2pr --graceful-warnings --colorize
