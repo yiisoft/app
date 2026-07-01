@@ -8,7 +8,7 @@ on:
       - 'public/index.php'
       - 'src/**'
       - 'tests/**'
-      - '.php-cs-fixer.dist.php'
+      - '.php-cs-fixer.php'
       - 'composer.json'
       - 'rector.php'
       - 'yii'
@@ -30,8 +30,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
-          fetch-depth: 0
 
       - name: Install PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
