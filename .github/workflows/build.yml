@@ -1,24 +1,20 @@
+name: build
+
 on:
   pull_request:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.md'
-      - 'CHANGELOG.md'
-      - '.gitignore'
-      - '.gitattributes'
-      - 'psalm.xml'
-
+    paths: &paths
+      - '.github/workflows/build.yml'
+      - 'config/**'
+      - 'public/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'codeception.yml'
+      - 'composer.json'
+      - 'yii'
+      - 'yii.bat'
   push:
     branches: ['master']
-    paths-ignore:
-      - 'docs/**'
-      - 'README.md'
-      - 'CHANGELOG.md'
-      - '.gitignore'
-      - '.gitattributes'
-      - 'psalm.xml'
-
-name: build
+    paths: *paths
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -26,6 +22,7 @@ concurrency:
 
 permissions:
   contents: read
+
 jobs:
   codeception:
     name: PHP ${{ matrix.php }}-${{ matrix.os }}
