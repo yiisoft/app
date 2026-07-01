@@ -19,17 +19,19 @@ concurrency:
 
 permissions:
   contents: read
+
 jobs:
   cs-fix:
     name: cs-fix
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required to push PHP CS Fixer and Rector changes to pull requests.
+      contents: write # Required to push PHP CS Fixer and Rector changes to pull requests
     steps:
       - name: Checkout code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - name: Install PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
@@ -49,17 +51,12 @@ jobs:
 
       - name: Commit changes
         env:
-          BRANCH_NAME: ${{ github.head_ref }}
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+          HEAD_REF: ${{ github.head_ref }}
         run: |
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git add -- '*.php'
-
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Apply PHP CS Fixer and Rector changes (CI)'
-          git push origin "HEAD:$BRANCH_NAME"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global credential.helper '!f() { echo username=x-access-token; echo password=$GITHUB_TOKEN; }; f'
+          git add '*.php'
+          git diff --staged --quiet || git commit -m "Apply PHP CS Fixer and Rector changes (CI)"
+          git push origin "HEAD:${HEAD_REF}"

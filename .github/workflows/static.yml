@@ -1,24 +1,19 @@
+name: static analysis
+
 on:
   pull_request:
-    paths-ignore:
-      - 'docs/**'
-      - 'README.md'
-      - 'CHANGELOG.md'
-      - '.gitignore'
-      - '.gitattributes'
-      - 'phpunit.xml.dist'
-
+    paths: &paths
+      - '.github/workflows/static.yml'
+      - 'config/**'
+      - 'public/**'
+      - 'src/**'
+      - 'psalm.xml'
+      - 'composer.json'
+      - 'yii'
+      - 'yii.bat'
   push:
     branches: ['master']
-    paths-ignore:
-      - 'docs/**'
-      - 'README.md'
-      - 'CHANGELOG.md'
-      - '.gitignore'
-      - '.gitattributes'
-      - 'phpunit.xml.dist'
-
-name: static analysis
+    paths: *paths
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -26,6 +21,7 @@ concurrency:
 
 permissions:
   contents: read
+
 jobs:
   psalm:
     name: PHP ${{ matrix.php }}-${{ matrix.os }}
