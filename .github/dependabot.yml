@@ -1,6 +1,5 @@
 version: 2
 updates:
-  # Maintain dependencies for GitHub Actions.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -9,12 +8,10 @@ updates:
       default-days: 7
     groups:
       github-actions:
-        patterns:
-          - "*"
+        patterns: [ "*" ]
     ignore:
       - dependency-name: "yiisoft/*"
 
-  # Maintain dependencies for Composer
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
@@ -22,7 +19,6 @@ updates:
     cooldown:
       default-days: 7
     groups:
-      composer-dependencies:
-        patterns:
-          - "*"
-    versioning-strategy: increase-if-necessary
+      composer-dev-dependencies:
+        dependency-type: "development"
+    versioning-strategy: "widen"
