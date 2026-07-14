@@ -21,4 +21,4 @@ updates:
     groups:
       composer-dev-dependencies:
         dependency-type: "development"
-    versioning-strategy: "widen"
+    versioning-strategy: "increase"
