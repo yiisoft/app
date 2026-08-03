@@ -1,0 +1,19 @@
+name: changelog
+
+on:
+  pull_request:
+    paths:
+      - 'config/**'
+      - 'public/**'
+      - 'src/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changelog:
+    uses: yiisoft/actions/.github/workflows/changelog.yml@master
