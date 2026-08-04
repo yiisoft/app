@@ -6,6 +6,8 @@ on:
       - 'config/**'
       - 'public/**'
       - 'src/**'
+      - 'yii'
+      - 'yii.bat'
 
 permissions:
   contents: read
