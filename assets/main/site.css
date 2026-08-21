@@ -80,6 +80,40 @@ body {
     fill: #0b7794;
 }
 
+.yii3-vanilla {
+    margin: 24px auto;
+    padding: 16px;
+    max-width: 420px;
+    border: 1px solid #cfe8f3;
+    border-radius: 12px;
+    background: #fff;
+}
+.yii3-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-weight: bold;
+    background: #eee;
+    color: #555;
+}
+.yii3-badge--ok {
+    background: #d6f5d6;
+    color: #1a7f1a;
+}
+.yii3-badge--warn {
+    background: #fde2c4;
+    color: #b8600f;
+}
+#yii3-refresh {
+    margin-top: 8px;
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: #40b3d8;
+    color: #fff;
+    cursor: pointer;
+}
+
 .text-center {
     text-align: center;
 }

@@ -15,4 +15,8 @@ final class MainAsset extends AssetBundle
     public array $css = [
         'site.css',
     ];
+
+    public array $js = [
+        'app.js',
+    ];
 }
