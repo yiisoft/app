@@ -12,5 +12,8 @@ return [
             Route::get('/')
                 ->action(Web\HomePage\Action::class)
                 ->name('home'),
+            Route::get('/api/health')
+                ->action(Web\Api\HealthAction::class)
+                ->name('api/health'),
         ),
 ];
