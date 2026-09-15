@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Environment;
 use App\Shared\ApplicationParams;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetManager;
@@ -10,8 +11,21 @@ use Yiisoft\Router\CurrentRoute;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Yii\View\Renderer\CsrfViewInjection;
 
+$application = require __DIR__ . '/application.php';
+
 return [
-    'application' => require __DIR__ . '/application.php',
+    'application' => $application,
+
+    // The debugger reads the same identity the application exposes, so there is one place to change it.
+    'yii3/debug' => [
+        'application' => [
+            'charset' => $application['charset'],
+            'debug' => Environment::appDebug(),
+            'language' => $application['locale'],
+            'name' => $application['name'],
+            'sourceLanguage' => $application['locale'],
+        ],
+    ],
 
     'yiisoft/aliases' => [
         'aliases' => require __DIR__ . '/aliases.php',
