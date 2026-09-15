@@ -13,9 +13,9 @@ return [
     LoggerInterface::class => [
         'class' => Logger::class,
         '__construct()' => [
-            'targets' => ReferencesArray::from([
-                StreamTarget::class,
-            ]),
+            'targets' => ReferencesArray::from(
+                array_values($params['yiisoft/log']['targets'] ?? [StreamTarget::class]),
+            ),
         ],
     ],
 ];

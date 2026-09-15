@@ -59,5 +59,8 @@ return [
     ],
     'config-plugin-options' => [
         'source-directory' => 'config',
+        // The debugger decorates the event dispatcher to record events, which collides with `yiisoft/yii-event`.
+        // Letting its layer win resolves the duplicate key in favour of the instrumented dispatcher.
+        'vendor-override-layer' => 'yii3/debug',
     ],
 ];

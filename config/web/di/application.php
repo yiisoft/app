@@ -13,6 +13,7 @@ use Yiisoft\Middleware\Dispatcher\CompositeParametersResolver;
 use Yiisoft\Middleware\Dispatcher\MiddlewareDispatcher;
 use Yiisoft\Middleware\Dispatcher\ParametersResolverInterface;
 use Yiisoft\RequestProvider\RequestCatcherMiddleware;
+use Yii3\Debug\Middleware\ToolbarMiddleware;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Session\SessionMiddleware;
 use Yiisoft\Yii\Http\Application;
@@ -26,6 +27,8 @@ return [
                 'class' => MiddlewareDispatcher::class,
                 'withMiddlewares()' => [
                     [
+                        // Outermost, so every response can carry the toolbar and every request is captured.
+                        ToolbarMiddleware::class,
                         ErrorCatcher::class,
                         SessionMiddleware::class,
                         CsrfTokenMiddleware::class,
