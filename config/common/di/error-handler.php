@@ -12,7 +12,7 @@ use Yiisoft\ErrorHandler\Renderer\HtmlRenderer;
 return [
     HtmlRenderer::class => [
         '__construct()' => [
-            'traceLink' => static function (string $file, ?int $line) use ($params): string|null {
+            'traceLink' => static function (string $file, ?int $line) use ($params): ?string {
                 if (!isset($params['traceLink'])) {
                     return null;
                 }
