@@ -66,17 +66,17 @@
         "yiisoft/yii-view-renderer": "^7.4.1"
     },
     "require-dev": {
-        "vlucas/phpdotenv": "^5.6",
+        "vlucas/phpdotenv": "^5.8",
         "codeception/c3": "^2.9",
-        "codeception/codeception": "^5.3.5",
+        "codeception/codeception": "^5.3.7",
         "codeception/module-asserts": "^3.3.0",
         "codeception/module-cli": "^2.0.1",
         "codeception/module-phpbrowser": "^4",
-        "friendsofphp/php-cs-fixer": "^3.94.2",
-        "phpunit/phpunit": "^11.5.55",
-        "rector/rector": "^2.3.9",
+        "friendsofphp/php-cs-fixer": "^3.95.30",
+        "phpunit/phpunit": "^13.4.6",
+        "rector/rector": "^2.8.4",
         "shipmonk/composer-dependency-analyser": "^1.8.4",
-        "vimeo/psalm": "^6.16.1"
+        "vimeo/psalm": "^7.3.1"
     },
     "autoload": {
         "psr-4": {
